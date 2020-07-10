@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>git学习笔记 - Typecasting</title><meta description="系统的学习了一下廖雪峰老师的git教程。 参考 廖雪峰git教程    简介git是世界上最先进的分布式版本控制系统。 git是linux之父linus大神花了两个星期用c写的。。。"><meta property="og:type" content="blog"><meta property="og:title" content="git学习笔记"><meta property="og:url" content="https://herotiga.github.io/2018/01/30/git-notes/"><meta property="og:site_name" content="Typecasting"><meta property="og:description" content="系统的学习了一下廖雪峰老师的git教程。 参考 廖雪峰git教程    简介git是世界上最先进的分布式版本控制系统。 git是linux之父linus大神花了两个星期用c写的。。。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://i.loli.net/2020/05/10/rWh428fTQH1zZEt.png"><meta property="article:published_time" content="2018-01-30T05:51:22.000Z"><meta property="article:modified_time" content="2020-05-12T11:13:32.000Z"><meta property="article:author" content="Mason"><meta property="article:tag" content="front-end"><meta property="article:tag" content="html"><meta property="article:tag" content="css"><meta property="article:tag" content="js"><meta property="article:tag" content="javascript"><meta property="article:tag" content="ui"><meta property="article:tag" content="linux"><meta property="article:tag" content="ai"><meta property="article:tag" content="cv"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://i.loli.net/2020/05/10/rWh428fTQH1zZEt.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://herotiga.github.io/2018/01/30/git-notes/"},"headline":"Typecasting","image":["https://i.loli.net/2020/05/10/rWh428fTQH1zZEt.png"],"datePublished":"2018-01-30T05:51:22.000Z","dateModified":"2020-05-12T11:13:32.000Z","author":{"@type":"Person","name":"Mason"},"description":"系统的学习了一下廖雪峰老师的git教程。 参考 廖雪峰git教程    简介git是世界上最先进的分布式版本控制系统。 git是linux之父linus大神花了两个星期用c写的。。。"}</script><link rel="canonical" href="https://herotiga.github.io/2018/01/30/git-notes/"><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Typecasting" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/books">阅读</a><a class="navbar-item" href="/gitbook">笔记</a><a class="navbar-item" href="/papers">论文</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="thumbnail" src="https://i.loli.net/2020/05/10/rWh428fTQH1zZEt.png" alt="git学习笔记"></span></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2018-01-30T05:51:22.000Z" title="2018-01-30T05:51:22.000Z">2018-01-30</time><span class="level-item"><a class="link-muted" href="/categories/git/">git</a></span><span class="level-item">19 分钟 读完 (大约 2911 个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">git学习笔记</h1><div class="content"><p>系统的学习了一下廖雪峰老师的git教程。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li><a href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰git教程</a></li>
+</ol>
+<br />
+
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>git是世界上最先进的分布式版本控制系统。</p>
+<p>git是linux之父linus大神花了两个星期用c写的。。。</p>
+<a id="more"></a>
+
+<br />
+
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version	<span class="comment">#查看机器上是否有git以及版本号</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>windows:</p>
+<p>直接下载gitbash：<a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+<p>linux/macos</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git	<span class="comment">#debian/ubuntu安装</span></span><br><span class="line">sudo apt-get install git-core	<span class="comment">#老版本debian/ubuntu安装</span></span><br><span class="line">yum install git	<span class="comment">#centos/RHEL安装</span></span><br><span class="line">brew install git	<span class="comment">#macos安装，需要先安装homebrew包管理工具</span></span><br></pre></td></tr></table></figure>
+
+<br />
+
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="配置名称和邮件"><a href="#配置名称和邮件" class="headerlink" title="配置名称和邮件"></a>配置名称和邮件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"Your Name"</span></span><br><span class="line">git config --global user.email <span class="string">"email@example.com"</span></span><br></pre></td></tr></table></figure>
+
+<br />
+
+<h4 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#linux和macos没问题，提醒一下windows不要使用cmd/powershell，使用gitbash</span></span><br><span class="line">mkdir gitDir</span><br><span class="line"><span class="built_in">cd</span> gitDir</span><br><span class="line">git init	<span class="comment">#在gitDir目录下初始化git仓库</span></span><br></pre></td></tr></table></figure>
+
+<p>仓库中.git目录用来跟踪管理版本库，不要修改！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lha	<span class="comment">#查看.git目录，-lha三个参数分别为列表显示、人性化显示、全部显示(显示以.开头的文件)</span></span><br></pre></td></tr></table></figure>
+
+
+<p>在非空目录下<code>git init</code>也可</p>
+<br />
+
+<h4 id="把文件添加到版本库"><a href="#把文件添加到版本库" class="headerlink" title="把文件添加到版本库"></a>把文件添加到版本库</h4><p><strong>git仅可以跟踪文本文件的变动，对于二进制文件仅可以知道其改动了</strong>。</p>
+<p><strong>ps：二进制文件非常多，包括office三兄弟</strong></p>
+<p><strong>文本文件使用utf-8编码</strong></p>
+<p><strong>切勿使用新建记事本文件，记事本为utf-8 with BOM编码，若使用notepad++则改为utf-8 without BOM编码</strong></p>
+<h5 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h5><ol>
+<li>git仓库中新建一个readme.txt文件：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Git is a version control system.</span><br><span class="line">Git is free software.</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><code>git add</code>命令把文件添加到仓库</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git add readme.txt</span><br><span class="line"><span class="comment">#执行完无显示则表示成功</span></span><br><span class="line">git add .</span><br><span class="line">git add *</span><br><span class="line">git add -u	<span class="comment"># 自动追踪更新的文件</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><code>git commit</code>把文件提交到仓库</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">'wrote a readme.txt file'</span>	<span class="comment"># -m后面为本次commit的说明</span></span><br></pre></td></tr></table></figure>
+
+<p>为什么Git添加文件需要<code>add</code>，<code>commit</code>一共两步呢？因为<code>commit</code>可以一次提交很多文件，所以你可以多次<code>add</code>不同的文件，比如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add file1.txt</span><br><span class="line">git add file2.txt file3.txt</span><br><span class="line">git commit -m <span class="string">'add 3 files'</span></span><br></pre></td></tr></table></figure>
+
+<p>即add一次可以add一个或者多个文件，而commit则一次性把add的文件提交</p>
+<ol start="4">
+<li>重命名文件名</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git mv file_old_name file_new_name</span><br></pre></td></tr></table></figure>
+
+<br />
+
+<h5 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h5><p>初始化一个Git仓库，使用<code>git init</code>命令。</p>
+<p>添加文件到Git仓库，分两步：</p>
+<ol>
+<li>使用命令<code>git add</code>，注意，可反复多次使用，添加多个文件；</li>
+<li>使用命令<code>git commit -m</code>，完成。</li>
+</ol>
+<br />
+
+<h4 id="回滚"><a href="#回滚" class="headerlink" title="回滚"></a>回滚</h4><p>修改readme.txt文件为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Git is a distributed version control system.</span><br><span class="line">Git is free software.</span><br></pre></td></tr></table></figure>
+
+
+
+<p>运行<code>git status</code>可以看到仓库状态和哪些文件被修改了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+
+
+<p>运行<code>git diff</code>查看修改了什么内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff readme.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p>再提交</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add readme.txt</span><br><span class="line">git commit -m <span class="string">'readme.txt has been modified'</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>看状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line"><span class="comment"># 提示没有需要提交的修改，工作目录干净</span></span><br></pre></td></tr></table></figure>
+
+<br />
+
+<h5 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h5><p><code>git log</code>查看历史记录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span>	<span class="comment"># 从上到下是从近期到以前的commit</span></span><br></pre></td></tr></table></figure>
+
+<p>如果嫌输出信息太多，看得眼花缭乱的，可以试试加上<code>--pretty=oneline</code>参数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --pretty=online</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --oneline</span><br></pre></td></tr></table></figure>
+
+<p>最近4次的记录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> -n4 --oneline</span><br></pre></td></tr></table></figure>
+
+<p>图形化显示</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --oneline --graph</span><br></pre></td></tr></table></figure>
+
+
+
+<p>commit id是SHA1计算出来的16进制大数（为防止冲突）</p>
+<p>版本回退：</p>
+<p>当前版本为<code>HEAD</code>，上一个版本为<code>HEAD^</code>,上100个版本为<code>HEAD~100</code></p>
+<p>回退上一个版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br></pre></td></tr></table></figure>
+
+<p>退回特定版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard commit-id	<span class="comment">#版本号可以只写前几位</span></span><br></pre></td></tr></table></figure>
+
+<p>版本回退仅仅是吧HEAD指针指向当前版本</p>
+<p><code>git reflog</code>用来记录每一条git命令，可以用来找以前的commit id</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure>
+
+<br />
+
+<p>小结：</p>
+<ol>
+<li><code>HEAD</code>指向当前版本</li>
+<li>版本回退命令：<code>git reset --hard commit-id</code></li>
+<li><code>git log</code>查看提交历史，以便决定回退到哪个版本</li>
+<li><code>git reflog</code>查看历史命令，以便决定回退到哪个版本</li>
+</ol>
+<br />
+
+<h4 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir gitDir</span><br><span class="line"><span class="built_in">cd</span> gitDir	<span class="comment">#gitDir就是工作区</span></span><br><span class="line">ls -lha  <span class="comment">#可以看到.git目录，.git就是版本库</span></span><br></pre></td></tr></table></figure>
+
+<p>版本库中有一个叫stage的暂存区、master分支和HEAD指针</p>
+<p><img src="https://i.loli.net/2020/04/03/DFfTjbsVvQZkxe2.jpg" alt=""></p>
+<p><code>git add</code>就是把文件添加进暂存区</p>
+<p><code>git add</code>是把暂存区文件提交到当前分支</p>
+<p>若之后未对工作区做任何修改，则工作区clean</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line"><span class="comment">#On branch master</span></span><br><span class="line"><span class="comment">#nothing to commit, working tree clean</span></span><br></pre></td></tr></table></figure>
+
+<p>此时版本库变为：</p>
+<p><img src="https://i.loli.net/2020/04/03/QrYuEwNLT6enpIR.jpg" alt=""></p>
+<p>总结：</p>
+<p>Git管理的文件分为：工作区，版本库，版本库又分为暂存区stage和暂存区分支master(仓库)</p>
+<p>工作区&gt;&gt;&gt;&gt;暂存区&gt;&gt;&gt;&gt;仓库</p>
+<p><code>git add</code>把文件从工作区&gt;&gt;&gt;&gt;暂存区，git commit把文件从暂存区&gt;&gt;&gt;&gt;仓库，</p>
+<p><code>git diff</code>查看工作区和暂存区差异，</p>
+<p><code>git diff --cached</code>查看暂存区和仓库差异，</p>
+<p><code>git diff HEAD</code> 查看工作区和仓库的差异，</p>
+<p><code>git add</code>的反向命令git checkout，撤销工作区修改，即把暂存区最新版本转移到工作区，</p>
+<p><code>git commit</code>的反向命令git reset HEAD，就是把仓库最新版本转移到暂存区。</p>
+<br />
+
+<h4 id="修改管理"><a href="#修改管理" class="headerlink" title="修改管理"></a>修改管理</h4><p>git跟踪的是修改而不是文件。</p>
+<p>第一次修改完一个文件后<code>git add</code>，再第二次修改这个文件，然后再<code>git commit</code>，只会提交第一次修改，故而git跟踪的是修改而不是文件。现在要提交第二次修改只需要：<code>git add</code>这个文件，再<code>git commit</code>就行了，或者第一次修改完了不要急着<code>git add</code>，等着两次修改完了一起<code>git add</code> <code>git commit</code>。</p>
+<br />
+
+<h4 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h4><p><code>git checkout -- filename</code>  ：将文件咋工作区的修改完全撤销</p>
+<p>作用是让这个文件回到最近一次<code>git commit</code>或者<code>git add</code>时候的状态：</p>
+<p>一种是<code>readme.txt</code>自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；</p>
+<p>一种是<code>readme.txt</code>已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。</p>
+<p><code>git reset HEAD filename</code>可以把暂存区修改撤销</p>
+<p><code>git reset</code>既可以回退版本也可以吧暂存区修改回退到工作区</p>
+<h5 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h5><p>情况一：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令<code>git checkout -- file</code>。</p>
+<p>情况二：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令<code>git reset HEAD</code>，就回到了场景1，第二步按场景1操作。</p>
+<p>情况三：已经提交了不合适的修改到版本库时，想要撤销本次提交，使用版本回退。</p>
+<p>情况四：如果已经push到了远程仓库，完蛋。</p>
+<p>简而言之：</p>
+<p>1.没有<code>git add</code>时，用<code>git checkout -- file</code>回退到与版本库最新版一致</p>
+<p>2.已经<code>git add</code>时，先<code>git reset HEAD</code>回退到1.，再按1.操作</p>
+<p>3.已经<code>git commit</code>时，用<code>git reset</code>回退版本</p>
+<p>4.推送到远程库，GG</p>
+<br />
+
+<h4 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h4><ol>
+<li>先直接删除文件</li>
+<li>使用<code>git rm</code>从版本库中删除该文件</li>
+<li><code>git commit</code>提交更改</li>
+</ol>
+<p>若误删文件，则用<code>git checkout -- filename</code>从版本库中恢复到工作区</p>
+<br />
+
+<h4 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h4><p>我一般使用github</p>
+<p>本地git仓库和github仓库的传输通过ssh加密，故而本地要创建ssh key：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t -C <span class="string">"youremail@example.com"</span></span><br></pre></td></tr></table></figure>
+
+<p>一路回车既可，无需设置密码</p>
+<p><code>~/.ssh/</code>下面有有<code>id_rsa</code>和<code>id_rsa.pub</code>两个文件</p>
+<p>登录github-setting-add ssh key，填写title，粘贴pub里的内容到上面，点击add key。</p>
+<p>GitHub允许你添加多个Key。假定你有若干电脑，你一会儿在公司提交，一会儿在家里提交，只要把每台电脑的Key都添加到GitHub，就可以在每台电脑上往GitHub推送了。</p>
+<p>github仓库为公开，不要提交敏感信息</p>
+<p>可以搭建git服务器保护代码</p>
+<br />
+
+<h5 id="搭建git服务器"><a href="#搭建git服务器" class="headerlink" title="搭建git服务器"></a>搭建git服务器</h5><p>以ubuntu/debian为例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git	<span class="comment"># 服务器安装git</span></span><br><span class="line">sudo adduser git	<span class="comment"># 创建一个用户git，用来运行git服务 </span></span><br><span class="line">sudo git init --bare sample.git	<span class="comment"># 创建证书登录，收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个。</span></span><br><span class="line">sudo git init --bare sample.git	<span class="comment"># 初始化git仓库，选择一个目录用作git仓库，--bare创建了一个裸仓库，没有工作区</span></span><br><span class="line">sudo chown -R git:git sample.git	<span class="comment"># 将owner改为git</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 禁用ssh登录：</span></span><br><span class="line"><span class="comment"># 出于安全考虑，第二步创建的git用户不允许登录shell，这可以通过编辑/etc/passwd文件完成。找到类似下面的一行：</span></span><br><span class="line">git:x:1001:1001:,,,:/home/git:/bin/bash</span><br><span class="line"><span class="comment"># 改为</span></span><br><span class="line">git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</span><br><span class="line"><span class="comment"># 这样，git用户可以正常通过ssh使用git，但无法登录shell，因为我们为git用户指定的git-shell每次一登录就自动退出。</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> git@server:/srv/sample.git	<span class="comment"># 克隆远程仓库</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>管理公钥：</p>
+<p>小团队管理：把团队中每个人的公钥收集起来放到服务器的<code>/home/git/.ssh/authorized_keys</code>文件里就可以。</p>
+<p>大团队管理：使用gittosis。</p>
+<p><strong>git不支持权限管理</strong>！！！</p>
+<br />
+
+<h5 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h5><ol>
+<li>先在github上创建一个新的仓库</li>
+<li>本地仓库<code>git remote add origin git@github.com:herotiga/Python-100-Days.git</code></li>
+<li>第一次推送本地文件到远程仓库：<code>git push -u origin master</code></li>
+<li>以后只需要<code>git push origin master</code></li>
+</ol>
+<br />
+
+<h5 id="ssh警告"><a href="#ssh警告" class="headerlink" title="ssh警告"></a>ssh警告</h5><p>第一次使用git clone or git push连接github会有警告</p>
+<h5 id="小结-2"><a href="#小结-2" class="headerlink" title="小结"></a><br />小结</h5><ol>
+<li>关联远程仓库：<code>git remote add origin git@github.com:herotiga/learngit.git</code></li>
+<li>关联后，使用<code>git push -u origin master</code>第一次推送master分支</li>
+<li>之后每次只需要<code>git push origin master</code></li>
+</ol>
+<br />
+
+<h5 id="从远程仓库克隆"><a href="#从远程仓库克隆" class="headerlink" title="从远程仓库克隆"></a>从远程仓库克隆</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:herotiga/asd.git</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：克隆下来的是一个目录</strong></p>
+<p>一般使用ssh，添加了ssh key之后无需输入密码。而https需要输入密码。</p>
+<br />
+
+<h5 id="小结-3"><a href="#小结-3" class="headerlink" title="小结"></a>小结</h5><p><code>git clone</code>将项目克隆下来，一般使用ssh（除非公司内部只能使用https）。</p>
+<br />
+
+<h4 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h4><h5 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev	<span class="comment"># 创建分支dev并切换到dev分支，-b表示创建完了切换上去</span></span><br></pre></td></tr></table></figure>
+
+<p>以上命令等同于：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch dev</span><br><span class="line">git checkout dev</span><br></pre></td></tr></table></figure>
+
+
+
+<p>查看当前分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
+
+<p>当前分支前面会有*</p>
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<br />
+
+<h5 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge dev	<span class="comment"># 将dev分支合并到当前分支上</span></span><br></pre></td></tr></table></figure>
+
+<br />
+
+<h5 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d dev</span><br></pre></td></tr></table></figure>
+
+<br />
+
+<h5 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git switch -c dev	<span class="comment"># 创建并切换到新的dev分支</span></span><br><span class="line"></span><br><span class="line">git switch master	<span class="comment"># 切换到已经有的分支，比如master分支</span></span><br></pre></td></tr></table></figure>
+
+<br />
+
+<h5 id="小结-4"><a href="#小结-4" class="headerlink" title="小结"></a>小结</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch	<span class="comment"># 查看分支</span></span><br><span class="line">git branch branchName	<span class="comment"># 创建分支</span></span><br><span class="line">git checkout branchName / git switch branchName	<span class="comment">#切换分支</span></span><br><span class="line">git merge branchName	<span class="comment"># 合并分支到当前分支</span></span><br><span class="line">git branch -d branchName	<span class="comment"># 删除分支</span></span><br></pre></td></tr></table></figure>
+
+<br />
+
+<h3 id="不完整，仍需补充"><a href="#不完整，仍需补充" class="headerlink" title="不完整，仍需补充"></a>不完整，仍需补充</h3></div><!--!--></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/others/alipay.jpg" alt="支付宝"></span></a><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/others/wechat.jpg" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2018/02/05/linux-basic/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">linux运维基础</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2018/01/30/hello-world/"><span class="level-item">Hello World</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Mason"></figure><p class="title is-size-4 is-block line-height-inherit">Mason</p><p class="is-size-6 is-block">A lifelong learner</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Shanghai, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">101</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">27</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">21</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/herotiga" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/herotiga"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com/herotiga"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="is-flex" href="#参考"><span class="mr-2">1</span><span>参考</span></a></li><li><a class="is-flex" href="#简介"><span class="mr-2">2</span><span>简介</span></a></li><li><a class="is-flex" href="#安装"><span class="mr-2">3</span><span>安装</span></a></li><li><a class="is-flex" href="#使用"><span class="mr-2">4</span><span>使用</span></a><ul class="menu-list"><li><a class="is-flex" href="#配置名称和邮件"><span class="mr-2">4.1</span><span>配置名称和邮件</span></a></li><li><a class="is-flex" href="#创建版本库"><span class="mr-2">4.2</span><span>创建版本库</span></a></li><li><a class="is-flex" href="#把文件添加到版本库"><span class="mr-2">4.3</span><span>把文件添加到版本库</span></a><ul class="menu-list"><li><a class="is-flex" href="#命令"><span class="mr-2">4.3.1</span><span>命令</span></a></li><li><a class="is-flex" href="#小结"><span class="mr-2">4.3.2</span><span>小结</span></a></li></ul></li><li><a class="is-flex" href="#回滚"><span class="mr-2">4.4</span><span>回滚</span></a><ul class="menu-list"><li><a class="is-flex" href="#版本回退"><span class="mr-2">4.4.1</span><span>版本回退</span></a></li></ul></li><li><a class="is-flex" href="#工作区和暂存区"><span class="mr-2">4.5</span><span>工作区和暂存区</span></a></li><li><a class="is-flex" href="#修改管理"><span class="mr-2">4.6</span><span>修改管理</span></a></li><li><a class="is-flex" href="#撤销修改"><span class="mr-2">4.7</span><span>撤销修改</span></a><ul class="menu-list"><li><a class="is-flex" href="#小结-1"><span class="mr-2">4.7.1</span><span>小结</span></a></li></ul></li><li><a class="is-flex" href="#删除文件"><span class="mr-2">4.8</span><span>删除文件</span></a></li><li><a class="is-flex" href="#远程仓库"><span class="mr-2">4.9</span><span>远程仓库</span></a><ul class="menu-list"><li><a class="is-flex" href="#搭建git服务器"><span class="mr-2">4.9.1</span><span>搭建git服务器</span></a></li><li><a class="is-flex" href="#添加远程仓库"><span class="mr-2">4.9.2</span><span>添加远程仓库</span></a></li><li><a class="is-flex" href="#ssh警告"><span class="mr-2">4.9.3</span><span>ssh警告</span></a></li><li><a class="is-flex" href="#小结-2"><span class="mr-2">4.9.4</span><span>
+小结</span></a></li><li><a class="is-flex" href="#从远程仓库克隆"><span class="mr-2">4.9.5</span><span>从远程仓库克隆</span></a></li><li><a class="is-flex" href="#小结-3"><span class="mr-2">4.9.6</span><span>小结</span></a></li></ul></li><li><a class="is-flex" href="#分支管理"><span class="mr-2">4.10</span><span>分支管理</span></a><ul class="menu-list"><li><a class="is-flex" href="#创建分支"><span class="mr-2">4.10.1</span><span>创建分支</span></a></li><li><a class="is-flex" href="#合并分支"><span class="mr-2">4.10.2</span><span>合并分支</span></a></li><li><a class="is-flex" href="#删除分支"><span class="mr-2">4.10.3</span><span>删除分支</span></a></li><li><a class="is-flex" href="#切换分支"><span class="mr-2">4.10.4</span><span>切换分支</span></a></li><li><a class="is-flex" href="#小结-4"><span class="mr-2">4.10.5</span><span>小结</span></a></li></ul></li></ul></li><li><a class="is-flex" href="#不完整，仍需补充"><span class="mr-2">5</span><span>不完整，仍需补充</span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://blog.zhangruipeng.me/hexo-theme-icarus/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">icarus</span></span><span class="level-right"><span class="level-item tag">blog.zhangruipeng.me</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://github.com/herotiga/kill-leetcode-algorithm" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">算法</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/ai/"><span class="level-start"><span class="level-item">ai</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/alg/"><span class="level-start"><span class="level-item">alg</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/arch/"><span class="level-start"><span class="level-item">arch</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/assembly/"><span class="level-start"><span class="level-item">assembly</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/css/"><span class="level-start"><span class="level-item">css</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/database/"><span class="level-start"><span class="level-item">database</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/git/"><span class="level-start"><span class="level-item">git</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/hexo/"><span class="level-start"><span class="level-item">hexo</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html/"><span class="level-start"><span class="level-item">html</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/interview/"><span class="level-start"><span class="level-item">interview</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/jquery/"><span class="level-start"><span class="level-item">jquery</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/js/"><span class="level-start"><span class="level-item">js</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/latex/"><span class="level-start"><span class="level-item">latex</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/linux/"><span class="level-start"><span class="level-item">linux</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/markdown/"><span class="level-start"><span class="level-item">markdown</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/math/"><span class="level-start"><span class="level-item">math</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/methodology/"><span class="level-start"><span class="level-item">methodology</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/node-js/"><span class="level-start"><span class="level-item">node.js</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/os/"><span class="level-start"><span class="level-item">os</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/review/"><span class="level-start"><span class="level-item">review</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/shell/"><span class="level-start"><span class="level-item">shell</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/tech/"><span class="level-start"><span class="level-item">tech</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/tips/"><span class="level-start"><span class="level-item">tips</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/ui/"><span class="level-start"><span class="level-item">ui</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/"><span class="level-start"><span class="level-item">vue</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/web/"><span class="level-start"><span class="level-item">web</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/yaml/"><span class="level-start"><span class="level-item">yaml</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><a class="media-left" href="/2020/07/08/%E5%AE%89%E8%A3%85htop/"><p class="image is-64x64"><img class="thumbnail" src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/cate/linux.png" alt="htop：一款unix交互进程管理器"></p></a><div class="media-content size-small"><p><time dateTime="2020-07-08T09:01:35.000Z">2020-07-08</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/08/%E5%AE%89%E8%A3%85htop/">htop：一款unix交互进程管理器</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/linux/">linux</a></p></div></article><article class="media"><a class="media-left" href="/2020/07/04/%E8%A7%A3%E5%86%B3termius%E4%B8%8B%E4%B8%8D%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E9%97%AE%E9%A2%98/"><p class="image is-64x64"><img class="thumbnail" src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/cate/linux.png" alt="解决termius下不支持中文的问题"></p></a><div class="media-content size-small"><p><time dateTime="2020-07-04T09:59:35.000Z">2020-07-04</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/04/%E8%A7%A3%E5%86%B3termius%E4%B8%8B%E4%B8%8D%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E9%97%AE%E9%A2%98/">解决termius下不支持中文的问题</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/linux/">linux</a></p></div></article><article class="media"><a class="media-left" href="/2020/07/01/deno-install/"><p class="image is-64x64"><img class="thumbnail" src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/cate/deno.png" alt="deno试水"></p></a><div class="media-content size-small"><p><time dateTime="2020-07-01T09:14:42.000Z">2020-07-01</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/01/deno-install/">deno试水</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/js/">js</a></p></div></article><article class="media"><a class="media-left" href="/2020/06/29/cr-lf-crlf/"><p class="image is-64x64"><img class="thumbnail" src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/cate/linux.png" alt="什么是CR,LF,CRLF"></p></a><div class="media-content size-small"><p><time dateTime="2020-06-29T01:39:47.000Z">2020-06-29</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/29/cr-lf-crlf/">什么是CR,LF,CRLF</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/linux/">linux</a></p></div></article><article class="media"><a class="media-left" href="/2020/06/27/%E5%9C%A8hexo%E4%B8%AD%E5%8A%A0%E5%85%A5gitbook/"><p class="image is-64x64"><img class="thumbnail" src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/cate/hexo.png" alt="在hexo中加入gitbook"></p></a><div class="media-content size-small"><p><time dateTime="2020-06-27T08:57:55.000Z">2020-06-27</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/27/%E5%9C%A8hexo%E4%B8%AD%E5%8A%A0%E5%85%A5gitbook/">在hexo中加入gitbook</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/linux/">linux</a> / <a class="link-muted" href="/categories/hexo/">hexo</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">六月 2020</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/05/"><span class="level-start"><span class="level-item">五月 2020</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/01/"><span class="level-start"><span class="level-item">一月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/11/"><span class="level-start"><span class="level-item">十一月 2019</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/10/"><span class="level-start"><span class="level-item">十月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/09/"><span class="level-start"><span class="level-item">九月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/08/"><span class="level-start"><span class="level-item">八月 2019</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/06/"><span class="level-start"><span class="level-item">六月 2019</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/05/"><span class="level-start"><span class="level-item">五月 2019</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/04/"><span class="level-start"><span class="level-item">四月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/03/"><span class="level-start"><span class="level-item">三月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/02/"><span class="level-start"><span class="level-item">二月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/01/"><span class="level-start"><span class="level-item">一月 2019</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/12/"><span class="level-start"><span class="level-item">十二月 2018</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/11/"><span class="level-start"><span class="level-item">十一月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/10/"><span class="level-start"><span class="level-item">十月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/09/"><span class="level-start"><span class="level-item">九月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/06/"><span class="level-start"><span class="level-item">六月 2018</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/05/"><span class="level-start"><span class="level-item">五月 2018</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/03/"><span class="level-start"><span class="level-item">三月 2018</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/02/"><span class="level-start"><span class="level-item">二月 2018</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/01/"><span class="level-start"><span class="level-item">一月 2018</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/LaTex/"><span class="tag">LaTex</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RSA/"><span class="tag">RSA</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/animation/"><span class="tag">animation</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css%E4%B8%89%E8%A7%92%E5%BD%A2/"><span class="tag">css三角形</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dns/"><span class="tag">dns</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/emmet/"><span class="tag">emmet</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/flex/"><span class="tag">flex</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/less/"><span class="tag">less</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mac/"><span class="tag">mac</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/md5/"><span class="tag">md5</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sass/"><span class="tag">sass</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sha1/"><span class="tag">sha1</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sha256/"><span class="tag">sha256</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ssh/"><span class="tag">ssh</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/template/"><span class="tag">template</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/"><span class="tag">响应式</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9E%84%E9%80%A0%E5%A4%A7%E6%95%B0/"><span class="tag">构造大数</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/"><span class="tag">清除浮动</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%B8%B2%E6%9F%93/"><span class="tag">渲染</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%B0%E5%BF%86%E5%AE%AB%E6%AE%BF/"><span class="tag">记忆宫殿</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="订阅"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Typecasting" height="28"></a><p class="size-small"><span>&copy; 2020 Mason</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://herotiga.github.io',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>面试会问到的linux命令 - Typecasting</title><meta description="总结一下面试中会问到的linux命令。"><meta property="og:type" content="blog"><meta property="og:title" content="面试会问到的linux命令"><meta property="og:url" content="https://herotiga.github.io/2020/05/04/interview-linux-commands/"><meta property="og:site_name" content="Typecasting"><meta property="og:description" content="总结一下面试中会问到的linux命令。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://i.loli.net/2020/05/10/VH4gGwIJl1XuhdN.png"><meta property="article:published_time" content="2020-05-04T01:46:56.000Z"><meta property="article:modified_time" content="2020-05-13T17:30:40.000Z"><meta property="article:author" content="Mason"><meta property="article:tag" content="front-end"><meta property="article:tag" content="html"><meta property="article:tag" content="css"><meta property="article:tag" content="js"><meta property="article:tag" content="javascript"><meta property="article:tag" content="ui"><meta property="article:tag" content="linux"><meta property="article:tag" content="ai"><meta property="article:tag" content="cv"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://i.loli.net/2020/05/10/VH4gGwIJl1XuhdN.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://herotiga.github.io/2020/05/04/interview-linux-commands/"},"headline":"Typecasting","image":["https://i.loli.net/2020/05/10/VH4gGwIJl1XuhdN.png"],"datePublished":"2020-05-04T01:46:56.000Z","dateModified":"2020-05-13T17:30:40.000Z","author":{"@type":"Person","name":"Mason"},"description":"总结一下面试中会问到的linux命令。"}</script><link rel="canonical" href="https://herotiga.github.io/2020/05/04/interview-linux-commands/"><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Typecasting" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/books">阅读</a><a class="navbar-item" href="/gitbook">笔记</a><a class="navbar-item" href="/papers">论文</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="thumbnail" src="https://i.loli.net/2020/05/10/VH4gGwIJl1XuhdN.png" alt="面试会问到的linux命令"></span></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-05-04T01:46:56.000Z" title="2020-05-04T01:46:56.000Z">2020-05-04</time><span class="level-item"><a class="link-muted" href="/categories/linux/">linux</a><span> / </span><a class="link-muted" href="/categories/interview/">interview</a></span><span class="level-item">17 分钟 读完 (大约 2555 个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">面试会问到的linux命令</h1><div class="content"><p>总结一下面试中会问到的linux命令。</p>
+<a id="more"></a>
+
+<ol>
+<li>ls</li>
+</ol>
+<p>常用命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -l</span><br><span class="line">ls --color=auto</span><br></pre></td></tr></table></figure>
+
+<p>输出信息：</p>
+<p><img src="https://i.loli.net/2020/05/04/gBpNIn4adYXz5wb.png" alt=""></p>
+<p>第一列：第一个字为文件类型，后面三组分别是所属用户权限、所属组权限和其他用户所属权限，<code>r</code> (2)、<code>w</code> (4)、<code>e</code> (1)分别是读、写、执行。若为<code>-</code>则表示没有权限。</p>
+<p>第二列：硬连接数量，硬连接就是允许一个文件有多个有效路径名。</p>
+<p>第三列：为文件所属用户。</p>
+<p>第四列：为文件所属组。</p>
+<p>第五列：为文件大小。</p>
+<p>第六列：为文件被修改的时间。</p>
+<p>最后一列：为文件名。</p>
+<p>可以使用<code>chown</code>改变所属用户，用<code>chgrp</code>改变所属组。</p>
+<br />
+
+<ol start="2">
+<li>nohup</li>
+</ol>
+<p>不要挂起命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup &lt;<span class="built_in">command</span>&gt; &gt;file.name 2 &gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+
+<p>1表示标准输出，2表示标准错误输出。2&gt;1&amp;表示将两者合并。</p>
+<br />
+
+<ol start="3">
+<li>ps</li>
+</ol>
+<p>查看当前正在运行的程序使用<code>ps -ef</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep &lt;progress&gt;</span><br></pre></td></tr></table></figure>
+
+<br />
+
+<ol start="4">
+<li>awk</li>
+</ol>
+<p>下面的命令作用是将<code>.csv</code>文件按照“,”分割并打印第一列和第二列。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F <span class="string">","</span> <span class="string">'&#123;print 2&#125;'</span> filename.csv</span><br></pre></td></tr></table></figure>
+
+<p>下面的命令作用是获取第三列的最大值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123;max=0&#125;&#123;if(3&gt;max)max=3&#125;END&#123;print max&#125;'</span></span><br></pre></td></tr></table></figure>
+
+<br />
+
+<ol start="5">
+<li>tar</li>
+</ol>
+<p>解压缩命令。</p>
+<p>参数：</p>
+<p><code>-c</code>: 压缩。</p>
+<p><code>-x</code>: 解压缩。</p>
+<p><code>-t</code>: 列出tar文件包含的文件信息。</p>
+<p><code>-r</code>: 附加新的文件到包中。</p>
+<p>常用写法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 压缩、实时显示、强制打包为tar</span></span><br><span class="line">tar -cvf &lt;filename&gt;.tar &lt;filename&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压缩、实时显示、强制解包tar</span></span><br><span class="line">tar -xvf &lt;filename&gt;.tar</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用gzip压缩、实时显示、强制打包为tar.gz</span></span><br><span class="line">tar -zcvf &lt;filename&gt;.tar.gz &lt;filename&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用gzip解压缩、实时显示、强制解包tar.gz</span></span><br><span class="line">tar -zxvf &lt;filename&gt;.tar.gz</span><br></pre></td></tr></table></figure>
+
+<br />
+
+<ol start="6">
+<li>scp</li>
+</ol>
+<p><code>scp</code>可以再多个服务器中相互复制传输文件。</p>
+<p>常用写法：</p>
+<p>将文件A复制到位于网络上的B位置。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r A B</span><br></pre></td></tr></table></figure>
+
+<br />
+
+<ol start="7">
+<li>rm</li>
+</ol>
+<p>慎用<code>rm</code>。</p>
+<p>linux没有回收站机制，将rm命令<code>alias</code>为<code>mv</code>并将要删除文件移入一个目录既可创建回收站机制。</p>
+<br />
+
+<ol start="8">
+<li>watch</li>
+</ol>
+<p>动态监控命令执行结果。</p>
+<p>mac没有<code>watch</code>命令，brew安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install watch</span><br></pre></td></tr></table></figure>
+
+<p>例子1：每隔一秒高亮显示http连接数变化。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">watch -n 1 -d <span class="string">'pstree | grep http'</span></span><br></pre></td></tr></table></figure>
+
+<p>例子2：每隔十秒输出系统的平均负载。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">watch -n 10 <span class="string">'cat /proc/loadavg'</span></span><br></pre></td></tr></table></figure>
+
+<br />
+
+<ol start="9">
+<li>df</li>
+</ol>
+<p>查看磁盘使用情况。</p>
+<p>常用命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br></pre></td></tr></table></figure>
+
+<br />
+
+<ol start="10">
+<li>tcpdump</li>
+</ol>
+<blockquote>
+<p>和它类似的工具在windows中是wireshark，其采用底层库winpcap/libpcap实现。采用了bpf过滤机制。下面我们看看提供的不同参数的含义。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-n</td>
+<td align="left">使用IP地址表示主机。使用数字表示端口</td>
+</tr>
+<tr>
+<td align="left">-i</td>
+<td align="left">指定要监听的端口。如果为”-i any”表示住区所有网卡数据包</td>
+</tr>
+<tr>
+<td align="left">-v</td>
+<td align="left">输出诸如ip数据包中的TTL更加详细的信息</td>
+</tr>
+<tr>
+<td align="left">-t</td>
+<td align="left">不打印时间戳</td>
+</tr>
+<tr>
+<td align="left">-e</td>
+<td align="left">显示以太网帧头部信息</td>
+</tr>
+<tr>
+<td align="left">-c</td>
+<td align="left">仅仅抓取指定数量的数据包</td>
+</tr>
+<tr>
+<td align="left">-x</td>
+<td align="left">按照十六进制显示数据包内容</td>
+</tr>
+<tr>
+<td align="left">-X</td>
+<td align="left">不仅仅输出-x结果还输出十六进制对应的ASCII字符</td>
+</tr>
+<tr>
+<td align="left">-s</td>
+<td align="left">设置抓包时的抓包长度</td>
+</tr>
+<tr>
+<td align="left">-w</td>
+<td align="left">将输出结果定向到某个文件，一般为pcap后缀</td>
+</tr>
+<tr>
+<td align="left">-r</td>
+<td align="left">从文件读取数据包并显示数字表示端口</td>
+</tr>
+<tr>
+<td align="left">-i</td>
+<td align="left">指定要监听的端口。如果为”-i any”表示住区所有网卡数据包</td>
+</tr>
+<tr>
+<td align="left">-v</td>
+<td align="left">输出诸如ip数据包中的TTL更加详细的信息</td>
+</tr>
+<tr>
+<td align="left">-t</td>
+<td align="left">不打印时间戳</td>
+</tr>
+<tr>
+<td align="left">-e</td>
+<td align="left">显示以太网帧头部信息</td>
+</tr>
+<tr>
+<td align="left">-c</td>
+<td align="left">仅仅抓取指定数量的数据包</td>
+</tr>
+<tr>
+<td align="left">-x</td>
+<td align="left">按照十六进制显示数据包内容</td>
+</tr>
+<tr>
+<td align="left">-X</td>
+<td align="left">不仅仅输出-x结果还输出十六进制对应的ASCII字符</td>
+</tr>
+<tr>
+<td align="left">-s</td>
+<td align="left">设置抓包时的抓包长度</td>
+</tr>
+<tr>
+<td align="left">-w</td>
+<td align="left">将输出结果定向到某个文件，一般为pcap后缀</td>
+</tr>
+<tr>
+<td align="left">-r</td>
+<td align="left">从文件读取数据包并显示</td>
+</tr>
+</tbody></table>
+<p>知道了相关参数，下面看几个案例</p>
+<table>
+<thead>
+<tr>
+<th align="left">执行任务</th>
+<th align="left">执行命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">捕获特定网口数据包</td>
+<td align="left">tcpdump -i eth0</td>
+</tr>
+<tr>
+<td align="left">捕获特定个数(1000)的包</td>
+<td align="left">tcpdump -c 1000 -i eth0</td>
+</tr>
+<tr>
+<td align="left">将捕获的包保存到文件</td>
+<td align="left">tcpdump -w a.pcap -i eth0</td>
+</tr>
+<tr>
+<td align="left">读取pcap格式的包</td>
+<td align="left">tcpdump -r a.pcap</td>
+</tr>
+<tr>
+<td align="left">增加捕获包的时间戳</td>
+<td align="left">tcpdump -n -ttt -i eth0</td>
+</tr>
+<tr>
+<td align="left">指定捕获包的协议类型</td>
+<td align="left">tcpdump -i eth0 arp</td>
+</tr>
+<tr>
+<td align="left">捕获指定端口</td>
+<td align="left">tcpdump -i eth0 post 22</td>
+</tr>
+<tr>
+<td align="left">捕获特定目标ip+port的包</td>
+<td align="left">tcpdump -i eth0 dst address and port 22</td>
+</tr>
+<tr>
+<td align="left">捕获DNS请求和响应</td>
+<td align="left">tcpdump -i eth0 -s0 port 53</td>
+</tr>
+<tr>
+<td align="left">匹配Http请求头</td>
+<td align="left">tcpdump -s 0 -v -n -l | egrep -i “POST /|GET /|Host:”</td>
+</tr>
+<tr>
+<td align="left">将捕获的包保存到文件</td>
+<td align="left">tcpdump -w a.pcap -i eth0</td>
+</tr>
+<tr>
+<td align="left">读取pcap格式的包</td>
+<td align="left">tcpdump -r a.pcap</td>
+</tr>
+<tr>
+<td align="left">增加捕获包的时间戳</td>
+<td align="left">tcpdump -n -ttt -i eth0</td>
+</tr>
+<tr>
+<td align="left">指定捕获包的协议类型</td>
+<td align="left">tcpdump -i eth0 arp</td>
+</tr>
+<tr>
+<td align="left">捕获指定端口</td>
+<td align="left">tcpdump -i eth0 post 22</td>
+</tr>
+<tr>
+<td align="left">捕获特定目标ip+port的包</td>
+<td align="left">tcpdump -i eth0 dst address and port 22</td>
+</tr>
+<tr>
+<td align="left">捕获DNS请求和响应</td>
+<td align="left">tcpdump -i eth0 -s0 port 53</td>
+</tr>
+<tr>
+<td align="left">匹配Http请求头</td>
+<td align="left">tcpdump -s 0 -v -n -l | egrep -i “POST /|GET /|Host:”</td>
+</tr>
+</tbody></table>
+<br />
+
+<ol start="11">
+<li>lsof</li>
+</ol>
+<p>列出当前打开的文件描述符工具，可以得知描述符被声明进程使用。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-i</td>
+<td align="left">显示sokcet文件描述符</td>
+</tr>
+<tr>
+<td align="left">-c</td>
+<td align="left">显示指定的命令打开的所有文件描述符</td>
+</tr>
+<tr>
+<td align="left">-t</td>
+<td align="left">仅显示打开了目标文件描述符的进程pid</td>
+</tr>
+</tbody></table>
+<p>例子：</p>
+<table>
+<thead>
+<tr>
+<th align="left">执行任务</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">列出所有的网络链接</td>
+<td align="left">lsof -i</td>
+</tr>
+<tr>
+<td align="left">列出所有udp的网络链接</td>
+<td align="left">lsof -i udp</td>
+</tr>
+<tr>
+<td align="left">列出谁在使用某个端口</td>
+<td align="left">lsof -i :3306</td>
+</tr>
+<tr>
+<td align="left">列出谁在使用特定的tcp端口</td>
+<td align="left">lsof -i tcp:80</td>
+</tr>
+<tr>
+<td align="left">根据文件描述范围列出文件信息</td>
+<td align="left">lsof -d 2-3</td>
+</tr>
+</tbody></table>
+<br />
+
+<ol start="12">
+<li>nc</li>
+</ol>
+<p>瑞士军刀，它用来快速构建网络链接。常用来调试客户端程序。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-i</td>
+<td align="left">设置数据包传送的时间间隔</td>
+</tr>
+<tr>
+<td align="left">-l</td>
+<td align="left">以服务器方式运行。默认为客户端运行</td>
+</tr>
+<tr>
+<td align="left">-k</td>
+<td align="left">重复接受并处理某个端口上的所有链接</td>
+</tr>
+<tr>
+<td align="left">-p</td>
+<td align="left">以客户端运行时强制其使用指定端口</td>
+</tr>
+<tr>
+<td align="left">-C</td>
+<td align="left">将CR和LF两个字符作为结束符</td>
+</tr>
+<tr>
+<td align="left">-u</td>
+<td align="left">使用udp协议。默认tcp协议</td>
+</tr>
+<tr>
+<td align="left">-X</td>
+<td align="left">nc客户端余代理服务器通信时默认为socks5协议。</td>
+</tr>
+<tr>
+<td align="left">-z</td>
+<td align="left">扫描目标机器某个范围服务是否开启</td>
+</tr>
+</tbody></table>
+<p>例子：</p>
+<table>
+<thead>
+<tr>
+<th align="left">执行任务</th>
+<th align="left">执行命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">扫描机器A端口号在30-40的服务</td>
+<td align="left">nc -z A 30-40</td>
+</tr>
+<tr>
+<td align="left">连接服务器A 端口号为5000</td>
+<td align="left">nc -C A 5000</td>
+</tr>
+<tr>
+<td align="left">传送文件</td>
+<td align="left">MachineA:nc -v -n ip portE:\a.exe</td>
+</tr>
+</tbody></table>
+<br />
+
+<ol start="13">
+<li>netstat</li>
+</ol>
+<p>网络信息统计。</p>
+<p>可以查看网卡接口、路由表。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-n</td>
+<td align="left">使用IP地址表示主机</td>
+</tr>
+<tr>
+<td align="left">-a</td>
+<td align="left">显示结果中包含监听的socket</td>
+</tr>
+<tr>
+<td align="left">-t</td>
+<td align="left">仅显示TCP连接</td>
+</tr>
+<tr>
+<td align="left">-r</td>
+<td align="left">显示路由信息</td>
+</tr>
+<tr>
+<td align="left">-i</td>
+<td align="left">显示网卡接口数据流量</td>
+</tr>
+<tr>
+<td align="left">-c</td>
+<td align="left">每隔1s输出一次</td>
+</tr>
+<tr>
+<td align="left">-o</td>
+<td align="left">显示socket定时器的信息</td>
+</tr>
+<tr>
+<td align="left">-p</td>
+<td align="left">显示socket所属的进程的PID和名字</td>
+</tr>
+</tbody></table>
+<p>例子：</p>
+<table>
+<thead>
+<tr>
+<th align="left">执行任务</th>
+<th align="left">执行命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">列出所有连接</td>
+<td align="left">netstat -a</td>
+</tr>
+<tr>
+<td align="left">只列出TCP或者UDP</td>
+<td align="left">netstat -at/netstat -au</td>
+</tr>
+<tr>
+<td align="left">列出监听中的连接</td>
+<td align="left">netstat -tnl</td>
+</tr>
+<tr>
+<td align="left">获取进程名、进程号以及用户 ID</td>
+<td align="left">nestat  -nlpt</td>
+</tr>
+<tr>
+<td align="left">打印统计信息</td>
+<td align="left">netstat -s</td>
+</tr>
+<tr>
+<td align="left">netstat持续输出</td>
+<td align="left">netstat -ct</td>
+</tr>
+<tr>
+<td align="left">打印active状态的连接</td>
+<td align="left">netstat -atnp | grep ESTA</td>
+</tr>
+<tr>
+<td align="left">查看服务是否运行(npt)</td>
+<td align="left">netstat -aple| grep ntp</td>
+</tr>
+</tbody></table>
+<br />
+
+<ol start="14">
+<li>vmstat</li>
+</ol>
+<p>实时输出系统进程信息和内存信息以及cpu占用。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-f</td>
+<td align="left">显示系统自启动以来执行的fork次数</td>
+</tr>
+<tr>
+<td align="left">-s</td>
+<td align="left">显示内存相关统计信息</td>
+</tr>
+<tr>
+<td align="left">-d</td>
+<td align="left">显示磁盘相关统计信息</td>
+</tr>
+<tr>
+<td align="left">-p</td>
+<td align="left">显示指定磁盘分区统计信息</td>
+</tr>
+<tr>
+<td align="left">count</td>
+<td align="left">采样次数。</td>
+</tr>
+</tbody></table>
+<p>vmstat输出信息字段：</p>
+<table>
+<thead>
+<tr>
+<th align="left">字段名</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">procs</td>
+<td align="left">r表示等待运行的而进程数目。b表示处于不可中断睡眠状态的进程数目</td>
+</tr>
+<tr>
+<td align="left">memory</td>
+<td align="left">swpd：使用的虚拟内存量。free：空闲内存量。buff：用作缓冲区的内存量。cache：用作缓存的内存量。</td>
+</tr>
+<tr>
+<td align="left">swap</td>
+<td align="left">si：从磁盘换入的内存量（/s）。so：交换到磁盘的内存量（/s）。</td>
+</tr>
+<tr>
+<td align="left">io</td>
+<td align="left">bi：从块设备接收的块（blocks/s）。bo：发送到块设备的块（blocks/s）。</td>
+</tr>
+<tr>
+<td align="left">system</td>
+<td align="left">in：每秒中断的次数，包括时钟。cs：每秒上下文切换的次数。</td>
+</tr>
+</tbody></table>
+<br />
+
+<ol start="15">
+<li>mpstat</li>
+</ol>
+<p>用于实时监测多个处理器系统中的每个cpu的状态，需要先安装sysstat。</p>
+<p>输出信息字段：</p>
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">cpu</td>
+<td align="left">表示当前条信息属于哪个cpu的数据</td>
+</tr>
+<tr>
+<td align="left">%usr</td>
+<td align="left">进程运行在用户空间所占cpu运行时间的比例</td>
+</tr>
+<tr>
+<td align="left">%nice</td>
+<td align="left">nice值为负的进程运行在用户空间的时间占cpu总运行时间的比例</td>
+</tr>
+<tr>
+<td align="left">%iowait</td>
+<td align="left">cpu等待磁盘操作的时间占cpu总运行时间的比例</td>
+</tr>
+<tr>
+<td align="left">%irq</td>
+<td align="left">cpu用于处理硬件中断时间占cpu总运行时间的比例</td>
+</tr>
+<tr>
+<td align="left">%soft</td>
+<td align="left">cpu用于处理软件中断的时间占cpu用运行时间的比例</td>
+</tr>
+<tr>
+<td align="left">%steal</td>
+<td align="left">一对虚拟cpu。当超级管理员在处理某个虚拟cpu时，另一个等待它处理完才能运行。这段等待时间表示为steal时间占总运行时间的比例</td>
+</tr>
+<tr>
+<td align="left">%guest</td>
+<td align="left">运行虚拟cpu时间占cpu总运行时间的比例</td>
+</tr>
+<tr>
+<td align="left">%idle</td>
+<td align="left">系统空闲时间占cpu总运行时间的比例</td>
+</tr>
+</tbody></table>
+<br />
+
+<ol start="16">
+<li>split</li>
+</ol>
+<p>将文件分割为多个文件。</p>
+<p>例子：将<code>README.md</code>文件每隔3行分割为一个文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">split -3 README.md</span><br></pre></td></tr></table></figure>
+
+<br />
+
+<ol start="17">
+<li>wc</li>
+</ol>
+<p>wc命令的作用是统计文件的字节数、字数、列数。若不指定文件名称，或是所给予的文件名为“-”，则wc指令会从标准输入设备读取数据。</p>
+<p>-c或–bytes或——chars：只显示Bytes数；<br>-l或——lines：只显示行数；<br>-w或——words：只显示字数。</p>
+<br />
+
+<ol start="18">
+<li>more/less</li>
+</ol>
+<br />
+
+<ol start="19">
+<li>head/tail</li>
+</ol>
+<br />
+
+<ol start="20">
+<li>diff</li>
+</ol>
+<br />
+
+<p>其他linux命令查询：<a href="https://man.linuxde.net/">man</a></p>
+</div><!--!--></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/others/alipay.jpg" alt="支付宝"></span></a><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/others/wechat.jpg" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/05/09/css-judge-directions/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">用纯css判断鼠标进入元素的方向</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/04/30/layout-flex/"><span class="level-item">flex布局</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Mason"></figure><p class="title is-size-4 is-block line-height-inherit">Mason</p><p class="is-size-6 is-block">A lifelong learner</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Shanghai, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">101</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">27</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">21</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/herotiga" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/herotiga"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com/herotiga"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://blog.zhangruipeng.me/hexo-theme-icarus/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">icarus</span></span><span class="level-right"><span class="level-item tag">blog.zhangruipeng.me</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://github.com/herotiga/kill-leetcode-algorithm" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">算法</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/ai/"><span class="level-start"><span class="level-item">ai</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/alg/"><span class="level-start"><span class="level-item">alg</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/arch/"><span class="level-start"><span class="level-item">arch</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/assembly/"><span class="level-start"><span class="level-item">assembly</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/css/"><span class="level-start"><span class="level-item">css</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/database/"><span class="level-start"><span class="level-item">database</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/git/"><span class="level-start"><span class="level-item">git</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/hexo/"><span class="level-start"><span class="level-item">hexo</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/html/"><span class="level-start"><span class="level-item">html</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/interview/"><span class="level-start"><span class="level-item">interview</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/jquery/"><span class="level-start"><span class="level-item">jquery</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/js/"><span class="level-start"><span class="level-item">js</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/latex/"><span class="level-start"><span class="level-item">latex</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/linux/"><span class="level-start"><span class="level-item">linux</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/markdown/"><span class="level-start"><span class="level-item">markdown</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/math/"><span class="level-start"><span class="level-item">math</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/methodology/"><span class="level-start"><span class="level-item">methodology</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/node-js/"><span class="level-start"><span class="level-item">node.js</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/os/"><span class="level-start"><span class="level-item">os</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/review/"><span class="level-start"><span class="level-item">review</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/shell/"><span class="level-start"><span class="level-item">shell</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/tech/"><span class="level-start"><span class="level-item">tech</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/tips/"><span class="level-start"><span class="level-item">tips</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/ui/"><span class="level-start"><span class="level-item">ui</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/vue/"><span class="level-start"><span class="level-item">vue</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/web/"><span class="level-start"><span class="level-item">web</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/yaml/"><span class="level-start"><span class="level-item">yaml</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><a class="media-left" href="/2020/07/08/%E5%AE%89%E8%A3%85htop/"><p class="image is-64x64"><img class="thumbnail" src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/cate/linux.png" alt="htop：一款unix交互进程管理器"></p></a><div class="media-content size-small"><p><time dateTime="2020-07-08T09:01:35.000Z">2020-07-08</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/08/%E5%AE%89%E8%A3%85htop/">htop：一款unix交互进程管理器</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/linux/">linux</a></p></div></article><article class="media"><a class="media-left" href="/2020/07/04/%E8%A7%A3%E5%86%B3termius%E4%B8%8B%E4%B8%8D%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E9%97%AE%E9%A2%98/"><p class="image is-64x64"><img class="thumbnail" src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/cate/linux.png" alt="解决termius下不支持中文的问题"></p></a><div class="media-content size-small"><p><time dateTime="2020-07-04T09:59:35.000Z">2020-07-04</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/04/%E8%A7%A3%E5%86%B3termius%E4%B8%8B%E4%B8%8D%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E9%97%AE%E9%A2%98/">解决termius下不支持中文的问题</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/linux/">linux</a></p></div></article><article class="media"><a class="media-left" href="/2020/07/01/deno-install/"><p class="image is-64x64"><img class="thumbnail" src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/cate/deno.png" alt="deno试水"></p></a><div class="media-content size-small"><p><time dateTime="2020-07-01T09:14:42.000Z">2020-07-01</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/01/deno-install/">deno试水</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/js/">js</a></p></div></article><article class="media"><a class="media-left" href="/2020/06/29/cr-lf-crlf/"><p class="image is-64x64"><img class="thumbnail" src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/cate/linux.png" alt="什么是CR,LF,CRLF"></p></a><div class="media-content size-small"><p><time dateTime="2020-06-29T01:39:47.000Z">2020-06-29</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/29/cr-lf-crlf/">什么是CR,LF,CRLF</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/linux/">linux</a></p></div></article><article class="media"><a class="media-left" href="/2020/06/27/%E5%9C%A8hexo%E4%B8%AD%E5%8A%A0%E5%85%A5gitbook/"><p class="image is-64x64"><img class="thumbnail" src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/cate/hexo.png" alt="在hexo中加入gitbook"></p></a><div class="media-content size-small"><p><time dateTime="2020-06-27T08:57:55.000Z">2020-06-27</time></p><p class="title is-6"><a class="link-muted" href="/2020/06/27/%E5%9C%A8hexo%E4%B8%AD%E5%8A%A0%E5%85%A5gitbook/">在hexo中加入gitbook</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/linux/">linux</a> / <a class="link-muted" href="/categories/hexo/">hexo</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">六月 2020</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/05/"><span class="level-start"><span class="level-item">五月 2020</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/01/"><span class="level-start"><span class="level-item">一月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/11/"><span class="level-start"><span class="level-item">十一月 2019</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/10/"><span class="level-start"><span class="level-item">十月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/09/"><span class="level-start"><span class="level-item">九月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/08/"><span class="level-start"><span class="level-item">八月 2019</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/06/"><span class="level-start"><span class="level-item">六月 2019</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/05/"><span class="level-start"><span class="level-item">五月 2019</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/04/"><span class="level-start"><span class="level-item">四月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/03/"><span class="level-start"><span class="level-item">三月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/02/"><span class="level-start"><span class="level-item">二月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/01/"><span class="level-start"><span class="level-item">一月 2019</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/12/"><span class="level-start"><span class="level-item">十二月 2018</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/11/"><span class="level-start"><span class="level-item">十一月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/10/"><span class="level-start"><span class="level-item">十月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/09/"><span class="level-start"><span class="level-item">九月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/06/"><span class="level-start"><span class="level-item">六月 2018</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/05/"><span class="level-start"><span class="level-item">五月 2018</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/03/"><span class="level-start"><span class="level-item">三月 2018</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/02/"><span class="level-start"><span class="level-item">二月 2018</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/01/"><span class="level-start"><span class="level-item">一月 2018</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/LaTex/"><span class="tag">LaTex</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RSA/"><span class="tag">RSA</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/animation/"><span class="tag">animation</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/css%E4%B8%89%E8%A7%92%E5%BD%A2/"><span class="tag">css三角形</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dns/"><span class="tag">dns</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/emmet/"><span class="tag">emmet</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/flex/"><span class="tag">flex</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/less/"><span class="tag">less</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mac/"><span class="tag">mac</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/md5/"><span class="tag">md5</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sass/"><span class="tag">sass</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sha1/"><span class="tag">sha1</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sha256/"><span class="tag">sha256</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ssh/"><span class="tag">ssh</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/template/"><span class="tag">template</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/"><span class="tag">响应式</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9E%84%E9%80%A0%E5%A4%A7%E6%95%B0/"><span class="tag">构造大数</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/"><span class="tag">清除浮动</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%B8%B2%E6%9F%93/"><span class="tag">渲染</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%B0%E5%BF%86%E5%AE%AB%E6%AE%BF/"><span class="tag">记忆宫殿</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="订阅"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Typecasting" height="28"></a><p class="size-small"><span>&copy; 2020 Mason</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://herotiga.github.io',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
