@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>面试会问到的linux命令 - Typecasting</title><meta description="总结一下面试中会问到的linux命令。"><meta property="og:type" content="blog"><meta property="og:title" content="面试会问到的linux命令"><meta property="og:url" content="https://herotiga.github.io/2020/05/04/interview-linux-commands/"><meta property="og:site_name" content="Typecasting"><meta property="og:description" content="总结一下面试中会问到的linux命令。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://i.loli.net/2020/05/10/VH4gGwIJl1XuhdN.png"><meta property="article:published_time" content="2020-05-04T01:46:56.000Z"><meta property="article:modified_time" content="2020-05-13T17:30:40.000Z"><meta property="article:author" content="Mason"><meta property="article:tag" content="front-end"><meta property="article:tag" content="html"><meta property="article:tag" content="css"><meta property="article:tag" content="js"><meta property="article:tag" content="javascript"><meta property="article:tag" content="ui"><meta property="article:tag" content="linux"><meta property="article:tag" content="ai"><meta property="article:tag" content="cv"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://i.loli.net/2020/05/10/VH4gGwIJl1XuhdN.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://herotiga.github.io/2020/05/04/interview-linux-commands/"},"headline":"Typecasting","image":["https://i.loli.net/2020/05/10/VH4gGwIJl1XuhdN.png"],"datePublished":"2020-05-04T01:46:56.000Z","dateModified":"2020-05-13T17:30:40.000Z","author":{"@type":"Person","name":"Mason"},"description":"总结一下面试中会问到的linux命令。"}</script><link rel="canonical" href="https://herotiga.github.io/2020/05/04/interview-linux-commands/"><link rel="alternative" href="/atom.xml" title="Typecasting" type="application/atom+xml"><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Typecasting" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/books">阅读</a><a class="navbar-item" href="/papers">论文</a><a class="navbar-item" href="/gitbook">笔记</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="thumbnail" src="https://i.loli.net/2020/05/10/VH4gGwIJl1XuhdN.png" alt="面试会问到的linux命令"></span></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-05-04T01:46:56.000Z" title="2020-05-04T01:46:56.000Z">2020-05-04</time><span class="level-item"><a class="link-muted" href="/categories/linux/">linux</a><span> / </span><a class="link-muted" href="/categories/interview/">interview</a></span><span class="level-item">17 分钟 读完 (大约 2555 个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">面试会问到的linux命令</h1><div class="content"><p>总结一下面试中会问到的linux命令。</p>
+<html lang="zh"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>面试会问到的linux命令 - Typecasting</title><meta description="总结一下面试中会问到的linux命令。"><meta property="og:type" content="blog"><meta property="og:title" content="面试会问到的linux命令"><meta property="og:url" content="https://herotiga.github.io/2020/05/04/interview-linux-commands/"><meta property="og:site_name" content="Typecasting"><meta property="og:description" content="总结一下面试中会问到的linux命令。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://i.loli.net/2020/05/10/VH4gGwIJl1XuhdN.png"><meta property="article:published_time" content="2020-05-04T01:46:56.000Z"><meta property="article:modified_time" content="2020-07-25T00:55:52.738Z"><meta property="article:author" content="Mason"><meta property="article:tag" content="front-end"><meta property="article:tag" content="html"><meta property="article:tag" content="css"><meta property="article:tag" content="js"><meta property="article:tag" content="javascript"><meta property="article:tag" content="ui"><meta property="article:tag" content="linux"><meta property="article:tag" content="ai"><meta property="article:tag" content="cv"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://i.loli.net/2020/05/10/VH4gGwIJl1XuhdN.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://herotiga.github.io/2020/05/04/interview-linux-commands/"},"headline":"Typecasting","image":["https://i.loli.net/2020/05/10/VH4gGwIJl1XuhdN.png"],"datePublished":"2020-05-04T01:46:56.000Z","dateModified":"2020-07-25T00:55:52.738Z","author":{"@type":"Person","name":"Mason"},"description":"总结一下面试中会问到的linux命令。"}</script><link rel="canonical" href="https://herotiga.github.io/2020/05/04/interview-linux-commands/"><link rel="alternative" href="/atom.xml" title="Typecasting" type="application/atom+xml"><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Typecasting" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/books">阅读</a><a class="navbar-item" href="/papers">论文</a><a class="navbar-item" href="/gitbook">笔记</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="thumbnail" src="https://i.loli.net/2020/05/10/VH4gGwIJl1XuhdN.png" alt="面试会问到的linux命令"></span></div><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-05-04T01:46:56.000Z" title="2020-05-04T01:46:56.000Z">2020-05-04</time><span class="level-item"><a class="link-muted" href="/categories/linux/">linux</a><span> / </span><a class="link-muted" href="/categories/interview/">interview</a></span><span class="level-item">17 分钟 读完 (大约 2555 个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">面试会问到的linux命令</h1><div class="content"><p>总结一下面试中会问到的linux命令。</p>
 <a id="more"></a>
 
 <ol>
@@ -18,8 +18,6 @@
 <p>第六列：为文件被修改的时间。</p>
 <p>最后一列：为文件名。</p>
 <p>可以使用<code>chown</code>改变所属用户，用<code>chgrp</code>改变所属组。</p>
-<br />
-
 <ol start="2">
 <li>nohup</li>
 </ol>
@@ -27,15 +25,13 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup &lt;<span class="built_in">command</span>&gt; &gt;file.name 2 &gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 
 <p>1表示标准输出，2表示标准错误输出。2&gt;1&amp;表示将两者合并。</p>
-<br />
-
 <ol start="3">
 <li>ps</li>
 </ol>
 <p>查看当前正在运行的程序使用<code>ps -ef</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep &lt;progress&gt;</span><br></pre></td></tr></table></figure>
 
-<br />
+
 
 <ol start="4">
 <li>awk</li>
@@ -46,7 +42,7 @@
 <p>下面的命令作用是获取第三列的最大值。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123;max=0&#125;&#123;if(3&gt;max)max=3&#125;END&#123;print max&#125;'</span></span><br></pre></td></tr></table></figure>
 
-<br />
+
 
 <ol start="5">
 <li>tar</li>
@@ -60,7 +56,7 @@
 <p>常用写法：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 压缩、实时显示、强制打包为tar</span></span><br><span class="line">tar -cvf &lt;filename&gt;.tar &lt;filename&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压缩、实时显示、强制解包tar</span></span><br><span class="line">tar -xvf &lt;filename&gt;.tar</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用gzip压缩、实时显示、强制打包为tar.gz</span></span><br><span class="line">tar -zcvf &lt;filename&gt;.tar.gz &lt;filename&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用gzip解压缩、实时显示、强制解包tar.gz</span></span><br><span class="line">tar -zxvf &lt;filename&gt;.tar.gz</span><br></pre></td></tr></table></figure>
 
-<br />
+
 
 <ol start="6">
 <li>scp</li>
@@ -70,15 +66,13 @@
 <p>将文件A复制到位于网络上的B位置。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r A B</span><br></pre></td></tr></table></figure>
 
-<br />
+
 
 <ol start="7">
 <li>rm</li>
 </ol>
 <p>慎用<code>rm</code>。</p>
 <p>linux没有回收站机制，将rm命令<code>alias</code>为<code>mv</code>并将要删除文件移入一个目录既可创建回收站机制。</p>
-<br />
-
 <ol start="8">
 <li>watch</li>
 </ol>
@@ -92,7 +86,7 @@
 <p>例子2：每隔十秒输出系统的平均负载。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">watch -n 10 <span class="string">'cat /proc/loadavg'</span></span><br></pre></td></tr></table></figure>
 
-<br />
+
 
 <ol start="9">
 <li>df</li>
@@ -101,7 +95,7 @@
 <p>常用命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br></pre></td></tr></table></figure>
 
-<br />
+
 
 <ol start="10">
 <li>tcpdump</li>
@@ -282,8 +276,6 @@
 <td align="left">tcpdump -s 0 -v -n -l | egrep -i “POST /|GET /|Host:”</td>
 </tr>
 </tbody></table>
-<br />
-
 <ol start="11">
 <li>lsof</li>
 </ol>
@@ -337,8 +329,6 @@
 <td align="left">lsof -d 2-3</td>
 </tr>
 </tbody></table>
-<br />
-
 <ol start="12">
 <li>nc</li>
 </ol>
@@ -404,8 +394,6 @@
 <td align="left">MachineA:nc -v -n ip portE:\a.exe</td>
 </tr>
 </tbody></table>
-<br />
-
 <ol start="13">
 <li>netstat</li>
 </ol>
@@ -492,8 +480,6 @@
 <td align="left">netstat -aple| grep ntp</td>
 </tr>
 </tbody></table>
-<br />
-
 <ol start="14">
 <li>vmstat</li>
 </ol>
@@ -555,8 +541,6 @@
 <td align="left">in：每秒中断的次数，包括时钟。cs：每秒上下文切换的次数。</td>
 </tr>
 </tbody></table>
-<br />
-
 <ol start="15">
 <li>mpstat</li>
 </ol>
@@ -606,8 +590,6 @@
 <td align="left">系统空闲时间占cpu总运行时间的比例</td>
 </tr>
 </tbody></table>
-<br />
-
 <ol start="16">
 <li>split</li>
 </ol>
@@ -615,30 +597,22 @@
 <p>例子：将<code>README.md</code>文件每隔3行分割为一个文件。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">split -3 README.md</span><br></pre></td></tr></table></figure>
 
-<br />
+
 
 <ol start="17">
 <li>wc</li>
 </ol>
 <p>wc命令的作用是统计文件的字节数、字数、列数。若不指定文件名称，或是所给予的文件名为“-”，则wc指令会从标准输入设备读取数据。</p>
 <p>-c或–bytes或——chars：只显示Bytes数；<br>-l或——lines：只显示行数；<br>-w或——words：只显示字数。</p>
-<br />
-
 <ol start="18">
 <li>more/less</li>
 </ol>
-<br />
-
 <ol start="19">
 <li>head/tail</li>
 </ol>
-<br />
-
 <ol start="20">
 <li>diff</li>
 </ol>
-<br />
-
 <p>其他linux命令查询：<a href="https://man.linuxde.net/">man</a></p>
 </div><!--!--></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/others/alipay.jpg" alt="支付宝"></span></a><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/others/wechat.jpg" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/05/09/css-judge-directions/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">用纯css判断鼠标进入元素的方向</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/04/30/layout-flex/"><span class="level-item">flex布局</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content" id="valine-thread"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script>new Valine({
             el: '#valine-thread' ,
