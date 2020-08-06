@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2020-07-26T14:08:37.672Z</updated>
+  <updated>2020-08-06T06:46:53.523Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux使用技巧</title>
+    <link href="https://herotiga.github.io/2020/08/06/linux-tips/"/>
+    <id>https://herotiga.github.io/2020/08/06/linux-tips/</id>
+    <published>2020-08-06T05:48:28.000Z</published>
+    <updated>2020-08-06T06:46:53.523Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录一些linux使用技巧。</p><a id="more"></a><h2 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h2><ol><li>!!</li></ol><p><code>!!</code>命令指向最近执行的一条命令，当我们使用<code>apt-get</code>安装软件的时候有时候会忘了写<code>sudo</code>，这个时候只需要如下既可：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo !!</span><br></pre></td></tr></table></figure><ol start="2"><li>cd -</li></ol><p>返回刚才的目录。</p><ol start="3"><li>^old^new</li></ol><p>比如：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"goed"</span></span><br></pre></td></tr></table></figure><p>错误将good写成了goed。</p><p>只需要<code>^e^o</code>既可。</p><p>代码：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"goed"</span></span><br><span class="line">^e^o</span><br></pre></td></tr></table></figure><p>回车既可。</p><ol start="4"><li>man ascii</li></ol><p>显示ascii码表。</p><p>有时候需要用到ascii码的时候就不需要打开浏览器然后再打开google搜索了。</p><ol start="5"><li>ctrl-x e</li></ol><p>快速启动默认编辑器。</p><ol start="6"><li>netstat -tlnp</li></ol><p>列出本机进程监听的端口号。</p><ol start="7"><li>tail  -f  /path/to/file.log |  sed  ‘/^Finished: SUCCESS$/  q’</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail  -f  /path/to/file.log |  sed  <span class="string">'/^Finished: SUCCESS$/  q'</span></span><br></pre></td></tr></table></figure><p>当log文件里面出现<code>Finished: SUCCESS</code>的时候退出<code>tail</code>，用于实时监控并且过滤log是否出现了某条记录。</p><ol start="8"><li>ssh user@server bash &lt; /path/to/local/script.sh</li></ol><p>用到了输入重定向。<br>在远程服务器运行本地一个脚本文件。</p><ol start="9"><li>screen -d -m -S some_name ping my_router</li></ol><p>后台运行一段不终止的程序，可以随时查看它的状态。</p><p>-d -m参数启动分离模式，-S指定一个session标识。</p><p>可以通过-R命令重新挂载一个标识的session。</p><p>参考：<code>man screen</code>或者<code>tldr screen</code></p><ol start="10"><li>wget</li></ol><p>下载一个网站：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --random-wait -r -p -e robots=off -U mozilla https://www.baidu.com</span><br></pre></td></tr></table></figure><ol start="11"><li>curl</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl www.baidu.com</span><br></pre></td></tr></table></figure><ol start="12"><li>lsof -i</li></ol><p>实时查看本机网络服务活动状态。</p><ol start="13"><li>python -m SimpleHTTPServer</li></ol><p>将当前目录设置为HTTP服务目录，并可以通过8000端口访问：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python -m SimpleHTTPServer</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认运行在8000端口</span></span><br><span class="line">http://localhost:8000/</span><br></pre></td></tr></table></figure><ol start="14"><li>列出我最常用的十条命令</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">history</span> |  awk  <span class="string">'&#123;CMD[$2]++;count++;&#125; END &#123;  for  (a  in  CMD  )print  CMD[a]</span></span><br><span class="line"><span class="string">" "  CMD[a]/count*100  "% " a  &#125;'</span> |  grep  -v  <span class="string">"./"</span> |  column  -c3  -s <span class="string">" "</span>  -t |</span><br><span class="line"> sort  -nr |  nl |  head  -n10</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录一些linux使用技巧。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://herotiga.github.io/categories/linux/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>使用curl代替postman</title>
@@ -438,34 +459,6 @@
     <summary type="html">
     
       &lt;p&gt;昨天下午给这个网站提交了备案，今天早上就完全备案完了，也在footer悬挂了ICP备案信息，就来记录一下备案的过程以及备案的痛点。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="web" scheme="https://herotiga.github.io/categories/web/"/>
-    
-      <category term="hexo" scheme="https://herotiga.github.io/categories/hexo/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>使用jsDelivr+github自建静态资源CDN</title>
-    <link href="https://herotiga.github.io/2020/06/07/jsdelivr-cdn/"/>
-    <id>https://herotiga.github.io/2020/06/07/jsdelivr-cdn/</id>
-    <published>2020-06-07T06:43:51.000Z</published>
-    <updated>2020-06-19T01:39:03.442Z</updated>
-    
-    <content type="html"><![CDATA[<article class="message is-info"><div class="message-body"><p>发现用了几年的<a href="https://sm.ms">sm.ms</a>没有以前好用了，白天加载图片速度巨慢，原因可能是sm.ms在大陆已经没有cdn节点了。故而选择折腾一个新图床来提高页面加载速度。</p></div></article><p>一阵搜寻发现jsDelivr还可以用来作图床并且在国内速度还很不错，于是搞了个jsDelivr的图床。</p><p>jsDelivr官网：<a href="https://www.jsdelivr.com/">https://www.jsdelivr.com/</a></p><a id="more"></a><h2 id="新建github仓库"><a href="#新建github仓库" class="headerlink" title="新建github仓库"></a>新建github仓库</h2><p>仓库名称随意，根据需求可以选择性添加描述和README.md<br>这里新建仓库名为：CDN</p><h2 id="git-clone仓库到本地"><a href="#git-clone仓库到本地" class="headerlink" title="git clone仓库到本地"></a>git clone仓库到本地</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &lt;repo&gt;</span><br></pre></td></tr></table></figure><h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p>现在就可以向本地仓库中加入需要做cdn的资源文件了。<br>然后提交到github仓库：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">'info'</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure><p>jsDelivr支持单个文件最大20MB。<br>提交过慢可以参考我之前配置git代理的文章：<a href="https://herotiga.github.io/2020/05/09/git-configuration-proxy/">git配置本地代理</a></p><h2 id="releases"><a href="#releases" class="headerlink" title="releases"></a>releases</h2><p>点击CDN仓库的raleases并创建新的版本。<br>生成releases的作用是给不同的版本代码以不同的资源版本，便于管理。<br>个人使用的话还是建议不要生成。</p><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>引用特定版本资源：<a href="https://cdn.jsdelivr.net/gh/用户名/仓库名@版本号/文件路径">https://cdn.jsdelivr.net/gh/用户名/仓库名@版本号/文件路径</a><br>引用最新资源：<a href="https://cdn.jsdelivr.net/gh/用户名/仓库名/文件路径">https://cdn.jsdelivr.net/gh/用户名/仓库名/文件路径</a></p><h2 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h2><p>releases用于区分不同版本项目所用的静态资源文件，但并非必须。<br>不适用版本号将直接引用最新资源。<br>个人用途建议不用releases，直接引用即可。</p><ul><li><p>加载任何Github发布、提交或分支<br><a href="https://cdn.jsdelivr.net/gh/user/repo@version/file">https://cdn.jsdelivr.net/gh/user/repo@version/file</a></p></li><li><p>加载 jQuery v3.2.1<br><a href="https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js">https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js</a></p></li><li><p>使用版本范围而不是特定版本<br><a href="https://cdn.jsdelivr.net/gh/jquery/jquery@3.2/dist/jquery.min.js">https://cdn.jsdelivr.net/gh/jquery/jquery@3.2/dist/jquery.min.js</a><br><a href="https://cdn.jsdelivr.net/gh/jquery/jquery@3/dist/jquery.min.js">https://cdn.jsdelivr.net/gh/jquery/jquery@3/dist/jquery.min.js</a></p></li><li><p>完全省略该版本以获取最新版本<br><a href="https://cdn.jsdelivr.net/gh/jquery/jquery/dist/jquery.min.js">https://cdn.jsdelivr.net/gh/jquery/jquery/dist/jquery.min.js</a></p></li><li><p>将“.min”添加到任何JS/CSS文件中以获取缩小版本，如果不存在，将为会自动生成<br><a href="https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/src/core.min.js">https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/src/core.min.js</a></p></li><li><p>在末尾添加 / 以获取资源目录列表<br><a href="https://cdn.jsdelivr.net/gh/jquery/jquery/">https://cdn.jsdelivr.net/gh/jquery/jquery/</a></p></li></ul><p><strong>反复测了几张图，比sm.ms真的是快多了</strong><br>以后慢慢把在sm.ms上的图片搬过去。</p><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/article/jsdelivr-example.jpg" alt="6.3MB"></p><p>还有就是markdown的写作今天从Typora转向VScode了，Typora的bug真的是太多了。Typora不光优点明显缺点也很明显，不然怎么到了2020年了Typora还是测试版呢。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;article class=&quot;message is-info&quot;&gt;&lt;div class=&quot;message-body&quot;&gt;
-&lt;p&gt;发现用了几年的&lt;a href=&quot;https://sm.ms&quot;&gt;sm.ms&lt;/a&gt;没有以前好用了，白天加载图片速度巨慢，原因可能是sm.ms在大陆已经没有cdn节点了。故而选择折腾一个新图床来提高页面加载速度。&lt;/p&gt;
-&lt;/div&gt;&lt;/article&gt;
-
-&lt;p&gt;一阵搜寻发现jsDelivr还可以用来作图床并且在国内速度还很不错，于是搞了个jsDelivr的图床。&lt;/p&gt;
-&lt;p&gt;jsDelivr官网：&lt;a href=&quot;https://www.jsdelivr.com/&quot;&gt;https://www.jsdelivr.com/&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
