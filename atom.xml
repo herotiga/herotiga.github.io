@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2020-08-06T10:39:11.370Z</updated>
+  <updated>2020-08-07T08:18:07.378Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决xxx.github.io dns污染</title>
+    <link href="https://herotiga.github.io/2020/08/07/github-io-dns%E6%B1%A1%E6%9F%93/"/>
+    <id>https://herotiga.github.io/2020/08/07/github-io-dns%E6%B1%A1%E6%9F%93/</id>
+    <published>2020-08-06T16:12:09.000Z</published>
+    <updated>2020-08-07T08:18:07.378Z</updated>
+    
+    <content type="html"><![CDATA[<article class="message is-info"><div class="message-body"><p>上个月月末开始就发现本博客的herotiga.github.io域名无法访问了，于是我试着打开了各个大佬的github.io的博客果然都一样，当时就发觉这是一场有组织有纪律的dns污染行为。</p><p>解决方法如下。</p></div></article><a id="more"></a><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>修改本机DNS为<code>114.114.114.114</code>即可。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;article class=&quot;message is-info&quot;&gt;&lt;div class=&quot;message-body&quot;&gt;
+&lt;p&gt;上个月月末开始就发现本博客的herotiga.github.io域名无法访问了，于是我试着打开了各个大佬的github.io的博客果然都一样，当时就发觉这是一场有组织有纪律的dns污染行为。&lt;/p&gt;
+&lt;p&gt;解决方法如下。&lt;/p&gt;
+&lt;/div&gt;&lt;/article&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://herotiga.github.io/categories/linux/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>linux使用技巧</title>
@@ -443,29 +467,6 @@
     
     
       <category term="linux" scheme="https://herotiga.github.io/categories/linux/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>备案小记</title>
-    <link href="https://herotiga.github.io/2020/06/08/filing/"/>
-    <id>https://herotiga.github.io/2020/06/08/filing/</id>
-    <published>2020-06-08T08:03:19.000Z</published>
-    <updated>2020-06-13T04:45:28.017Z</updated>
-    
-    <content type="html"><![CDATA[<p>昨天下午给这个网站提交了备案，今天早上就完全备案完了，也在footer悬挂了ICP备案信息，就来记录一下备案的过程以及备案的痛点。</p><a id="more"></a><p>首先，备案有两种：ICP备案和公安备案。<br>ICP备案是在中国大陆运行的所有网站都需要备案的，当然，我的网站由github page托管，服务器不在国内所以其实不用备案。</p><p>但是迫于前几天收件撸了一个阿里云的dcdn（全站加速）。dcdn和cdn的区别？dcdn就是对网站的所有资源进行加速而不是cdn仅对静态资源进行加速。<br>但是你懂的，像大陆IDC提供的其他服务一样，使用dcdn也是需要以网站备案为前提的，故而没办法只能进行备案。</p><p>公安备案是你的网站在大陆境内进行业务的话会需要这个备案，我作为一个个人博客是不需要备案的。当然还有很多其他各种专项备案，大家看大型网站底部总是能发现一堆的备案信息，其实都是各种专项的东西，个人使用的博客站只需要ICP备案即可。</p><hr><h2 id="软硬环境"><a href="#软硬环境" class="headerlink" title="软硬环境"></a>软硬环境</h2><p>服务器使用了github提供的github page服务，这个服务提供了免费的静态页面的托管服务以及一个github.io的次级域名。</p><p>网站使用了hexo这个静态博客生成器，hexo可以再本地编辑修改配置文件来给网站一定的信息以及本地编写文章，再编译为静态文件后部署到github page上面。就我以前用wordpress的经验来看，越接近服务器的博客方案维护成本越高，我使用服务器搭建wordpress的时候需要自己购买服务器域名，自己维护服务器的web服务器环境比如LAMP或者LNMP，自己搞SSL证书，自己搞重定向以及配置端口。这还不是全部，wordpress一周一个小版本一个月一次大版本的更新实在受不了，还有各种插件的更新以及兼容的问题。所以自建服务器以及自建站点实在是太费心费力了。</p><p>域名ownpress.icu是在阿里云购买的，dns解析也没改也是阿里云的dns。</p><h2 id="开始备案"><a href="#开始备案" class="headerlink" title="开始备案"></a>开始备案</h2><p>我的域名是购于阿里云但是我的服务器实际是位于海外的，点进阿里云的备案系统后到了第二步发现需要填写服务器的一个id，但是我并没有在阿里云购买。这个时候其实上只要去淘宝购买一个备案服务号就可以填写进去从而不用提供主机信息了。</p><h2 id="填写信息"><a href="#填写信息" class="headerlink" title="填写信息"></a>填写信息</h2><p>接下来就是在阿里云填写各种个人信息以及身份证和摄像头人脸识别等等。<br>这个过程真的让我感觉我就是一颗韭菜，嗯，这里省略一万字。<br>最后提交</p><h2 id="提交审核"><a href="#提交审核" class="headerlink" title="提交审核"></a>提交审核</h2><p>写完了就可以提交了，提交了以后会先送到阿里云进行初审，阿里云初审通过后会提交到管局（管局就是工信部下面管理网站的一个部门）进行审核。</p><h2 id="备案完成"><a href="#备案完成" class="headerlink" title="备案完成"></a>备案完成</h2><p>没什么问题的话管局就会给你发一个短信和一封邮件告诉你成功了，并提醒你悬挂ICP备案信息在网站footer，不然可能会罚款5000-10000元。</p><h2 id="悬挂ICP"><a href="#悬挂ICP" class="headerlink" title="悬挂ICP"></a>悬挂ICP</h2><p>在主题layout目录下找到footer.*文件，我的主题是footer.ejs模板文件，在对应位置添加a链接即可。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;昨天下午给这个网站提交了备案，今天早上就完全备案完了，也在footer悬挂了ICP备案信息，就来记录一下备案的过程以及备案的痛点。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="web" scheme="https://herotiga.github.io/categories/web/"/>
-    
-      <category term="hexo" scheme="https://herotiga.github.io/categories/hexo/"/>
     
     
   </entry>
