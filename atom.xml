@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2020-08-11T23:30:35.533Z</updated>
+  <updated>2020-08-07T12:54:42.264Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,30 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>什么是元数据（metadata）？</title>
-    <link href="https://herotiga.github.io/2020/08/12/what-is-metadata/"/>
-    <id>https://herotiga.github.io/2020/08/12/what-is-metadata/</id>
-    <published>2020-08-11T23:21:46.000Z</published>
-    <updated>2020-08-11T23:30:35.533Z</updated>
-    
-    <content type="html"><![CDATA[<article class="message is-info"><div class="message-body"><p>经常在计算机世界中看到元数据，那么到底什么是<strong>元数据</strong>呢？</p><p><strong>元数据是用来描述数据的数据</strong>。比如相机拍出来的照片，照片中的每个像素就是照片的数据，而EXIF就是描述照片数据的数据。</p></div></article><a id="more"></a><p>那么，元数据的作用是什么呢？</p><p><strong>元数据可以格式化数据的描述和分类</strong>，从而使得机器处理数据成为可能。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;article class=&quot;message is-info&quot;&gt;&lt;div class=&quot;message-body&quot;&gt;
-&lt;p&gt;经常在计算机世界中看到元数据，那么到底什么是&lt;strong&gt;元数据&lt;/strong&gt;呢？&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;元数据是用来描述数据的数据&lt;/strong&gt;。比如相机拍出来的照片，照片中的每个像素就是照片的数据，而EXIF就是描述照片数据的数据。&lt;/p&gt;
-&lt;/div&gt;&lt;/article&gt;
-    
-    </summary>
-    
-    
-      <category term="web" scheme="https://herotiga.github.io/categories/web/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>解决xxx.github.io dns污染</title>
@@ -469,6 +445,27 @@
     
     
       <category term="git" scheme="https://herotiga.github.io/categories/git/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>将闲置主机作为云计算平台</title>
+    <link href="https://herotiga.github.io/2020/06/09/run-on-linux-server/"/>
+    <id>https://herotiga.github.io/2020/06/09/run-on-linux-server/</id>
+    <published>2020-06-08T17:48:41.000Z</published>
+    <updated>2020-06-08T18:21:36.197Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果你有一个闲置的主机比如PC，可以为其安装linux或者就使用windows，为其安装OpenSSH将其变为linux server，从而我们就可以用性能较弱的mac搭配一些linux命令就可以在PC上进行高性能或者长时间的运算。</p><a id="more"></a><ul><li>linux安装openssh</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ubuntu</span></span><br><span class="line">sudo apt-get install openssh-server</span><br><span class="line"></span><br><span class="line"><span class="comment"># centos</span></span><br><span class="line">sudo yum install openssh-server</span><br></pre></td></tr></table></figure><ul><li><p>windows安装openssh</p><ol><li>先下载openssh-win61.zip并解压至C:\Program Files\OpenSSH</li><li>打开powershell并进入C:\Program Files\OpenSSH</li><li>安装</li></ol></li></ul><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell.exe <span class="literal">-ExecutionPolicy</span> Bypass <span class="operator">-File</span> <span class="built_in">install-sshd</span>.ps1</span><br></pre></td></tr></table></figure><ol start="4"><li>启动openssh并设置openssh自启动</li></ol><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sc config sshd start= auto</span><br><span class="line">net start sshd</span><br></pre></td></tr></table></figure><p>配置参考：<a href="https://www.jianshu.com/p/6e5bc39d386e">https://www.jianshu.com/p/6e5bc39d386e</a></p><h2 id="在云端运行本地脚本"><a href="#在云端运行本地脚本" class="headerlink" title="在云端运行本地脚本"></a>在云端运行本地脚本</h2><p>比如我要在server上运行本地的一个python脚本test.py：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.0.101 python3 &lt; ~/Desktop/test.py</span><br></pre></td></tr></table></figure><p>tips: <code>python3</code>是服务器端python3的命令，<code>&lt;</code>是重定向，<code>~/Desktop/test.py</code>是本地的python文件。</p><h2 id="在云端和本地之间传输文件"><a href="#在云端和本地之间传输文件" class="headerlink" title="在云端和本地之间传输文件"></a>在云端和本地之间传输文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将本地的~/Desktop/test.py文件复制到云端root@192.168.0.101下的~/Desktop目录</span></span><br><span class="line">scp ~/Desktop/test.py root@192.168.0.101:~/Desktop</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将本地的~/Desktop/test.py以及~/Desktop/test2.py文件复制到云端root@192.168.0.101下的~/Desktop目录</span></span><br><span class="line">scp ~/Desktop/&#123;<span class="built_in">test</span>,test2&#125;.py root@192.168.0.101:~/Desktop</span><br><span class="line"></span><br><span class="line"><span class="comment"># 反之亦可，将云端文件传输到本地</span></span><br><span class="line">scp root@192.168.0.101:~/Desktop/b.py ~/Desktop</span><br></pre></td></tr></table></figure><h2 id="在云端执行命令"><a href="#在云端执行命令" class="headerlink" title="在云端执行命令"></a>在云端执行命令</h2><p>双引号中的代表在云端环境执行的命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.0.101 <span class="string">"python3 ~/Desktop/test.py"</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如果你有一个闲置的主机比如PC，可以为其安装linux或者就使用windows，为其安装OpenSSH将其变为linux server，从而我们就可以用性能较弱的mac搭配一些linux命令就可以在PC上进行高性能或者长时间的运算。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://herotiga.github.io/categories/linux/"/>
     
     
   </entry>
