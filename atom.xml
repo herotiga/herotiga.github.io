@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2020-08-31T04:06:37.676Z</updated>
+  <updated>2020-08-31T04:24:08.320Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -21,15 +21,13 @@
     <link href="https://herotiga.github.io/2020/08/31/short-url/"/>
     <id>https://herotiga.github.io/2020/08/31/short-url/</id>
     <published>2020-08-30T17:59:44.000Z</published>
-    <updated>2020-08-31T04:06:37.676Z</updated>
+    <updated>2020-08-31T04:24:08.320Z</updated>
     
-    <content type="html"><![CDATA[<p>经常看到社交app以及短信中出现推销的链接很短。</p><p>比如：<a href="https://dwz.cn/4kuYDdGu">https://dwz.cn/4kuYDdGu</a></p><p>其真实的链接为<a href="https://test.smzdm.com/p/10192/?utm_source=083002&amp;utm_medium=083002&amp;utm_campaign=083002">https://test.smzdm.com/p/10192/?utm_source=083002&amp;utm_medium=083002&amp;utm_campaign=083002</a></p><p>那么这是如何做到的呢？还有为什么要将长链接做短呢？</p><p>这篇文章就探索一下什么是短链接，短链接的原理是什么，以及如何设计一个高性能的短链接。</p><a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<p>经常看到社交app以及短信中出现推销的链接很短。</p><p>那么这是如何做到的呢？还有为什么要将长链接做短呢？</p><p>这篇文章就探索一下什么是短链接，短链接的原理是什么，以及如何设计一个高性能的短链接。</p><a id="more"></a><h2 id="什么是短链接"><a href="#什么是短链接" class="headerlink" title="什么是短链接"></a>什么是短链接</h2><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>这是一个真实的短链接：</p><p><a href="https://dwz.cn/4kuYDdGu">https://dwz.cn/4kuYDdGu</a></p><p>点击跳转后其真实的长链接为：</p><p><a href="https://app.smzdm.com/xiazai/?json=%7B%22url%22%3A%22https%3A%2F%2Ftest.smzdm.com%2Fp%2F10192%2F%3Futm_source%3D083002%26utm_medium%3D083002%26utm_campaign%3D083002%22%2C%22channel_name%22%3A%22test%22%2C%22article_id%22%3A%2210192%22%2C%22linkVal%22%3A%2210192%22%2C%22frompage%22%3A%22message%22%2C%22targetpage%22%3A%22test%22%2C%22roll_type%22%3A%222%22%2C%22download%22%3A%220%22%2C%22open_from%22%3A%22message%22%2C%22open_target%22%3A%22test%22%7D">https://app.smzdm.com/xiazai/?json=%7B%22url%22%3A%22https%3A%2F%2Ftest.smzdm.com%2Fp%2F10192%2F%3Futm_source%3D083002%26utm_medium%3D083002%26utm_campaign%3D083002%22%2C%22channel_name%22%3A%22test%22%2C%22article_id%22%3A%2210192%22%2C%22linkVal%22%3A%2210192%22%2C%22frompage%22%3A%22message%22%2C%22targetpage%22%3A%22test%22%2C%22roll_type%22%3A%222%22%2C%22download%22%3A%220%22%2C%22open_from%22%3A%22message%22%2C%22open_target%22%3A%22test%22%7D</a></p><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>发现了什么？</p><p><strong>原本的长链接真的太长了！有没有？</strong></p><p>故而，短链接的<strong>优点</strong>就是短，所以经常出现在对链接长度有限制的平台比如微博。</p><p>其实短链接还有其他的优点，不过都是基于短链接长度短而来的衍生优势。</p><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>那么问题来了，短链接带来的<strong>缺点</strong>又有什么？</p><p>是响应时间的变长，其实短链接是靠时间换空间的一个东西。</p><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>我们分析一下刚才点击短链接到最终得到真实链接的过程：</p><p><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/article/surl.png" alt="surl"></p><p>客户端点击短链接后访问短链接服务器，服务器302暂时重定向到真实的url。</p><p>所以说短链接是用时间换空间。</p><p>那么服务器用301还是302呢？</p><p>用302。为什么？</p><blockquote><ul><li>301，代表 <strong>永久重定向</strong>，也就是说第一次请求拿到长链接后，下次浏览器再去请求短链的话，不会向短网址服务器请求了，而是直接从浏览器的缓存里拿，这样在 server 层面就无法获取到短网址的点击数了，如果这个链接刚好是某个活动的链接，也就无法分析此活动的效果。所以我们一般不采用 301。</li><li>302，代表 <strong>临时重定向</strong>，也就是说每次去请求短链都会去请求短网址服务器（除非响应中用 Cache-Control 或 Expired 暗示浏览器缓存）,这样就便于 server 统计点击数，所以虽然用 302 会给 server 增加一点压力，但在数据异常重要的今天，这点代码是值得的，所以推荐使用 302！</li></ul></blockquote><h2 id="设计短链接"><a href="#设计短链接" class="headerlink" title="设计短链接"></a>设计短链接</h2><h3 id="哈希算法"><a href="#哈希算法" class="headerlink" title="哈希算法"></a>哈希算法</h3><h3 id="自增序列算法"><a href="#自增序列算法" class="headerlink" title="自增序列算法"></a>自增序列算法</h3>]]></content>
     
     <summary type="html">
     
       &lt;p&gt;经常看到社交app以及短信中出现推销的链接很短。&lt;/p&gt;
-&lt;p&gt;比如：&lt;a href=&quot;https://dwz.cn/4kuYDdGu&quot;&gt;https://dwz.cn/4kuYDdGu&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;其真实的链接为&lt;a href=&quot;https://test.smzdm.com/p/10192/?utm_source=083002&amp;amp;utm_medium=083002&amp;amp;utm_campaign=083002&quot;&gt;https://test.smzdm.com/p/10192/?utm_source=083002&amp;amp;utm_medium=083002&amp;amp;utm_campaign=083002&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;那么这是如何做到的呢？还有为什么要将长链接做短呢？&lt;/p&gt;
 &lt;p&gt;这篇文章就探索一下什么是短链接，短链接的原理是什么，以及如何设计一个高性能的短链接。&lt;/p&gt;
     
