@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2020-09-01T14:21:53.608Z</updated>
+  <updated>2020-09-02T15:56:16.161Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>所谓编译型语言和解释型语言的误区</title>
+    <link href="https://herotiga.github.io/2020/09/02/%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E8%AF%AF%E5%8C%BA/"/>
+    <id>https://herotiga.github.io/2020/09/02/%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E8%AF%AF%E5%8C%BA/</id>
+    <published>2020-09-02T15:42:59.000Z</published>
+    <updated>2020-09-02T15:56:16.161Z</updated>
+    
+    <content type="html"><![CDATA[<p>什么是解释型语言？什么是编译型语言？</p><p>python是解释型语言？clang是编译型语言？java是解释型语言？</p><p>no，no，no。</p><p>其实这种根深蒂固的说法是错的。</p><a id="more"></a><p>一门编程语言本身并不具有是解释型语言还是编译型的属性，准确的说法是：某个语言的特定实现是编译型或者解释型的。</p><p>比如javascript这个语言，它既有解释型的实现比如早期浏览器的js引擎，也有编译型的实现比如chrome的v8引擎。</p><p>再拿一个后端的语言scheme为例，chichen scheme为scheme提供了两套实现方式，一个是解释器csi，另一个是编译器csc。</p><p>故而，所谓的编译型、解释型并不是一门语言本身固有的属性，而是语言实现的特性。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;什么是解释型语言？什么是编译型语言？&lt;/p&gt;
+&lt;p&gt;python是解释型语言？clang是编译型语言？java是解释型语言？&lt;/p&gt;
+&lt;p&gt;no，no，no。&lt;/p&gt;
+&lt;p&gt;其实这种根深蒂固的说法是错的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="computer science" scheme="https://herotiga.github.io/categories/computer-science/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>短链接原理及设计</title>
@@ -443,29 +467,6 @@
     
     
       <category term="latex" scheme="https://herotiga.github.io/categories/latex/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>git垃圾回收机制</title>
-    <link href="https://herotiga.github.io/2020/06/09/git-gc/"/>
-    <id>https://herotiga.github.io/2020/06/09/git-gc/</id>
-    <published>2020-06-09T06:09:32.000Z</published>
-    <updated>2020-06-16T18:27:08.583Z</updated>
-    
-    <content type="html"><![CDATA[<article class="message is-info"><div class="message-body"><p>随着cdn仓库commit次数的变多，本地的cdn仓库会越来越占空间。可是我本地cdn仓库的目的只是用来push静态文件到github的cdn仓库，目的不是用来做版本管理，那么怎么释放这些成倍于静态文件大小的本地仓库占用空间呢？</p></div></article><a id="more"></a><p>git有gc机制（garbage collection），git会不定时的自动auto gc，它可以将松散的文件压缩。</p><p>下面是命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git gc</span><br></pre></td></tr></table></figure><p>搭配参数使用：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对git仓库进行彻底的清理和优化</span></span><br><span class="line">git gc --aggressive</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果有7000个松散的对象或者50个以上的packfile，git才会进行gc</span></span><br><span class="line">git gc --auto</span><br></pre></td></tr></table></figure><p>还有另一个简单粗暴的方法：删除.git目录，重新<code>git init</code>仓库，然后重新<code>commit</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rm -rf .git</span><br><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">'info'</span></span><br></pre></td></tr></table></figure><p>上面的方法都试过了发现<code>git gc --aggressive</code>比较靠谱。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;article class=&quot;message is-info&quot;&gt;&lt;div class=&quot;message-body&quot;&gt;
-&lt;p&gt;随着cdn仓库commit次数的变多，本地的cdn仓库会越来越占空间。可是我本地cdn仓库的目的只是用来push静态文件到github的cdn仓库，目的不是用来做版本管理，那么怎么释放这些成倍于静态文件大小的本地仓库占用空间呢？&lt;/p&gt;
-&lt;/div&gt;&lt;/article&gt;
-    
-    </summary>
-    
-    
-      <category term="git" scheme="https://herotiga.github.io/categories/git/"/>
     
     
   </entry>
