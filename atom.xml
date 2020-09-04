@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2020-09-04T16:24:51.508Z</updated>
+  <updated>2020-09-04T17:21:36.642Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Scala入门</title>
+    <link href="https://herotiga.github.io/2020/09/05/scala-installation/"/>
+    <id>https://herotiga.github.io/2020/09/05/scala-installation/</id>
+    <published>2020-09-04T17:07:16.000Z</published>
+    <updated>2020-09-04T17:21:36.642Z</updated>
+    
+    <content type="html"><![CDATA[<p>学习一下Scala：<a href="https://www.runoob.com/scala/scala-tutorial.html">https://www.runoob.com/scala/scala-tutorial.html</a><br>Scala官方文档：<a href="https://docs.scala-lang.org/zh-cn/">https://docs.scala-lang.org/zh-cn/</a></p><p>Scala是一门多范式的编程语言，设计初衷是要集成面向对象编程和函数式编程的各种特性。<br>Scala运行在JVM之上，并且兼容现有的Java程序。<br>Scala源代码被编译成Java字节码，并且运行在JVM上，而且可以调用现有的Java类库。</p><a id="more"></a><p>Scala的前置语言是Java。</p><p>第一个Scala程序：HelloWorld.scala</p><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line">        println(<span class="string">"Hello, world!"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>编译运行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 和java类似，先使用scalac将.scala文件编译为字节码</span></span><br><span class="line">scalac HelloWorld.scala</span><br><span class="line"></span><br><span class="line"><span class="comment"># 和java类似，使用scala解释运行</span></span><br><span class="line">scala HelloWorld</span><br></pre></td></tr></table></figure><p>输出：</p><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Hello</span>, world!</span><br></pre></td></tr></table></figure><p><a href="https://static.runoob.com/download/Scala%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83.pdf">Scala语言规范.pdf</a></p><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Scala是Scalable Language 的简写，是一门多范式的编程语言。<br>联邦理工学院洛桑（EPFL）的Martin Odersky于2001年基于Funnel的工作开始设计Scala。</p><h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习一下Scala：&lt;a href=&quot;https://www.runoob.com/scala/scala-tutorial.html&quot;&gt;https://www.runoob.com/scala/scala-tutorial.html&lt;/a&gt;&lt;br&gt;Scala官方文档：&lt;a href=&quot;https://docs.scala-lang.org/zh-cn/&quot;&gt;https://docs.scala-lang.org/zh-cn/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Scala是一门多范式的编程语言，设计初衷是要集成面向对象编程和函数式编程的各种特性。&lt;br&gt;Scala运行在JVM之上，并且兼容现有的Java程序。&lt;br&gt;Scala源代码被编译成Java字节码，并且运行在JVM上，而且可以调用现有的Java类库。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="scala" scheme="https://herotiga.github.io/categories/scala/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java复习笔记（二）</title>
+    <link href="https://herotiga.github.io/2020/09/04/java-review-02/"/>
+    <id>https://herotiga.github.io/2020/09/04/java-review-02/</id>
+    <published>2020-09-04T13:54:07.000Z</published>
+    <updated>2020-09-04T16:35:20.246Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="java" scheme="https://herotiga.github.io/categories/java/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Java复习笔记（一）</title>
@@ -419,50 +465,6 @@
     
     
       <category term="linux" scheme="https://herotiga.github.io/categories/linux/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>解决github上图片无法显示的问题</title>
-    <link href="https://herotiga.github.io/2020/06/23/%E8%A7%A3%E5%86%B3github%E4%B8%8A%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>https://herotiga.github.io/2020/06/23/%E8%A7%A3%E5%86%B3github%E4%B8%8A%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98/</id>
-    <published>2020-06-22T17:18:25.000Z</published>
-    <updated>2020-06-23T04:06:45.886Z</updated>
-    
-    <content type="html"><![CDATA[<article class="message is-info"><div class="message-body"><p>最近国内访问github会因为dns的原因导致图片不显示，可以修改本地hosts来解决。</p></div></article><a id="more"></a><h2 id="找到hosts文件"><a href="#找到hosts文件" class="headerlink" title="找到hosts文件"></a>找到hosts文件</h2><p>macos：<br>路径：<code>/etc/hosts</code></p><p>windows:<br>路径：<code>C:\Windows\System32\drivers\etc\hosts</code></p><h2 id="修改hosts文件"><a href="#修改hosts文件" class="headerlink" title="修改hosts文件"></a>修改hosts文件</h2><p>在hosts文件中追加以下配置信息：</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># GitHub Start </span></span><br><span class="line">192.30.253.112    Build software better, together </span><br><span class="line">192.30.253.119    gist.github.com</span><br><span class="line">151.101.184.133    assets-cdn.github.com</span><br><span class="line">151.101.184.133    raw.githubusercontent.com</span><br><span class="line">151.101.184.133    gist.githubusercontent.com</span><br><span class="line">151.101.184.133    cloud.githubusercontent.com</span><br><span class="line">151.101.184.133    camo.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars0.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars1.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars2.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars3.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars4.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars5.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars6.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars7.githubusercontent.com</span><br><span class="line">151.101.184.133    avatars8.githubusercontent.com</span><br><span class="line"> <span class="comment"># GitHub End</span></span><br></pre></td></tr></table></figure><p>完美解决~</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://www.jianshu.com/p/752211238c1b">https://www.jianshu.com/p/752211238c1b</a></li><li><a href="https://sspai.com/post/43248">https://sspai.com/post/43248</a></li><li><a href="https://zhuanlan.zhihu.com/p/107196957">https://zhuanlan.zhihu.com/p/107196957</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;article class=&quot;message is-info&quot;&gt;&lt;div class=&quot;message-body&quot;&gt;
-&lt;p&gt;最近国内访问github会因为dns的原因导致图片不显示，可以修改本地hosts来解决。&lt;/p&gt;
-&lt;/div&gt;&lt;/article&gt;
-    
-    </summary>
-    
-    
-      <category term="git" scheme="https://herotiga.github.io/categories/git/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>什么是新基建</title>
-    <link href="https://herotiga.github.io/2020/06/22/%E6%96%B0%E5%9F%BA%E5%BB%BA/"/>
-    <id>https://herotiga.github.io/2020/06/22/%E6%96%B0%E5%9F%BA%E5%BB%BA/</id>
-    <published>2020-06-22T11:31:29.000Z</published>
-    <updated>2020-07-22T11:46:26.228Z</updated>
-    
-    <content type="html"><![CDATA[<p>什么是新基建？</p><a id="more"></a><blockquote><p><a href="https://baike.baidu.com/item/%E6%96%B0%E5%9E%8B%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E5%BB%BA%E8%AE%BE/24528423?fromtitle=%E6%96%B0%E5%9F%BA%E5%BB%BA&fromid=24522518&fr=aladdin">新型基础设施建设</a>（简称：新基建），主要包括5G基站建设、特高压、城际高速铁路和城市轨道交通、新能源汽车充电桩、大数据中心、人工智能、工业互联网七大领域，涉及诸多产业链 ，是以新发展理念为引领，以技术创新为驱动，以信息网络为基础，面向高质量发展需要，提供数字转型、智能升级、融合创新等服务的基础设施体系。<br>2020年3月，中共中央政治局常务委员会召开会议提出，加快5G网络、数据中心等新型基础设施建设进度。<br>2020年5月7日，从上海市政府新闻发布会上介绍的《上海市推进新型基础设施建设行动方案（2020-2022年）》获悉，上海初步梳理排摸了这一领域未来三年实施的第一批48个重大项目和工程包，预计总投资约2700亿元。<br>2020年5月22日，《2020年国务院政府工作报告》提出，重点支持“两新一重”（新型基础设施建设，新型城镇化建设，交通、水利等重大工程建设）建设。</p></blockquote><blockquote><p>图片来自所长林超：<a href="https://www.bilibili.com/video/BV1H7411y7Hh?from=search&amp;seid=18115219843630947634">https://www.bilibili.com/video/BV1H7411y7Hh?from=search&amp;seid=18115219843630947634</a></p></blockquote><p>新基建的7个领域：<br><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/article/%E6%96%B0%E5%9F%BA%E5%BB%BA.png" alt=""></p><p>新基建机遇：<br><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/article/%E6%96%B0%E5%9F%BA%E5%BB%BA%E6%9C%BA%E9%81%87.png" alt=""></p><p>5G产业机会图：<br><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/article/5g%E6%9C%BA%E4%BC%9A%E5%9B%BE.png" alt=""></p><p>4G发牌：<br><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/article/4g%E5%8F%91%E7%89%8C.png" alt=""></p><p>5G产业地图：<br><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/article/5g%E4%BA%A7%E4%B8%9A%E5%9C%B0%E5%9B%BE.png" alt=""></p><p>做内容需要有设计感、故事感、娱乐感、意义感、同理心，要去像人一样思考而不是像机器一样。</p><p>后动优势(late-mover advantage；Second-mover advantage；又称为次动优势、后发优势、先动劣势)是指相对于行业的先进入企业，后进入者由于较晚进入行业而获得的较先动企业不具有的竞争优势，通过观察先动者的行动及效果来减少自身面临的不确定性而采取相应行动，获得更多的市场份额。例如：研发成本优势、行业风险把握优势等。</p><p>出来卖的三个维度：<br><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/article/%E5%87%BA%E6%9D%A5%E5%8D%96%E7%9A%84%E4%B8%89%E4%B8%AA%E7%BB%B4%E5%BA%A6.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;什么是新基建？&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="business" scheme="https://herotiga.github.io/categories/business/"/>
     
     
   </entry>
