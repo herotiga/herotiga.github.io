@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2020-09-18T15:08:29.258Z</updated>
+  <updated>2020-09-19T05:18:08.400Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>解决阿里云提醒域名未指向阿里云服务器的问题</title>
-    <link href="https://herotiga.github.io/2020/09/18/%E8%A7%A3%E5%86%B3%E9%98%BF%E9%87%8C%E4%BA%91%E5%9F%9F%E5%90%8D%E6%9C%AA%E6%8C%87%E5%90%91%E9%98%BF%E9%87%8C%E4%BA%91%E8%8A%82%E7%82%B9/"/>
-    <id>https://herotiga.github.io/2020/09/18/%E8%A7%A3%E5%86%B3%E9%98%BF%E9%87%8C%E4%BA%91%E5%9F%9F%E5%90%8D%E6%9C%AA%E6%8C%87%E5%90%91%E9%98%BF%E9%87%8C%E4%BA%91%E8%8A%82%E7%82%B9/</id>
-    <published>2020-09-18T14:46:09.000Z</published>
-    <updated>2020-09-18T15:08:29.258Z</updated>
-    
-    <content type="html"><![CDATA[<p>前几天收到了阿里云的<strong>威胁短信</strong>一直没处理。</p><a id="more"></a><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn@master/img/article/阿里云备案短信.jpeg" width="400"><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>首先，在阿里云控制台中找到域名，添加一个A记录，记录值为阿里云大陆节点ip，并且保证这个二级域名隔一段时间要有访问量。</p><h2 id="添加A记录"><a href="#添加A记录" class="headerlink" title="添加A记录"></a>添加A记录</h2><p>为了保证这个ip一定能访问且为阿里云的ip，直接ping一下1688.com的域名，得到的ip一定是阿里云的ip。</p><p>我得到的ip为： <code>140.205.174.2</code> 。</p><p>二级域名为：1688</p><p>再添加一个淘宝的ip： <code>140.205.220.96</code> 。</p><p>二级域名为：taobao</p><p>完成！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前几天收到了阿里云的&lt;strong&gt;威胁短信&lt;/strong&gt;一直没处理。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="web" scheme="https://herotiga.github.io/categories/web/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>对于当前社会中的学习的思考</title>
@@ -458,6 +437,29 @@
     
     
       <category term="linux" scheme="https://herotiga.github.io/categories/linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>git暂存工作区变动到临时空间</title>
+    <link href="https://herotiga.github.io/2020/06/24/git%E6%9A%82%E5%AD%98%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%8F%98%E5%8A%A8/"/>
+    <id>https://herotiga.github.io/2020/06/24/git%E6%9A%82%E5%AD%98%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%8F%98%E5%8A%A8/</id>
+    <published>2020-06-23T19:55:31.000Z</published>
+    <updated>2020-06-24T05:21:44.842Z</updated>
+    
+    <content type="html"><![CDATA[<article class="message is-info"><div class="message-body"><p>有一种场景是：我们已经add了一些文件到暂存区，而我们的工作区又修改了，这个时候测试提交了一个代码错误需要我们在原来的环境下fix，那么该怎么办呢？</p></div></article><a id="more"></a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure><p>这个时候工作区就被清空了，开始做bug fix。</p><p>完成修复后再pop就可以恢复之前的工作区：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># apply会保留stash list，而pop不会保留</span></span><br><span class="line">git stash apply</span><br></pre></td></tr></table></figure><p>查看stash：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash list</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;article class=&quot;message is-info&quot;&gt;&lt;div class=&quot;message-body&quot;&gt;
+&lt;p&gt;有一种场景是：我们已经add了一些文件到暂存区，而我们的工作区又修改了，这个时候测试提交了一个代码错误需要我们在原来的环境下fix，那么该怎么办呢？&lt;/p&gt;
+&lt;/div&gt;&lt;/article&gt;
+    
+    </summary>
+    
+    
+      <category term="git" scheme="https://herotiga.github.io/categories/git/"/>
     
     
   </entry>
