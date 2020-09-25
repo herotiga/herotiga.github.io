@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2020-09-25T05:48:46.577Z</updated>
+  <updated>2020-09-19T05:18:08.400Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,34 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>svn学习笔记</title>
-    <link href="https://herotiga.github.io/2020/09/25/svn-tutorial/"/>
-    <id>https://herotiga.github.io/2020/09/25/svn-tutorial/</id>
-    <published>2020-09-25T05:48:04.000Z</published>
-    <updated>2020-09-25T05:48:46.577Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a><hr><p><a href="https://www.runoob.com/svn/svn-tutorial.html">https://www.runoob.com/svn/svn-tutorial.html</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-&lt;hr&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.runoob.com/svn/svn-tutorial.html&quot;&gt;https://www.runoob.com/svn/svn-tutorial.html&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="svn" scheme="https://herotiga.github.io/categories/svn/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>对于当前社会中的学习的思考</title>
@@ -459,6 +431,29 @@
     
       &lt;article class=&quot;message is-info&quot;&gt;&lt;div class=&quot;message-body&quot;&gt;
 &lt;p&gt;Adobe Creative Cloud是安装PS、AI等Adobe软件安装时自动安装的，可是流氓的Adobe会在macos启动后自启动好几个Adobe的后台进程，研究了一下如何干掉所有的自启动进程。&lt;/p&gt;
+&lt;/div&gt;&lt;/article&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://herotiga.github.io/categories/linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>开启vim代码高亮</title>
+    <link href="https://herotiga.github.io/2020/06/24/%E5%BC%80%E5%90%AFvim%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/"/>
+    <id>https://herotiga.github.io/2020/06/24/%E5%BC%80%E5%90%AFvim%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/</id>
+    <published>2020-06-23T19:24:36.000Z</published>
+    <updated>2020-06-23T19:32:45.427Z</updated>
+    
+    <content type="html"><![CDATA[<article class="message is-info"><div class="message-body"><p>vim安装完后默认没有开启代码高亮，尽管开发使用GUI的编辑器和IDE，但是但是有时候也需要用vim看一下或者临时小修改一下代码。</p></div></article><a id="more"></a><p>vim代码高亮配色文件的路径是：/usr/share/vim/vim/vim81/colors</p><p>上面的vim81为版本，直接cd到/usr/share/vim/vim/下进入版本目录下查看colors既可，配色文件都是<code>.vim</code>为扩展名。</p><p>添加配置信息：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.vimrc</span><br></pre></td></tr></table></figure><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set nu </span><br><span class="line">colorscheme &lt;theme&gt;</span><br><span class="line">syntax on</span><br></pre></td></tr></table></figure><p>theme为配色文件名称。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;article class=&quot;message is-info&quot;&gt;&lt;div class=&quot;message-body&quot;&gt;
+&lt;p&gt;vim安装完后默认没有开启代码高亮，尽管开发使用GUI的编辑器和IDE，但是但是有时候也需要用vim看一下或者临时小修改一下代码。&lt;/p&gt;
 &lt;/div&gt;&lt;/article&gt;
     
     </summary>
