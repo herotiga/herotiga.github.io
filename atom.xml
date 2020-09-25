@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2020-09-19T05:18:08.400Z</updated>
+  <updated>2020-09-25T05:48:46.577Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>svn学习笔记</title>
+    <link href="https://herotiga.github.io/2020/09/25/svn-tutorial/"/>
+    <id>https://herotiga.github.io/2020/09/25/svn-tutorial/</id>
+    <published>2020-09-25T05:48:04.000Z</published>
+    <updated>2020-09-25T05:48:46.577Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><hr><p><a href="https://www.runoob.com/svn/svn-tutorial.html">https://www.runoob.com/svn/svn-tutorial.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;hr&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.runoob.com/svn/svn-tutorial.html&quot;&gt;https://www.runoob.com/svn/svn-tutorial.html&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="svn" scheme="https://herotiga.github.io/categories/svn/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>对于当前社会中的学习的思考</title>
@@ -437,29 +465,6 @@
     
     
       <category term="linux" scheme="https://herotiga.github.io/categories/linux/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>git暂存工作区变动到临时空间</title>
-    <link href="https://herotiga.github.io/2020/06/24/git%E6%9A%82%E5%AD%98%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%8F%98%E5%8A%A8/"/>
-    <id>https://herotiga.github.io/2020/06/24/git%E6%9A%82%E5%AD%98%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%8F%98%E5%8A%A8/</id>
-    <published>2020-06-23T19:55:31.000Z</published>
-    <updated>2020-06-24T05:21:44.842Z</updated>
-    
-    <content type="html"><![CDATA[<article class="message is-info"><div class="message-body"><p>有一种场景是：我们已经add了一些文件到暂存区，而我们的工作区又修改了，这个时候测试提交了一个代码错误需要我们在原来的环境下fix，那么该怎么办呢？</p></div></article><a id="more"></a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure><p>这个时候工作区就被清空了，开始做bug fix。</p><p>完成修复后再pop就可以恢复之前的工作区：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># apply会保留stash list，而pop不会保留</span></span><br><span class="line">git stash apply</span><br></pre></td></tr></table></figure><p>查看stash：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash list</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;article class=&quot;message is-info&quot;&gt;&lt;div class=&quot;message-body&quot;&gt;
-&lt;p&gt;有一种场景是：我们已经add了一些文件到暂存区，而我们的工作区又修改了，这个时候测试提交了一个代码错误需要我们在原来的环境下fix，那么该怎么办呢？&lt;/p&gt;
-&lt;/div&gt;&lt;/article&gt;
-    
-    </summary>
-    
-    
-      <category term="git" scheme="https://herotiga.github.io/categories/git/"/>
     
     
   </entry>
