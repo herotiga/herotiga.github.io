@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2020-09-25T18:22:17.765Z</updated>
+  <updated>2020-09-26T04:52:52.994Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mac卸载java8</title>
+    <link href="https://herotiga.github.io/2020/09/26/mac-uninstall-jdk8/"/>
+    <id>https://herotiga.github.io/2020/09/26/mac-uninstall-jdk8/</id>
+    <published>2020-09-26T04:45:20.000Z</published>
+    <updated>2020-09-26T04:52:52.994Z</updated>
+    
+    <content type="html"><![CDATA[<p>卸载java8换成java11 LTS。</p><a id="more"></a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -fr /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin</span><br><span class="line">sudo rm -fr /Library/PreferencesPanes/JavaControlPanel.prefPane</span><br><span class="line">sudo rm -fr ~/Library/Application\ Support/Java</span><br><span class="line"><span class="comment"># jdk版本使用ls /Library/Java/JavaVirtualMachines/查询</span></span><br><span class="line">sudo rm -rf /Library/Java/JavaVirtualMachines/[jdk version]</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;卸载java8换成java11 LTS。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="java" scheme="https://herotiga.github.io/categories/java/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>初识JVM调优</title>
@@ -435,29 +456,6 @@
       <category term="linux" scheme="https://herotiga.github.io/categories/linux/"/>
     
       <category term="hexo" scheme="https://herotiga.github.io/categories/hexo/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>干掉Adobe Creative Cloud在Macos中的启动项</title>
-    <link href="https://herotiga.github.io/2020/06/24/%E5%B9%B2%E6%8E%89Adobe-Creative-Cloud%E5%9C%A8Macos%E4%B8%AD%E7%9A%84%E5%90%AF%E5%8A%A8%E9%A1%B9/"/>
-    <id>https://herotiga.github.io/2020/06/24/%E5%B9%B2%E6%8E%89Adobe-Creative-Cloud%E5%9C%A8Macos%E4%B8%AD%E7%9A%84%E5%90%AF%E5%8A%A8%E9%A1%B9/</id>
-    <published>2020-06-24T14:16:23.000Z</published>
-    <updated>2020-06-24T14:26:45.098Z</updated>
-    
-    <content type="html"><![CDATA[<article class="message is-info"><div class="message-body"><p>Adobe Creative Cloud是安装PS、AI等Adobe软件安装时自动安装的，可是流氓的Adobe会在macos启动后自启动好几个Adobe的后台进程，研究了一下如何干掉所有的自启动进程。</p></div></article><a id="more"></a><h2 id="结束相关进程"><a href="#结束相关进程" class="headerlink" title="结束相关进程"></a>结束相关进程</h2><p>首先，打开macos的活动监视器手动选中所有adobe的进程并强制结束。</p><h2 id="删除相关文件"><a href="#删除相关文件" class="headerlink" title="删除相关文件"></a>删除相关文件</h2><p>在以下目录中寻找<code>com.adobe</code>开头的文件并删除。</p><ul><li>~/Library/LaunchAgents</li><li>/Library/LaunchAgents</li><li>/Library/LaunchDaemons</li></ul><p>最好不要删除gc文件。</p><p>进入：/Applications/Utilities/Adobe Creative Cloud目录下，删除CCLibrary, CCXProcess, CoreSync文件夹。</p><h2 id="修改设置"><a href="#修改设置" class="headerlink" title="修改设置"></a>修改设置</h2><p>进入：系统偏好设置&gt;扩展，关闭所有的adobe的扩展。</p><p>done!</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;article class=&quot;message is-info&quot;&gt;&lt;div class=&quot;message-body&quot;&gt;
-&lt;p&gt;Adobe Creative Cloud是安装PS、AI等Adobe软件安装时自动安装的，可是流氓的Adobe会在macos启动后自启动好几个Adobe的后台进程，研究了一下如何干掉所有的自启动进程。&lt;/p&gt;
-&lt;/div&gt;&lt;/article&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://herotiga.github.io/categories/linux/"/>
     
     
   </entry>
