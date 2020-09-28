@@ -42,7 +42,7 @@
     <link href="https://herotiga.github.io/2020/09/07/jvm-tuning/"/>
     <id>https://herotiga.github.io/2020/09/07/jvm-tuning/</id>
     <published>2020-09-06T16:53:47.000Z</published>
-    <updated>2020-09-26T09:55:42.333Z</updated>
+    <updated>2020-09-27T05:32:27.609Z</updated>
     
     <content type="html"><![CDATA[<p>关于jvm调优，其实大多数项目不需要jvm调优，需要调优的往往是比较极端的业务。</p><a id="more"></a><h2 id="是否需要调优"><a href="#是否需要调优" class="headerlink" title="是否需要调优"></a>是否需要调优</h2><p>关于jvm调优，一般项目不需要调优，加xms和xmx参数就可以了。即使是高并发服务也不需要调优，jvm本身就是为低延时、高并发、大吞吐的服务设计和优化的。</p><p>对于项目来说，主要还是要将精力放在项目本身的调优。</p><p><strong>jvm调优的前提是对服务的全面监控和性能数据的收集以及我们对jvm的运行原理的非常熟悉。</strong></p><p>首先需要了解系统的运行状况，如果系统的响应时间很短，资源占用也不高，那么这种调优是没什么意义的。<br>系统运行状况参数：</p><ul><li>响应时间</li><li>TPS（每秒处理事务数量）</li><li>资源占用量（系统性能受限于最差的那个）</li></ul><p>jvm调优主要针对一些极端的项目，比如一些对吞吐量要求高而对时延要求不高的服务，就像12306。<br>针对12306这种服务，可能需要调整一些参数，比如让gc中的generation分布更加合理。</p><h2 id="如何调优"><a href="#如何调优" class="headerlink" title="如何调优"></a>如何调优</h2><p>jvm调优主要包括：1. 合理分配jvm内存空间。2. 选择适合的gc回收器。</p><ol><li>合理分配jvm内存空间：jvm内存分配不合理的表现是频繁的gc从而降低系统的吞吐量和增加响应时间。</li></ol><p>主要方法是调整堆内存空间以减少Full GC，调整新生代减少MinorGC，设置合理的Eden和Survivor区的比例。</p><ol start="2"><li>选择合理的垃圾回收器</li></ol><p>垃圾回收主要回收堆（主要是对象）和方法区（主要是废弃常量和类），需要响应快可以选择CMS和G1，需要吞吐高可以选择Parallel Scavenge。</p><p>jvm调优大部分调的是gc参数，主要是下面几点：</p><ul><li>最大堆和最小堆的大小</li><li>gc算法</li><li>新生代的大小</li></ul><p>jdk8及以前：gc算法会自动在Parallel和CMS中选择，新生代根据经验调节大小，这样就达到了性能和STW的平衡。</p><p>jdk9开始的版本：gc默认算法变为G1，只需要调整最大堆大小和STW期望值既可。</p>]]></content>
     
@@ -53,7 +53,7 @@
     </summary>
     
     
-      <category term="java" scheme="https://herotiga.github.io/categories/java/"/>
+      <category term="jvm" scheme="https://herotiga.github.io/categories/jvm/"/>
     
     
   </entry>
@@ -63,7 +63,7 @@
     <link href="https://herotiga.github.io/2020/09/06/jvm-primary/"/>
     <id>https://herotiga.github.io/2020/09/06/jvm-primary/</id>
     <published>2020-09-06T07:32:58.000Z</published>
-    <updated>2020-09-26T09:55:37.395Z</updated>
+    <updated>2020-09-27T05:32:52.183Z</updated>
     
     <content type="html"><![CDATA[<p>JVM，也就是Java Virtual Machine（Java虚拟机），JVM是虚构出来的计算机，它的作用是在物理计算机上模仿各种计算机功能实现的。</p><p>Java能“一次编译，到处运行”的原因就是JVM屏蔽了不同操作系统和不同硬件的差异，这样Java开发者就可以无需考虑平台差异，只需要面向JVM编程即可。</p><a id="more"></a><hr><p>JVM的本质是一个程序，当它开始执行class文件的时候就执行class文件中的指令。<br>JVM上运行的是 <code>.class</code> 字节码文件，字节码文件是由 <code>.java</code> 文件经过编译器javac编译产生的，可以在JRE（JVM+Java类库）上运行。</p><p>正是由于JVM上面运行的是 <code>.class</code> ，所以不仅是Java，只要是能编译成 <code>.class</code> 的语言都可以在JVM上运行。<br>比如python，python可以通过编译器jython将 <code>.py</code> 编译为 <code>.class</code> ，然后在JVM上运行。<br>除此之外还有：kotlin, scala, clojure, groovy, jruby, ceylon, eta, haxe, fantom, rhino。</p><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn@master/img/article/JVM架构.png" width="400"><p>JVM的组成：堆，方法区，栈，本地方法栈，程序计数器等等。<br>其中方法回收堆和方法区是共享区，而栈、程序计数器和本地方法栈区是JVM的。</p><h2 id="JVM、JRE和JDK三者的关系"><a href="#JVM、JRE和JDK三者的关系" class="headerlink" title="JVM、JRE和JDK三者的关系"></a>JVM、JRE和JDK三者的关系</h2><p>JDK（Java开发工具包）包含了Java语言、JVM、Java API和Javac等工具。<br>JRE（Java运行时环境）包含了JVM和Java API。<br>也就是说：JDK包含了JRE，JRE又包含了JVM。</p><p>层级图示：<br><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/article/jvm-jre-jdk.png" alt=""></p><h2 id="JVM的实现原理"><a href="#JVM的实现原理" class="headerlink" title="JVM的实现原理"></a>JVM的实现原理</h2><h3 id="类装载器（ClassLoader）"><a href="#类装载器（ClassLoader）" class="headerlink" title="类装载器（ClassLoader）"></a>类装载器（ClassLoader）</h3><p>类装载器（ClassLoader），负责装载class文件，然后交由execution engine执行。<br>类装载器：启动类加载器（JVM实现的一部分）和用户自定义类加载器（Java程序的一部分）。</p><h3 id="本地方法栈（native-method-stack）"><a href="#本地方法栈（native-method-stack）" class="headerlink" title="本地方法栈（native method stack）"></a>本地方法栈（native method stack）</h3><p>本地方法栈的作用是登记native方法，然后在execution engine执行的时候加载本地方法库。</p><h3 id="栈（stack）"><a href="#栈（stack）" class="headerlink" title="栈（stack）"></a>栈（stack）</h3><p>又叫内存栈，栈负责java程序的运行，在线程创建的时候创建出来，在线程销毁的时候释放。</p><h3 id="程序计数器（program-counter）"><a href="#程序计数器（program-counter）" class="headerlink" title="程序计数器（program counter）"></a>程序计数器（program counter）</h3><p>是方法区中的方法字节码由引擎读取下一条指令。</p><h3 id="方法区（method-area）"><a href="#方法区（method-area）" class="headerlink" title="方法区（method area）"></a>方法区（method area）</h3><p>是线程共享的。</p><h3 id="堆（heap）"><a href="#堆（heap）" class="headerlink" title="堆（heap）"></a>堆（heap）</h3><p>用于存储对象实例。<br>堆的内存空间需要JVM GC回收。</p><h3 id="本地接口（native-interface）"><a href="#本地接口（native-interface）" class="headerlink" title="本地接口（native interface）"></a>本地接口（native interface）</h3><p>用于融合不同的编程语言。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/wiki/Java%E8%99%9A%E6%8B%9F%E6%9C%BA">wikipedia: JVM</a></li></ol>]]></content>
     
@@ -75,7 +75,7 @@
     </summary>
     
     
-      <category term="java" scheme="https://herotiga.github.io/categories/java/"/>
+      <category term="jvm" scheme="https://herotiga.github.io/categories/jvm/"/>
     
     
   </entry>
