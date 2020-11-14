@@ -38,32 +38,6 @@
   </entry>
   
   <entry>
-    <title>nvm的使用</title>
-    <link href="https://herotiga.github.io/2020/11/13/nvm-tutorial/"/>
-    <id>https://herotiga.github.io/2020/11/13/nvm-tutorial/</id>
-    <published>2020-11-13T11:01:32.000Z</published>
-    <updated>2020-11-13T11:17:12.687Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install nvm</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ nvm</span><br><span class="line">zsh: command not found: nvm</span><br><span class="line">  1 export NVM_DIR&#x3D;&quot;$HOME&#x2F;.nvm&quot;</span><br><span class="line">➜  ~ brew install nvm</span><br><span class="line">&#x3D;&#x3D;&gt; Downloading https:&#x2F;&#x2F;github.com&#x2F;nvm-sh&#x2F;nvm&#x2F;archive&#x2F;v0.36.0.tar.gz</span><br><span class="line">Already downloaded: &#x2F;Users&#x2F;wangwei&#x2F;Library&#x2F;Caches&#x2F;Homebrew&#x2F;downloads&#x2F;d07ef70a66fe3630676458fa441ac5f4053623bfcc1762135928fb9d632b43f3--nvm-0.36.0.tar.gz</span><br><span class="line">&#x3D;&#x3D;&gt; Caveats</span><br><span class="line">Please note that upstream has asked us to make explicit managing</span><br><span class="line">nvm via Homebrew is unsupported by them and you should check any</span><br><span class="line">problems against the standard nvm install method prior to reporting.</span><br><span class="line"></span><br><span class="line">You should create NVM&#39;s working directory if it doesn&#39;t exist:</span><br><span class="line"></span><br><span class="line">  mkdir ~&#x2F;.nvm</span><br><span class="line"></span><br><span class="line">Add the following to ~&#x2F;.zshrc or your desired shell</span><br><span class="line">configuration file:</span><br><span class="line"></span><br><span class="line">  export NVM_DIR&#x3D;&quot;$HOME&#x2F;.nvm&quot;</span><br><span class="line">  [ -s &quot;&#x2F;usr&#x2F;local&#x2F;opt&#x2F;nvm&#x2F;nvm.sh&quot; ] &amp;&amp; . &quot;&#x2F;usr&#x2F;local&#x2F;opt&#x2F;nvm&#x2F;nvm.sh&quot;  # This loads nvm</span><br><span class="line">  [ -s &quot;&#x2F;usr&#x2F;local&#x2F;opt&#x2F;nvm&#x2F;etc&#x2F;bash_completion.d&#x2F;nvm&quot; ] &amp;&amp; . &quot;&#x2F;usr&#x2F;local&#x2F;opt&#x2F;nvm&#x2F;etc&#x2F;bash_completion.d&#x2F;nvm&quot;  # This loads nvm bash_completion</span><br><span class="line"></span><br><span class="line">You can set $NVM_DIR to any location, but leaving it unchanged from</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;opt&#x2F;nvm will destroy any nvm-installed Node installations</span><br><span class="line">upon upgrade&#x2F;reinstall.</span><br><span class="line"></span><br><span class="line">Type &#96;nvm help&#96; for further information.</span><br><span class="line"></span><br><span class="line">Bash completion has been installed to:</span><br><span class="line">  &#x2F;usr&#x2F;local&#x2F;etc&#x2F;bash_completion.d</span><br><span class="line">&#x3D;&#x3D;&gt; Summary</span><br><span class="line">🍺  &#x2F;usr&#x2F;local&#x2F;Cellar&#x2F;nvm&#x2F;0.36.0: 7 files, 158.7KB, built in 4 seconds</span><br><span class="line">&#x3D;&#x3D;&gt; &#96;brew cleanup&#96; has not been run in 30 days, running now...</span><br><span class="line">^C</span><br><span class="line">➜  ~ mkdir ~&#x2F;.nvm</span><br><span class="line">➜  ~ vim .zshrc</span><br><span class="line">➜  ~ nvm</span><br><span class="line">zsh: command not found: nvm</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;g
-      
-    
-    </summary>
-    
-    
-      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>mac卸载java8</title>
     <link href="https://herotiga.github.io/2020/09/26/mac-uninstall-jdk8/"/>
     <id>https://herotiga.github.io/2020/09/26/mac-uninstall-jdk8/</id>
@@ -457,6 +431,29 @@
     
     
       <category term="deno" scheme="https://herotiga.github.io/categories/deno/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>什么是CR,LF,CRLF</title>
+    <link href="https://herotiga.github.io/2020/06/29/cr-lf-crlf/"/>
+    <id>https://herotiga.github.io/2020/06/29/cr-lf-crlf/</id>
+    <published>2020-06-29T01:39:47.000Z</published>
+    <updated>2020-07-20T07:18:11.638Z</updated>
+    
+    <content type="html"><![CDATA[<article class="message is-info"><div class="message-body"><p>使用编辑器和IDE的时候经常看到CR、LF和CRLF。<br>其实这三个是不同操作系统的不同换行符。</p></div></article><a id="more"></a><p>CR：表示回车，对应ASCII码中的<code>\r</code>。</p><p>LF：表示换行，对应ASCII码中的<code>\n</code>。</p><p>CRLF：表示回车并换行，对应的ASCII码为<code>\r\n</code>。</p><hr><p>那么三个分别适用于哪些系统呢？</p><p>CR：用于远古mac系统。</p><p>LF：unix,linux和现在的macos。</p><p>CRLF：用于windows。</p><p>一般安装完编辑器或者IDE都会根据你的系统预置换行配置。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;article class=&quot;message is-info&quot;&gt;&lt;div class=&quot;message-body&quot;&gt;
+&lt;p&gt;使用编辑器和IDE的时候经常看到CR、LF和CRLF。&lt;br&gt;其实这三个是不同操作系统的不同换行符。&lt;/p&gt;
+&lt;/div&gt;&lt;/article&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://herotiga.github.io/categories/linux/"/>
     
     
   </entry>
