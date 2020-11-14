@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2020-11-14T12:00:12.276Z</updated>
+  <updated>2020-09-26T05:09:24.379Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>解决Adobe2020(mac)闪退</title>
-    <link href="https://herotiga.github.io/2020/11/14/mac-adobe2020-tips/"/>
-    <id>https://herotiga.github.io/2020/11/14/mac-adobe2020-tips/</id>
-    <published>2020-11-14T11:55:46.000Z</published>
-    <updated>2020-11-14T12:00:12.276Z</updated>
-    
-    <content type="html"><![CDATA[<p>解决闪退问题。</p><a id="more"></a><p>解决方案：<code>/etc/hosts</code>追加如下代码</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1       lcs-cops.adobe.io</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;解决闪退问题。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="tips" scheme="https://herotiga.github.io/categories/tips/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>mac卸载java8</title>
@@ -454,6 +433,29 @@
     
     
       <category term="linux" scheme="https://herotiga.github.io/categories/linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>在hexo中加入gitbook</title>
+    <link href="https://herotiga.github.io/2020/06/27/%E5%9C%A8hexo%E4%B8%AD%E5%8A%A0%E5%85%A5gitbook/"/>
+    <id>https://herotiga.github.io/2020/06/27/%E5%9C%A8hexo%E4%B8%AD%E5%8A%A0%E5%85%A5gitbook/</id>
+    <published>2020-06-27T08:57:55.000Z</published>
+    <updated>2020-06-28T09:12:39.097Z</updated>
+    
+    <content type="html"><![CDATA[<p>写一下如何在hexo中添加gitbook。</p><a id="more"></a><ol><li>添加目录</li></ol><p>进入<code>blog/source/</code>下</p><p>创建目录：<code>mkdir gitbook</code></p><ol start="2"><li>修改_config.yml文件</li></ol><p>打开根目录下的<code>_config.yml</code>文件</p><p>找到<code>skip_render</code>，并按如下形式配置：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认配置应该是这样的</span></span><br><span class="line"><span class="attr">skip_render:</span> <span class="string">README.md</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加对gitbook目录的不解析，星号有两个代表对该目录下所有文件和目录都不解析</span></span><br><span class="line"><span class="attr">skip_render:</span> <span class="string">[README.md,gitbook/**]</span></span><br></pre></td></tr></table></figure><ol start="3"><li>工作流</li></ol><p>gitbook放置在本地，每次<code>gitbook build</code>后就将build的内容cp到blog/source/gitbook目录下即可。</p><p>然后<code>hexo d -g</code>部署到服务器后，gitbook的路径比如我的ownpress.icu/gitbook即可，再写入配置文件增加新的连接或者按钮即可。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;写一下如何在hexo中添加gitbook。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://herotiga.github.io/categories/linux/"/>
+    
+      <category term="hexo" scheme="https://herotiga.github.io/categories/hexo/"/>
     
     
   </entry>
