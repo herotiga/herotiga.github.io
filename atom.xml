@@ -38,28 +38,6 @@
   </entry>
   
   <entry>
-    <title>WebAssembly（wasm）入门</title>
-    <link href="https://herotiga.github.io/2020/09/22/wasm-tutorial/"/>
-    <id>https://herotiga.github.io/2020/09/22/wasm-tutorial/</id>
-    <published>2020-09-22T07:59:50.000Z</published>
-    <updated>2020-11-14T12:16:03.593Z</updated>
-    
-    <content type="html"><![CDATA[<p>WebAssembly（wasm）是一种新的二进制格式，他可以将c/c++（还有go、rust）等静态语言代码快速的运行在浏览器上。<br>wasm的这个特点就为前端的计算密集型应用提供了无限可能，甚至可以将基于unity开发的游戏移植到web端。</p><p>wasm可以让web应用运行更快，文件体积小，启动速度快，运行速度快。其性能对比js而言提升非常明显。</p><a id="more"></a><hr><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li>文档：<a href="https://www.wasm.com.cn/">https://www.wasm.com.cn/</a></li><li>《深入浅出WebAssembly》</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;WebAssembly（wasm）是一种新的二进制格式，他可以将c/c++（还有go、rust）等静态语言代码快速的运行在浏览器上。&lt;br&gt;wasm的这个特点就为前端的计算密集型应用提供了无限可能，甚至可以将基于unity开发的游戏移植到web端。&lt;/p&gt;
-&lt;p&gt;wasm可以让web应用运行更快，文件体积小，启动速度快，运行速度快。其性能对比js而言提升非常明显。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="wasm" scheme="https://herotiga.github.io/categories/wasm/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>初识JVM调优</title>
     <link href="https://herotiga.github.io/2020/09/07/jvm-tuning/"/>
     <id>https://herotiga.github.io/2020/09/07/jvm-tuning/</id>
@@ -455,6 +433,29 @@
     
     
       <category term="linux" scheme="https://herotiga.github.io/categories/linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>在hexo中加入gitbook</title>
+    <link href="https://herotiga.github.io/2020/06/27/%E5%9C%A8hexo%E4%B8%AD%E5%8A%A0%E5%85%A5gitbook/"/>
+    <id>https://herotiga.github.io/2020/06/27/%E5%9C%A8hexo%E4%B8%AD%E5%8A%A0%E5%85%A5gitbook/</id>
+    <published>2020-06-27T08:57:55.000Z</published>
+    <updated>2020-06-28T09:12:39.097Z</updated>
+    
+    <content type="html"><![CDATA[<p>写一下如何在hexo中添加gitbook。</p><a id="more"></a><ol><li>添加目录</li></ol><p>进入<code>blog/source/</code>下</p><p>创建目录：<code>mkdir gitbook</code></p><ol start="2"><li>修改_config.yml文件</li></ol><p>打开根目录下的<code>_config.yml</code>文件</p><p>找到<code>skip_render</code>，并按如下形式配置：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认配置应该是这样的</span></span><br><span class="line"><span class="attr">skip_render:</span> <span class="string">README.md</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加对gitbook目录的不解析，星号有两个代表对该目录下所有文件和目录都不解析</span></span><br><span class="line"><span class="attr">skip_render:</span> <span class="string">[README.md,gitbook/**]</span></span><br></pre></td></tr></table></figure><ol start="3"><li>工作流</li></ol><p>gitbook放置在本地，每次<code>gitbook build</code>后就将build的内容cp到blog/source/gitbook目录下即可。</p><p>然后<code>hexo d -g</code>部署到服务器后，gitbook的路径比如我的ownpress.icu/gitbook即可，再写入配置文件增加新的连接或者按钮即可。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;写一下如何在hexo中添加gitbook。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://herotiga.github.io/categories/linux/"/>
+    
+      <category term="hexo" scheme="https://herotiga.github.io/categories/hexo/"/>
     
     
   </entry>
