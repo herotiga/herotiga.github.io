@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2020-11-18T12:51:30.749Z</updated>
+  <updated>2020-11-23T12:35:03.213Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用commitizen规范化commit信息</title>
+    <link href="https://herotiga.github.io/2020/11/23/commitizen/"/>
+    <id>https://herotiga.github.io/2020/11/23/commitizen/</id>
+    <published>2020-11-23T12:21:15.000Z</published>
+    <updated>2020-11-23T12:35:03.213Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>commitizen</code> 可以规范化 <code>git commit</code> 信息以便回溯。</p><a id="more"></a><hr><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g commitizen</span><br></pre></td></tr></table></figure><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先add文件</span></span><br><span class="line">git add &lt;filename&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用j和k上下选择类型，输入影响范围，输入短描述和长描述</span></span><br><span class="line">git cz</span><br></pre></td></tr></table></figure><h2 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;commitizen&lt;/code&gt; 可以规范化 &lt;code&gt;git commit&lt;/code&gt; 信息以便回溯。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="git" scheme="https://herotiga.github.io/categories/git/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>开源围棋人工智能leela-zero的使用和学习</title>
@@ -431,29 +452,6 @@
     
     
       <category term="deno" scheme="https://herotiga.github.io/categories/deno/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>什么是CR,LF,CRLF</title>
-    <link href="https://herotiga.github.io/2020/06/29/cr-lf-crlf/"/>
-    <id>https://herotiga.github.io/2020/06/29/cr-lf-crlf/</id>
-    <published>2020-06-29T01:39:47.000Z</published>
-    <updated>2020-07-20T07:18:11.638Z</updated>
-    
-    <content type="html"><![CDATA[<article class="message is-info"><div class="message-body"><p>使用编辑器和IDE的时候经常看到CR、LF和CRLF。<br>其实这三个是不同操作系统的不同换行符。</p></div></article><a id="more"></a><p>CR：表示回车，对应ASCII码中的<code>\r</code>。</p><p>LF：表示换行，对应ASCII码中的<code>\n</code>。</p><p>CRLF：表示回车并换行，对应的ASCII码为<code>\r\n</code>。</p><hr><p>那么三个分别适用于哪些系统呢？</p><p>CR：用于远古mac系统。</p><p>LF：unix,linux和现在的macos。</p><p>CRLF：用于windows。</p><p>一般安装完编辑器或者IDE都会根据你的系统预置换行配置。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;article class=&quot;message is-info&quot;&gt;&lt;div class=&quot;message-body&quot;&gt;
-&lt;p&gt;使用编辑器和IDE的时候经常看到CR、LF和CRLF。&lt;br&gt;其实这三个是不同操作系统的不同换行符。&lt;/p&gt;
-&lt;/div&gt;&lt;/article&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://herotiga.github.io/categories/linux/"/>
     
     
   </entry>
