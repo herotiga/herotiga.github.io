@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2020-11-23T12:35:03.213Z</updated>
+  <updated>2020-11-24T14:00:43.971Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://herotiga.github.io/2020/11/23/commitizen/"/>
     <id>https://herotiga.github.io/2020/11/23/commitizen/</id>
     <published>2020-11-23T12:21:15.000Z</published>
-    <updated>2020-11-23T12:35:03.213Z</updated>
+    <updated>2020-11-24T14:00:43.971Z</updated>
     
-    <content type="html"><![CDATA[<p><code>commitizen</code> 可以规范化 <code>git commit</code> 信息以便回溯。</p><a id="more"></a><hr><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g commitizen</span><br></pre></td></tr></table></figure><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先add文件</span></span><br><span class="line">git add &lt;filename&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用j和k上下选择类型，输入影响范围，输入短描述和长描述</span></span><br><span class="line">git cz</span><br></pre></td></tr></table></figure><h2 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p><code>commitizen</code> 可以规范化 <code>git commit</code> 信息以便回溯。</p><a id="more"></a><hr><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g commitizen</span><br></pre></td></tr></table></figure><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先add文件</span></span><br><span class="line">git add &lt;filename&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用j和k上下选择类型，输入影响范围，输入短描述和长描述</span></span><br><span class="line">git cz</span><br></pre></td></tr></table></figure><h2 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure><h2 id="阅读"><a href="#阅读" class="headerlink" title="阅读"></a>阅读</h2><ol><li><a href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html">http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html</a></li><li><a href="https://www.jianshu.com/p/36d970a2b4da">https://www.jianshu.com/p/36d970a2b4da</a></li></ol>]]></content>
     
     <summary type="html">
     
