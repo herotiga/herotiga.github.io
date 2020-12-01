@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2020-11-30T11:11:16.740Z</updated>
+  <updated>2020-11-24T14:00:43.971Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,25 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>promise</title>
-    <link href="https://herotiga.github.io/2020/11/30/promise/"/>
-    <id>https://herotiga.github.io/2020/11/30/promise/</id>
-    <published>2020-11-30T11:11:16.000Z</published>
-    <updated>2020-11-30T11:11:16.740Z</updated>
-    
-    <content type="html"><![CDATA[<p>summary</p><a id="more"></a><hr><p>多语言版本：</p><article class="message message-immersive is-primary"><div class="message-body"><i class="fas fa-globe-americas mr-2"></i>本文同时提供以下语言的翻译：<a href="/hexo-theme-icarus/Plugins/Search/icarus-user-guide-search-plugin/">English</a>。</div></article><p>插入图片：<br><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn@master/img/article/jsdelivr-example.jpg" alt="图片"></p><p>低饱和度文本高亮：</p><article class="message is-info"><div class="message-body"><p>蓝色高亮</p></div></article><article class="message is-success"><div class="message-body"><p>绿色高亮</p></div></article><article class="message is-warning"><div class="message-body"><p>黄色高亮</p></div></article><article class="message is-danger"><div class="message-body"><p>红色高亮</p></div></article><p>高饱和度文本高亮：</p><div class="notification is-info"><p>蓝色高亮</p></div><div class="notification is-success"><p>绿色高亮</p></div><div class="notification is-warning"><p>黄色高亮</p></div><div class="notification is-danger"><p>红色高亮</p></div><p>带title的蓝色高亮：</p><article class="message is-info"><div class="message-header"><p>标题</p></div><div class="message-body"><p>内容</p></div></article><p>带title的蓝色高亮：</p><article class="message is-info"><div class="message-header"><p>标题</p></div><div class="message-body"><p>内容</p></div></article><p>点击展开代码，带代码块title</p><figure class="highlight js"><figcaption><span>点击展开代码 >folded</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'I love Icarus!'</span>);</span><br></pre></td></tr></table></figure><p>封面图来源声明：<br><a class="tag is-dark is-medium" href="https://www.vecteezy.com/free-vector/vector-landscape" target="_blank"><br><span class="icon"><i class="fas fa-camera"></i></span>Vector Landscape Vectors by Vecteezy<br></a></p><p>插入代码：</p><!-- html code --><p>进度条：<br><progress class="progress is-info" value="20" max="100"></progress><br><progress class="progress is-success" value="40" max="100"></progress><br><progress class="progress is-warning" value="60" max="100"></progress><br><progress class="progress is-danger" value="80" max="100"></progress><br><progress class="progress is-info" max="100"></progress></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;summary&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-  </entry>
   
   <entry>
     <title>使用commitizen规范化commit信息</title>
@@ -448,6 +429,29 @@
     
     
       <category term="linux" scheme="https://herotiga.github.io/categories/linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>deno试水</title>
+    <link href="https://herotiga.github.io/2020/07/01/deno-install/"/>
+    <id>https://herotiga.github.io/2020/07/01/deno-install/</id>
+    <published>2020-07-01T09:14:42.000Z</published>
+    <updated>2020-09-10T11:23:13.798Z</updated>
+    
+    <content type="html"><![CDATA[<article class="message is-info"><div class="message-body"><p>Deno: A secure runtime for JavaScript and TypeScript.</p></div></article><a id="more"></a><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl</span></span><br><span class="line">curl -fsSL https://deno.land/x/install/install.sh | sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># brew</span></span><br><span class="line">brew install deno</span><br></pre></td></tr></table></figure><h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># example</span></span><br><span class="line">deno run https://deno.land/std/examples/welcome.ts</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;article class=&quot;message is-info&quot;&gt;&lt;div class=&quot;message-body&quot;&gt;
+&lt;p&gt;Deno: A secure runtime for JavaScript and TypeScript.&lt;/p&gt;
+&lt;/div&gt;&lt;/article&gt;
+    
+    </summary>
+    
+    
+      <category term="deno" scheme="https://herotiga.github.io/categories/deno/"/>
     
     
   </entry>
