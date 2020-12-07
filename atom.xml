@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2020-12-06T08:15:29.760Z</updated>
+  <updated>2020-12-07T14:15:39.613Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>拉钩《程序员的数学课》学习笔记</title>
-    <link href="https://herotiga.github.io/2020/12/05/lagou-programmer&#39;s-math-class/"/>
-    <id>https://herotiga.github.io/2020/12/05/lagou-programmer&#39;s-math-class/</id>
-    <published>2020-12-05T10:03:00.000Z</published>
-    <updated>2020-12-06T08:15:29.760Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近学了《拉钩——程序员的数学课》。</p><a id="more"></a><hr><p>2020.12.06</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近学了《拉钩——程序员的数学课》。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="math" scheme="https://herotiga.github.io/categories/math/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>TypeScript学习笔记</title>
@@ -453,6 +432,29 @@
       &lt;blockquote&gt;
 &lt;p&gt;htop - an interactive process viewer for Unix&lt;/p&gt;
 &lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://herotiga.github.io/categories/linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>解决termius下不支持中文的问题</title>
+    <link href="https://herotiga.github.io/2020/07/04/%E8%A7%A3%E5%86%B3termius%E4%B8%8B%E4%B8%8D%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://herotiga.github.io/2020/07/04/%E8%A7%A3%E5%86%B3termius%E4%B8%8B%E4%B8%8D%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E7%9A%84%E9%97%AE%E9%A2%98/</id>
+    <published>2020-07-04T09:59:35.000Z</published>
+    <updated>2020-07-05T06:44:37.885Z</updated>
+    
+    <content type="html"><![CDATA[<article class="message is-info"><div class="message-body"><p>发现在termius下中文文件名乱码的问题.</p></div></article><a id="more"></a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure><p>插入:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export LANG&#x3D;en_US.UTF-8</span><br></pre></td></tr></table></figure><p>done!</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;article class=&quot;message is-info&quot;&gt;&lt;div class=&quot;message-body&quot;&gt;
+&lt;p&gt;发现在termius下中文文件名乱码的问题.&lt;/p&gt;
+&lt;/div&gt;&lt;/article&gt;
     
     </summary>
     
