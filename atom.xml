@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2021-02-24T07:47:40.262Z</updated>
+  <updated>2021-02-24T07:49:30.218Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://herotiga.github.io/2021/02/24/lambda-expression/"/>
     <id>https://herotiga.github.io/2021/02/24/lambda-expression/</id>
     <published>2021-02-24T07:14:37.000Z</published>
-    <updated>2021-02-24T07:47:40.262Z</updated>
+    <updated>2021-02-24T07:49:30.218Z</updated>
     
-    <content type="html"><![CDATA[<p>lambda表达式就是匿名函数，同时也是一个闭包。</p><a id="more"></a><h2 id="lambda表达式的语法"><a href="#lambda表达式的语法" class="headerlink" title="lambda表达式的语法"></a>lambda表达式的语法</h2><p>以js中的lambda为例：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单行</span></span><br><span class="line">( [param1, parma2,…param n ) =&gt; statement;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多行</span></span><br><span class="line">( [param1, parma2,…param n] )=&gt; &#123;</span><br><span class="line">    statement;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="lambda表达式的作用"><a href="#lambda表达式的作用" class="headerlink" title="lambda表达式的作用"></a>lambda表达式的作用</h2><ol><li>避免了污染全局变量。</li><li>简化了函数代码。</li><li>本身是一个闭包。</li></ol>]]></content>
+    <content type="html"><![CDATA[<p>lambda表达式就是匿名函数，同时也是一个闭包。</p><a id="more"></a><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>以js中的lambda为例：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单行</span></span><br><span class="line">( [param1, parma2,…param n ) =&gt; statement;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多行</span></span><br><span class="line">( [param1, parma2,…param n] )=&gt; &#123;</span><br><span class="line">    statement;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><ol><li>避免了污染全局变量。</li><li>简化了函数代码。</li><li>本身是一个闭包。</li></ol>]]></content>
     
     <summary type="html">
     
