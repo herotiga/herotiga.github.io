@@ -193,9 +193,9 @@ ref：https://www.ruanyifeng.com/blog/2012/11/require_js.html
     <link href="https://herotiga.github.io/2020/12/05/vscode-auto-compile-ts-code/"/>
     <id>https://herotiga.github.io/2020/12/05/vscode-auto-compile-ts-code/</id>
     <published>2020-12-04T16:28:07.000Z</published>
-    <updated>2021-04-14T16:41:03.395Z</updated>
+    <updated>2021-04-14T17:00:56.617Z</updated>
     
-    <content type="html"><![CDATA[<p>使用vscode自动编译ts代码</p><a id="more"></a><h2 id="生成配置文件"><a href="#生成配置文件" class="headerlink" title="生成配置文件"></a>生成配置文件</h2><p>首先生成配置文件 <code>tsconfig.json</code> 。</p><figure class="highlight bash"><figcaption><span>init</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tsc --init</span><br></pre></td></tr></table></figure><h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>修改输出目录：<code>outDir</code><br>修改严格模式：<code>strict</code>为<code>false</code>。</p><h2 id="监视文件"><a href="#监视文件" class="headerlink" title="监视文件"></a>监视文件</h2><p>终端 &gt; 运行任务 &gt; 显示所有任务 &gt; tsc监视</p>]]></content>
+    <content type="html"><![CDATA[<p>使用vscode自动编译ts代码</p><a id="more"></a><h2 id="生成配置文件"><a href="#生成配置文件" class="headerlink" title="生成配置文件"></a>生成配置文件</h2><p>首先生成配置文件 <code>tsconfig.json</code> 。</p><figure class="highlight bash"><figcaption><span>init</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tsc --init</span><br></pre></td></tr></table></figure><h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>修改输出目录：<code>outDir</code><br>修改严格模式：<code>strict</code>为<code>false</code>。</p><h2 id="监视文件"><a href="#监视文件" class="headerlink" title="监视文件"></a>监视文件</h2><ol><li>vscode监控<br>终端 &gt; 运行任务 &gt; 显示所有任务 &gt; tsc监视</li></ol><p>或者：</p><ol start="2"><li>命令行监控<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tsc -w</span><br></pre></td></tr></table></figure></li></ol>]]></content>
     
     <summary type="html">
     
