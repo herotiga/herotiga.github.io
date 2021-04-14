@@ -189,6 +189,27 @@ ref：https://www.ruanyifeng.com/blog/2012/11/require_js.html
   </entry>
   
   <entry>
+    <title>vscode自动编译ts代码</title>
+    <link href="https://herotiga.github.io/2020/12/05/vscode-auto-compile-ts-code/"/>
+    <id>https://herotiga.github.io/2020/12/05/vscode-auto-compile-ts-code/</id>
+    <published>2020-12-04T16:28:07.000Z</published>
+    <updated>2021-04-14T16:41:03.395Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用vscode自动编译ts代码</p><a id="more"></a><h2 id="生成配置文件"><a href="#生成配置文件" class="headerlink" title="生成配置文件"></a>生成配置文件</h2><p>首先生成配置文件 <code>tsconfig.json</code> 。</p><figure class="highlight bash"><figcaption><span>init</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tsc --init</span><br></pre></td></tr></table></figure><h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>修改输出目录：<code>outDir</code><br>修改严格模式：<code>strict</code>为<code>false</code>。</p><h2 id="监视文件"><a href="#监视文件" class="headerlink" title="监视文件"></a>监视文件</h2><p>终端 &gt; 运行任务 &gt; 显示所有任务 &gt; tsc监视</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用vscode自动编译ts代码&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ts" scheme="https://herotiga.github.io/categories/ts/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>TypeScript学习笔记</title>
     <link href="https://herotiga.github.io/2020/12/03/typescript-tutorial/"/>
     <id>https://herotiga.github.io/2020/12/03/typescript-tutorial/</id>
@@ -451,29 +472,6 @@ ref：https://www.ruanyifeng.com/blog/2012/11/require_js.html
     <summary type="html">
     
       &lt;p&gt;经常看到社交app以及短信中出现推销的链接很短。&lt;br&gt;那么这是如何做到的呢？还有为什么要将长链接做短呢？&lt;br&gt;这篇文章就探索一下什么是短链接，短链接的原理是什么，以及如何设计一个高性能的短链接。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="web" scheme="https://herotiga.github.io/categories/web/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>解决github.io子域名dns污染</title>
-    <link href="https://herotiga.github.io/2020/08/07/github-dns%E6%B1%A1%E6%9F%93/"/>
-    <id>https://herotiga.github.io/2020/08/07/github-dns%E6%B1%A1%E6%9F%93/</id>
-    <published>2020-08-06T16:12:09.000Z</published>
-    <updated>2020-09-10T08:17:05.049Z</updated>
-    
-    <content type="html"><![CDATA[<article class="message is-info"><div class="message-body"><p>上个月月末开始就发现本博客的herotiga.github.io域名无法访问了，于是我试着打开了各个大佬的github.io的博客果然都一样，当时就发觉这是一场有组织有纪律的dns污染行为。</p></div></article><a id="more"></a><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>从v2ex反应的情况来看，默认自动从ISP获取的dns都被污染了，所以手动更换一个公共dns服务器即可。</p><p>我选择了 <code>114.114.114.114</code> 。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;article class=&quot;message is-info&quot;&gt;&lt;div class=&quot;message-body&quot;&gt;
-&lt;p&gt;上个月月末开始就发现本博客的herotiga.github.io域名无法访问了，于是我试着打开了各个大佬的github.io的博客果然都一样，当时就发觉这是一场有组织有纪律的dns污染行为。&lt;/p&gt;
-&lt;/div&gt;&lt;/article&gt;
     
     </summary>
     
