@@ -43,34 +43,6 @@
   </entry>
   
   <entry>
-    <title>C语言复习笔记</title>
-    <link href="https://herotiga.github.io/2021/03/22/c-review/"/>
-    <id>https://herotiga.github.io/2021/03/22/c-review/</id>
-    <published>2021-03-22T15:30:06.000Z</published>
-    <updated>2021-04-02T12:12:28.105Z</updated>
-    
-    <content type="html"><![CDATA[<!--   refs:  1. https://www.runoob.com/cprogramming/c-tutorial.html --><p>C语言是面向过程的语言。</p><a id="more"></a><h2 id="HelloWorld"><a href="#HelloWorld" class="headerlink" title="HelloWorld"></a>HelloWorld</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 包含头文件</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 程序入口函数，int表示返回值类型</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">// stdio.h提供的函数</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"HelloWorld!\n"</span>);</span><br><span class="line">  <span class="comment">// 返回值为0</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>所有c语言程序都要包含main()函数。</li><li>注释：<code>//</code>或者<code>/*...*/</code></li><li><code>#include</code>是预处理命令，用于引入头文件。</li><li><code>&lt;&gt;</code>表示系统自带的库，也可以写成<code>&quot; &quot;</code>表示用户自定义的库如果写成<code>&quot; &quot;</code>并且自定义的库里面没有这个文件系统会自动查找自带的库, 如果还是没有就报错</li><li><code>return 0;</code>表示退出程序。</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// argc为参数个数，argv为字符串数组，第一个存放的是可执行程序的文件名字，然后依次存放传入的参数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"可执行程序 %s ,参数个数为[%d], 运行输出：[%s]\n"</span>,argv[<span class="number">0</span>],argc,argv[<span class="number">1</span>]); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>c语言程序文件扩展名为 <code>.c</code> 。</p><p>c11是最新的c语言标准。</p><h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><ul><li>c语言编译器</li><li>文本编辑器</li></ul><h2 id="程序结构"><a href="#程序结构" class="headerlink" title="程序结构"></a>程序结构</h2><p>c语言程序包括以下部分：</p><ul><li>预处理器指令</li><li>函数</li><li>变量</li><li>语句和表达式</li><li>注释</li></ul><p>demo：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 预处理器指令：包含stdio.h头文件</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 程序执行入口</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"HelloWorld\n"</span>);</span><br><span class="line">  <span class="comment">// 返回值为0</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>如何编译c语言程序：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc hello.c</span><br><span class="line">./hello.out</span><br></pre></td></tr></table></figure><p>编译多个文件：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc test1.c test2.c -o main.out</span><br><span class="line">./main.out</span><br></pre></td></tr></table></figure><p>gcc 命令如果不指定目标文件名时默认生成的可执行文件名为 a.out(linux) 或 a.exe(windows)。</p><p>可用 <code>gcc [源文件名] -o [目标文件名]</code> 来指定目标文件路径及文件名。</p><p>因编译器的原因，生成的 <code>.exe</code> 文件打开时会一闪而过，从而观察不到其运行的结果，这是因为 <code>main()</code> 函数结束时，DOS窗口会自动关闭。为了避免这个问题可在 <code>return 0;</code> 前加入 <code>system(&quot;pause&quot;);</code> 语句。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"Hello, World! \n"</span>);</span><br><span class="line">   system(<span class="string">"pause"</span>);</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><ul><li>token</li><li>分号</li><li>注释</li><li>标识符：标识符以字母A-Z或a-z或下划线_开始，后跟零个或多个字母、下划线和数字0-9，区分大小写。</li><li>关键字</li></ul><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2>]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- 
-  refs:
-
-  1. https://www.runoob.com/cprogramming/c-tutorial.html
-
- --&gt;
-
-&lt;p&gt;C语言是面向过程的语言。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="c" scheme="https://herotiga.github.io/categories/c/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>剑指 Offer 03. 数组中重复的数字</title>
     <link href="https://herotiga.github.io/2021/03/08/%E5%89%91%E6%8C%87-Offer-03-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/"/>
     <id>https://herotiga.github.io/2021/03/08/%E5%89%91%E6%8C%87-Offer-03-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/</id>
@@ -472,6 +444,29 @@ ref：https://www.ruanyifeng.com/blog/2012/11/require_js.html
     <summary type="html">
     
       &lt;p&gt;经常看到社交app以及短信中出现推销的链接很短。&lt;br&gt;那么这是如何做到的呢？还有为什么要将长链接做短呢？&lt;br&gt;这篇文章就探索一下什么是短链接，短链接的原理是什么，以及如何设计一个高性能的短链接。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="web" scheme="https://herotiga.github.io/categories/web/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>解决github.io子域名dns污染</title>
+    <link href="https://herotiga.github.io/2020/08/07/github-dns%E6%B1%A1%E6%9F%93/"/>
+    <id>https://herotiga.github.io/2020/08/07/github-dns%E6%B1%A1%E6%9F%93/</id>
+    <published>2020-08-06T16:12:09.000Z</published>
+    <updated>2020-09-10T08:17:05.049Z</updated>
+    
+    <content type="html"><![CDATA[<article class="message is-info"><div class="message-body"><p>上个月月末开始就发现本博客的herotiga.github.io域名无法访问了，于是我试着打开了各个大佬的github.io的博客果然都一样，当时就发觉这是一场有组织有纪律的dns污染行为。</p></div></article><a id="more"></a><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>从v2ex反应的情况来看，默认自动从ISP获取的dns都被污染了，所以手动更换一个公共dns服务器即可。</p><p>我选择了 <code>114.114.114.114</code> 。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;article class=&quot;message is-info&quot;&gt;&lt;div class=&quot;message-body&quot;&gt;
+&lt;p&gt;上个月月末开始就发现本博客的herotiga.github.io域名无法访问了，于是我试着打开了各个大佬的github.io的博客果然都一样，当时就发觉这是一场有组织有纪律的dns污染行为。&lt;/p&gt;
+&lt;/div&gt;&lt;/article&gt;
     
     </summary>
     
