@@ -43,6 +43,29 @@
   </entry>
   
   <entry>
+    <title>leetcode-633-平方数之和</title>
+    <link href="https://herotiga.github.io/2021/03/09/leetcode-633-%E5%B9%B3%E6%96%B9%E6%95%B0%E4%B9%8B%E5%92%8C/"/>
+    <id>https://herotiga.github.io/2021/03/09/leetcode-633-%E5%B9%B3%E6%96%B9%E6%95%B0%E4%B9%8B%E5%92%8C/</id>
+    <published>2021-03-09T01:54:07.000Z</published>
+    <updated>2021-04-29T02:02:05.121Z</updated>
+    
+    <content type="html"><![CDATA[<p>难度：中等</p><a id="more"></a><hr><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个非负整数 c ，你要判断是否存在两个整数 a 和 b，使得 a2 + b2 = c 。</p><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>示例 1：</p><pre><code>输入：c = 5输出：true解释：1 * 1 + 2 * 2 = 5</code></pre><p>示例 2：</p><pre><code>输入：c = 3输出：false</code></pre><p>示例 3：</p><pre><code>输入：c = 4输出：true</code></pre><p>示例 4：</p><pre><code>输入：c = 2输出：true</code></pre><p>示例 5：</p><pre><code>输入：c = 1输出：true</code></pre><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">c</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> judgeSquareSum = <span class="function"><span class="keyword">function</span>(<span class="params">c</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i*i &lt;= c; i++) &#123;</span><br><span class="line">        <span class="keyword">let</span> j = <span class="built_in">Math</span>.sqrt(c - i*i);</span><br><span class="line">        <span class="keyword">if</span> (j == <span class="built_in">parseInt</span>(j)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;难度：中等&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://herotiga.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="数学" scheme="https://herotiga.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>剑指 Offer 03. 数组中重复的数字</title>
     <link href="https://herotiga.github.io/2021/03/08/%E5%89%91%E6%8C%87-Offer-03-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/"/>
     <id>https://herotiga.github.io/2021/03/08/%E5%89%91%E6%8C%87-Offer-03-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/</id>
@@ -444,29 +467,6 @@ ref：https://www.ruanyifeng.com/blog/2012/11/require_js.html
     <summary type="html">
     
       &lt;p&gt;经常看到社交app以及短信中出现推销的链接很短。&lt;br&gt;那么这是如何做到的呢？还有为什么要将长链接做短呢？&lt;br&gt;这篇文章就探索一下什么是短链接，短链接的原理是什么，以及如何设计一个高性能的短链接。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="web" scheme="https://herotiga.github.io/categories/web/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>解决github.io子域名dns污染</title>
-    <link href="https://herotiga.github.io/2020/08/07/github-dns%E6%B1%A1%E6%9F%93/"/>
-    <id>https://herotiga.github.io/2020/08/07/github-dns%E6%B1%A1%E6%9F%93/</id>
-    <published>2020-08-06T16:12:09.000Z</published>
-    <updated>2020-09-10T08:17:05.049Z</updated>
-    
-    <content type="html"><![CDATA[<article class="message is-info"><div class="message-body"><p>上个月月末开始就发现本博客的herotiga.github.io域名无法访问了，于是我试着打开了各个大佬的github.io的博客果然都一样，当时就发觉这是一场有组织有纪律的dns污染行为。</p></div></article><a id="more"></a><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>从v2ex反应的情况来看，默认自动从ISP获取的dns都被污染了，所以手动更换一个公共dns服务器即可。</p><p>我选择了 <code>114.114.114.114</code> 。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;article class=&quot;message is-info&quot;&gt;&lt;div class=&quot;message-body&quot;&gt;
-&lt;p&gt;上个月月末开始就发现本博客的herotiga.github.io域名无法访问了，于是我试着打开了各个大佬的github.io的博客果然都一样，当时就发觉这是一场有组织有纪律的dns污染行为。&lt;/p&gt;
-&lt;/div&gt;&lt;/article&gt;
     
     </summary>
     
