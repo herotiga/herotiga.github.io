@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2021-04-10T04:24:25.551Z</updated>
+  <updated>2021-05-08T07:55:59.607Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js刷新页面的几种方法</title>
+    <link href="https://herotiga.github.io/2021/05/08/js-refresh-page/"/>
+    <id>https://herotiga.github.io/2021/05/08/js-refresh-page/</id>
+    <published>2021-05-08T07:49:47.000Z</published>
+    <updated>2021-05-08T07:55:59.607Z</updated>
+    
+    <content type="html"><![CDATA[<p>js刷新页面的几种方法：</p><a id="more"></a><ol><li><code>window.history.go(0)</code></li><li><code>window.location = window.location</code></li><li><code>window.location.assign(window.location)</code></li><li><code>window.location.replace(window.location.href)</code></li><li><code>window.location.reload()</code></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;js刷新页面的几种方法：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Vue3学习笔记</title>
@@ -448,27 +469,6 @@ ref：https://www.ruanyifeng.com/blog/2012/11/require_js.html
     <summary type="html">
     
       &lt;p&gt;java是面向对象语言？clang是面向过程语言？lisp是函数式编程语言？&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="cs" scheme="https://herotiga.github.io/categories/cs/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>所谓编译型语言和解释型语言的误区</title>
-    <link href="https://herotiga.github.io/2020/09/02/%E6%89%80%E8%B0%93%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E8%AF%AF%E5%8C%BA/"/>
-    <id>https://herotiga.github.io/2020/09/02/%E6%89%80%E8%B0%93%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E8%AF%AF%E5%8C%BA/</id>
-    <published>2020-09-02T15:42:59.000Z</published>
-    <updated>2020-09-17T14:16:54.367Z</updated>
-    
-    <content type="html"><![CDATA[<p>什么是解释型语言？什么是编译型语言？<br>python是解释型语言？clang是编译型语言？java是解释型语言？<br>no，no，no。<br>其实这种根深蒂固的说法是<strong>错的</strong>。</p><a id="more"></a><p>一门编程语言本身并不具有是解释型语言还是编译型的属性，准确的说法是：<strong>某个语言的特定实现是编译型或者解释型的。</strong></p><p>比如javascript这个语言，它既有解释型的实现比如早期浏览器的js引擎，也有编译型的实现比如chrome的v8引擎。</p><p>再拿一个后端的语言scheme为例，chichen scheme为scheme提供了两套实现方式，一个是解释器csi，另一个是编译器csc。</p><p>故而，所谓的编译型、解释型并不是一门语言本身固有的属性，而是语言实现的特性。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;什么是解释型语言？什么是编译型语言？&lt;br&gt;python是解释型语言？clang是编译型语言？java是解释型语言？&lt;br&gt;no，no，no。&lt;br&gt;其实这种根深蒂固的说法是&lt;strong&gt;错的&lt;/strong&gt;。&lt;/p&gt;
     
     </summary>
     
