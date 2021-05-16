@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2021-05-08T07:55:59.607Z</updated>
+  <updated>2021-05-16T11:44:06.936Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -17,17 +17,17 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>js刷新页面的几种方法</title>
-    <link href="https://herotiga.github.io/2021/05/08/js-refresh-page/"/>
-    <id>https://herotiga.github.io/2021/05/08/js-refresh-page/</id>
-    <published>2021-05-08T07:49:47.000Z</published>
-    <updated>2021-05-08T07:55:59.607Z</updated>
+    <title>闭包</title>
+    <link href="https://herotiga.github.io/2021/05/12/closure/"/>
+    <id>https://herotiga.github.io/2021/05/12/closure/</id>
+    <published>2021-05-12T02:43:28.000Z</published>
+    <updated>2021-05-16T11:44:06.936Z</updated>
     
-    <content type="html"><![CDATA[<p>js刷新页面的几种方法：</p><a id="more"></a><ol><li><code>window.history.go(0)</code></li><li><code>window.location = window.location</code></li><li><code>window.location.assign(window.location)</code></li><li><code>window.location.replace(window.location.href)</code></li><li><code>window.location.reload()</code></li></ol>]]></content>
+    <content type="html"><![CDATA[<p>闭包</p><a id="more"></a><hr><!-- https://wangdoc.com/javascript/types/function.html -->]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;js刷新页面的几种方法：&lt;/p&gt;
+      &lt;p&gt;闭包&lt;/p&gt;
     
     </summary>
     
