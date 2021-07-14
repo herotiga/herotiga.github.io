@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2021-04-10T04:24:25.551Z</updated>
+  <updated>2021-07-14T15:29:17.284Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js数组去空值</title>
+    <link href="https://herotiga.github.io/2021/07/14/js%E6%95%B0%E7%BB%84%E5%8E%BB%E7%A9%BA%E5%80%BC/"/>
+    <id>https://herotiga.github.io/2021/07/14/js%E6%95%B0%E7%BB%84%E5%8E%BB%E7%A9%BA%E5%80%BC/</id>
+    <published>2021-07-14T02:46:00.000Z</published>
+    <updated>2021-07-14T15:29:17.284Z</updated>
+    
+    <content type="html"><![CDATA[<p>js数组去空值的几种方法。</p><a id="more"></a><h2 id="for遍历"><a href="#for遍历" class="headerlink" title="for遍历"></a>for遍历</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">''</span>,, <span class="literal">undefined</span>, <span class="literal">null</span>,,];</span><br><span class="line"><span class="keyword">var</span> r = removeEmptyElem(arr);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeEmptyElem</span>(<span class="params">rawArr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = [];</span><br><span class="line">    <span class="comment">// 深拷贝</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; rawArr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (rawArr[i] !== <span class="literal">undefined</span> &amp;&amp; rawArr[i] !== <span class="literal">null</span> &amp;&amp; rawArr[i] !== <span class="string">''</span>) &#123;</span><br><span class="line">            result.push(rawArr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="filter过滤"><a href="#filter过滤" class="headerlink" title="filter过滤"></a>filter过滤</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">''</span>,, <span class="literal">undefined</span>, <span class="literal">null</span>,,];</span><br><span class="line"><span class="keyword">var</span> r = arr.filter(<span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><h2 id="splice切片"><a href="#splice切片" class="headerlink" title="splice切片"></a>splice切片</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">''</span>,, <span class="literal">undefined</span>, <span class="literal">null</span>,,];</span><br><span class="line">spliceArr(arr);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">spliceArr</span>(<span class="params">rawArr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; rawArr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (rawArr[i] == <span class="literal">undefined</span> || rawArr[i] == <span class="literal">null</span> || rawArr[i] == <span class="string">''</span>) &#123;</span><br><span class="line">            rawArr.splice(i, <span class="number">1</span>);</span><br><span class="line">            i -= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> rawArr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;js数组去空值的几种方法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Vue3学习笔记</title>
@@ -448,27 +469,6 @@ ref：https://www.ruanyifeng.com/blog/2012/11/require_js.html
     <summary type="html">
     
       &lt;p&gt;java是面向对象语言？clang是面向过程语言？lisp是函数式编程语言？&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="cs" scheme="https://herotiga.github.io/categories/cs/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>所谓编译型语言和解释型语言的误区</title>
-    <link href="https://herotiga.github.io/2020/09/02/%E6%89%80%E8%B0%93%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E8%AF%AF%E5%8C%BA/"/>
-    <id>https://herotiga.github.io/2020/09/02/%E6%89%80%E8%B0%93%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E8%AF%AF%E5%8C%BA/</id>
-    <published>2020-09-02T15:42:59.000Z</published>
-    <updated>2020-09-17T14:16:54.367Z</updated>
-    
-    <content type="html"><![CDATA[<p>什么是解释型语言？什么是编译型语言？<br>python是解释型语言？clang是编译型语言？java是解释型语言？<br>no，no，no。<br>其实这种根深蒂固的说法是<strong>错的</strong>。</p><a id="more"></a><p>一门编程语言本身并不具有是解释型语言还是编译型的属性，准确的说法是：<strong>某个语言的特定实现是编译型或者解释型的。</strong></p><p>比如javascript这个语言，它既有解释型的实现比如早期浏览器的js引擎，也有编译型的实现比如chrome的v8引擎。</p><p>再拿一个后端的语言scheme为例，chichen scheme为scheme提供了两套实现方式，一个是解释器csi，另一个是编译器csc。</p><p>故而，所谓的编译型、解释型并不是一门语言本身固有的属性，而是语言实现的特性。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;什么是解释型语言？什么是编译型语言？&lt;br&gt;python是解释型语言？clang是编译型语言？java是解释型语言？&lt;br&gt;no，no，no。&lt;br&gt;其实这种根深蒂固的说法是&lt;strong&gt;错的&lt;/strong&gt;。&lt;/p&gt;
     
     </summary>
     
