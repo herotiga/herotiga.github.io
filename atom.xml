@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2021-07-26T14:13:20.927Z</updated>
+  <updated>2021-07-28T14:51:40.792Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js删除数组中重复的值</title>
+    <link href="https://herotiga.github.io/2021/07/28/js%E5%88%A0%E9%99%A4%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E5%80%BC/"/>
+    <id>https://herotiga.github.io/2021/07/28/js%E5%88%A0%E9%99%A4%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E5%80%BC/</id>
+    <published>2021-07-28T04:01:12.000Z</published>
+    <updated>2021-07-28T14:51:40.792Z</updated>
+    
+    <content type="html"><![CDATA[<p>删除数组中重复值的几种方法。</p><a id="more"></a><h2 id="利用indexOf-构造只有唯一值数组"><a href="#利用indexOf-构造只有唯一值数组" class="headerlink" title="利用indexOf()构造只有唯一值数组"></a>利用indexOf()构造只有唯一值数组</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> source = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> target = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; source.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (target.indexOf(source[i]) === <span class="number">-1</span>) &#123;</span><br><span class="line">        target.push(source[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="filter-配合indexOf"><a href="#filter-配合indexOf" class="headerlink" title="filter()配合indexOf()"></a>filter()配合indexOf()</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> source = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> target = [];</span><br><span class="line"></span><br><span class="line">target = source.filter(</span><br><span class="line">    (value, index) =&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> source.indexOf(value) == index;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure><h2 id="Set-和扩展运算符"><a href="#Set-和扩展运算符" class="headerlink" title="Set()和扩展运算符"></a>Set()和扩展运算符</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> source = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">const</span> target = [... new <span class="built_in">Set</span>(source)];</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;删除数组中重复值的几种方法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>快速排序</title>
@@ -443,28 +464,6 @@ ref：https://www.ruanyifeng.com/blog/2012/11/require_js.html
     <summary type="html">
     
       &lt;p&gt;关于jvm调优，其实大多数项目不需要jvm调优，需要调优的往往是比较极端的业务。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="java" scheme="https://herotiga.github.io/categories/java/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>初识JVM</title>
-    <link href="https://herotiga.github.io/2020/09/06/jvm-primary/"/>
-    <id>https://herotiga.github.io/2020/09/06/jvm-primary/</id>
-    <published>2020-09-06T07:32:58.000Z</published>
-    <updated>2020-12-05T00:21:34.453Z</updated>
-    
-    <content type="html"><![CDATA[<p>JVM，也就是Java Virtual Machine（Java虚拟机），JVM是虚构出来的计算机，它的作用是在物理计算机上模仿各种计算机功能实现的。</p><p>Java能“一次编译，到处运行”的原因就是JVM屏蔽了不同操作系统和不同硬件的差异，这样Java开发者就可以无需考虑平台差异，只需要面向JVM编程即可。</p><a id="more"></a><hr><p>JVM的本质是一个程序，当它开始执行class文件的时候就执行class文件中的指令。<br>JVM上运行的是 <code>.class</code> 字节码文件，字节码文件是由 <code>.java</code> 文件经过编译器javac编译产生的，可以在JRE（JVM+Java类库）上运行。</p><p>正是由于JVM上面运行的是 <code>.class</code> ，所以不仅是Java，只要是能编译成 <code>.class</code> 的语言都可以在JVM上运行。<br>比如python，python可以通过编译器jython将 <code>.py</code> 编译为 <code>.class</code> ，然后在JVM上运行。<br>除此之外还有：kotlin, scala, clojure, groovy, jruby, ceylon, eta, haxe, fantom, rhino。</p><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn@master/img/article/JVM架构.png" width="400"><p>JVM的组成：堆，方法区，栈，本地方法栈，程序计数器等等。<br>其中方法回收堆和方法区是共享区，而栈、程序计数器和本地方法栈区是JVM的。</p><h2 id="JVM、JRE和JDK三者的关系"><a href="#JVM、JRE和JDK三者的关系" class="headerlink" title="JVM、JRE和JDK三者的关系"></a>JVM、JRE和JDK三者的关系</h2><p>JDK（Java开发工具包）包含了Java语言、JVM、Java API和Javac等工具。<br>JRE（Java运行时环境）包含了JVM和Java API。<br>也就是说：JDK包含了JRE，JRE又包含了JVM。</p><p>层级图示：<br><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn/img/article/jvm-jre-jdk.png" alt=""></p><h2 id="JVM的实现原理"><a href="#JVM的实现原理" class="headerlink" title="JVM的实现原理"></a>JVM的实现原理</h2><h3 id="类装载器（ClassLoader）"><a href="#类装载器（ClassLoader）" class="headerlink" title="类装载器（ClassLoader）"></a>类装载器（ClassLoader）</h3><p>类装载器（ClassLoader），负责装载class文件，然后交由execution engine执行。<br>类装载器：启动类加载器（JVM实现的一部分）和用户自定义类加载器（Java程序的一部分）。</p><h3 id="本地方法栈（native-method-stack）"><a href="#本地方法栈（native-method-stack）" class="headerlink" title="本地方法栈（native method stack）"></a>本地方法栈（native method stack）</h3><p>本地方法栈的作用是登记native方法，然后在execution engine执行的时候加载本地方法库。</p><h3 id="栈（stack）"><a href="#栈（stack）" class="headerlink" title="栈（stack）"></a>栈（stack）</h3><p>又叫内存栈，栈负责java程序的运行，在线程创建的时候创建出来，在线程销毁的时候释放。</p><h3 id="程序计数器（program-counter）"><a href="#程序计数器（program-counter）" class="headerlink" title="程序计数器（program counter）"></a>程序计数器（program counter）</h3><p>是方法区中的方法字节码由引擎读取下一条指令。</p><h3 id="方法区（method-area）"><a href="#方法区（method-area）" class="headerlink" title="方法区（method area）"></a>方法区（method area）</h3><p>是线程共享的。</p><h3 id="堆（heap）"><a href="#堆（heap）" class="headerlink" title="堆（heap）"></a>堆（heap）</h3><p>用于存储对象实例。<br>堆的内存空间需要JVM GC回收。</p><h3 id="本地接口（native-interface）"><a href="#本地接口（native-interface）" class="headerlink" title="本地接口（native interface）"></a>本地接口（native interface）</h3><p>用于融合不同的编程语言。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://zh.wikipedia.org/wiki/Java%E8%99%9A%E6%8B%9F%E6%9C%BA">wikipedia: JVM</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;JVM，也就是Java Virtual Machine（Java虚拟机），JVM是虚构出来的计算机，它的作用是在物理计算机上模仿各种计算机功能实现的。&lt;/p&gt;
-&lt;p&gt;Java能“一次编译，到处运行”的原因就是JVM屏蔽了不同操作系统和不同硬件的差异，这样Java开发者就可以无需考虑平台差异，只需要面向JVM编程即可。&lt;/p&gt;
     
     </summary>
     
