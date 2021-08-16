@@ -61,6 +61,27 @@
   </entry>
   
   <entry>
+    <title>var、let和const</title>
+    <link href="https://herotiga.github.io/2021/07/23/var-let-const/"/>
+    <id>https://herotiga.github.io/2021/07/23/var-let-const/</id>
+    <published>2021-07-23T07:36:47.000Z</published>
+    <updated>2021-08-12T14:36:12.733Z</updated>
+    
+    <content type="html"><![CDATA[<p>js有两种作用域：局部作用域，函数作用域。</p><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;js有两种作用域：局部作用域，函数作用域。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>拷贝一个js对象</title>
     <link href="https://herotiga.github.io/2021/07/21/js-copy-object/"/>
     <id>https://herotiga.github.io/2021/07/21/js-copy-object/</id>
@@ -443,27 +464,6 @@ ref：https://www.ruanyifeng.com/blog/2012/11/require_js.html
     <summary type="html">
     
       &lt;p&gt;卸载java8换成java11 LTS。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="java" scheme="https://herotiga.github.io/categories/java/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>初识JVM调优</title>
-    <link href="https://herotiga.github.io/2020/09/07/jvm-tuning/"/>
-    <id>https://herotiga.github.io/2020/09/07/jvm-tuning/</id>
-    <published>2020-09-06T16:53:47.000Z</published>
-    <updated>2020-12-05T00:21:26.995Z</updated>
-    
-    <content type="html"><![CDATA[<p>关于jvm调优，其实大多数项目不需要jvm调优，需要调优的往往是比较极端的业务。</p><a id="more"></a><h2 id="是否需要调优"><a href="#是否需要调优" class="headerlink" title="是否需要调优"></a>是否需要调优</h2><p>一般项目不需要调优，加xms和xmx参数就可以了。即使是高并发服务也不需要调优，jvm本身就是为低延时、高并发、大吞吐的服务设计和优化的。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Xms1g -Xmx2g -jar abc.jar</span><br></pre></td></tr></table></figure><p>对于项目来说，主要还是要将精力放在项目本身的调优。</p><p><strong>jvm调优的前提是对服务的全面监控和性能数据的收集以及我们对jvm的运行原理的非常熟悉。</strong></p><p>首先需要了解系统的运行状况，如果系统的响应时间很短，资源占用也不高，那么这种调优是没什么意义的。<br>系统运行状况参数：</p><ul><li>响应时间</li><li>TPS（每秒处理事务数量）</li><li>资源占用量（系统性能受限于最差的那个）</li></ul><p>jvm调优主要针对一些极端的项目，比如一些对吞吐量要求高而对时延要求不高的服务，就像12306。<br>针对12306这种服务，可能需要调整一些参数，比如让gc中的generation分布更加合理。</p><h2 id="如何调优"><a href="#如何调优" class="headerlink" title="如何调优"></a>如何调优</h2><p>jvm调优主要包括：1. 合理分配jvm内存空间。2. 选择适合的gc回收器。</p><ol><li>合理分配jvm内存空间：jvm内存分配不合理的表现是频繁的gc从而降低系统的吞吐量和增加响应时间。</li></ol><p>主要方法是调整堆内存空间以减少Full GC，调整新生代减少MinorGC，设置合理的Eden和Survivor区的比例。</p><ol start="2"><li>选择合理的垃圾回收器</li></ol><p>垃圾回收主要回收堆（主要是对象）和方法区（主要是废弃常量和类），需要响应快可以选择CMS和G1，需要吞吐高可以选择Parallel Scavenge。</p><p>jvm调优大部分调的是gc参数，主要是下面几点：</p><ul><li>最大堆和最小堆的大小</li><li>gc算法</li><li>新生代的大小</li></ul><p>jdk8及以前：gc算法会自动在Parallel和CMS中选择，新生代根据经验调节大小，这样就达到了性能和STW的平衡。</p><p>jdk9开始的版本：gc默认算法变为G1，只需要调整最大堆大小和STW期望值既可。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;关于jvm调优，其实大多数项目不需要jvm调优，需要调优的往往是比较极端的业务。&lt;/p&gt;
     
     </summary>
     
