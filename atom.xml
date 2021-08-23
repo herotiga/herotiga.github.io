@@ -61,27 +61,6 @@
   </entry>
   
   <entry>
-    <title>var、let和const</title>
-    <link href="https://herotiga.github.io/2021/07/23/var-let-const/"/>
-    <id>https://herotiga.github.io/2021/07/23/var-let-const/</id>
-    <published>2021-07-23T07:36:47.000Z</published>
-    <updated>2021-08-12T14:36:12.733Z</updated>
-    
-    <content type="html"><![CDATA[<p>js有两种作用域：局部作用域，函数作用域。</p><a id="more"></a>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;js有两种作用域：局部作用域，函数作用域。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>拷贝一个js对象</title>
     <link href="https://herotiga.github.io/2021/07/21/js-copy-object/"/>
     <id>https://herotiga.github.io/2021/07/21/js-copy-object/</id>
@@ -469,6 +448,28 @@ ref：https://www.ruanyifeng.com/blog/2012/11/require_js.html
     
     
       <category term="java" scheme="https://herotiga.github.io/categories/java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>WebAssembly（wasm）入门</title>
+    <link href="https://herotiga.github.io/2020/09/22/wasm-tutorial/"/>
+    <id>https://herotiga.github.io/2020/09/22/wasm-tutorial/</id>
+    <published>2020-09-22T07:59:50.000Z</published>
+    <updated>2021-08-08T03:05:57.159Z</updated>
+    
+    <content type="html"><![CDATA[<p>WebAssembly（wasm）是一种新的二进制格式，他可以将c/c++（还有go、rust）等静态语言代码快速的运行在浏览器上。<br>wasm的这个特点就为前端的计算密集型应用提供了无限可能，甚至可以将基于unity开发的游戏移植到web端。</p><p>wasm可以让web应用运行更快，文件体积小，启动速度快，运行速度快。其性能对比js而言提升非常明显。</p><a id="more"></a><hr><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li>文档：<a href="https://www.wasm.com.cn/">https://www.wasm.com.cn/</a></li><li>《深入浅出WebAssembly》</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;WebAssembly（wasm）是一种新的二进制格式，他可以将c/c++（还有go、rust）等静态语言代码快速的运行在浏览器上。&lt;br&gt;wasm的这个特点就为前端的计算密集型应用提供了无限可能，甚至可以将基于unity开发的游戏移植到web端。&lt;/p&gt;
+&lt;p&gt;wasm可以让web应用运行更快，文件体积小，启动速度快，运行速度快。其性能对比js而言提升非常明显。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="wasm" scheme="https://herotiga.github.io/categories/wasm/"/>
     
     
   </entry>
