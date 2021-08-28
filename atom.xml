@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2021-08-28T07:38:29.856Z</updated>
+  <updated>2021-08-28T07:49:25.565Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>js反转数组的几种方法</title>
-    <link href="https://herotiga.github.io/2021/08/27/js%E5%8F%8D%E8%BD%AC%E6%95%B0%E7%BB%84/"/>
-    <id>https://herotiga.github.io/2021/08/27/js%E5%8F%8D%E8%BD%AC%E6%95%B0%E7%BB%84/</id>
+    <link href="https://herotiga.github.io/2021/08/27/js%E5%8F%8D%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/"/>
+    <id>https://herotiga.github.io/2021/08/27/js%E5%8F%8D%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</id>
     <published>2021-08-27T01:38:29.000Z</published>
-    <updated>2021-08-28T07:38:29.856Z</updated>
+    <updated>2021-08-28T07:49:25.565Z</updated>
     
     <content type="html"><![CDATA[<p>反转数组的几种方法。</p><a id="more"></a><ol><li><code>reverse()</code></li></ol><p><code>reverse()</code> 会改变原数组，不会返回新数组。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line">arr.reverse();</span><br><span class="line"><span class="comment">// [4, 3, 2, 1]</span></span><br></pre></td></tr></table></figure><ol start="2"><li><code>reverse()</code>配合展开符<code>...</code></li></ol><p>这种方法不会改变原数组。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里使用展开符产生了一个新数组实例，这个实例和arr一模一样，然后反转这个新数组实例并赋值给一个变量</span></span><br><span class="line"><span class="keyword">let</span> new_arr = [...arr].reverse();</span><br><span class="line"><span class="comment">// [ 4, 3, 2, 1 ]</span></span><br></pre></td></tr></table></figure><ol start="3"><li><code>slice()</code></li></ol><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -38,17 +38,23 @@
   </entry>
   
   <entry>
-    <title>js逆转字符串</title>
+    <title>js反转字符串的几种方法</title>
     <link href="https://herotiga.github.io/2021/08/27/js%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     <id>https://herotiga.github.io/2021/08/27/js%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/</id>
     <published>2021-08-27T01:38:20.000Z</published>
-    <updated>2021-08-27T02:56:45.462Z</updated>
+    <updated>2021-08-28T13:18:16.048Z</updated>
     
-    <content type="html"><![CDATA[<p>summary</p><a id="more"></a><hr>]]></content>
+    <content type="html"><![CDATA[<a id="more"></a><hr>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;summary&lt;/p&gt;
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;hr&gt;
+
+      
     
     </summary>
     
@@ -60,10 +66,10 @@
   
   <entry>
     <title>js交换两个变量的几种方法</title>
-    <link href="https://herotiga.github.io/2021/08/25/js%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F/"/>
-    <id>https://herotiga.github.io/2021/08/25/js%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F/</id>
+    <link href="https://herotiga.github.io/2021/08/25/js%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/"/>
+    <id>https://herotiga.github.io/2021/08/25/js%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</id>
     <published>2021-08-25T03:04:30.000Z</published>
-    <updated>2021-08-28T07:43:26.939Z</updated>
+    <updated>2021-08-28T07:49:37.723Z</updated>
     
     <content type="html"><![CDATA[<p>js交换两个变量的几种方法。</p><a id="more"></a><ol><li>使用临时变量</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">exchange</span>(<span class="params">param1, param2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = param1;</span><br><span class="line">    param1 = param2;</span><br><span class="line">    param2 = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="2"><li>使用es6解构</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">exchange</span>(<span class="params">param1, param2</span>) </span>&#123;</span><br><span class="line">    [param1, param2] = [param2, param1];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">2</span>;</span><br><span class="line">    exchange(a,b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exchange</span><span class="params">(num1, num2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = num1;</span><br><span class="line">    num1 = num2;</span><br><span class="line">    num2 = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
