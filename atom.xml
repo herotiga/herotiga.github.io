@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2021-08-25T09:21:11.199Z</updated>
+  <updated>2021-08-28T07:38:29.856Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -17,25 +17,59 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>js交换两个变量</title>
-    <link href="https://herotiga.github.io/2021/08/25/js-exchange-var/"/>
-    <id>https://herotiga.github.io/2021/08/25/js-exchange-var/</id>
-    <published>2021-08-25T03:04:30.000Z</published>
-    <updated>2021-08-25T09:21:11.199Z</updated>
+    <title>js反转数组的几种方法</title>
+    <link href="https://herotiga.github.io/2021/08/27/js%E5%8F%8D%E8%BD%AC%E6%95%B0%E7%BB%84/"/>
+    <id>https://herotiga.github.io/2021/08/27/js%E5%8F%8D%E8%BD%AC%E6%95%B0%E7%BB%84/</id>
+    <published>2021-08-27T01:38:29.000Z</published>
+    <updated>2021-08-28T07:38:29.856Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><ol><li>使用临时变量</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">exchange</span>(<span class="params">param1, param2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = param1;</span><br><span class="line">    param1 = param2;</span><br><span class="line">    param2 = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="2"><li>使用es6解构</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">exchange</span>(<span class="params">param1, param2</span>) </span>&#123;</span><br><span class="line">    [param1, param2] = [param2, param1];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">2</span>;</span><br><span class="line">    exchange(a,b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exchange</span><span class="params">(num1, num2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = num1;</span><br><span class="line">    num1 = num2;</span><br><span class="line">    num2 = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>反转数组的几种方法。</p><a id="more"></a><ol><li><code>reverse()</code></li></ol><p><code>reverse()</code> 会改变原数组，不会返回新数组。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line">arr.reverse();</span><br><span class="line"><span class="comment">// [4, 3, 2, 1]</span></span><br></pre></td></tr></table></figure><ol start="2"><li><code>reverse()</code>配合展开符<code>...</code></li></ol><p>这种方法不会改变原数组。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里使用展开符产生了一个新数组实例，这个实例和arr一模一样，然后反转这个新数组实例并赋值给一个变量</span></span><br><span class="line"><span class="keyword">let</span> new_arr = [...arr].reverse();</span><br><span class="line"><span class="comment">// [ 4, 3, 2, 1 ]</span></span><br></pre></td></tr></table></figure><ol start="3"><li><code>slice()</code></li></ol><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-&lt;ol&gt;
-&lt;li&gt;使用临时变量&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br
-      
+      &lt;p&gt;反转数组的几种方法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>js逆转字符串</title>
+    <link href="https://herotiga.github.io/2021/08/27/js%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <id>https://herotiga.github.io/2021/08/27/js%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/</id>
+    <published>2021-08-27T01:38:20.000Z</published>
+    <updated>2021-08-27T02:56:45.462Z</updated>
+    
+    <content type="html"><![CDATA[<p>summary</p><a id="more"></a><hr>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;summary&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>js交换两个变量的几种方法</title>
+    <link href="https://herotiga.github.io/2021/08/25/js%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F/"/>
+    <id>https://herotiga.github.io/2021/08/25/js%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F/</id>
+    <published>2021-08-25T03:04:30.000Z</published>
+    <updated>2021-08-28T07:43:26.939Z</updated>
+    
+    <content type="html"><![CDATA[<p>js交换两个变量的几种方法。</p><a id="more"></a><ol><li>使用临时变量</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">exchange</span>(<span class="params">param1, param2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = param1;</span><br><span class="line">    param1 = param2;</span><br><span class="line">    param2 = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="2"><li>使用es6解构</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">exchange</span>(<span class="params">param1, param2</span>) </span>&#123;</span><br><span class="line">    [param1, param2] = [param2, param1];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">2</span>;</span><br><span class="line">    exchange(a,b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exchange</span><span class="params">(num1, num2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp = num1;</span><br><span class="line">    num1 = num2;</span><br><span class="line">    num2 = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;js交换两个变量的几种方法。&lt;/p&gt;
     
     </summary>
     
@@ -435,48 +469,6 @@ ref：https://www.ruanyifeng.com/blog/2012/11/require_js.html
     
     
       <category term="git" scheme="https://herotiga.github.io/categories/git/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>开源围棋人工智能leela-zero的使用和学习</title>
-    <link href="https://herotiga.github.io/2020/11/15/leela-zero/"/>
-    <id>https://herotiga.github.io/2020/11/15/leela-zero/</id>
-    <published>2020-11-15T14:01:57.000Z</published>
-    <updated>2021-03-11T02:32:53.250Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近迷恋上了围棋， <code>AlphaGo</code> 不开放API，了解到一个开源的围棋AI叫 <code>leela-zero</code> ，小试一下。</p><a id="more"></a><h2 id="安装及编译（macos）"><a href="#安装及编译（macos）" class="headerlink" title="安装及编译（macos）"></a>安装及编译（macos）</h2><ul><li>方法一：macos可以直接brew安装leela-zero</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install leela-zero</span><br></pre></td></tr></table></figure><ul><li>方法二：手动编译</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/leela-zero/leela-zero</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> leela-zero</span><br><span class="line">git submodule update --init --recursive</span><br><span class="line"></span><br><span class="line">brew install boost cmake zlib</span><br><span class="line"></span><br><span class="line">mkdir build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line"></span><br><span class="line">cmake ..</span><br><span class="line">cmake --build .</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试</span></span><br><span class="line">./tests</span><br></pre></td></tr></table></figure><h2 id="交互"><a href="#交互" class="headerlink" title="交互"></a>交互</h2><p>leela-zero无法直接使用，需要先安装一个GUI并通过GTP协议与其进行交互，支持GTP2。</p><p>主要有下面几种：</p><ul><li><a href="https://github.com/featurecat/lizzie/releases">Lizzie</a>：Leela Zero的专门客户</li><li>Sabaki</li><li>LeelaSabaki</li><li>GoReviewPartner</li></ul><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://github.com/leela-zero/leela-zero">project: leela-zero</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近迷恋上了围棋， &lt;code&gt;AlphaGo&lt;/code&gt; 不开放API，了解到一个开源的围棋AI叫 &lt;code&gt;leela-zero&lt;/code&gt; ，小试一下。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="人工智能" scheme="https://herotiga.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>mac卸载java8</title>
-    <link href="https://herotiga.github.io/2020/09/26/mac-uninstall-jdk8/"/>
-    <id>https://herotiga.github.io/2020/09/26/mac-uninstall-jdk8/</id>
-    <published>2020-09-26T04:45:20.000Z</published>
-    <updated>2020-09-26T05:09:24.379Z</updated>
-    
-    <content type="html"><![CDATA[<p>卸载java8换成java11 LTS。</p><a id="more"></a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin</span><br><span class="line">sudo rm -rf /Library/PreferencesPanes/JavaControlPanel.prefPane</span><br><span class="line">sudo rm -rf ~/Library/Application\ Support/Java</span><br><span class="line"><span class="comment"># jdk版本使用ls /Library/Java/JavaVirtualMachines/查询</span></span><br><span class="line">sudo rm -rf /Library/Java/JavaVirtualMachines/[jdk version]</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;卸载java8换成java11 LTS。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="java" scheme="https://herotiga.github.io/categories/java/"/>
     
     
   </entry>
