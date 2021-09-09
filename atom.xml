@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2021-09-09T02:22:35.428Z</updated>
+  <updated>2021-09-09T07:25:56.573Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>split, splice和slice</title>
+    <link href="https://herotiga.github.io/2021/09/09/split-splice-slice/"/>
+    <id>https://herotiga.github.io/2021/09/09/split-splice-slice/</id>
+    <published>2021-09-09T01:22:16.000Z</published>
+    <updated>2021-09-09T07:25:56.573Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><code>String.prototype.split()</code></li><li><code>Array.prototype.splice()</code></li><li><code>Array.prototype.slice()</code></li></ul><p>一直记不得这三个哪个是哪个，加强记忆一下。<br>以下摘录自MDN。</p><a id="more"></a><h2 id="split"><a href="#split" class="headerlink" title="split"></a>split</h2><blockquote><p><code>split()</code> 方法使用指定的分隔符字符串将一个String对象分割成子字符串数组，以一个指定的分割字串来决定每个拆分的位置。</p></blockquote><p>语法： <code>str.split(separator, limit)</code></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">'The quick brown fox jumps over the lazy dog.'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> words = str.split(<span class="string">' '</span>);</span><br><span class="line"><span class="built_in">console</span>.log(words[<span class="number">3</span>]);</span><br><span class="line"><span class="comment">// expected output: "fox"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> chars = str.split(<span class="string">''</span>);</span><br><span class="line"><span class="built_in">console</span>.log(chars[<span class="number">8</span>]);</span><br><span class="line"><span class="comment">// expected output: "k"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> strCopy = str.split();</span><br><span class="line"><span class="built_in">console</span>.log(strCopy);</span><br><span class="line"><span class="comment">// expected output: Array ["The quick brown fox jumps over the lazy dog."]</span></span><br></pre></td></tr></table></figure><p><code>split()</code> 是把一个字符串分割成数组，通常结合 <code>join()</code> 使用， <code>join()</code> 是将一个数组中的所有元素拼接成一个字符串。<br><code>join</code> 也是可以传入一个字符串用于拼接时插入在数组元素之间。</p><h2 id="splice"><a href="#splice" class="headerlink" title="splice"></a>splice</h2><blockquote><p><code>splice()</code> 方法通过删除或替换现有元素或者原地添加新的元素来修改数组, 并以数组形式返回被修改的内容。此方法会改变原数组。</p></blockquote><p>语法： <code>array.splice(start, deleteCount, item1, item2, ...)</code></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> months = [<span class="string">'Jan'</span>, <span class="string">'March'</span>, <span class="string">'April'</span>, <span class="string">'June'</span>];</span><br><span class="line">months.splice(<span class="number">1</span>, <span class="number">0</span>, <span class="string">'Feb'</span>);</span><br><span class="line"><span class="comment">// inserts at index 1</span></span><br><span class="line"><span class="built_in">console</span>.log(months);</span><br><span class="line"><span class="comment">// expected output: Array ["Jan", "Feb", "March", "April", "June"]</span></span><br><span class="line"></span><br><span class="line">months.splice(<span class="number">4</span>, <span class="number">1</span>, <span class="string">'May'</span>);</span><br><span class="line"><span class="comment">// replaces 1 element at index 4</span></span><br><span class="line"><span class="built_in">console</span>.log(months);</span><br><span class="line"><span class="comment">// expected output: Array ["Jan", "Feb", "March", "April", "May"]</span></span><br></pre></td></tr></table></figure><h2 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h2><blockquote><p><code>slice()</code> 方法返回一个新的数组对象，这一对象是一个由 <code>begin</code> 和 <code>end</code> 决定的原数组的浅拷贝（包括 begin，不包括end）。原始数组不会被改变。</p></blockquote><p>语法： <code>arr.slice(begin, end)</code></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> animals = [<span class="string">'ant'</span>, <span class="string">'bison'</span>, <span class="string">'camel'</span>, <span class="string">'duck'</span>, <span class="string">'elephant'</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(animals.slice(<span class="number">2</span>));</span><br><span class="line"><span class="comment">// expected output: Array ["camel", "duck", "elephant"]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(animals.slice(<span class="number">2</span>, <span class="number">4</span>));</span><br><span class="line"><span class="comment">// expected output: Array ["camel", "duck"]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(animals.slice(<span class="number">1</span>, <span class="number">5</span>));</span><br><span class="line"><span class="comment">// expected output: Array ["bison", "camel", "duck", "elephant"]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(animals.slice(<span class="number">-2</span>));</span><br><span class="line"><span class="comment">// expected output: Array ["duck", "elephant"]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(animals.slice(<span class="number">2</span>, <span class="number">-1</span>));</span><br><span class="line"><span class="comment">// expected output: Array ["camel", "duck"]</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;code&gt;String.prototype.split()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Array.prototype.splice()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Array.prototype.slice()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一直记不得这三个哪个是哪个，加强记忆一下。&lt;br&gt;以下摘录自MDN。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>js类型转换</title>
@@ -427,27 +453,6 @@
     
     
       <category term="数组" scheme="https://herotiga.github.io/tags/%E6%95%B0%E7%BB%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>lambda表达式</title>
-    <link href="https://herotiga.github.io/2021/02/24/lambda-expression/"/>
-    <id>https://herotiga.github.io/2021/02/24/lambda-expression/</id>
-    <published>2021-02-24T07:14:37.000Z</published>
-    <updated>2021-02-24T07:49:30.218Z</updated>
-    
-    <content type="html"><![CDATA[<p>lambda表达式就是匿名函数，同时也是一个闭包。</p><a id="more"></a><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>以js中的lambda为例：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单行</span></span><br><span class="line">( [param1, parma2,…param n ) =&gt; statement;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多行</span></span><br><span class="line">( [param1, parma2,…param n] )=&gt; &#123;</span><br><span class="line">    statement;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><ol><li>避免了污染全局变量。</li><li>简化了函数代码。</li><li>本身是一个闭包。</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;lambda表达式就是匿名函数，同时也是一个闭包。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="cs" scheme="https://herotiga.github.io/categories/cs/"/>
-    
     
   </entry>
   
