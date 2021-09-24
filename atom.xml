@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2021-09-23T08:15:06.276Z</updated>
+  <updated>2021-09-24T15:07:58.048Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>关于变量提升(hoisting)</title>
-    <link href="https://herotiga.github.io/2021/09/23/%E5%85%B3%E4%BA%8E%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87/"/>
-    <id>https://herotiga.github.io/2021/09/23/%E5%85%B3%E4%BA%8E%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87/</id>
+    <title>变量提升(hoisting)</title>
+    <link href="https://herotiga.github.io/2021/09/23/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87/"/>
+    <id>https://herotiga.github.io/2021/09/23/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87/</id>
     <published>2021-09-23T01:19:38.000Z</published>
-    <updated>2021-09-23T08:15:06.276Z</updated>
+    <updated>2021-09-24T15:07:58.048Z</updated>
     
     <content type="html"><![CDATA[<p><code>var</code> 和 <code>function</code> 的声明毫无疑问是会被提升到其所在的全局作用域顶部或者函数作用域顶部的。<br>故而，对于 <code>var</code> 和 <code>function</code> 可以先使用后声明。</p><p>但是对于 <code>let</code> 和 <code>const</code> ，各种文章教程都说不会被js提升。<br>但是我从暂时性死区(TDZ)中发现其实他们俩也是存在变量提升的，只是他们被提升的时候不会在js内部被初始化。</p><a id="more"></a><hr><h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><p>对于 <code>let</code> ，具有块级作用域，会被提升到其所在代码块顶部，存在TDZ。</p><h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><p>对于 <code>const</code> ，具有块级作用域，会被提升到其所在代码块顶部，一旦声明就无法改变其值，存在TDZ。<br>故而，需要在声明的时候同时初始化。</p><p>我们可以看到 <code>let</code> 和 <code>const</code> 的唯一区别就是 <code>const</code> 需要申明时初始化否则报错，而且不能改变其值。<br>其他都相同，包括两者都存在TDZ。</p><p>因此造成了 <code>let</code> 和 <code>const</code> 由于TDZ的存在而不能在声明前使用。</p><!-- 深入阅读：https://www.jianshu.com/p/0f49c88cf169 -->]]></content>
     
