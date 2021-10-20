@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2021-10-18T17:16:00.294Z</updated>
+  <updated>2021-10-20T07:12:45.364Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>剑指 Offer 10- II. 青蛙跳台阶问题</title>
+    <link href="https://herotiga.github.io/2021/10/20/%E5%89%91%E6%8C%87Offer-10-II-%E9%9D%92%E8%9B%99%E8%B7%B3%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%98/"/>
+    <id>https://herotiga.github.io/2021/10/20/%E5%89%91%E6%8C%87Offer-10-II-%E9%9D%92%E8%9B%99%E8%B7%B3%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%98/</id>
+    <published>2021-10-19T17:12:49.000Z</published>
+    <updated>2021-10-20T07:12:45.364Z</updated>
+    
+    <content type="html"><![CDATA[<p>难度：简单</p><a id="more"></a><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>一只青蛙一次可以跳上1级台阶，也可以跳上2级台阶。求该青蛙跳上一个 n 级的台阶总共有多少种跳法。</p><p>答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。</p><p>示例1：</p><pre><code>输入：n = 2输出：2</code></pre><p>示例2：</p><pre><code>输入：n = 7输出：21</code></pre><p>示例3：</p><pre><code>输入：n = 0输出：1</code></pre><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>输入n为台阶个数，f(n)为方式种类个数，f(0) = 0, f(1) = 1, f(2) = 2, f(n) = ?，如果第一次跳一个台阶则这种情况下的方式个数为f(n-1)，如果第一次跳两个台阶则这种情况下方式个数为f(n-2)。故而f(n)=f(n-1)+f(n-2).</p><p><strong>斐波那契数列</strong>：1，1，2，3，5，8，13…</p><p>前两个数之和构成第三个数。</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibo</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (n === <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (n === <span class="number">2</span>) <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> (n &gt; <span class="number">2</span>) <span class="keyword">return</span> fibo(n - <span class="number">1</span>) + fibo(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;难度：简单&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://herotiga.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="递归" scheme="https://herotiga.github.io/tags/%E9%80%92%E5%BD%92/"/>
+    
+  </entry>
   
   <entry>
     <title>剑指 Offer 07. 重建二叉树</title>
@@ -428,27 +451,6 @@
 &lt;li&gt;&lt;code&gt;Array.prototype.slice()&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;一直记不得这三个哪个是哪个，加强记忆一下。&lt;br&gt;以下摘录自MDN。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>js反转数组的几种方法</title>
-    <link href="https://herotiga.github.io/2021/08/27/js%E5%8F%8D%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/"/>
-    <id>https://herotiga.github.io/2021/08/27/js%E5%8F%8D%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</id>
-    <published>2021-08-27T01:38:29.000Z</published>
-    <updated>2021-09-08T03:07:02.334Z</updated>
-    
-    <content type="html"><![CDATA[<p>js反转数组的几种方法。</p><a id="more"></a><ol><li><code>reverse()</code></li></ol><p><code>reverse()</code> 会改变原数组，不会返回新数组。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line">arr.reverse();</span><br><span class="line"><span class="comment">// [4, 3, 2, 1]</span></span><br></pre></td></tr></table></figure><ol start="2"><li><code>reverse()</code>配合展开符<code>...</code></li></ol><p>这种方法不会改变原数组。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里使用展开符产生了一个新数组实例，这个实例和arr一模一样，然后反转这个新数组实例并赋值给一个变量</span></span><br><span class="line"><span class="keyword">let</span> new_arr = [...arr].reverse();</span><br><span class="line"><span class="comment">// [ 4, 3, 2, 1 ]</span></span><br></pre></td></tr></table></figure><ol start="3"><li><code>slice()</code>配合<code>reverse()</code></li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> new_arr = arr.slice().reverse();</span><br></pre></td></tr></table></figure><ol start="4"><li><code>reduce()</code>配合<code>...</code></li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> new_arr = arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">acc, val</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [val, ...acc]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>同理可以使用<code>reduceRIght</code>和<code>...</code>。</p><ol start="5"><li>遍历每个元素</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> new_arr = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = arr.length - <span class="number">1</span>; i&gt;=<span class="number">0</span>; i--) &#123;</span><br><span class="line">    new_arr.push(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;js反转数组的几种方法。&lt;/p&gt;
     
     </summary>
     
