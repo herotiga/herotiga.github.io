@@ -89,6 +89,29 @@
   </entry>
   
   <entry>
+    <title>剑指Offer10-I-斐波那契数列</title>
+    <link href="https://herotiga.github.io/2021/10/24/%E5%89%91%E6%8C%87Offer10-I-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/"/>
+    <id>https://herotiga.github.io/2021/10/24/%E5%89%91%E6%8C%87Offer10-I-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/</id>
+    <published>2021-10-24T07:25:51.000Z</published>
+    <updated>2021-11-02T02:26:13.490Z</updated>
+    
+    <content type="html"><![CDATA[<p>难度：简单</p><a id="more"></a><h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a>problem</h2><p>写一个函数，输入n，求斐波那契（Fibonacci）数列的第n项（即F(N)）。斐波那契数列的定义如下：</p><pre><code>F(0) = 0,   F(1) = 1F(N) = F(N - 1) + F(N - 2), 其中 N &gt; 1.</code></pre><p>斐波那契数列由 0 和 1 开始，之后的斐波那契数就是由之前的两数相加而得出。</p><p>答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。</p><p>示例 1：</p><pre><code>输入：n = 2输出：1</code></pre><p>示例 2：</p><pre><code>输入：n = 5输出：5</code></pre><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><h3 id="dp"><a href="#dp" class="headerlink" title="dp"></a>dp</h3><p>对于fib数列的前两位，直接返回。</p><p>从n为2开始，每一位都是前两位的和，故而只需要设置left和right两个变量存储前两位的值，cur就等于left+right，然后</p><h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><h3 id="dp-1"><a href="#dp-1" class="headerlink" title="dp"></a>dp</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> fib = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">2</span>) <span class="keyword">return</span> n;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> left = <span class="number">0</span>,</span><br><span class="line">        right = <span class="number">1</span>,</span><br><span class="line">        cur = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        cur = (left + right) % (<span class="number">1e9</span> + <span class="number">7</span>);</span><br><span class="line">        left = right;</span><br><span class="line">        right = cur;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> cur % (<span class="number">1e9</span> + <span class="number">7</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="trap"><a href="#trap" class="headerlink" title="trap"></a>trap</h2><p>每次操作给cur赋值都要<code>mod 1e9+7</code>，真是浪费我好多时间排查。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;难度：简单&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://herotiga.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="动态规划" scheme="https://herotiga.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
     <title>剑指 Offer 07. 重建二叉树</title>
     <link href="https://herotiga.github.io/2021/10/18/%E5%89%91%E6%8C%87Offer-07-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     <id>https://herotiga.github.io/2021/10/18/%E5%89%91%E6%8C%87Offer-07-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/</id>
@@ -432,27 +455,6 @@
     <summary type="html">
     
       &lt;p&gt;js删除数组中元素的几种方法。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>js获取数组中的最小值和最大值的几种方法</title>
-    <link href="https://herotiga.github.io/2021/09/06/js%E8%8E%B7%E5%8F%96%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC%E5%92%8C%E6%9C%80%E5%A4%A7%E5%80%BC%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/"/>
-    <id>https://herotiga.github.io/2021/09/06/js%E8%8E%B7%E5%8F%96%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC%E5%92%8C%E6%9C%80%E5%A4%A7%E5%80%BC%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</id>
-    <published>2021-09-06T05:45:37.000Z</published>
-    <updated>2021-09-10T01:05:37.480Z</updated>
-    
-    <content type="html"><![CDATA[<p>js获取数组中的最小值和最大值的几种方法。</p><a id="more"></a><h2 id="Math-max-配合扩展符"><a href="#Math-max-配合扩展符" class="headerlink" title="Math.max()配合扩展符"></a>Math.max()配合扩展符</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> nums = [<span class="number">1</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">24</span>, <span class="number">3</span>, <span class="number">9</span>];</span><br><span class="line"><span class="keyword">let</span> max = <span class="built_in">Math</span>.max(...nums);</span><br><span class="line"><span class="keyword">let</span> min = <span class="built_in">Math</span>.min(...nums);</span><br></pre></td></tr></table></figure><h2 id="Math-max-配合apply"><a href="#Math-max-配合apply" class="headerlink" title="Math.max()配合apply()"></a>Math.max()配合apply()</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> nums = [<span class="number">1</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">24</span>, <span class="number">3</span>, <span class="number">9</span>];</span><br><span class="line"><span class="keyword">let</span> max = <span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, nums); <span class="comment">// 24</span></span><br><span class="line"><span class="keyword">let</span> min = <span class="built_in">Math</span>.min.apply(<span class="built_in">Math</span>, nums); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure><h2 id="Math-max-配合reduce"><a href="#Math-max-配合reduce" class="headerlink" title="Math.max()配合reduce()"></a>Math.max()配合reduce()</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> nums = [<span class="number">1</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">24</span>, <span class="number">3</span>, <span class="number">9</span>];</span><br><span class="line"><span class="keyword">let</span> max = nums.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">prev, cur</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.max(prev, cur);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">let</span> min = nums.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">prev, cur</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.min(prev, cur);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><h2 id="sort-排序"><a href="#sort-排序" class="headerlink" title="sort()排序"></a>sort()排序</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> nums = [<span class="number">1</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">24</span>, <span class="number">3</span>, <span class="number">9</span>];</span><br><span class="line">nums.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">let</span> min = nums[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">let</span> max = nums[nums.length - <span class="number">1</span>];</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;js获取数组中的最小值和最大值的几种方法。&lt;/p&gt;
     
     </summary>
     
