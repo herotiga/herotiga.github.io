@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2021-11-02T01:10:11.971Z</updated>
+  <updated>2021-11-14T16:19:31.352Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用vite</title>
+    <link href="https://herotiga.github.io/2021/11/11/vite-usage/"/>
+    <id>https://herotiga.github.io/2021/11/11/vite-usage/</id>
+    <published>2021-11-11T11:11:25.000Z</published>
+    <updated>2021-11-14T16:19:31.352Z</updated>
+    
+    <content type="html"><![CDATA[<p>vite的使用。</p><a id="more"></a><h2 id="安装vite"><a href="#安装vite" class="headerlink" title="安装vite"></a>安装vite</h2><figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g create-vite-app</span><br></pre></td></tr></table></figure><h2 id="创建vite项目"><a href="#创建vite项目" class="headerlink" title="创建vite项目"></a>创建vite项目</h2><figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create-vite-app project_name</span><br><span class="line">cva project_name</span><br><span class="line">cnpm init vite-app project_name</span><br></pre></td></tr></table></figure><h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> project_name</span><br><span class="line">cnpm install</span><br><span class="line">cnpm run dev</span><br></pre></td></tr></table></figure><h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><ol><li><a href="https://vitejs.cn/">https://vitejs.cn/</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;vite的使用。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>leetcode-226-翻转二叉树</title>
@@ -434,27 +455,6 @@
     <summary type="html">
     
       &lt;p&gt;js调试技巧&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>js删除数组中元素的几种方法</title>
-    <link href="https://herotiga.github.io/2021/09/06/js%E5%88%A0%E9%99%A4%E6%95%B0%E7%BB%84%E4%B8%AD%E5%85%83%E7%B4%A0%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/"/>
-    <id>https://herotiga.github.io/2021/09/06/js%E5%88%A0%E9%99%A4%E6%95%B0%E7%BB%84%E4%B8%AD%E5%85%83%E7%B4%A0%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</id>
-    <published>2021-09-06T06:30:02.000Z</published>
-    <updated>2021-09-07T02:36:43.468Z</updated>
-    
-    <content type="html"><![CDATA[<p>js删除数组中元素的几种方法。</p><a id="more"></a><h2 id="清空数组"><a href="#清空数组" class="headerlink" title="清空数组"></a>清空数组</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line">arr.length = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line">arr = [];</span><br></pre></td></tr></table></figure><h2 id="截断数组（保留前半部分）"><a href="#截断数组（保留前半部分）" class="headerlink" title="截断数组（保留前半部分）"></a>截断数组（保留前半部分）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line">arr.length = <span class="number">4</span>;</span><br></pre></td></tr></table></figure><h2 id="delete-命令将指定元素置为-undefined"><a href="#delete-命令将指定元素置为-undefined" class="headerlink" title="delete 命令将指定元素置为 undefined"></a><code>delete</code> 命令将指定元素置为 <code>undefined</code></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">delete</span> arr[<span class="number">0</span>];</span><br></pre></td></tr></table></figure><h2 id="栈方法"><a href="#栈方法" class="headerlink" title="栈方法"></a>栈方法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">let</span> last = arr.pop();</span><br></pre></td></tr></table></figure><h2 id="队列方法"><a href="#队列方法" class="headerlink" title="队列方法"></a>队列方法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">let</span> first = arr.shift();</span><br></pre></td></tr></table></figure><h2 id="splice-删除替换指定元素"><a href="#splice-删除替换指定元素" class="headerlink" title="splice() 删除替换指定元素"></a><code>splice()</code> 删除替换指定元素</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">arr.splice(begin_index, delete_num, insert_item1, ..., insert_itemN);</span><br></pre></td></tr></table></figure><h2 id="slice-删除指定元素"><a href="#slice-删除指定元素" class="headerlink" title="slice() 删除指定元素"></a><code>slice()</code> 删除指定元素</h2><h2 id="Array-prototype-上添加方法"><a href="#Array-prototype-上添加方法" class="headerlink" title="Array.prototype 上添加方法"></a><code>Array.prototype</code> 上添加方法</h2><p>不推荐</p><h2 id="循环迭代"><a href="#循环迭代" class="headerlink" title="循环迭代"></a>循环迭代</h2><p>多种方法可以遍历数组元素并删除元素，此处省略一万字。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;js删除数组中元素的几种方法。&lt;/p&gt;
     
     </summary>
     
