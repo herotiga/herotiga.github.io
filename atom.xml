@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2021-11-14T16:19:31.352Z</updated>
+  <updated>2021-11-17T11:04:07.722Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue3中引入jquery</title>
+    <link href="https://herotiga.github.io/2021/11/17/vue%E4%B8%AD%E5%BC%95%E5%85%A5jquery/"/>
+    <id>https://herotiga.github.io/2021/11/17/vue%E4%B8%AD%E5%BC%95%E5%85%A5jquery/</id>
+    <published>2021-11-17T09:35:57.000Z</published>
+    <updated>2021-11-17T11:04:07.722Z</updated>
+    
+    <content type="html"><![CDATA[<!-- https://www.baidu.com/s?wd=vue%E4%B8%AD%E5%BC%95%E5%85%A5jquery&ie=UTF-8 --><!-- https://www.cnblogs.com/zhoujuan/p/11713746.html --><a id="more"></a><h2 id="安装jquery"><a href="#安装jquery" class="headerlink" title="安装jquery"></a>安装jquery</h2><figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i jquery -S</span><br></pre></td></tr></table></figure><h2 id="配置config-index-js"><a href="#配置config-index-js" class="headerlink" title="配置config/index.js"></a>配置config/index.js</h2><p>加入：</p><figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br></pre></td></tr></table></figure><p><code>module.exports</code> 中加入：</p><figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">chainWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    config.plugin(<span class="string">'provide'</span>).use(webpack.ProvidePlugin, [&#123;</span><br><span class="line">        $: <span class="string">'jquery'</span>,</span><br><span class="line">        jquery: <span class="string">'jquery'</span>,</span><br><span class="line">        jQuery: <span class="string">'jquery'</span>,</span><br><span class="line">        <span class="string">'window.jQuery'</span>: <span class="string">'jquery'</span></span><br><span class="line">    &#125;])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>在组件中引用：</p><figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">'jquery'</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;!-- https://www.baidu.com/s?wd=vue%E4%B8%AD%E5%BC%95%E5%85%A5jquery&amp;ie=UTF-8 --&gt;
+&lt;!-- https://www.cnblogs.com/zhoujuan/p/11713746.html --&gt;
+    
+    </summary>
+    
+    
+      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>使用vite</title>
@@ -434,27 +456,6 @@
     <summary type="html">
     
       &lt;p&gt;es6简化代码。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>js调试技巧</title>
-    <link href="https://herotiga.github.io/2021/09/06/js%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/"/>
-    <id>https://herotiga.github.io/2021/09/06/js%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/</id>
-    <published>2021-09-06T09:26:15.000Z</published>
-    <updated>2021-09-07T02:36:38.491Z</updated>
-    
-    <content type="html"><![CDATA[<p>js调试技巧</p><a id="more"></a><h2 id="缩短-console-log"><a href="#缩短-console-log" class="headerlink" title="缩短 console.log"></a>缩短 <code>console.log</code></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> cl = <span class="built_in">console</span>.log.bind(<span class="built_in">document</span>);</span><br><span class="line">cl(<span class="number">123</span>);</span><br></pre></td></tr></table></figure><h2 id="使用table展示数组和对象"><a href="#使用table展示数组和对象" class="headerlink" title="使用table展示数组和对象"></a>使用table展示数组和对象</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.table(obj);</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;js调试技巧&lt;/p&gt;
     
     </summary>
     
