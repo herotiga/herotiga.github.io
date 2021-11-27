@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2021-11-25T08:48:45.213Z</updated>
+  <updated>2021-11-27T13:51:10.530Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://herotiga.github.io/2021/11/25/require%E5%92%8Cimport/"/>
     <id>https://herotiga.github.io/2021/11/25/require%E5%92%8Cimport/</id>
     <published>2021-11-25T06:30:05.000Z</published>
-    <updated>2021-11-25T08:48:45.213Z</updated>
+    <updated>2021-11-27T13:51:10.530Z</updated>
     
     <content type="html"><![CDATA[<p><code>require</code> 和 <code>import</code> 都是引入模块。</p><a id="more"></a><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ol><li>require是赋值过程，过程就是将对象数字字符串赋值给变量，import是结构过程，浏览器不支持import，node中会被编译为require。</li><li>require是AMD规范，import是ES6规范。</li><li>require在运行时调用，所以require可以用在任何地方，import在编译时调用，所以import要写在文件顶部。</li></ol><h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><ol><li><a href="https://www.zhihu.com/question/56820346">https://www.zhihu.com/question/56820346</a></li></ol>]]></content>
     
@@ -32,7 +32,7 @@
     </summary>
     
     
-      <category term="vue" scheme="https://herotiga.github.io/categories/vue/"/>
+      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
     
     
   </entry>
