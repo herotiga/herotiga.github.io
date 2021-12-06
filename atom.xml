@@ -101,6 +101,27 @@
   </entry>
   
   <entry>
+    <title>laydate日期格式不合法</title>
+    <link href="https://herotiga.github.io/2021/10/29/laydate%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E4%B8%8D%E5%90%88%E6%B3%95/"/>
+    <id>https://herotiga.github.io/2021/10/29/laydate%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E4%B8%8D%E5%90%88%E6%B3%95/</id>
+    <published>2021-10-29T07:09:19.000Z</published>
+    <updated>2021-12-06T08:07:37.696Z</updated>
+    
+    <content type="html"><![CDATA[<p>遇到了laydate无法正确渲染的问题。</p><a id="more"></a><p>在render的时候给value就可以了。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">laydate.render(&#123;</span><br><span class="line">    elem: <span class="string">'#id'</span>,</span><br><span class="line">    trigger: <span class="string">'click'</span>,</span><br><span class="line">    type: <span class="string">'date'</span>,</span><br><span class="line">    value: [yyyy - MM - dd]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;遇到了laydate无法正确渲染的问题。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>leetcode-226-翻转二叉树</title>
     <link href="https://herotiga.github.io/2021/10/28/leetcode-226-%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     <id>https://herotiga.github.io/2021/10/28/leetcode-226-%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91/</id>
@@ -433,28 +454,6 @@
     <summary type="html">
     
       &lt;p&gt;&lt;code&gt;let&lt;/code&gt; 和 &lt;code&gt;const&lt;/code&gt; 是es6新增的用于声明变量的命令 。&lt;br&gt;&lt;code&gt;let&lt;/code&gt; 用于可以代替 &lt;code&gt;var&lt;/code&gt; ，用于声明作用域为该代码块的变量。&lt;br&gt;&lt;code&gt;const&lt;/code&gt; 用于声明作用域为该代码块的常量。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>ES6学习笔记——简介</title>
-    <link href="https://herotiga.github.io/2021/09/08/es6-note-01-%E7%AE%80%E4%BB%8B/"/>
-    <id>https://herotiga.github.io/2021/09/08/es6-note-01-%E7%AE%80%E4%BB%8B/</id>
-    <published>2021-09-08T09:28:14.000Z</published>
-    <updated>2021-09-28T09:22:03.124Z</updated>
-    
-    <content type="html"><![CDATA[<p>es6笔记</p><!-- ES6教程来自阮一峰老师：https://es6.ruanyifeng.com/ --><a id="more"></a><h2 id="ECMAScript和JavaScript的关系"><a href="#ECMAScript和JavaScript的关系" class="headerlink" title="ECMAScript和JavaScript的关系"></a>ECMAScript和JavaScript的关系</h2><p>ECMAScript是JavaScript的规格，JavaScript是ECMAScript的一种实现（还有JScript和ActionScript）。<br>日常场合，这两个词是可以互换的。</p><h2 id="ES6与ECMAScript2015的关系"><a href="#ES6与ECMAScript2015的关系" class="headerlink" title="ES6与ECMAScript2015的关系"></a>ES6与ECMAScript2015的关系</h2><p>ES6既是一个历史名词，也是一个泛指，含义是5.1版以后的JavaScript的下一代标准，涵盖了ES2015、ES2016、ES2017等等，而ES2015则是正式名称，特指该年发布的正式版本的语言标准。本书中提到ES6的地方，一般是指ES2015标准，但有时也是泛指“下一代JavaScript语言”。</p><h2 id="ECMAScript的历史"><a href="#ECMAScript的历史" class="headerlink" title="ECMAScript的历史"></a>ECMAScript的历史</h2><p>Node.js是JavaScript的服务器运行环境（runtime）。它对ES6的支持度更高。除了那些默认打开的功能，还有一些语法功能已经实现了，但是默认没有打开。使用下面的命令，可以查看Node.js默认没有打开的ES6实验性语法。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Linux &amp; Mac</span></span><br><span class="line">$ node --v8-options | grep harmony</span><br><span class="line"></span><br><span class="line"><span class="comment"># Windows</span></span><br><span class="line">$ node --v8-options | findstr harmony</span><br></pre></td></tr></table></figure><h2 id="Babel转码器"><a href="#Babel转码器" class="headerlink" title="Babel转码器"></a>Babel转码器</h2><p>Babel是一个es6转码器，可以将es6转为es5代码以提高es6代码的向下兼容。</p><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>比如：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 转码前, es6的肩头函数</span></span><br><span class="line">input.map(<span class="function"><span class="params">item</span> =&gt;</span> item + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 转码后, es5的普通函数</span></span><br><span class="line">input.map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> item + <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>在项目目录中使用Babel：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save-dev @babel/core</span><br></pre></td></tr></table></figure><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>安装完了第一步就是要配置 <code>.babelrc</code> 文件。</p><p>配置文件存在于项目根目录下，用于配置转码规则和插件：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; 用于设定转码规则</span><br><span class="line">    &quot;presets&quot;: [],</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 用于设定插件 </span><br><span class="line">    &quot;plugins&quot;: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>安装转码规则：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最新转码规则</span></span><br><span class="line">$ npm install --save-dev @babel/preset-env</span><br><span class="line"></span><br><span class="line"><span class="comment"># react转码规则</span></span><br><span class="line">$ npm install --save-dev @babel/preset-react</span><br></pre></td></tr></table></figure><p>添加到 <code>.babelrc</code> :</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;presets&quot;: [</span><br><span class="line">      &quot;@babel&#x2F;env&quot;,</span><br><span class="line">      &quot;@babel&#x2F;preset-react&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;plugins&quot;: []</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure><h3 id="命令行转码"><a href="#命令行转码" class="headerlink" title="命令行转码"></a>命令行转码</h3><p>安装命令行转码器：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save-dev @babel/cli</span><br></pre></td></tr></table></figure><p>使用：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 转码结果输出到标准输出</span></span><br><span class="line">$ npx babel example.js</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转码结果写入一个文件</span></span><br><span class="line"><span class="comment"># --out-file 或 -o 参数指定输出文件</span></span><br><span class="line">$ npx babel example.js --out-file compiled.js</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">$ npx babel example.js -o compiled.js</span><br><span class="line"></span><br><span class="line"><span class="comment"># 整个目录转码</span></span><br><span class="line"><span class="comment"># --out-dir 或 -d 参数指定输出目录</span></span><br><span class="line">$ npx babel src --out-dir lib</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">$ npx babel src -d lib</span><br><span class="line"></span><br><span class="line"><span class="comment"># -s 参数生成source map文件</span></span><br><span class="line">$ npx babel src -d lib -s</span><br></pre></td></tr></table></figure><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li>阮一峰ES6教程：<a href="https://es6.ruanyifeng.com/">https://es6.ruanyifeng.com/</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;es6笔记&lt;/p&gt;
-&lt;!-- ES6教程来自阮一峰老师：https://es6.ruanyifeng.com/ --&gt;
     
     </summary>
     
