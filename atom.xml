@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2021-12-20T06:04:39.717Z</updated>
+  <updated>2021-12-20T00:44:46.078Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,31 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>MySQL学习笔记（一）</title>
-    <link href="https://herotiga.github.io/2021/12/20/mysql-note-01/"/>
-    <id>https://herotiga.github.io/2021/12/20/mysql-note-01/</id>
-    <published>2021-12-20T00:47:06.000Z</published>
-    <updated>2021-12-20T06:04:39.717Z</updated>
-    
-    <content type="html"><![CDATA[<p>MySQL 是关系型数据库管理系统(RDBMS)，关联数据库将数据保存在不同的表中。 MySQL 使用标准的 SQL 数据语言形式。</p><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="什么是数据库（DB）"><a href="#什么是数据库（DB）" class="headerlink" title="什么是数据库（DB）"></a>什么是数据库（DB）</h3><p>数据库(database)是按照数据结构来组织、存储和管理数据的仓库。</p><p>每个数据库管理系统都有多个 API 来操作数据库（创建、访问、管理、搜索等）。</p><p>关系型数据库的特点：</p><ol><li>数据以表格的形式出现</li><li>每行为各种记录名称</li><li>每列为记录名称所对应的数据域</li><li>许多的行和列组成一张表单</li><li>若干的表单组成 database</li></ol><h3 id="什么是关系型数据库管理系统（RDBMS）"><a href="#什么是关系型数据库管理系统（RDBMS）" class="headerlink" title="什么是关系型数据库管理系统（RDBMS）"></a>什么是关系型数据库管理系统（RDBMS）</h3><ul><li>数据库: 数据库是一些关联表的集合。</li><li>数据表: 表是数据的矩阵。在一个数据库中的表看起来像一个简单的电子表格。</li><li>列: 一列(数据元素) 包含了相同类型的数据, 例如邮政编码的数据。</li><li>行：一行（=元组，或记录）是一组相关的数据，例如一条用户订阅的数据。</li><li>冗余：存储两倍数据，冗余降低了性能，但提高了数据的安全性。</li><li>主键：主键是唯一的。一个数据表中只能包含一个主键。你可以使用主键来查询数据。</li><li>外键：外键用于关联两个表。</li><li>复合键：复合键（组合键）将多个列作为一个索引键，一般用于复合索引。</li><li>索引：使用索引可快速访问数据库表中的特定信息。索引是对数据库表中一列或多列的值进行排序的一种结构。类似于书籍的目录。</li><li>参照完整性: 参照的完整性要求关系中不允许引用不存在的实体。与实体完整性是关系模型必须满足的完整性约束条件，目的是保证数据的一致性。</li></ul><p>关系型数据库类似于一个 Excel 表格：</p><p><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn@master/img/article/mysql-table.jpg" alt="table"></p><ul><li>表头(header): 每一列的名称; </li><li>列(col): 具有相同数据类型的数据的集合; </li><li>行(row): 每一行用来描述某条记录的具体信息; </li><li>值(value): 行的具体信息, 每个值必须与该列的数据类型相同; </li><li>键(key): 键的值在当前列中具有唯一性。</li></ul><h2 id="安装-MySQL"><a href="#安装-MySQL" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h2><p>MySQL 官网下载：<a href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a></p><p>清华 tuna 下载：<a href="https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads/">https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads/</a></p><p>homebrew 安装： <code>brew install mysql@5.7</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动MySQL</span></span><br><span class="line">mysql.server start</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭MySQL</span></span><br><span class="line">mysql.server stop</span><br><span class="line"></span><br><span class="line"><span class="comment"># 登录</span></span><br><span class="line">mysql -u root</span><br></pre></td></tr></table></figure><h2 id="管理-MySQL"><a href="#管理-MySQL" class="headerlink" title="管理 MySQL"></a>管理 MySQL</h2><p>数据库可视化：Navicat(支持 MySQL、MariaDB、MongoDB、SQL Server、Oracle、PostgreSQL 和 SQLite)</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;MySQL 是关系型数据库管理系统(RDBMS)，关联数据库将数据保存在不同的表中。 MySQL 使用标准的 SQL 数据语言形式。&lt;/p&gt;
-&lt;h2 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="mysql" scheme="https://herotiga.github.io/categories/mysql/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>防抖(debounce)和节流(throttle)</title>
@@ -461,6 +436,29 @@
     
     
       <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>使用node.js爬取静态页面</title>
+    <link href="https://herotiga.github.io/2021/09/29/%E4%BD%BF%E7%94%A8node-js%E7%88%AC%E5%8F%96%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/"/>
+    <id>https://herotiga.github.io/2021/09/29/%E4%BD%BF%E7%94%A8node-js%E7%88%AC%E5%8F%96%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</id>
+    <published>2021-09-29T06:32:27.000Z</published>
+    <updated>2021-10-09T08:19:12.417Z</updated>
+    
+    <content type="html"><![CDATA[<p>爬虫就是向目标url发送请求，然后把服务器的相应解析为我们需要的格式。<br>下面爬取整个页面，也可以根据个人需求爬取自己需要的信息。</p><a id="more"></a><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># request库用于发送请求</span></span><br><span class="line">cnpm install request --save</span><br><span class="line"><span class="comment"># cheerio是jQuery核心代码, 用于操作请求返回的DOM</span></span><br><span class="line">cnpm install cheerio --save</span><br></pre></td></tr></table></figure><h2 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h2><figure class="highlight js"><figcaption><span>spider.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> request = <span class="built_in">require</span>(<span class="string">'request'</span>);</span><br><span class="line"><span class="keyword">const</span> cheerio = <span class="built_in">require</span>(<span class="string">'cheerio'</span>);</span><br><span class="line"><span class="keyword">const</span> readline = <span class="built_in">require</span>(<span class="string">'readline'</span>);</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> url;</span><br><span class="line"><span class="keyword">let</span> rl = readline.createInterface(&#123;</span><br><span class="line">    input: process.stdin,</span><br><span class="line">    output: process.stdout</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'请输入要爬取的url:'</span>);</span><br><span class="line"></span><br><span class="line">rl.question(<span class="string">'url:'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">    url = res;</span><br><span class="line">    rl.close();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">rl.on(<span class="string">'close'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'正在爬取...'</span>);</span><br><span class="line">    <span class="built_in">console</span>.time(<span class="string">'爬取耗时'</span>);</span><br><span class="line">    request(url, (err, res) =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'创建输出目录错误'</span> + <span class="string">''</span> + err);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'爬取成功！'</span>);</span><br><span class="line">            <span class="built_in">console</span>.timeEnd(<span class="string">'爬取耗时'</span>);</span><br><span class="line">            <span class="keyword">let</span> $ = cheerio.load(res.body);</span><br><span class="line">            <span class="keyword">let</span> DOM = $(<span class="string">'html'</span>).prop(<span class="string">'outerHTML'</span>);</span><br><span class="line">            <span class="keyword">let</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'正在写入文件...'</span>);</span><br><span class="line">            <span class="built_in">console</span>.time(<span class="string">'写入耗时'</span>);</span><br><span class="line">            fs.writeFile(<span class="string">'./output/output_'</span>+ now + <span class="string">'.html'</span>, DOM, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (err !== <span class="literal">null</span>) &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">'写入失败，错误信息：'</span> + err);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">'写入成功！'</span>);</span><br><span class="line">                    <span class="built_in">console</span>.timeEnd(<span class="string">'写入耗时'</span>);</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">'文件路径：'</span> + __dirname + <span class="string">'/output/output_'</span> + now + <span class="string">'.html'</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node spider.js</span><br></pre></td></tr></table></figure><p>页面中引用的静态资源文件还没有爬。<br>等等再写。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;爬虫就是向目标url发送请求，然后把服务器的相应解析为我们需要的格式。&lt;br&gt;下面爬取整个页面，也可以根据个人需求爬取自己需要的信息。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="node.js" scheme="https://herotiga.github.io/categories/node-js/"/>
+    
+      <category term="爬虫" scheme="https://herotiga.github.io/categories/%E7%88%AC%E8%99%AB/"/>
     
     
   </entry>
