@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2022-01-17T01:01:54.646Z</updated>
+  <updated>2022-01-17T01:05:35.138Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://herotiga.github.io/2022/01/14/let%E5%92%8Cconst%E5%A3%B0%E6%98%8E%E7%9A%84%E5%8F%98%E9%87%8F%E5%8E%BB%E5%93%AA%E5%84%BF%E4%BA%86/"/>
     <id>https://herotiga.github.io/2022/01/14/let%E5%92%8Cconst%E5%A3%B0%E6%98%8E%E7%9A%84%E5%8F%98%E9%87%8F%E5%8E%BB%E5%93%AA%E5%84%BF%E4%BA%86/</id>
     <published>2022-01-14T09:06:04.000Z</published>
-    <updated>2022-01-17T01:01:54.646Z</updated>
+    <updated>2022-01-17T01:05:35.138Z</updated>
     
-    <content type="html"><![CDATA[<p>使用es5中 <code>var</code> 命令声明的变量可以在 <code>window</code> 下找到，比如：</p><p><code>var myName = &#39;mason&#39;</code> ，可以使用 <code>window.myName</code> 访问到。</p><p>但是使用es6的 <code>let</code> 和 <code>const</code> 声明的变量却没有在window下，这是为什么呢？</p><a id="more"></a><hr><p>这里就要说到 <code>window</code> 对象和 <code>global</code> 对象。</p><p>对于 <code>window</code> 和 <code>global</code> 的看法，之前一直都是：window是浏览器的顶层对象，global是node的顶层对象。</p><p>但是其实window是global在浏览器的代理，window是global的一部分。</p><p>我们使用var声明的变量会被挂载到window下。</p><p>而let和const声明的变量会被挂载到 <code>script</code> 对象下，script和global是同一层级的。</p>]]></content>
+    <content type="html"><![CDATA[<p>使用es5中 <code>var</code> 命令声明的变量可以在 <code>window</code> 下找到，比如：</p><p><code>var myName = &#39;mason&#39;</code> ，可以使用 <code>window.myName</code> 访问到。</p><p>但是使用es6的 <code>let</code> 和 <code>const</code> 声明的变量却没有在window下，这是为什么呢？</p><a id="more"></a><hr><p>这里就要说到window对象和 <code>global</code> 对象。</p><p>对于window和global的看法，之前一直都是：window是浏览器的顶层对象，global是node的顶层对象。</p><p>但是其实window是global在浏览器的代理，window是global的一部分。</p><p>我们使用var声明的变量会被挂载到window下。</p><p>而let和const声明的变量会被挂载到 <code>script</code> 对象下，script和global是同一层级的。</p>]]></content>
     
     <summary type="html">
     
