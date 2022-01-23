@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2022-01-17T06:17:49.773Z</updated>
+  <updated>2022-01-21T09:23:47.317Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ES7-12新特性整理（更新中）</title>
+    <link href="https://herotiga.github.io/2022/01/21/ES7-12%E6%96%B0%E7%89%B9%E6%80%A7%E6%95%B4%E7%90%86/"/>
+    <id>https://herotiga.github.io/2022/01/21/ES7-12%E6%96%B0%E7%89%B9%E6%80%A7%E6%95%B4%E7%90%86/</id>
+    <published>2022-01-21T08:00:57.000Z</published>
+    <updated>2022-01-21T09:23:47.317Z</updated>
+    
+    <content type="html"><![CDATA[<p>陆续整理一下ES7-12的新特性。</p><a id="more"></a><h2 id="ES7-ES2016"><a href="#ES7-ES2016" class="headerlink" title="ES7(ES2016)"></a>ES7(ES2016)</h2><h3 id="Array-prototype-includes"><a href="#Array-prototype-includes" class="headerlink" title="Array.prototype.includes()"></a>Array.prototype.includes()</h3><p>描述：用于判断一个数组中从下标为index起后面是否含有指定的值，返回Boolean。只能判断数组元素是基本类型的item。<br>语法： <code>arr.includes(item[, index])</code></p><h3 id="幂运算符"><a href="#幂运算符" class="headerlink" title="幂运算符"></a>幂运算符</h3><p>ES5幂运算： <code>Math.pow(2, 10)</code></p><p>ES7幂运算： <code>2 ** 10</code></p><h2 id="ES8-ES2017"><a href="#ES8-ES2017" class="headerlink" title="ES8(ES2017)"></a>ES8(ES2017)</h2><h3 id="Object-values"><a href="#Object-values" class="headerlink" title="Object.values()"></a>Object.values()</h3><p>描述：返回一个数组，数组成员是参数对象所有可遍历属性的值。<br>语法： <code>Object.values(obj)</code></p><h3 id="Object-entries"><a href="#Object-entries" class="headerlink" title="Object.entries()"></a>Object.entries()</h3><p>描述：返回一个数组，数组成员是参数对象所有可遍历属性的键值对数组。<br>语法： <code>Object.entries([1, 2, 3])</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;陆续整理一下ES7-12的新特性。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>函数式编程(Functional Programming)和柯里化(Currying)</title>
+    <link href="https://herotiga.github.io/2022/01/21/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B-Functional-Programming-%E5%92%8C%E6%9F%AF%E9%87%8C%E5%8C%96-Currying/"/>
+    <id>https://herotiga.github.io/2022/01/21/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B-Functional-Programming-%E5%92%8C%E6%9F%AF%E9%87%8C%E5%8C%96-Currying/</id>
+    <published>2022-01-21T07:47:48.000Z</published>
+    <updated>2022-01-21T07:54:58.618Z</updated>
+    
+    <content type="html"><![CDATA[<p>第一次看到函数式编程和和柯里化这两个词的时候还是在刚学js的时候，但是从来没有认真学习一下和实践过。</p><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;第一次看到函数式编程和和柯里化这两个词的时候还是在刚学js的时候，但是从来没有认真学习一下和实践过。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>解析let和const声明的变量不在window下的原因</title>
@@ -417,48 +459,6 @@
     
     
       <category term="node" scheme="https://herotiga.github.io/categories/node/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>爬虫基础</title>
-    <link href="https://herotiga.github.io/2021/10/08/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/"/>
-    <id>https://herotiga.github.io/2021/10/08/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/</id>
-    <published>2021-10-08T01:32:28.000Z</published>
-    <updated>2021-10-08T02:11:03.480Z</updated>
-    
-    <content type="html"><![CDATA[<p>除了常用的java, python可以做爬虫之外，其实任何后端语言都可以做爬虫，其中也包括了node.js。<br>node.js做爬虫的优势是异步和高并发。</p><a id="more"></a><h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><p>获取需要的数据的流程是：抓取 - 存储 - 分析 - 展示。<br>整个流程应该做到以上步骤的分离。</p><h3 id="抓取"><a href="#抓取" class="headerlink" title="抓取"></a>抓取</h3><p>第一步就是抓取需要的页面。</p><p>从效率上来讲需要爬虫能够异步和并发爬取。</p><p>抓取回来的页面会有很多问题待解决，比如cookie、认证、编码、文件处理、url合规、多线程多进程、压缩等问题。</p><h3 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h3><p>抓取到的页面按照一定的策略存储(fs, db)起来.</p><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>分析链接。<br>按需求提取数据。</p><h3 id="展示"><a href="#展示" class="headerlink" title="展示"></a>展示</h3><p>数据可视化</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;除了常用的java, python可以做爬虫之外，其实任何后端语言都可以做爬虫，其中也包括了node.js。&lt;br&gt;node.js做爬虫的优势是异步和高并发。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="爬虫" scheme="https://herotiga.github.io/categories/%E7%88%AC%E8%99%AB/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>js变量和文件命名</title>
-    <link href="https://herotiga.github.io/2021/09/30/js%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/"/>
-    <id>https://herotiga.github.io/2021/09/30/js%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/</id>
-    <published>2021-09-30T06:10:34.000Z</published>
-    <updated>2021-11-25T09:08:51.080Z</updated>
-    
-    <content type="html"><![CDATA[<p>总结一下js中的各种命名。</p><a id="more"></a><ol><li>一般来说命名变量使用驼峰式</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> firstName = <span class="string">'Mason'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="2"><li>命名布尔型前缀使用is, are, has</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> isNum = <span class="literal">false</span>;</span><br></pre></td></tr></table></figure><ol start="3"><li>函数采用动词前缀</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> getData = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> queryString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="4"><li>类采用PascalCase声明</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProblemSolution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="5"><li>组件名采用PascalCase</li></ol><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">NavBar</span>&gt;</span><span class="tag">&lt;/<span class="name">NavBar</span>&gt;</span></span><br></pre></td></tr></table></figure><ol start="6"><li>方法采用驼峰式</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProblemSolution</span> </span>&#123;</span><br><span class="line">    getName() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="7"><li>私有变量</li></ol><p>私有变量仅能在类内部使用</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProblemSolution</span> </span>&#123;</span><br><span class="line">    _getName() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="8"><li>常量用全大写</li></ol><p>若遇到多个单词则中间插入下划线。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> NAME = <span class="string">'Mason'</span>;</span><br><span class="line"><span class="keyword">const</span> GRADUATE_INSTITUTION = <span class="string">'MIT'</span>;</span><br></pre></td></tr></table></figure><ol start="9"><li>全局变量在文件顶部声明</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> edition = <span class="string">'v1.0'</span>;</span><br><span class="line"><span class="keyword">const</span> NAME = <span class="string">'Mason'</span>;</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br></pre></td></tr></table></figure><ol start="10"><li><p>不要使用破折号</p></li><li><p>js文件使用PascalCase或者kebab-case命名。</p></li></ol><p>使用PascalCase命名组件。</p><p>使用kebab-case命名其他文件。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;总结一下js中的各种命名。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
     
     
   </entry>
