@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2022-01-24T07:30:02.760Z</updated>
+  <updated>2022-03-02T12:06:08.923Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,48 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>call, apply和bind</title>
-    <link href="https://herotiga.github.io/2022/01/24/call-apply-bind/"/>
-    <id>https://herotiga.github.io/2022/01/24/call-apply-bind/</id>
-    <published>2022-01-24T07:29:49.000Z</published>
-    <updated>2022-01-24T07:30:02.760Z</updated>
-    
-    <content type="html"><![CDATA[<p>summary</p><a id="more"></a><hr><p>main body</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;summary&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>localStorage和sessionStorage</title>
-    <link href="https://herotiga.github.io/2022/01/24/localStorage%E5%92%8CsessionStorage/"/>
-    <id>https://herotiga.github.io/2022/01/24/localStorage%E5%92%8CsessionStorage/</id>
-    <published>2022-01-24T06:23:55.000Z</published>
-    <updated>2022-03-02T12:07:09.228Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.runoob.com/w3cnote/localstorage-spec.html">https://www.runoob.com/w3cnote/localstorage-spec.html</a></p><a id="more"></a>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://www.runoob.com/w3cnote/localstorage-spec.html&quot;&gt;https://www.runoob.com/w3cnote/localstorage-spec.html&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>ES7-12新特性整理（更新中）</title>
@@ -459,6 +417,48 @@
     
     
       <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>npm常用命令</title>
+    <link href="https://herotiga.github.io/2021/10/08/npm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://herotiga.github.io/2021/10/08/npm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <published>2021-10-08T12:11:10.000Z</published>
+    <updated>2022-01-18T03:04:27.610Z</updated>
+    
+    <content type="html"><![CDATA[<p>整理一些常用的npm(node package manager)命令。</p><a id="more"></a><h2 id="npm-v"><a href="#npm-v" class="headerlink" title="npm -v"></a>npm -v</h2><p>查看版本</p><h2 id="npm-init"><a href="#npm-init" class="headerlink" title="npm init"></a>npm init</h2><p><code>npm init</code> 用来创建package.json文件，这个文件用于记录项目的一些信息以及依赖包。<br>再 <code>npm install</code> 则会根据package.json文件来安装依赖到node_modules目录。</p><h2 id="npm-search"><a href="#npm-search" class="headerlink" title="npm search"></a>npm search</h2><p>搜索模块： <code>npm search module_name</code></p><h2 id="npm-install"><a href="#npm-install" class="headerlink" title="npm install"></a>npm install</h2><p>局部安装：会安装在在当前目录下的node_modules目录。<br> <code>npm install module_name</code></p><p>安装指定版本：<br> <code>npm install module_name@version_num</code></p><p>全局安装：<br> <code>npm install -g module_name</code></p><p>局部安装并将其添加到package.json中的dependencies:<br><code>npm install module_name --save</code> 缩写 <code>npm install module_name -S</code></p><p>局部安装并将其添加到package.json中的devDependencies(该包会只被用于开发环境):<br><code>npm install module_name --save-dev</code> 缩写 <code>npm install module_name -D</code></p><p>如果安装不成功，则先删除node_modules再清缓存再重试：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm cache clean</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure><p>安装完包后在代码里require就可以使用：<br> <code>var new_module_name = require(&#39;module_name&#39;);</code></p><p>升级npm：<br> <code>npm install -g npm</code></p><h2 id="npm-uninstall"><a href="#npm-uninstall" class="headerlink" title="npm uninstall"></a>npm uninstall</h2><p> <code>npm uninstall module_name</code></p><p> <code>npm remove module_name</code></p><h2 id="npm-update"><a href="#npm-update" class="headerlink" title="npm update"></a>npm update</h2><p> <code>npm update module_name</code></p><p> <code>npm update module_name -g</code></p><h2 id="npm-cache-clear"><a href="#npm-cache-clear" class="headerlink" title="npm cache clear"></a>npm cache clear</h2><p>清空本地npm缓存</p><h2 id="npm-publish"><a href="#npm-publish" class="headerlink" title="npm publish"></a>npm publish</h2><p>先创建package.json</p><p>在npm注册：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm adduser</span><br><span class="line">Username: Mason</span><br><span class="line">Password: ******</span><br><span class="line">Email: (this IS public) herotiga@vip.qq.com</span><br></pre></td></tr></table></figure><p>发布模块：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish</span><br></pre></td></tr></table></figure><p>之后就可以使用 <code>npm install</code> 安装了。</p><h2 id="npm-unpublish"><a href="#npm-unpublish" class="headerlink" title="npm unpublish"></a>npm unpublish</h2><p>撤销已经发布的模块的某个版本：<br> <code>npm unpublish module_name@version</code></p><h2 id="查看相关"><a href="#查看相关" class="headerlink" title="查看相关"></a>查看相关</h2><p>查看一个包的详细信息： <code>npm info module_name</code></p><p>查看一个包的所有版本： <code>npm view module_name versions</code></p><p>查看一个包最新版本： <code>npm view module_name version</code></p><p>查看安装了的包： <code>npm list</code> 缩写 <code>npm ls</code></p><p>查看全局安装的包： <code>npm list -g</code></p><p>查看全局包的安装位置： <code>npm root -g</code></p><p>修复包： <code>npm audit fix</code></p><p>查看当前包的版本： <code>npm is module_name</code></p><h2 id="npm-help"><a href="#npm-help" class="headerlink" title="npm help"></a>npm help</h2><p>查看帮助： <code>npm help</code></p><p>查看特定命令帮助： <code>npm help install</code></p><h2 id="cnpm"><a href="#cnpm" class="headerlink" title="cnpm"></a>cnpm</h2><p>参见：<a href="https://npmmirror.com/">https://npmmirror.com/</a></p><!-- 还没阅读的：https://www.cnblogs.com/PeunZhang/p/5553574.htmlhttps://www.cnblogs.com/linjiqin/p/3765772.html -->]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;整理一些常用的npm(node package manager)命令。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="node" scheme="https://herotiga.github.io/categories/node/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>爬虫基础</title>
+    <link href="https://herotiga.github.io/2021/10/08/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/"/>
+    <id>https://herotiga.github.io/2021/10/08/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/</id>
+    <published>2021-10-08T01:32:28.000Z</published>
+    <updated>2021-10-08T02:11:03.480Z</updated>
+    
+    <content type="html"><![CDATA[<p>除了常用的java, python可以做爬虫之外，其实任何后端语言都可以做爬虫，其中也包括了node.js。<br>node.js做爬虫的优势是异步和高并发。</p><a id="more"></a><h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><p>获取需要的数据的流程是：抓取 - 存储 - 分析 - 展示。<br>整个流程应该做到以上步骤的分离。</p><h3 id="抓取"><a href="#抓取" class="headerlink" title="抓取"></a>抓取</h3><p>第一步就是抓取需要的页面。</p><p>从效率上来讲需要爬虫能够异步和并发爬取。</p><p>抓取回来的页面会有很多问题待解决，比如cookie、认证、编码、文件处理、url合规、多线程多进程、压缩等问题。</p><h3 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h3><p>抓取到的页面按照一定的策略存储(fs, db)起来.</p><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>分析链接。<br>按需求提取数据。</p><h3 id="展示"><a href="#展示" class="headerlink" title="展示"></a>展示</h3><p>数据可视化</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;除了常用的java, python可以做爬虫之外，其实任何后端语言都可以做爬虫，其中也包括了node.js。&lt;br&gt;node.js做爬虫的优势是异步和高并发。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="爬虫" scheme="https://herotiga.github.io/categories/%E7%88%AC%E8%99%AB/"/>
     
     
   </entry>
