@@ -42,7 +42,7 @@
     <link href="https://herotiga.github.io/2022/01/24/localStorage%E5%92%8CsessionStorage/"/>
     <id>https://herotiga.github.io/2022/01/24/localStorage%E5%92%8CsessionStorage/</id>
     <published>2022-01-24T06:23:55.000Z</published>
-    <updated>2022-01-24T07:07:30.790Z</updated>
+    <updated>2022-03-02T12:07:09.228Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://www.runoob.com/w3cnote/localstorage-spec.html">https://www.runoob.com/w3cnote/localstorage-spec.html</a></p><a id="more"></a>]]></content>
     
@@ -63,7 +63,7 @@
     <link href="https://herotiga.github.io/2022/01/21/ES7-12%E6%96%B0%E7%89%B9%E6%80%A7%E6%95%B4%E7%90%86/"/>
     <id>https://herotiga.github.io/2022/01/21/ES7-12%E6%96%B0%E7%89%B9%E6%80%A7%E6%95%B4%E7%90%86/</id>
     <published>2022-01-21T08:00:57.000Z</published>
-    <updated>2022-02-23T12:56:02.469Z</updated>
+    <updated>2022-03-02T12:06:08.923Z</updated>
     
     <content type="html"><![CDATA[<p>陆续整理一下ES7-12的新特性。</p><a id="more"></a><h2 id="ES7-ES2016"><a href="#ES7-ES2016" class="headerlink" title="ES7(ES2016)"></a>ES7(ES2016)</h2><h3 id="Array-prototype-includes"><a href="#Array-prototype-includes" class="headerlink" title="Array.prototype.includes()"></a>Array.prototype.includes()</h3><p>描述：用于判断一个数组中从下标为index起后面是否含有指定的值，返回Boolean。只能判断数组元素是基本类型的item。<br>语法： <code>arr.includes(item[, index])</code></p><h3 id="幂运算符"><a href="#幂运算符" class="headerlink" title="幂运算符"></a>幂运算符</h3><p>ES5幂运算： <code>Math.pow(2, 10)</code></p><p>ES7幂运算： <code>2 ** 10</code></p><h2 id="ES8-ES2017"><a href="#ES8-ES2017" class="headerlink" title="ES8(ES2017)"></a>ES8(ES2017)</h2><h3 id="Object-values"><a href="#Object-values" class="headerlink" title="Object.values()"></a>Object.values()</h3><p>描述：返回一个数组，数组成员是参数对象所有可遍历属性的值。<br>语法： <code>Object.values(obj)</code></p><h3 id="Object-entries"><a href="#Object-entries" class="headerlink" title="Object.entries()"></a>Object.entries()</h3><p>描述：返回一个数组，数组成员是参数对象所有可遍历属性的键值对数组。<br>语法： <code>Object.entries([1, 2, 3])</code></p><h3 id="Object-getOwnPropertyDescriptors"><a href="#Object-getOwnPropertyDescriptors" class="headerlink" title="Object.getOwnPropertyDescriptors()"></a>Object.getOwnPropertyDescriptors()</h3><p>描述：获取一个对象的所有自身属性的描述符。<br>语法：</p>]]></content>
     
