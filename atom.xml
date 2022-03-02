@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2022-03-02T12:57:21.246Z</updated>
+  <updated>2022-03-02T13:03:48.056Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="https://herotiga.github.io/2022/03/02/%E7%BA%A2%E5%A2%A8%E6%B0%B4%E5%92%8C%E8%93%9D%E5%A2%A8%E6%B0%B4%E6%B7%B7%E5%90%88%E9%97%AE%E9%A2%98/"/>
     <id>https://herotiga.github.io/2022/03/02/%E7%BA%A2%E5%A2%A8%E6%B0%B4%E5%92%8C%E8%93%9D%E5%A2%A8%E6%B0%B4%E6%B7%B7%E5%90%88%E9%97%AE%E9%A2%98/</id>
     <published>2022-03-02T12:54:30.000Z</published>
-    <updated>2022-03-02T12:57:21.246Z</updated>
+    <updated>2022-03-02T13:03:48.056Z</updated>
     
-    <content type="html"><![CDATA[<p>今天看到个特别有意思的红墨水蓝墨水混合问题：</p><p><strong>题</strong>：有一瓶红墨水，一瓶蓝墨水，从红墨水舀一勺到蓝瓶里，搅匀后再舀一勺到红瓶里。<br><strong>问</strong>：此时红墨水里含蓝墨水的量和蓝墨水里含红墨水的量关系是什么？大于、小于、等于？</p><a id="more"></a><p><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn@master/img/article/red-blue.png" alt=""></p><p>这个题目本身看起来不是一个难题，如果你通过取值计算或者取特殊值计算的结果来判断就不好，因为不具备普遍性。</p><p>如果我们<strong>从状态变化的角度</strong>来看这个问题，可以发现这个问题可以看做是状态的迁移。</p><p><strong>初始态</strong>：红墨水和蓝墨水体积相等，红墨水中不含蓝墨水，蓝墨水中也不含红墨水。<br><strong>最终态</strong>：红墨水瓶中的水和蓝墨水瓶中的水体积依然相等，红墨水瓶中含蓝墨水，蓝墨水瓶中也含红墨水。</p><p>我们不关注两次舀水的过程，单单从状态变化的角度来看，可以发现初始态和最终态两个瓶子中的水的体积都相等，发生变化的是红墨水瓶子中多了蓝墨水而少了红墨水，蓝墨水瓶子中多了红墨水而少了蓝墨水。</p><p>而其实红墨水瓶子中多了的蓝墨水来自于蓝墨水瓶，少了的红墨水去到了蓝墨水瓶，而两者的体积是相等的，无论第一次舀水后是否搅匀，最终红墨水瓶中含有的蓝墨水永远等于蓝墨水瓶中含有的红墨水。</p><!-- https://yanhaijing.com/math/2017/03/23/red-blue-ink/ -->]]></content>
+    <content type="html"><![CDATA[<p>今天看到个特别有意思的红墨水蓝墨水混合问题：</p><p>题：有一瓶红墨水，一瓶蓝墨水，从红墨水舀一勺到蓝瓶里，搅匀后再舀一勺到红瓶里。<br>问：此时红墨水里含蓝墨水的量和蓝墨水里含红墨水的量关系是什么？大于、小于、等于？</p><a id="more"></a><p><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn@master/img/article/red-blue.png" alt=""></p><p>这个题目本身看起来不是一个难题，如果你通过取值计算或者取特殊值计算的结果来判断就不好，因为不具备普遍性。</p><p>如果我们<strong>从状态变化的角度</strong>来看这个问题，可以发现这个问题可以看做是状态的迁移。</p><p><strong>初始态</strong>：红墨水和蓝墨水体积相等，红墨水中不含蓝墨水，蓝墨水中也不含红墨水。<br><strong>最终态</strong>：红墨水瓶中的水和蓝墨水瓶中的水体积依然相等，红墨水瓶中含蓝墨水，蓝墨水瓶中也含红墨水。</p><p>我们不关注两次舀水的过程，单单从状态变化的角度来看，可以发现初始态和最终态两个瓶子中的水的体积都相等，发生变化的是红墨水瓶子中多了蓝墨水而少了红墨水，蓝墨水瓶子中多了红墨水而少了蓝墨水。</p><p>而其实红墨水瓶子中多了的蓝墨水来自于蓝墨水瓶，少了的红墨水去到了蓝墨水瓶，而两者的体积是相等的，无论第一次舀水后是否搅匀，最终红墨水瓶中含有的蓝墨水永远等于蓝墨水瓶中含有的红墨水。</p><!-- https://yanhaijing.com/math/2017/03/23/red-blue-ink/ -->]]></content>
     
     <summary type="html">
     
       &lt;p&gt;今天看到个特别有意思的红墨水蓝墨水混合问题：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;题&lt;/strong&gt;：有一瓶红墨水，一瓶蓝墨水，从红墨水舀一勺到蓝瓶里，搅匀后再舀一勺到红瓶里。&lt;br&gt;&lt;strong&gt;问&lt;/strong&gt;：此时红墨水里含蓝墨水的量和蓝墨水里含红墨水的量关系是什么？大于、小于、等于？&lt;/p&gt;
+&lt;p&gt;题：有一瓶红墨水，一瓶蓝墨水，从红墨水舀一勺到蓝瓶里，搅匀后再舀一勺到红瓶里。&lt;br&gt;问：此时红墨水里含蓝墨水的量和蓝墨水里含红墨水的量关系是什么？大于、小于、等于？&lt;/p&gt;
     
     </summary>
     
