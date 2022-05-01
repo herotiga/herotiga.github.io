@@ -82,27 +82,6 @@
   </entry>
   
   <entry>
-    <title>ES7-12新特性整理（更新中）</title>
-    <link href="https://herotiga.github.io/2022/01/21/ES7-12%E6%96%B0%E7%89%B9%E6%80%A7%E6%95%B4%E7%90%86/"/>
-    <id>https://herotiga.github.io/2022/01/21/ES7-12%E6%96%B0%E7%89%B9%E6%80%A7%E6%95%B4%E7%90%86/</id>
-    <published>2022-01-21T08:00:57.000Z</published>
-    <updated>2022-03-02T12:06:08.920Z</updated>
-    
-    <content type="html"><![CDATA[<p>陆续整理一下ES7-12的新特性。</p><a id="more"></a><h2 id="ES7-ES2016"><a href="#ES7-ES2016" class="headerlink" title="ES7(ES2016)"></a>ES7(ES2016)</h2><h3 id="Array-prototype-includes"><a href="#Array-prototype-includes" class="headerlink" title="Array.prototype.includes()"></a>Array.prototype.includes()</h3><p>描述：用于判断一个数组中从下标为index起后面是否含有指定的值，返回Boolean。只能判断数组元素是基本类型的item。<br>语法： <code>arr.includes(item[, index])</code></p><h3 id="幂运算符"><a href="#幂运算符" class="headerlink" title="幂运算符"></a>幂运算符</h3><p>ES5幂运算： <code>Math.pow(2, 10)</code></p><p>ES7幂运算： <code>2 ** 10</code></p><h2 id="ES8-ES2017"><a href="#ES8-ES2017" class="headerlink" title="ES8(ES2017)"></a>ES8(ES2017)</h2><h3 id="Object-values"><a href="#Object-values" class="headerlink" title="Object.values()"></a>Object.values()</h3><p>描述：返回一个数组，数组成员是参数对象所有可遍历属性的值。<br>语法： <code>Object.values(obj)</code></p><h3 id="Object-entries"><a href="#Object-entries" class="headerlink" title="Object.entries()"></a>Object.entries()</h3><p>描述：返回一个数组，数组成员是参数对象所有可遍历属性的键值对数组。<br>语法： <code>Object.entries([1, 2, 3])</code></p><h3 id="Object-getOwnPropertyDescriptors"><a href="#Object-getOwnPropertyDescriptors" class="headerlink" title="Object.getOwnPropertyDescriptors()"></a>Object.getOwnPropertyDescriptors()</h3><p>描述：获取一个对象的所有自身属性的描述符。<br>语法：</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;陆续整理一下ES7-12的新特性。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>解析let和const声明的变量不在window下的原因</title>
     <link href="https://herotiga.github.io/2022/01/14/let%E5%92%8Cconst%E5%A3%B0%E6%98%8E%E7%9A%84%E5%8F%98%E9%87%8F%E5%8E%BB%E5%93%AA%E5%84%BF%E4%BA%86/"/>
     <id>https://herotiga.github.io/2022/01/14/let%E5%92%8Cconst%E5%A3%B0%E6%98%8E%E7%9A%84%E5%8F%98%E9%87%8F%E5%8E%BB%E5%93%AA%E5%84%BF%E4%BA%86/</id>
@@ -457,6 +436,32 @@
     
     
       <category term="字符串" scheme="https://herotiga.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>详解js中的get/set</title>
+    <link href="https://herotiga.github.io/2021/10/09/js-get-set/"/>
+    <id>https://herotiga.github.io/2021/10/09/js-get-set/</id>
+    <published>2021-10-08T17:18:58.000Z</published>
+    <updated>2021-10-09T02:46:47.640Z</updated>
+    
+    <content type="html"><![CDATA[<p>js对象有两种属性：</p><ul><li>数据属性：就是对象中的普通成员。</li><li>存取属性：一组get/set函数，读取对象属性时调用get（不带参数，可以return），设置对象属性时调用set（set中return无效）。</li></ul><p>如果对象内只声明了get，则get/set属性值只可读。<br>如果对象内只声明了set，则get/set属性值只可写且值永远为 <code>undefined</code> 。</p><a id="more"></a><h2 id="get-set写法"><a href="#get-set写法" class="headerlink" title="get/set写法"></a>get/set写法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// func是obj的存取属性名称</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="keyword">get</span> func() &#123;</span><br><span class="line">        <span class="comment">// code</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span> func(val) &#123;</span><br><span class="line">        <span class="comment">// code</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj.func);</span><br></pre></td></tr></table></figure><h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>只声明get：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    name: <span class="string">'Mason'</span>,</span><br><span class="line">    age: <span class="number">22</span>,</span><br><span class="line">    <span class="keyword">get</span> func() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.func); <span class="comment">// 'Mason'</span></span><br><span class="line">obj.func = <span class="string">''</span>; <span class="comment">// 这里无法修改func</span></span><br><span class="line">obj.name = <span class="string">'Jason'</span>; <span class="comment">// 修改成功</span></span><br></pre></td></tr></table></figure><p>只声明set：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    name: <span class="string">'Mason'</span>,</span><br><span class="line">    age: <span class="number">22</span>,</span><br><span class="line">    <span class="keyword">set</span> func(val) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.func); <span class="comment">// undefined</span></span><br><span class="line">obj.name = <span class="string">'Jason'</span>; <span class="comment">// 修改成功</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.func); <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.name); <span class="comment">// 'Jason'</span></span><br></pre></td></tr></table></figure><p>同时声明：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    name: <span class="string">'Mason'</span>,</span><br><span class="line">    age: <span class="number">22</span>,</span><br><span class="line">    <span class="keyword">get</span> func() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span> func(val) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.func); <span class="comment">// 'Mason'</span></span><br><span class="line">obj.func = <span class="string">''</span>; <span class="comment">// 修改成功</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.func); <span class="comment">// ''</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;js对象有两种属性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据属性：就是对象中的普通成员。&lt;/li&gt;
+&lt;li&gt;存取属性：一组get/set函数，读取对象属性时调用get（不带参数，可以return），设置对象属性时调用set（set中return无效）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果对象内只声明了get，则get/set属性值只可读。&lt;br&gt;如果对象内只声明了set，则get/set属性值只可写且值永远为 &lt;code&gt;undefined&lt;/code&gt; 。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
+    
     
   </entry>
   
