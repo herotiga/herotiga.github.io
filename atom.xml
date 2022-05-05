@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2022-05-05T14:12:52.573Z</updated>
+  <updated>2022-05-05T14:56:44.321Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL架构</title>
+    <link href="https://herotiga.github.io/2022/05/05/mysql%E6%9E%B6%E6%9E%84/"/>
+    <id>https://herotiga.github.io/2022/05/05/mysql%E6%9E%B6%E6%9E%84/</id>
+    <published>2022-05-05T14:54:11.000Z</published>
+    <updated>2022-05-05T14:56:44.321Z</updated>
+    
+    <content type="html"><![CDATA[<p>MySQL架构</p><a id="more"></a><p><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn@master/img/article/mysql-arch.jpg" alt="img"></p><h2 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h2><p>连接池的作用是复用连接，避免频繁 create, destroy。</p><h2 id="分析器"><a href="#分析器" class="headerlink" title="分析器"></a>分析器</h2><p>分析器就是解析 SQL 语句。</p><h2 id="优化器"><a href="#优化器" class="headerlink" title="优化器"></a>优化器</h2><p>优化器会分析 SQL 语句并对其优化。</p><h2 id="执行器"><a href="#执行器" class="headerlink" title="执行器"></a>执行器</h2><p>执行器会调用存储引擎的接口来执行 SQL 语句。</p><h2 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h2><p>MySQL 有多重存储引擎，用于不同场景。</p><ul><li>InnoDB(最常用)</li><li>MyISAM</li><li>Memory</li><li>CSV</li><li>Archive</li><li>Blackhole</li><li>Merge</li><li>Federated</li><li>Example</li></ul><p>存储引擎就是 MySQL 对于内存和磁盘的读写策略。</p><p>InnoDB 包括了：Buffer Pool(数据存储在其中)和 Log Buffer</p><h2 id="Buffer-Pool"><a href="#Buffer-Pool" class="headerlink" title="Buffer Pool"></a>Buffer Pool</h2><p>MySQL 服务器的内存基本都会分配给 Buffer Pool，可以提升 MySQL 的性能。</p><h3 id="页"><a href="#页" class="headerlink" title="页"></a>页</h3><p>Buffer Pool 以页为单位存储。</p><p>一页包含了：</p><ul><li>上一页，下一页两个指针</li><li>User Record(真正存储信息的地方，是一行一行的数据)</li><li>其余字段</li></ul><p>其余字段包含了：</p><ul><li>Infimum 和 Supremum：此页中最大和最小的记录，用于做初步判断。</li><li>Page Directory：页面目录，用于快速查找记录。</li></ul><h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><p>InnoDB 底层采用的存储结构是 B 树和 B+树。</p><h3 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h3><p>更新数据时，数据不一定在 buffer pool 中，因为不可能数据库中所有的数据都一直在内存中。</p><p>对于聚簇索引：如果数据不在 buffer pool 中，就会将其先加载到内存中再更新。</p><p>对于非聚簇索引：change buffer。</p><h3 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h3><p>MySQL 使用的 LRU 算法的改进版，改进 LRU 算法是为了避免缓冲池污染（先前在 buffer pool 中的页被全部换出去，造成性能下降）</p><h2 id="Log-Buffer"><a href="#Log-Buffer" class="headerlink" title="Log Buffer"></a>Log Buffer</h2><p>用于存储即将被写入到磁盘中的日志。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;MySQL架构&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="mysql" scheme="https://herotiga.github.io/categories/mysql/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>JavaScript异步编程</title>
@@ -432,29 +453,6 @@
     
     
       <category term="树" scheme="https://herotiga.github.io/tags/%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指 Offer 06. 从尾到头打印链表</title>
-    <link href="https://herotiga.github.io/2021/10/18/%E5%89%91%E6%8C%87Offer-06-%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/"/>
-    <id>https://herotiga.github.io/2021/10/18/%E5%89%91%E6%8C%87Offer-06-%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/</id>
-    <published>2021-10-18T13:43:31.000Z</published>
-    <updated>2021-11-02T01:11:57.450Z</updated>
-    
-    <content type="html"><![CDATA[<p>难度：简单</p><a id="more"></a><h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a>problem</h2><p>输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。</p><p>示例：</p><pre><code>输入：head = [1,3,2]输出：[2,3,1]</code></pre><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p>遍历链表各个元素的val属性值，一次push到一个新数组中，最后返回这个数组的reverse()。</p><h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = val;</span></span><br><span class="line"><span class="comment"> *     this.next = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> reversePrint = <span class="function"><span class="keyword">function</span>(<span class="params">head</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!head) <span class="keyword">return</span> [];</span><br><span class="line">    <span class="keyword">let</span> current = head;</span><br><span class="line">    <span class="keyword">let</span> res = [];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        res.push(current.val);</span><br><span class="line">        current = current.next;</span><br><span class="line">    &#125; <span class="keyword">while</span> (current != <span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res.reverse();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;难度：简单&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="算法" scheme="https://herotiga.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="链表" scheme="https://herotiga.github.io/tags/%E9%93%BE%E8%A1%A8/"/>
     
   </entry>
   
