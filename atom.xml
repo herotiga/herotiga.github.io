@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2022-05-26T00:55:04.257Z</updated>
+  <updated>2022-05-27T07:59:24.208Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue的diff算法</title>
+    <link href="https://herotiga.github.io/2022/05/27/vue-diff/"/>
+    <id>https://herotiga.github.io/2022/05/27/vue-diff/</id>
+    <published>2022-05-27T07:58:46.000Z</published>
+    <updated>2022-05-27T07:59:24.208Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Vue模板的编译原理</title>
@@ -29,32 +46,6 @@
     
       &lt;p&gt;Vue的编译就是将 &lt;code&gt;template&lt;/code&gt; 模板转化成 &lt;code&gt;render&lt;/code&gt; 函数的过程。&lt;/p&gt;
 &lt;p&gt;再通过 &lt;code&gt;render&lt;/code&gt; 函数生成最新的vnode，再用vnode去渲染页面。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Vue是如何实现双向数据绑定的</title>
-    <link href="https://herotiga.github.io/2022/05/25/Vue%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E7%9A%84/"/>
-    <id>https://herotiga.github.io/2022/05/25/Vue%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E7%9A%84/</id>
-    <published>2022-05-25T11:13:29.000Z</published>
-    <updated>2022-05-25T11:19:15.950Z</updated>
-    
-    <content type="html"><![CDATA[<p>Vue的双向数据绑定是通过数据劫持+发布订阅实现的。</p><p>其核心是通过<code>Object.defineProperty()</code>中的get和set来实现在数据更新时将新数据发送给使用该数据的地方。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Vue的双向数据绑定是通过数据劫持+发布订阅实现的。&lt;/p&gt;
-&lt;p&gt;其核心是通过&lt;code&gt;Object.defineProperty()&lt;/code&gt;中的get和set来实现在数据更新时将新数据发送给使用该数据的地方。&lt;/p&gt;
-
-      
     
     </summary>
     
