@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2022-05-25T23:55:53.209Z</updated>
+  <updated>2022-05-26T00:55:04.257Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://herotiga.github.io/2022/05/26/Vue%E6%A8%A1%E6%9D%BF%E7%9A%84%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     <id>https://herotiga.github.io/2022/05/26/Vue%E6%A8%A1%E6%9D%BF%E7%9A%84%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</id>
     <published>2022-05-25T23:44:43.000Z</published>
-    <updated>2022-05-25T23:55:53.209Z</updated>
+    <updated>2022-05-26T00:55:04.257Z</updated>
     
     <content type="html"><![CDATA[<p>Vue的编译就是将 <code>template</code> 模板转化成 <code>render</code> 函数的过程。</p><p>再通过 <code>render</code> 函数生成最新的vnode，再用vnode去渲染页面。</p><a id="more"></a><p>模板编译过程：</p><ol><li>将模板解析为AST（抽象语法树），可以看做是解析器。</li><li>遍历AST，标记静态节点，可以看做是优化器。</li><li>使用AST生成<code>render</code>函数，可以看做是代码生成器。</li></ol>]]></content>
     
@@ -29,6 +29,32 @@
     
       &lt;p&gt;Vue的编译就是将 &lt;code&gt;template&lt;/code&gt; 模板转化成 &lt;code&gt;render&lt;/code&gt; 函数的过程。&lt;/p&gt;
 &lt;p&gt;再通过 &lt;code&gt;render&lt;/code&gt; 函数生成最新的vnode，再用vnode去渲染页面。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vue是如何实现双向数据绑定的</title>
+    <link href="https://herotiga.github.io/2022/05/25/Vue%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E7%9A%84/"/>
+    <id>https://herotiga.github.io/2022/05/25/Vue%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E7%9A%84/</id>
+    <published>2022-05-25T11:13:29.000Z</published>
+    <updated>2022-05-25T11:19:15.950Z</updated>
+    
+    <content type="html"><![CDATA[<p>Vue的双向数据绑定是通过数据劫持+发布订阅实现的。</p><p>其核心是通过<code>Object.defineProperty()</code>中的get和set来实现在数据更新时将新数据发送给使用该数据的地方。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Vue的双向数据绑定是通过数据劫持+发布订阅实现的。&lt;/p&gt;
+&lt;p&gt;其核心是通过&lt;code&gt;Object.defineProperty()&lt;/code&gt;中的get和set来实现在数据更新时将新数据发送给使用该数据的地方。&lt;/p&gt;
+
+      
     
     </summary>
     
@@ -430,27 +456,6 @@
     
     
       <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>laydate日期格式不合法</title>
-    <link href="https://herotiga.github.io/2021/10/29/laydate%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E4%B8%8D%E5%90%88%E6%B3%95/"/>
-    <id>https://herotiga.github.io/2021/10/29/laydate%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E4%B8%8D%E5%90%88%E6%B3%95/</id>
-    <published>2021-10-29T07:09:19.000Z</published>
-    <updated>2022-05-19T10:58:32.615Z</updated>
-    
-    <content type="html"><![CDATA[<p>遇到了laydate无法正确渲染的问题。</p><a id="more"></a><p>在render的时候给value就可以了。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">laydate.render(&#123;</span><br><span class="line">    elem: <span class="string">'#id'</span>,</span><br><span class="line">    trigger: <span class="string">'click'</span>,</span><br><span class="line">    type: <span class="string">'date'</span>,</span><br><span class="line">    value: [yyyy - MM - dd]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>还有一种是lay-key导致的渲染失败：<br><a href="https://blog.csdn.net/u013781343/article/details/82016042">https://blog.csdn.net/u013781343/article/details/82016042</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;遇到了laydate无法正确渲染的问题。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
     
     
   </entry>
