@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2022-05-26T00:55:04.257Z</updated>
+  <updated>2022-05-28T12:37:40.813Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue组件通信的几种方式</title>
+    <link href="https://herotiga.github.io/2022/05/28/Vue%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
+    <id>https://herotiga.github.io/2022/05/28/Vue%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/</id>
+    <published>2022-05-28T06:25:49.000Z</published>
+    <updated>2022-05-28T12:37:40.813Z</updated>
+    
+    <content type="html"><![CDATA[<p>组件的数据有三种形态：props，data，computed。</p><p>下面的方法要么是通过某种方法使得组件之间直接通信，要么是使用了第三方作为中转。</p><a id="more"></a><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="props-emit"><a href="#props-emit" class="headerlink" title="props/$emit"></a>props/$emit</h2><p>可以实现父子组件之间的通信。</p><p>父组件通过 <code>props</code> 向子组件传递数据。</p><p>子组件通过 <code>$emit</code> 触发事件向父组件传递数据，父组件通过 <code>v-on</code> 监听这个事件从而获取子组件传递的数据。</p><p>代码省略。</p><h2 id="事件中心"><a href="#事件中心" class="headerlink" title="事件中心"></a>事件中心</h2><p>可以实现任何组件之间的通信。</p><p>通过new一个空的Vue实例作为事件中心，相当于是一个发布订阅。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Event = <span class="keyword">new</span> Vue();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 触发指定事件并携带数据</span></span><br><span class="line">Event.$emit(eventName, data);</span><br><span class="line"><span class="comment">// 监听指定事件并获取数据</span></span><br><span class="line">Event.$on(eventName, (data) =&gt; &#123;</span><br><span class="line">    <span class="comment">// get data</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><h2 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h2><p>可以实现任何组件之间的通信。</p><ul><li>state存储数据，不能直接操作state，需要通过vuex的方法集操作state。</li><li>组件通过mutations操作state中的数据。</li><li>actions用于异步操作，最终提交mutations操作。</li></ul><p>vuex数据持久化到localStorage。</p><ul><li>将vuex数据持久化到locaStorage前要先<code>JSON.stringify()</code>为字符串。</li><li>将localStorage中的数据取出时要<code>JSON.parse()</code>为数组。</li></ul><h2 id="attrs-listeners"><a href="#attrs-listeners" class="headerlink" title="attrs/listeners"></a>attrs/listeners</h2><p>hexo将标题两个 <code>$</code> 包裹的部分渲染为了数学公式故而没写美元符号。</p><p><code>$attrs</code> 对象：包含了父组件传递了但是子组件props中没有暴露的属性。<br><code>$listeners</code> 对象：存放的是父组件中绑定的非原生事件。</p><h2 id="provide-inject"><a href="#provide-inject" class="headerlink" title="provide/inject"></a>provide/inject</h2><p>祖父组件通过provide向后代组件传递变量。<br>后代组件通过inject来注入变量。<br>祖父组件provide的变量是不会变动的。</p><p>使用 <code>Vue.observable</code> 可以实现组件组件provide变量改变后，后代组件inject的变量也能响应式的改变呢。</p><h2 id="parent-children-ref"><a href="#parent-children-ref" class="headerlink" title="parent, children, ref"></a>parent, children, ref</h2><p><code>$parent</code> 和 <code>$children</code> 用于访问父子组件实例。</p><p><code>ref</code> 用于普通元素就是指向该DOM，如果用于组件就是指向组件实例，可以直接获取组件实例的所有数据方法。</p><h1 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h1><ol><li><a href="https://segmentfault.com/a/1190000019208626">https://segmentfault.com/a/1190000019208626</a></li><li><a href="https://www.jianshu.com/p/2e5973fe1223">https://www.jianshu.com/p/2e5973fe1223</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;组件的数据有三种形态：props，data，computed。&lt;/p&gt;
+&lt;p&gt;下面的方法要么是通过某种方法使得组件之间直接通信，要么是使用了第三方作为中转。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Vue模板的编译原理</title>
@@ -430,27 +452,6 @@
     
     
       <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>laydate日期格式不合法</title>
-    <link href="https://herotiga.github.io/2021/10/29/laydate%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E4%B8%8D%E5%90%88%E6%B3%95/"/>
-    <id>https://herotiga.github.io/2021/10/29/laydate%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E4%B8%8D%E5%90%88%E6%B3%95/</id>
-    <published>2021-10-29T07:09:19.000Z</published>
-    <updated>2022-05-19T10:58:32.615Z</updated>
-    
-    <content type="html"><![CDATA[<p>遇到了laydate无法正确渲染的问题。</p><a id="more"></a><p>在render的时候给value就可以了。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">laydate.render(&#123;</span><br><span class="line">    elem: <span class="string">'#id'</span>,</span><br><span class="line">    trigger: <span class="string">'click'</span>,</span><br><span class="line">    type: <span class="string">'date'</span>,</span><br><span class="line">    value: [yyyy - MM - dd]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>还有一种是lay-key导致的渲染失败：<br><a href="https://blog.csdn.net/u013781343/article/details/82016042">https://blog.csdn.net/u013781343/article/details/82016042</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;遇到了laydate无法正确渲染的问题。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
     
     
   </entry>
