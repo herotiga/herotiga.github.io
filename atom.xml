@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2022-05-27T07:59:24.208Z</updated>
+  <updated>2022-05-26T00:55:04.257Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,23 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Vue的diff算法</title>
-    <link href="https://herotiga.github.io/2022/05/27/vue-diff/"/>
-    <id>https://herotiga.github.io/2022/05/27/vue-diff/</id>
-    <published>2022-05-27T07:58:46.000Z</published>
-    <updated>2022-05-27T07:59:24.208Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>Vue模板的编译原理</title>
@@ -447,6 +430,27 @@
     
     
       <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>laydate日期格式不合法</title>
+    <link href="https://herotiga.github.io/2021/10/29/laydate%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E4%B8%8D%E5%90%88%E6%B3%95/"/>
+    <id>https://herotiga.github.io/2021/10/29/laydate%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E4%B8%8D%E5%90%88%E6%B3%95/</id>
+    <published>2021-10-29T07:09:19.000Z</published>
+    <updated>2022-05-19T10:58:32.615Z</updated>
+    
+    <content type="html"><![CDATA[<p>遇到了laydate无法正确渲染的问题。</p><a id="more"></a><p>在render的时候给value就可以了。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">laydate.render(&#123;</span><br><span class="line">    elem: <span class="string">'#id'</span>,</span><br><span class="line">    trigger: <span class="string">'click'</span>,</span><br><span class="line">    type: <span class="string">'date'</span>,</span><br><span class="line">    value: [yyyy - MM - dd]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>还有一种是lay-key导致的渲染失败：<br><a href="https://blog.csdn.net/u013781343/article/details/82016042">https://blog.csdn.net/u013781343/article/details/82016042</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;遇到了laydate无法正确渲染的问题。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
     
     
   </entry>
