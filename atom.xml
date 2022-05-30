@@ -84,17 +84,17 @@
   </entry>
   
   <entry>
-    <title>node.js学习笔记</title>
+    <title>node.js学习笔记（ongoing）</title>
     <link href="https://herotiga.github.io/2022/05/22/nodejs-note/"/>
     <id>https://herotiga.github.io/2022/05/22/nodejs-note/</id>
     <published>2022-05-22T10:49:51.000Z</published>
-    <updated>2022-05-29T12:11:26.024Z</updated>
+    <updated>2022-05-30T11:21:13.045Z</updated>
     
-    <content type="html"><![CDATA[<p>笔记</p><a id="more"></a><h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><ol><li><a href="https://www.runoob.com/nodejs/nodejs-tutorial.html">https://www.runoob.com/nodejs/nodejs-tutorial.html</a></li></ol>]]></content>
+    <content type="html"><![CDATA[<p>未整理完毕。</p><a id="more"></a><!-- ## ref1. https://www.runoob.com/nodejs/nodejs-tutorial.html -->]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;笔记&lt;/p&gt;
+      &lt;p&gt;未整理完毕。&lt;/p&gt;
     
     </summary>
     
@@ -132,7 +132,7 @@
     <link href="https://herotiga.github.io/2022/05/05/mysql%E6%9E%B6%E6%9E%84/"/>
     <id>https://herotiga.github.io/2022/05/05/mysql%E6%9E%B6%E6%9E%84/</id>
     <published>2022-05-05T14:54:11.000Z</published>
-    <updated>2022-05-19T10:58:32.614Z</updated>
+    <updated>2022-05-30T08:14:59.507Z</updated>
     
     <content type="html"><![CDATA[<p>MySQL架构</p><a id="more"></a><p><img src="https://cdn.jsdelivr.net/gh/herotiga/cdn@master/img/article/mysql-arch.jpg" alt="mysql-arch"></p><h2 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h2><p>连接池的作用是复用连接，避免频繁 create, destroy。</p><h2 id="分析器"><a href="#分析器" class="headerlink" title="分析器"></a>分析器</h2><p>分析器就是解析 SQL 语句。</p><h2 id="优化器"><a href="#优化器" class="headerlink" title="优化器"></a>优化器</h2><p>优化器会分析 SQL 语句并对其优化。</p><h2 id="执行器"><a href="#执行器" class="headerlink" title="执行器"></a>执行器</h2><p>执行器会调用存储引擎的接口来执行 SQL 语句。</p><h2 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h2><p>MySQL 有多重存储引擎，用于不同场景。</p><ul><li>InnoDB(最常用)</li><li>MyISAM</li><li>Memory</li><li>CSV</li><li>Archive</li><li>Blackhole</li><li>Merge</li><li>Federated</li><li>Example</li></ul><p>存储引擎就是 MySQL 对于内存和磁盘的读写策略。</p><p>InnoDB 包括了：Buffer Pool(数据存储在其中)和 Log Buffer</p><h2 id="Buffer-Pool"><a href="#Buffer-Pool" class="headerlink" title="Buffer Pool"></a>Buffer Pool</h2><p>MySQL 服务器的内存基本都会分配给 Buffer Pool，可以提升 MySQL 的性能。</p><h3 id="页"><a href="#页" class="headerlink" title="页"></a>页</h3><p>Buffer Pool 以页为单位存储。</p><p>一页包含了：</p><ul><li>上一页，下一页两个指针</li><li>User Record(真正存储信息的地方，是一行一行的数据)</li><li>其余字段</li></ul><p>其余字段包含了：</p><ul><li>Infimum 和 Supremum：此页中最大和最小的记录，用于做初步判断。</li><li>Page Directory：页面目录，用于快速查找记录。</li></ul><h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><p>InnoDB 底层采用的存储结构是 B 树和 B+树。</p><h3 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h3><p>更新数据时，数据不一定在 buffer pool 中，因为不可能数据库中所有的数据都一直在内存中。</p><p>对于聚簇索引：如果数据不在 buffer pool 中，就会将其先加载到内存中再更新。</p><p>对于非聚簇索引：change buffer。</p><h3 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h3><p>MySQL 使用的 LRU 算法的改进版，改进 LRU 算法是为了避免缓冲池污染（先前在 buffer pool 中的页被全部换出去，造成性能下降）</p><h2 id="Log-Buffer"><a href="#Log-Buffer" class="headerlink" title="Log Buffer"></a>Log Buffer</h2><p>用于存储即将被写入到磁盘中的日志。</p>]]></content>
     
@@ -280,6 +280,27 @@
   </entry>
   
   <entry>
+    <title>MySQL on Mac</title>
+    <link href="https://herotiga.github.io/2021/12/20/mysql-on-mac/"/>
+    <id>https://herotiga.github.io/2021/12/20/mysql-on-mac/</id>
+    <published>2021-12-20T00:47:06.000Z</published>
+    <updated>2022-05-30T11:46:32.798Z</updated>
+    
+    <content type="html"><![CDATA[<p>mac上安装和使用MySQL。</p><a id="more"></a><h2 id="安装-MySQL"><a href="#安装-MySQL" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h2><p>MySQL 官网下载：<a href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a></p><p>清华 tuna 下载：<a href="https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads/">https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads/</a></p><p>homebrew 安装： <code>brew install mysql@5.7  mysql-client@5.7</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动MySQL</span></span><br><span class="line">mysql.server start</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭MySQL</span></span><br><span class="line">mysql.server stop</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启MySQL</span></span><br><span class="line">mysql.server restart</span><br><span class="line"></span><br><span class="line"><span class="comment"># 登录</span></span><br><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure><h2 id="使用MySQL"><a href="#使用MySQL" class="headerlink" title="使用MySQL"></a>使用MySQL</h2><p>注意：所有的sql语句都需要在末尾加上分号。</p><ol><li>展示所有的database：<code>SHOW DATABASES;</code></li><li>选择一个database：<code>use DATABASE_NAME</code>，然后就可以操作数据库了。</li></ol><h2 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h2><p>数据库可视化：Navicat(支持 MySQL、MariaDB、MongoDB、SQL Server、Oracle、PostgreSQL 和 SQLite)</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;mac上安装和使用MySQL。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="mysql" scheme="https://herotiga.github.io/categories/mysql/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>防抖(debounce)和节流(throttle)</title>
     <link href="https://herotiga.github.io/2021/12/18/debounce-and-throttle/"/>
     <id>https://herotiga.github.io/2021/12/18/debounce-and-throttle/</id>
@@ -420,27 +441,6 @@
     <summary type="html">
     
       &lt;h2 id=&quot;安装jquery&quot;&gt;&lt;a href=&quot;#安装jquery&quot; class=&quot;headerlink&quot; title=&quot;安装jquery&quot;&gt;&lt;/a&gt;安装jquery&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;figcaption&gt;&lt;span&gt;bash&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 1.x版本&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cnpm i jquery@1.12.4 -S&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>使用vite</title>
-    <link href="https://herotiga.github.io/2021/11/11/vite-usage/"/>
-    <id>https://herotiga.github.io/2021/11/11/vite-usage/</id>
-    <published>2021-11-11T11:11:25.000Z</published>
-    <updated>2022-05-21T06:22:01.573Z</updated>
-    
-    <content type="html"><![CDATA[<p>vite的使用。</p><a id="more"></a><h2 id="安装vite"><a href="#安装vite" class="headerlink" title="安装vite"></a>安装vite</h2><figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g create-vite-app</span><br></pre></td></tr></table></figure><h2 id="创建vite项目"><a href="#创建vite项目" class="headerlink" title="创建vite项目"></a>创建vite项目</h2><figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create-vite-app project_name</span><br><span class="line">cva project_name</span><br><span class="line">cnpm init vite-app project_name</span><br></pre></td></tr></table></figure><h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> project_name</span><br><span class="line">cnpm install</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure><h2 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h2><figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure><h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><ol><li><a href="https://vitejs.cn/">https://vitejs.cn/</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;vite的使用。&lt;/p&gt;
     
     </summary>
     
