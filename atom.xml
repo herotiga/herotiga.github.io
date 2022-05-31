@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2022-05-30T07:36:45.167Z</updated>
+  <updated>2022-05-31T00:01:15.060Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL和NoSQL的区别和优缺点</title>
+    <link href="https://herotiga.github.io/2022/05/31/sql-and-nosql/"/>
+    <id>https://herotiga.github.io/2022/05/31/sql-and-nosql/</id>
+    <published>2022-05-30T23:27:36.000Z</published>
+    <updated>2022-05-31T00:01:15.060Z</updated>
+    
+    <content type="html"><![CDATA[<p>关系型数据库：Oracle、DB2、Microsoft SQL Server、Microsoft Access、MySQL、MariaDB、Sybase、PostgreSQL、OceanBase、SqLite等。<br>非关系型数据库：Cloudant、MongoDB、Redis、HBase、Memcached等。</p><a id="more"></a><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ol><li><p>关系型数据库：建立在关系数据模型的基础上（由一张张二维的表和表之间的关系组成），借助集合代数等运算处理数据，比如使用了选择、投影、连接、并、交、差、除、增删查改等数学方法来实现对数据的存储和查询。可以用SQL语句在一个或者多个table中做复杂的数据查询。</p></li><li><p>非关系型数据库：可以是键值对(key, value)、文件、图片等，无需SQL解析，性能非常高，不适合复杂查询，用于超大规模数据的存储。</p></li></ol><h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><ol><li>关系型数据库：易于维护，可以用SQL做复杂的查询，安全性高。读写性能差，高并发读写下磁盘IO大，表结构固定故而不灵活，</li><li>非关系型数据库：性能非常高，数据无耦合，易于横向扩展。不支持SQL，无事务处理，数据结构复杂造成复杂查询较为困难，</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;关系型数据库：Oracle、DB2、Microsoft SQL Server、Microsoft Access、MySQL、MariaDB、Sybase、PostgreSQL、OceanBase、SqLite等。&lt;br&gt;非关系型数据库：Cloudant、MongoDB、Redis、HBase、Memcached等。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="database" scheme="https://herotiga.github.io/categories/database/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Vue组件通信的几种方式</title>
@@ -420,27 +441,6 @@
     <summary type="html">
     
       &lt;p&gt;&lt;code&gt;require&lt;/code&gt; 和 &lt;code&gt;import&lt;/code&gt; 都是引入模块。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>vue3中引入jquery</title>
-    <link href="https://herotiga.github.io/2021/11/17/vue%E4%B8%AD%E5%BC%95%E5%85%A5jquery/"/>
-    <id>https://herotiga.github.io/2021/11/17/vue%E4%B8%AD%E5%BC%95%E5%85%A5jquery/</id>
-    <published>2021-11-17T09:35:57.000Z</published>
-    <updated>2022-05-19T10:58:32.614Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="安装jquery"><a href="#安装jquery" class="headerlink" title="安装jquery"></a>安装jquery</h2><figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.x版本</span></span><br><span class="line">cnpm i jquery@1.12.4 -S</span><br></pre></td></tr></table></figure><a id="more"></a><h2 id="编辑vue-config-js文件"><a href="#编辑vue-config-js文件" class="headerlink" title="编辑vue.config.js文件"></a>编辑vue.config.js文件</h2><p>根目录下创建vue.config.js文件：</p><figure class="highlight js"><figcaption><span>vue.config.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    configureWebpack: &#123;</span><br><span class="line">        plugins: [</span><br><span class="line">            <span class="keyword">new</span> webpack.ProvidePlugin(&#123;</span><br><span class="line">                $:<span class="string">"jquery"</span>,</span><br><span class="line">                jQuery:<span class="string">"jquery"</span>,</span><br><span class="line">                <span class="string">"windows.jQuery"</span>:<span class="string">"jquery"</span></span><br><span class="line">            &#125;)</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>在组件中引用：</p><figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">'jquery'</span></span><br></pre></td></tr></table></figure><h2 id="另一种方法"><a href="#另一种方法" class="headerlink" title="另一种方法"></a>另一种方法</h2><p>ref: <a href="https://blog.nickschnee.ch/vuejquery/">https://blog.nickschnee.ch/vuejquery/</a></p><ol><li>先安装jquery模块</li><li>在<code>main.js</code>中：</li></ol><figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jQuery <span class="keyword">from</span> <span class="string">'jquery'</span></span><br><span class="line"></span><br><span class="line">global.$ = jQuery</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line">Vue.prototype.$ = jquery</span><br></pre></td></tr></table></figure><p>这样就可以全局使用<code>$</code>了。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;安装jquery&quot;&gt;&lt;a href=&quot;#安装jquery&quot; class=&quot;headerlink&quot; title=&quot;安装jquery&quot;&gt;&lt;/a&gt;安装jquery&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;figcaption&gt;&lt;span&gt;bash&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 1.x版本&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cnpm i jquery@1.12.4 -S&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
