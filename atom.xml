@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2022-05-31T00:01:15.060Z</updated>
+  <updated>2022-05-31T12:24:39.016Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -17,17 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>防止SQL注入</title>
+    <link href="https://herotiga.github.io/2022/05/31/%E9%98%B2%E6%AD%A2SQL%E6%B3%A8%E5%85%A5/"/>
+    <id>https://herotiga.github.io/2022/05/31/%E9%98%B2%E6%AD%A2SQL%E6%B3%A8%E5%85%A5/</id>
+    <published>2022-05-31T12:13:13.000Z</published>
+    <updated>2022-05-31T12:24:39.016Z</updated>
+    
+    <content type="html"><![CDATA[<p>SQL注入是指用户在表单中提交恶意SQL语句企图欺骗后台执行恶意SQL。</p><p>为了防止出现SQL注入，我们假定用户的输入不安全并且需要对用户的输入做处理。</p><a id="more"></a><h2 id="预防方法"><a href="#预防方法" class="headerlink" title="预防方法"></a>预防方法</h2><ol><li>对用户的输入进行校验、限制。</li><li>不要动态拼装SQL。</li><li>不要使用管理员权限操作数据库，做好账号权限划分。</li><li>对于敏感信息进行加密或者hash。</li><li>封装异常返回信息，伪装内部错误信息。</li><li>采用SQL辅助检测工具。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;SQL注入是指用户在表单中提交恶意SQL语句企图欺骗后台执行恶意SQL。&lt;/p&gt;
+&lt;p&gt;为了防止出现SQL注入，我们假定用户的输入不安全并且需要对用户的输入做处理。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="mysql" scheme="https://herotiga.github.io/categories/mysql/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>SQL和NoSQL的区别和优缺点</title>
     <link href="https://herotiga.github.io/2022/05/31/sql-and-nosql/"/>
     <id>https://herotiga.github.io/2022/05/31/sql-and-nosql/</id>
     <published>2022-05-30T23:27:36.000Z</published>
-    <updated>2022-05-31T00:01:15.060Z</updated>
+    <updated>2022-05-31T00:04:40.163Z</updated>
     
-    <content type="html"><![CDATA[<p>关系型数据库：Oracle、DB2、Microsoft SQL Server、Microsoft Access、MySQL、MariaDB、Sybase、PostgreSQL、OceanBase、SqLite等。<br>非关系型数据库：Cloudant、MongoDB、Redis、HBase、Memcached等。</p><a id="more"></a><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ol><li><p>关系型数据库：建立在关系数据模型的基础上（由一张张二维的表和表之间的关系组成），借助集合代数等运算处理数据，比如使用了选择、投影、连接、并、交、差、除、增删查改等数学方法来实现对数据的存储和查询。可以用SQL语句在一个或者多个table中做复杂的数据查询。</p></li><li><p>非关系型数据库：可以是键值对(key, value)、文件、图片等，无需SQL解析，性能非常高，不适合复杂查询，用于超大规模数据的存储。</p></li></ol><h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><ol><li>关系型数据库：易于维护，可以用SQL做复杂的查询，安全性高。读写性能差，高并发读写下磁盘IO大，表结构固定故而不灵活，</li><li>非关系型数据库：性能非常高，数据无耦合，易于横向扩展。不支持SQL，无事务处理，数据结构复杂造成复杂查询较为困难，</li></ol>]]></content>
+    <content type="html"><![CDATA[<p>关系型数据库：Oracle、DB2、Microsoft SQL Server、Microsoft Access、MySQL、MariaDB、Sybase、PostgreSQL、OceanBase、SqLite等。</p><p>非关系型数据库：Cloudant、MongoDB、Redis、HBase、Memcached等。</p><a id="more"></a><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ol><li>关系型数据库：建立在关系数据模型的基础上（由一张张二维的表和表之间的关系组成），借助集合代数等运算处理数据，比如使用了选择、投影、连接、并、交、差、除、增删查改等数学方法来实现对数据的存储和查询。可以用SQL语句在一个或者多个table中做复杂的数据查询。</li><li>非关系型数据库：可以是键值对(key, value)、文件、图片等，无需SQL解析，性能非常高，不适合复杂查询，用于超大规模数据的存储。</li></ol><h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><ol><li>关系型数据库：易于维护，可以用SQL做复杂的查询，安全性高。读写性能差，高并发读写下磁盘IO大，表结构固定故而不灵活，</li><li>非关系型数据库：性能非常高，数据无耦合，易于横向扩展。不支持SQL，无事务处理，数据结构复杂造成复杂查询较为困难，</li></ol>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;关系型数据库：Oracle、DB2、Microsoft SQL Server、Microsoft Access、MySQL、MariaDB、Sybase、PostgreSQL、OceanBase、SqLite等。&lt;br&gt;非关系型数据库：Cloudant、MongoDB、Redis、HBase、Memcached等。&lt;/p&gt;
+      &lt;p&gt;关系型数据库：Oracle、DB2、Microsoft SQL Server、Microsoft Access、MySQL、MariaDB、Sybase、PostgreSQL、OceanBase、SqLite等。&lt;/p&gt;
+&lt;p&gt;非关系型数据库：Cloudant、MongoDB、Redis、HBase、Memcached等。&lt;/p&gt;
     
     </summary>
     
@@ -425,27 +448,6 @@
     
     
       <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>require和import的区别</title>
-    <link href="https://herotiga.github.io/2021/11/25/require%E5%92%8Cimport/"/>
-    <id>https://herotiga.github.io/2021/11/25/require%E5%92%8Cimport/</id>
-    <published>2021-11-25T06:30:05.000Z</published>
-    <updated>2022-05-19T10:58:30.970Z</updated>
-    
-    <content type="html"><![CDATA[<p><code>require</code> 和 <code>import</code> 都是引入模块。</p><a id="more"></a><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ol><li>require是赋值过程，过程就是将对象数字字符串赋值给变量，import是结构过程，浏览器不支持import，node中会被编译为require。</li><li>require是AMD规范，import是ES6规范。</li><li>require在运行时调用，所以require可以用在任何地方，import在编译时调用，所以import要写在文件顶部。</li></ol><h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><ol><li><a href="https://www.zhihu.com/question/56820346">https://www.zhihu.com/question/56820346</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;code&gt;require&lt;/code&gt; 和 &lt;code&gt;import&lt;/code&gt; 都是引入模块。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
     
     
   </entry>
