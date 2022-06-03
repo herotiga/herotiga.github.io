@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2022-06-02T11:58:11.091Z</updated>
+  <updated>2022-06-03T06:54:55.288Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,49 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue中使用Lodash实现防抖和节流</title>
+    <link href="https://herotiga.github.io/2022/06/03/Vue%E4%B8%AD%E4%BD%BF%E7%94%A8Lodash%E5%AE%9E%E7%8E%B0%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/"/>
+    <id>https://herotiga.github.io/2022/06/03/Vue%E4%B8%AD%E4%BD%BF%E7%94%A8Lodash%E5%AE%9E%E7%8E%B0%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/</id>
+    <published>2022-06-03T06:50:45.000Z</published>
+    <updated>2022-06-03T06:54:55.288Z</updated>
+    
+    <content type="html"><![CDATA[<p>Lodash实现防抖和节流。</p><a id="more"></a><h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><p>为了实现lodash组件独立，需要在 <code>created</code> 中添加函数。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">app.component(<span class="string">'save-button'</span>, &#123;</span><br><span class="line">    created() &#123;</span><br><span class="line">        <span class="comment">// 使用 Lodash 实现防抖</span></span><br><span class="line">        <span class="keyword">this</span>.debouncedClick = _.debounce(<span class="keyword">this</span>.click, <span class="number">500</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    unmounted() &#123;</span><br><span class="line">        <span class="comment">// 移除组件时，取消定时器</span></span><br><span class="line">        <span class="keyword">this</span>.debouncedClick.cancel()</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        click() &#123;</span><br><span class="line">            <span class="comment">// ... 响应点击 ...</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;button @click="debouncedClick"&gt;</span></span><br><span class="line"><span class="string">      Save</span></span><br><span class="line"><span class="string">    &lt;/button&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><ol><li><a href="https://www.lodashjs.com/">https://www.lodashjs.com/</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Lodash实现防抖和节流。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vue模板表达式中所能访问的全局变量</title>
+    <link href="https://herotiga.github.io/2022/06/03/Vue%E6%A8%A1%E6%9D%BF%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%AD%E6%89%80%E8%83%BD%E8%AE%BF%E9%97%AE%E7%9A%84%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/"/>
+    <id>https://herotiga.github.io/2022/06/03/Vue%E6%A8%A1%E6%9D%BF%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%AD%E6%89%80%E8%83%BD%E8%AE%BF%E9%97%AE%E7%9A%84%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/</id>
+    <published>2022-06-03T06:34:33.000Z</published>
+    <updated>2022-06-03T06:48:54.839Z</updated>
+    
+    <content type="html"><![CDATA[<p>Vue的模板表达式是放在沙盒中的，只能访问一个受限的全局变量列表。</p><p>具体在模板表达式中可以访问到哪些全局变量，如下。</p><a id="more"></a><p>code: <a href="https://github.com/vuejs/core/blob/main/packages/shared/src/globalsWhitelist.ts#L3">https://github.com/vuejs/core/blob/main/packages/shared/src/globalsWhitelist.ts#L3</a></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; makeMap &#125; <span class="keyword">from</span> <span class="string">'./makeMap'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> GLOBALS_WHITE_LISTED =</span><br><span class="line">  <span class="string">'Infinity,undefined,NaN,isFinite,isNaN,parseFloat,parseInt,decodeURI,'</span> +</span><br><span class="line">  <span class="string">'decodeURIComponent,encodeURI,encodeURIComponent,Math,Number,Date,Array,'</span> +</span><br><span class="line">  <span class="string">'Object,Boolean,String,RegExp,Map,Set,JSON,Intl,BigInt'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isGloballyWhitelisted = <span class="comment">/*#__PURE__*/</span> makeMap(GLOBALS_WHITE_LISTED)</span><br></pre></td></tr></table></figure><p>同时，使用模板时应该遵守一条原则：模板中的表达式不应该有副作用，比如更改数据或者触发异步进程。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Vue的模板表达式是放在沙盒中的，只能访问一个受限的全局变量列表。&lt;/p&gt;
+&lt;p&gt;具体在模板表达式中可以访问到哪些全局变量，如下。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>JSX语法</title>
@@ -65,9 +108,9 @@
     <link href="https://herotiga.github.io/2022/06/02/Vue2%E5%92%8CVue3%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%AF%B9%E6%AF%94/"/>
     <id>https://herotiga.github.io/2022/06/02/Vue2%E5%92%8CVue3%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%AF%B9%E6%AF%94/</id>
     <published>2022-06-02T02:23:13.000Z</published>
-    <updated>2022-06-02T02:55:33.026Z</updated>
+    <updated>2022-06-03T06:08:14.682Z</updated>
     
-    <content type="html"><![CDATA[<p>Vue的生命周期其实就是Vue从初始化到最终被销毁期间的一系列重要节点。</p><p>可以在生命周期钩子函数中写一写代码执行一些操作。</p><p>Vue3的组件生命周期相比于Vue2发生了以下变化。</p><a id="more"></a><h2 id="Vue2组件生命周期"><a href="#Vue2组件生命周期" class="headerlink" title="Vue2组件生命周期"></a>Vue2组件生命周期</h2><ol><li>beforeCreate():实例在内存中被创建出来，还没有初始化好data和methods属性。</li><li>create():实例已经在内存中创建，已经初始化好data和method，此时还没有开始编译模板。</li><li>beforeMount():已经完成了模板的编译，还没有挂载到页面中。</li><li>mounted()：将编译好的模板挂载到页面指定的容器中显示。</li><li>beforeUpdate():状态更新之前执行函数，此时data中的状态值是最新的，但是界面上显示的数据还是旧的，因为还没有开始重新渲染DOM节点。</li><li>updated():此时data中的状态值和界面上显示的数据都已经完成了跟新，界面已经被重新渲染好了！</li><li>beforeDestroy():实例被销毁之前。</li><li>destroyed():实例销毁后调用，Vue实例指示的所有东西都会解绑，所有的事件监听器都会被移除,所有的子实例也都会被销毁。组件已经被完全销毁，此时组建中所有data、methods、以及过滤器，指令等，都已经不可用了。</li></ol><h2 id="Vue3组件生命周期"><a href="#Vue3组件生命周期" class="headerlink" title="Vue3组件生命周期"></a>Vue3组件生命周期</h2><ol><li>setup() :开始创建组件之前，在beforeCreate和created之前执行。创建的是data和method</li><li>onBeforeMount() : 组件挂载到节点上之前执行的函数。</li><li>onMounted() : 组件挂载完成后执行的函数。</li><li>onBeforeUpdate(): 组件更新之前执行的函数。</li><li>onUpdated(): 组件更新完成之后执行的函数。</li><li>onBeforeUnmount(): 组件卸载之前执行的函数。</li><li>onUnmounted(): 组件卸载完成后执行的函数</li><li>onActivated(): 被包含在中的组件，会多出两个生命周期钩子函数。被激活时执行。</li><li>onDeactivated(): 比如从 A 组件，切换到 B 组件，A 组件消失时执行。</li><li>onErrorCaptured(): 当捕获一个来自子孙组件的异常时激活钩子函数。</li></ol><h2 id="横向对比"><a href="#横向对比" class="headerlink" title="横向对比"></a>横向对比</h2><pre><code>Vue2--------------vue3beforeCreate  -&gt; setup()created       -&gt; setup()beforeMount   -&gt; onBeforeMountmounted       -&gt; onMountedbeforeUpdate  -&gt; onBeforeUpdateupdated       -&gt; onUpdatedbeforeDestroy -&gt; onBeforeUnmountdestroyed     -&gt; onUnmountedactivated     -&gt; onActivateddeactivated   -&gt; onDeactivatederrorCaptured -&gt; onErrorCaptured</code></pre>]]></content>
+    <content type="html"><![CDATA[<p>Vue的生命周期其实就是Vue从初始化到最终被销毁期间的一系列重要节点。</p><p>可以在生命周期钩子函数中写一写代码执行一些操作。</p><p>Vue3的组件生命周期相比于Vue2发生了以下变化。</p><a id="more"></a><h2 id="Vue2组件生命周期"><a href="#Vue2组件生命周期" class="headerlink" title="Vue2组件生命周期"></a>Vue2组件生命周期</h2><ol><li>beforeCreate():实例在内存中被创建出来，还没有初始化好data和methods属性。</li><li>create():实例已经在内存中创建，已经初始化好data和method，此时还没有开始编译模板。</li><li>beforeMount():已经完成了模板的编译，还没有挂载到页面中。</li><li>mounted()：将编译好的模板挂载到页面指定的容器中显示。</li><li>beforeUpdate():状态更新之前执行函数，此时data中的状态值是最新的，但是界面上显示的数据还是旧的，因为还没有开始重新渲染DOM节点。</li><li>updated():此时data中的状态值和界面上显示的数据都已经完成了跟新，界面已经被重新渲染好了！</li><li>beforeDestroy():实例被销毁之前。</li><li>destroyed():实例销毁后调用，Vue实例指示的所有东西都会解绑，所有的事件监听器都会被移除,所有的子实例也都会被销毁。组件已经被完全销毁，此时组建中所有data、methods、以及过滤器，指令等，都已经不可用了。</li></ol><h2 id="Vue3组件生命周期"><a href="#Vue3组件生命周期" class="headerlink" title="Vue3组件生命周期"></a>Vue3组件生命周期</h2><ol><li>setup() :开始创建组件之前，在beforeCreate和created之前执行。创建的是data和method</li><li>onBeforeMount() : 组件挂载到节点上之前执行的函数。</li><li>onMounted() : 组件挂载完成后执行的函数。</li><li>onBeforeUpdate(): 组件更新之前执行的函数。</li><li>onUpdated(): 组件更新完成之后执行的函数。</li><li>onBeforeUnmount(): 组件卸载之前执行的函数。</li><li>onUnmounted(): 组件卸载完成后执行的函数</li><li>onActivated(): 被包含在中的组件，会多出两个生命周期钩子函数。被激活时执行。</li><li>onDeactivated(): 比如从 A 组件，切换到 B 组件，A 组件消失时执行。</li><li>onErrorCaptured(): 当捕获一个来自子孙组件的异常时激活钩子函数。</li></ol><p><img src="https://v3.cn.vuejs.org/images/lifecycle.svg" alt="Vue3生命周期"></p><h2 id="横向对比"><a href="#横向对比" class="headerlink" title="横向对比"></a>横向对比</h2><pre><code>Vue2--------------vue3beforeCreate  -&gt; setup()created       -&gt; setup()beforeMount   -&gt; onBeforeMountmounted       -&gt; onMountedbeforeUpdate  -&gt; onBeforeUpdateupdated       -&gt; onUpdatedbeforeDestroy -&gt; onBeforeUnmountdestroyed     -&gt; onUnmountedactivated     -&gt; onActivateddeactivated   -&gt; onDeactivatederrorCaptured -&gt; onErrorCaptured</code></pre>]]></content>
     
     <summary type="html">
     
@@ -403,49 +446,6 @@
       &lt;p&gt;使用es5中 &lt;code&gt;var&lt;/code&gt; 命令声明的变量可以在 &lt;code&gt;window&lt;/code&gt; 下找到，比如：&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;var myName = &amp;#39;mason&amp;#39;&lt;/code&gt; ，可以使用 &lt;code&gt;window.myName&lt;/code&gt; 访问到。&lt;/p&gt;
 &lt;p&gt;但是使用es6的 &lt;code&gt;let&lt;/code&gt; 和 &lt;code&gt;const&lt;/code&gt; 声明的变量却没有在window下，这是为什么呢？&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL on Mac</title>
-    <link href="https://herotiga.github.io/2021/12/20/mysql-on-mac/"/>
-    <id>https://herotiga.github.io/2021/12/20/mysql-on-mac/</id>
-    <published>2021-12-20T00:47:06.000Z</published>
-    <updated>2022-05-30T14:50:52.974Z</updated>
-    
-    <content type="html"><![CDATA[<p>mac上安装和使用MySQL。</p><a id="more"></a><h2 id="安装-MySQL"><a href="#安装-MySQL" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h2><p>MySQL 官网下载：<a href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a></p><p>清华 tuna 下载：<a href="https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads/">https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads/</a></p><p>homebrew 安装： <code>brew install mysql@5.7  mysql-client@5.7</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动MySQL</span></span><br><span class="line">mysql.server start</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭MySQL</span></span><br><span class="line">mysql.server stop</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启MySQL</span></span><br><span class="line">mysql.server restart</span><br><span class="line"></span><br><span class="line"><span class="comment"># 登录</span></span><br><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure><h2 id="使用MySQL"><a href="#使用MySQL" class="headerlink" title="使用MySQL"></a>使用MySQL</h2><p>注意：所有的sql语句都需要在末尾加上分号。</p><ol><li>展示所有的database：<code>SHOW DATABASES;</code></li><li>选择一个database：<code>use DATABASE_NAME</code>，然后就可以操作数据库了。</li></ol><h2 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h2><p>数据库可视化：Navicat(支持 MySQL、MariaDB、MongoDB、SQL Server、Oracle、PostgreSQL 和 SQLite)</p><h2 id="替代品"><a href="#替代品" class="headerlink" title="替代品"></a>替代品</h2><p>MySQL被oracle收购以后出现了mariadb，其API和命令与MySQL一模一样，用以规避MySQL可能会闭源的未来。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;mac上安装和使用MySQL。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="mysql" scheme="https://herotiga.github.io/categories/mysql/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>防抖(debounce)和节流(throttle)</title>
-    <link href="https://herotiga.github.io/2021/12/18/debounce-and-throttle/"/>
-    <id>https://herotiga.github.io/2021/12/18/debounce-and-throttle/</id>
-    <published>2021-12-18T02:17:10.000Z</published>
-    <updated>2022-05-19T10:58:32.616Z</updated>
-    
-    <content type="html"><![CDATA[<p>防抖和节流的目的都是希望一段时间内不要密集调用callback。</p><p>应用场景：滚动（防抖），搜索（节流）</p><a id="more"></a><h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><p>所谓防抖，就是指触发事件后在 n 秒内函数只能执行一次，如果在 n 秒内又触发了事件，则会重新计算函数执行时间。</p><p>有些事件比如 resize, scroll, mousemove 等会被持续的触发，导致 <code>callback</code> 被高频调用，这就要用到防抖。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@desc </span>函数防抖</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>func 函数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>wait 延迟执行毫秒数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>immediate true 表立即执行，false 表非立即执行</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">func, wait, immediate</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timeout;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> context = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">let</span> args = <span class="built_in">arguments</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (timeout) clearTimeout(timeout);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (immediate) &#123;</span><br><span class="line">            <span class="keyword">var</span> callNow = !timeout;</span><br><span class="line"></span><br><span class="line">            timeout = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                timeout = <span class="literal">null</span>;</span><br><span class="line">            &#125;, wait);</span><br><span class="line">            <span class="keyword">if</span> (callNow) func.apply(context, args);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            timeout = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                func.apply(context, args);</span><br><span class="line">            &#125;, wait);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h2><p>所谓节流，就是指连续触发事件但是在 n 秒中只执行一次函数。</p><p>时间戳版和定时器版的节流函数的区别是：时间戳版的函数触发是在时间段内开始的时候，而定时器版的函数触发是在时间段内结束的时候。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@desc </span>函数节流</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>func 函数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>wait 延迟执行毫秒数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>type 1 表时间戳版，2 表定时器版</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">func, wait, type</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (type === <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> previous = <span class="number">0</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type === <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> timeout;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> context = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">let</span> args = <span class="built_in">arguments</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (type === <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">let</span> now = <span class="built_in">Date</span>.now();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (now - previous &gt; wait) &#123;</span><br><span class="line">                func.apply(context, args);</span><br><span class="line">                previous = now;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type === <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!timeout) &#123;</span><br><span class="line">                timeout = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                    timeout = <span class="literal">null</span>;</span><br><span class="line">                    func.apply(context, args);</span><br><span class="line">                &#125;, wait);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>防抖是控制次数，节流是控制频率。</p><h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><ol><li><a href="https://segmentfault.com/a/1190000018428170">简版 debounce 和 throttle</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;防抖和节流的目的都是希望一段时间内不要密集调用callback。&lt;/p&gt;
-&lt;p&gt;应用场景：滚动（防抖），搜索（节流）&lt;/p&gt;
     
     </summary>
     
