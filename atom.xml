@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2022-06-05T00:49:33.003Z</updated>
+  <updated>2022-06-06T01:23:50.407Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>node.js命令行输入输出</title>
+    <link href="https://herotiga.github.io/2022/06/05/nodejs%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/"/>
+    <id>https://herotiga.github.io/2022/06/05/nodejs%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</id>
+    <published>2022-06-05T12:48:53.000Z</published>
+    <updated>2022-06-06T01:23:50.407Z</updated>
+    
+    <content type="html"><![CDATA[<p>总结一下命令行输入输出。</p><a id="more"></a><h2 id="命令行输出"><a href="#命令行输出" class="headerlink" title="命令行输出"></a>命令行输出</h2><p>nodejs命令行输出一般有：</p><ul><li>console.log</li><li>console.error</li><li>console.dir</li><li>console.clear</li><li>console.count</li><li>console.trace</li><li>console.time</li><li>console.timeEnd</li></ul><h3 id="着色"><a href="#着色" class="headerlink" title="着色"></a>着色</h3><p>可以使用输出格式化给输出添加样式。</p><p>可以使用Chalk着色器：<a href="https://github.com/chalk/chalk">https://github.com/chalk/chalk</a></p><p>安装：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install chalk</span><br></pre></td></tr></table></figure><p>使用：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> chalk = <span class="built_in">require</span>(<span class="string">'chalk'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(chalk.yellow(<span class="string">'你好'</span>))</span><br></pre></td></tr></table></figure><h3 id="进度"><a href="#进度" class="headerlink" title="进度"></a>进度</h3><p>使用progress：<a href="https://www.npmjs.com/package/progress">https://www.npmjs.com/package/progress</a></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ProgressBar = <span class="built_in">require</span>(<span class="string">'progress'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> bar = <span class="keyword">new</span> ProgressBar(<span class="string">':bar'</span>, &#123;</span><br><span class="line">    total: <span class="number">10</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">const</span> timer = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    bar.tick()</span><br><span class="line">    <span class="keyword">if</span> (bar.complete) &#123;</span><br><span class="line">        clearInterval(timer)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="number">100</span>)</span><br></pre></td></tr></table></figure><h2 id="命令行输入"><a href="#命令行输入" class="headerlink" title="命令行输入"></a>命令行输入</h2><p>如何在命令行读取用户的输入：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rl = <span class="built_in">require</span>(<span class="string">'readline'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> getUser = rl.createInterface(&#123;</span><br><span class="line">    input: process.stdin,</span><br><span class="line">    output: process.stdout</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">getUser.question(<span class="string">'请输入用户名：'</span>, (username) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`用户名是: <span class="subst">$&#123;username&#125;</span>`</span>)</span><br><span class="line">    getUser.close()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>可以使用inquirer包： <code>cnpm install inquirer</code></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> inquirer = <span class="built_in">require</span>(<span class="string">'inquirer'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> questions = [&#123;</span><br><span class="line">    type: <span class="string">'input'</span>,</span><br><span class="line">    name: <span class="string">'name'</span>,</span><br><span class="line">    message: <span class="string">"你叫什么名字?"</span></span><br><span class="line">&#125;]</span><br><span class="line"></span><br><span class="line">inquirer.prompt(questions).then(<span class="function"><span class="params">answers</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`你好 <span class="subst">$&#123;answers[<span class="string">'name'</span>]&#125;</span>!`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;总结一下命令行输入输出。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="node.js" scheme="https://herotiga.github.io/categories/node-js/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Vue teleport to</title>
@@ -342,27 +363,6 @@
     
     
       <category term="二分查找" scheme="https://herotiga.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>node.js学习笔记（ongoing）</title>
-    <link href="https://herotiga.github.io/2022/05/22/nodejs-note/"/>
-    <id>https://herotiga.github.io/2022/05/22/nodejs-note/</id>
-    <published>2022-05-22T10:49:51.000Z</published>
-    <updated>2022-05-30T11:21:13.045Z</updated>
-    
-    <content type="html"><![CDATA[<p>未整理完毕。</p><a id="more"></a><!-- ## ref1. https://www.runoob.com/nodejs/nodejs-tutorial.html -->]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;未整理完毕。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="node.js" scheme="https://herotiga.github.io/categories/node-js/"/>
-    
     
   </entry>
   
