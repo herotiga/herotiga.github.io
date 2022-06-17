@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2022-06-17T07:04:21.679Z</updated>
+  <updated>2022-06-17T09:06:17.212Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://herotiga.github.io/2022/06/17/React%E7%BB%84%E4%BB%B6%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
     <id>https://herotiga.github.io/2022/06/17/React%E7%BB%84%E4%BB%B6%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</id>
     <published>2022-06-17T06:45:31.000Z</published>
-    <updated>2022-06-17T07:04:21.679Z</updated>
+    <updated>2022-06-17T09:06:17.212Z</updated>
     
-    <content type="html"><![CDATA[<p>React组件的生命周期分为三个阶段：Mounting -&gt; Updating -&gt; Unmounting</p><a id="more"></a><p><img src="https://www.runoob.com/wp-content/uploads/2016/02/ogimage.png" alt="组件生命周期"></p><h2 id="Mounting"><a href="#Mounting" class="headerlink" title="Mounting"></a>Mounting</h2><ol><li>调用组件的构造函数<code>constructor()</code>。</li><li>调用<code>getDerivedStateFromProps()</code>，在Mounting和Updating阶段都会被调用。</li><li>调用<code>render()</code>函数，组件初始化一定会调用的只有render函数。</li><li>组件挂载完毕。</li><li>触发<code>componentDidMount()</code>钩子函数。</li></ol><h2 id="Updating"><a href="#Updating" class="headerlink" title="Updating"></a>Updating</h2><p>组件的 <code>props</code> 或者 <code>state</code> 发生变化，组件就会更新。</p><ol><li>调用<code>getDerivedStateFromProps()</code>，根据<code>shouldComponentUpdate()</code>的返回值，判断组件的输出是否受当前state或props更改的影响。</li><li>调用<code>shouldComponentUpdate()</code>。</li><li>调用<code>render()</code>函数，唯一必须会被调用的函数。</li><li>调用<code>getSnapshotBeforeUpdate()</code>，在最近一次渲染输出之前调用。</li><li>组件更新完毕。</li><li>调用<code>componentDidUpdate()</code>，在组件更新后会被立即调用。</li></ol><h2 id="Unmounting"><a href="#Unmounting" class="headerlink" title="Unmounting"></a>Unmounting</h2><ol><li>调用<code>componentWillUnmount()</code>钩子函数，在组件卸载及销毁之前直接调用。</li><li>组件被卸载或者销毁。</li></ol><p>可以看出react组件生命周期与vue的组件生命周期非常相似。</p>]]></content>
+    <content type="html"><![CDATA[<p>React组件的生命周期分为三个阶段：Mounting -&gt; Updating -&gt; Unmounting</p><a id="more"></a><p><img src="https://www.runoob.com/wp-content/uploads/2016/02/ogimage.png" alt="组件生命周期"></p><h2 id="Mounting"><a href="#Mounting" class="headerlink" title="Mounting"></a>Mounting</h2><ol><li>调用组件的构造函数<code>constructor()</code>。</li><li>调用<code>getDerivedStateFromProps()</code>，在Mounting和Updating阶段都会被调用。</li><li>调用<code>render()</code>函数，组件初始化一定会调用的只有render函数。</li><li>组件挂载完毕。</li><li>触发<code>componentDidMount()</code>钩子函数。</li></ol><h2 id="Updating"><a href="#Updating" class="headerlink" title="Updating"></a>Updating</h2><p>组件的 <code>props</code> 或者 <code>state</code> 发生变化，组件就会更新。</p><ol><li>调用<code>getDerivedStateFromProps()</code>，根据<code>shouldComponentUpdate()</code>的返回值，判断组件的输出是否受当前state或props更改的影响。</li><li>调用<code>shouldComponentUpdate()</code>。</li><li>调用<code>render()</code>函数，唯一必须会被调用的函数。</li><li>调用<code>getSnapshotBeforeUpdate()</code>，在最近一次渲染输出之前调用。</li><li>组件更新完毕。</li><li>调用<code>componentDidUpdate()</code>，在组件更新后会被立即调用。</li></ol><h2 id="Unmounting"><a href="#Unmounting" class="headerlink" title="Unmounting"></a>Unmounting</h2><ol><li>调用<code>componentWillUnmount()</code>钩子函数，在组件卸载及销毁之前直接调用。</li><li>组件被卸载或者销毁。</li></ol><p>可以看出react组件生命周期与vue的组件生命周期有区别但是不大。</p>]]></content>
     
     <summary type="html">
     
