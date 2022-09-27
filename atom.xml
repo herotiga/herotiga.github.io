@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2022-09-01T05:20:51.172Z</updated>
+  <updated>2022-09-27T09:35:10.584Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -17,13 +17,151 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>leetcode-17.19-消失的两个数字</title>
+    <link href="https://herotiga.github.io/2022/09/27/leetcode-17-19-%E6%B6%88%E5%A4%B1%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97/"/>
+    <id>https://herotiga.github.io/2022/09/27/leetcode-17-19-%E6%B6%88%E5%A4%B1%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97/</id>
+    <published>2022-09-27T09:02:53.000Z</published>
+    <updated>2022-09-27T09:35:10.584Z</updated>
+    
+    <content type="html"><![CDATA[<p>难度：困难</p><a id="more"></a><h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a>problem</h2><p>给定一个数组，包含从 1 到 N 所有的整数，但其中缺了两个数字。你能在 O(N) 时间内只用 O(1) 的空间找到它们吗？</p><p>以任意顺序返回这两个数字均可。</p><p>示例 1:</p><pre><code>输入: [1]输出: [2,3]</code></pre><p>示例 2:</p><pre><code>输入: [2,3]输出: [1,4]</code></pre><p>提示：nums.length &lt;= 30000</p><h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p>先给原数组排序，再对排序完的数组进行判断是否存在缺失数字，如果存在就push进res数组直到res数组满了，如果不存在就往两边搜索。</p><h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> missingTwo = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 先对于nums做升序排序</span></span><br><span class="line">    <span class="keyword">let</span> sortedNums = nums.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a - b;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> sortedNumsLen = sortedNums.length;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回值</span></span><br><span class="line">    <span class="keyword">let</span> res = [];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 扫描sortedNums中是否存在缺的数字</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; sortedNums.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">let</span> cur = sortedNums[i];</span><br><span class="line">        <span class="keyword">let</span> next = sortedNums[i+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span> (cur + <span class="number">1</span> !== next) &#123;</span><br><span class="line">            res.push(cur+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果仍然有缺失的数字则往两边搜索</span></span><br><span class="line">    <span class="comment">// 向左搜索</span></span><br><span class="line">    <span class="keyword">if</span> (res.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> head = sortedNums[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; head - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            res.push(i + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 向右搜索</span></span><br><span class="line">    <span class="keyword">if</span> (res.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> tail = sortedNums[sortedNumsLen - <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 这里需要保存一下res.length当前的值，因为for循环体内改变了res.length</span></span><br><span class="line">        <span class="keyword">let</span> resLen = res.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; (<span class="number">2</span> - resLen); i++) &#123;</span><br><span class="line">            res.push(tail + i + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="trap"><a href="#trap" class="headerlink" title="trap"></a>trap</h2><p>向右搜索的for循环应该先保存一下<code>res.length</code>（见代码）。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;难度：困难&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://herotiga.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vue2和Vue3数据绑定实现原理的变化</title>
+    <link href="https://herotiga.github.io/2022/09/14/Vue2%E5%92%8CVue3%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E7%9A%84%E5%8F%98%E5%8C%96/"/>
+    <id>https://herotiga.github.io/2022/09/14/Vue2%E5%92%8CVue3%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E7%9A%84%E5%8F%98%E5%8C%96/</id>
+    <published>2022-09-14T02:28:56.000Z</published>
+    <updated>2022-09-25T14:15:17.587Z</updated>
+    
+    <content type="html"><![CDATA[<p>Vue数据绑定的实现原理从Vue2的 <code>Object.defineProperty()</code> 对象属性劫持改为了Vue3的 <code>Proxy</code> 数据代理。</p><a id="more"></a><h2 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty()"></a>Object.defineProperty()</h2><p><code>Object.defineProperty()</code> 可以对于对象的已有属性进行监听、劫持、修改。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Vue数据绑定的实现原理从Vue2的 &lt;code&gt;Object.defineProperty()&lt;/code&gt; 对象属性劫持改为了Vue3的 &lt;code&gt;Proxy&lt;/code&gt; 数据代理。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>在Vue2中给data中的属性添加新属性的方法</title>
+    <link href="https://herotiga.github.io/2022/09/14/%E7%BB%99Vue2%E7%9A%84data%E6%B7%BB%E5%8A%A0%E6%96%B0%E5%B1%9E%E6%80%A7%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>https://herotiga.github.io/2022/09/14/%E7%BB%99Vue2%E7%9A%84data%E6%B7%BB%E5%8A%A0%E6%96%B0%E5%B1%9E%E6%80%A7%E7%9A%84%E6%96%B9%E6%B3%95/</id>
+    <published>2022-09-14T01:43:45.000Z</published>
+    <updated>2022-09-14T02:51:42.054Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于Vue2的双向绑定是基于 <code>Object.defineProperty()</code> 的，这个方法只能监听 <code>data</code> 里面已经存在的属性，并不能对于新添加的属性进行监听，故而直接给data添加新属性是无法被vue监听到并绑定到页面上的。</p><p>这里注意：是没办法添加data下的一级属性的，必须事先定义。</p><p>下面是几种给data中的属性添加新属性的方法。</p><a id="more"></a><h2 id="set"><a href="#set" class="headerlink" title="$set()"></a>$set()</h2><p>可以使用 <code>Vue.set(target, key, value)</code> 或者 <code>this.$set(target, key, value)</code> 来给data添加新属性。</p><h2 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign()"></a>Object.assign()</h2><p>可以通过重新赋值的方式添加属性。</p><p>example:</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        msg: &#123;</span><br><span class="line">            name: <span class="string">'mason'</span>,</span><br><span class="line">            age: <span class="number">22</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">    updateMsg() &#123;</span><br><span class="line">        <span class="comment">// 右边是一个新的对象，vue检测到msg地址的变化会更新msg</span></span><br><span class="line">        <span class="keyword">this</span>.msg = <span class="built_in">Object</span>.assign(&#123;&#125;, <span class="keyword">this</span>.msg, &#123;<span class="attr">gender</span>: <span class="string">'male'</span>&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="forceUpdate"><a href="#forceUpdate" class="headerlink" title="$forceUpdate()"></a>$forceUpdate()</h2><p>不建议使用这个方法！</p><p><code>$forceUpdate()</code> 可以强制更新vue实例。</p><p>example:</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        msg: &#123;</span><br><span class="line">            name: <span class="string">'mason'</span>,</span><br><span class="line">            age: <span class="number">22</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">    updateMsg() &#123;</span><br><span class="line">        <span class="keyword">this</span>.msg.gender = <span class="string">'male'</span>;</span><br><span class="line">        <span class="keyword">this</span>.$forceUpdate();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于Vue2的双向绑定是基于 &lt;code&gt;Object.defineProperty()&lt;/code&gt; 的，这个方法只能监听 &lt;code&gt;data&lt;/code&gt; 里面已经存在的属性，并不能对于新添加的属性进行监听，故而直接给data添加新属性是无法被vue监听到并绑定到页面上的。&lt;/p&gt;
+&lt;p&gt;这里注意：是没办法添加data下的一级属性的，必须事先定义。&lt;/p&gt;
+&lt;p&gt;下面是几种给data中的属性添加新属性的方法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>electron入门</title>
+    <link href="https://herotiga.github.io/2022/09/08/electron%E5%85%A5%E9%97%A8/"/>
+    <id>https://herotiga.github.io/2022/09/08/electron%E5%85%A5%E9%97%A8/</id>
+    <published>2022-09-08T03:56:33.000Z</published>
+    <updated>2022-09-25T14:37:35.587Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="electron" scheme="https://herotiga.github.io/categories/electron/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>WebGL入门</title>
+    <link href="https://herotiga.github.io/2022/09/03/webgl%E5%85%A5%E9%97%A8/"/>
+    <id>https://herotiga.github.io/2022/09/03/webgl%E5%85%A5%E9%97%A8/</id>
+    <published>2022-09-02T23:31:25.000Z</published>
+    <updated>2022-09-09T12:34:48.619Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="WebGL" scheme="https://herotiga.github.io/categories/WebGL/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>js宏任务和微任务</title>
+    <link href="https://herotiga.github.io/2022/09/01/js%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%BE%AE%E4%BB%BB%E5%8A%A1/"/>
+    <id>https://herotiga.github.io/2022/09/01/js%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%BE%AE%E4%BB%BB%E5%8A%A1/</id>
+    <published>2022-09-01T05:51:39.000Z</published>
+    <updated>2022-09-09T12:16:19.820Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>js手写发布订阅</title>
+    <link href="https://herotiga.github.io/2022/08/30/js%E6%89%8B%E5%86%99%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85/"/>
+    <id>https://herotiga.github.io/2022/08/30/js%E6%89%8B%E5%86%99%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85/</id>
+    <published>2022-08-30T08:53:18.000Z</published>
+    <updated>2022-09-12T00:53:43.838Z</updated>
+    
+    <content type="html"><![CDATA[<p>发布订阅模式：包含发布者，订阅者，消息中心。</p><p>发布者发布消息给消息中心，订阅者向消息中心订阅消息，消息中心在获取到发布者的消息后通知订阅者。</p><a id="more"></a><h2 id="消息中心"><a href="#消息中心" class="headerlink" title="消息中心"></a>消息中心</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;发布订阅模式：包含发布者，订阅者，消息中心。&lt;/p&gt;
+&lt;p&gt;发布者发布消息给消息中心，订阅者向消息中心订阅消息，消息中心在获取到发布者的消息后通知订阅者。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>vue2和vue3的区别</title>
     <link href="https://herotiga.github.io/2022/08/30/vue2%E5%92%8Cvue3%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
     <id>https://herotiga.github.io/2022/08/30/vue2%E5%92%8Cvue3%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
     <published>2022-08-30T07:24:56.000Z</published>
-    <updated>2022-09-01T05:20:51.172Z</updated>
+    <updated>2022-09-09T12:08:03.757Z</updated>
     
-    <content type="html"><![CDATA[<p>vue2和vue3的区别。</p><a id="more"></a><h2 id="vue2和vue3的数据绑定原理发生了变化"><a href="#vue2和vue3的数据绑定原理发生了变化" class="headerlink" title="vue2和vue3的数据绑定原理发生了变化"></a>vue2和vue3的数据绑定原理发生了变化</h2><p>vue2利用 <code>Object.defineProperty()</code> 完成的对数据的劫持，结合发布订阅来实现的双向数据绑定，但是只能监听某一个属性，不能对整个对象进行监听。</p><p>vue3使用的是es6的 <code>Proxy</code> 的API来完成的双向数据绑定，可以监听整个对象。</p><h2 id="vue3支持多个根节点"><a href="#vue3支持多个根节点" class="headerlink" title="vue3支持多个根节点"></a>vue3支持多个根节点</h2><p>vue2只支持一个页面根节点，vue3支持多个。</p><h2 id="vue3可以使用composition-API"><a href="#vue3可以使用composition-API" class="headerlink" title="vue3可以使用composition API"></a>vue3可以使用composition API</h2><p>composition API可以让我们通过代码功能的不同来分组API，可以使得代码更加直观。</p><p>vue2数据定义在data里面，方法定义在methods里面。</p><p>vue3可以首先引入reactive ，setup中使用reactive将变量包装为响应式变量，在setup的最后return这些响应式变量，最后template中就可以使用这些变量。</p><h2 id="生命周期的变化"><a href="#生命周期的变化" class="headerlink" title="生命周期的变化"></a>生命周期的变化</h2><pre><code>Vue2--------------vue3beforeCreate  -&gt; setup()created       -&gt; setup()beforeMount   -&gt; onBeforeMountmounted       -&gt; onMountedbeforeUpdate  -&gt; onBeforeUpdateupdated       -&gt; onUpdatedbeforeDestroy -&gt; onBeforeUnmountdestroyed     -&gt; onUnmountedactivated     -&gt; onActivateddeactivated   -&gt; onDeactivatederrorCaptured -&gt; onErrorCaptured</code></pre><h2 id="vue3可以按需引用"><a href="#vue3可以按需引用" class="headerlink" title="vue3可以按需引用"></a>vue3可以按需引用</h2><p>vue3按需引用api。</p>]]></content>
+    <content type="html"><![CDATA[<p>vue2和vue3的区别。</p><a id="more"></a><h2 id="vue2和vue3的数据绑定原理发生了变化"><a href="#vue2和vue3的数据绑定原理发生了变化" class="headerlink" title="vue2和vue3的数据绑定原理发生了变化"></a>vue2和vue3的数据绑定原理发生了变化</h2><p>vue2利用 <code>Object.defineProperty()</code> 完成的对数据的劫持，结合发布订阅来实现的双向数据绑定，但是只能监听某一个属性，不能对整个对象进行监听。</p><p>vue3使用的是es6的 <code>Proxy</code> 的API来完成的双向数据绑定，可以监听整个对象。</p><h2 id="vue3支持多个根节点"><a href="#vue3支持多个根节点" class="headerlink" title="vue3支持多个根节点"></a>vue3支持多个根节点</h2><p>vue2只支持一个页面根节点，vue3支持多个。</p><h2 id="vue3可以使用composition-API"><a href="#vue3可以使用composition-API" class="headerlink" title="vue3可以使用composition API"></a>vue3可以使用composition API</h2><p>composition API可以让我们通过代码功能的不同来分组API，可以使得代码更加直观。</p><p>vue2数据定义在 <code>data</code> 里面，方法定义在 <code>methods</code> 里面。</p><p>vue3可以首先引入 <code>reactive</code> ， <code>setup</code> 中使用reactive将变量包装为响应式变量，在setup的最后 <code>return</code> 这些响应式变量，最后 <code>template</code> 中就可以使用这些变量。</p><h2 id="生命周期的变化"><a href="#生命周期的变化" class="headerlink" title="生命周期的变化"></a>生命周期的变化</h2><pre><code>Vue2--------------vue3beforeCreate  -&gt; setup()created       -&gt; setup()beforeMount   -&gt; onBeforeMountmounted       -&gt; onMountedbeforeUpdate  -&gt; onBeforeUpdateupdated       -&gt; onUpdatedbeforeDestroy -&gt; onBeforeUnmountdestroyed     -&gt; onUnmountedactivated     -&gt; onActivateddeactivated   -&gt; onDeactivatederrorCaptured -&gt; onErrorCaptured</code></pre><h2 id="vue3可以按需引用"><a href="#vue3可以按需引用" class="headerlink" title="vue3可以按需引用"></a>vue3可以按需引用</h2><p>vue3按需引用api。</p>]]></content>
     
     <summary type="html">
     
@@ -76,27 +214,6 @@
     
     
       <category term="cs" scheme="https://herotiga.github.io/categories/cs/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>jsdelivr图床已挂，图片引用已经被重定向到了githubusercontent.com</title>
-    <link href="https://herotiga.github.io/2022/07/11/jsdelivr%E5%9B%BE%E5%BA%8A%E5%B7%B2%E6%8C%82/"/>
-    <id>https://herotiga.github.io/2022/07/11/jsdelivr%E5%9B%BE%E5%BA%8A%E5%B7%B2%E6%8C%82/</id>
-    <published>2022-07-10T22:33:54.000Z</published>
-    <updated>2022-07-10T22:36:10.519Z</updated>
-    
-    <content type="html"><![CDATA[<p>jsdelivr作为图床已挂。</p><a id="more"></a><p>官方已经将图片的引用重定向了到githubusercontent.com，其他静态资源引用正常。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;jsdelivr作为图床已挂。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="web" scheme="https://herotiga.github.io/categories/web/"/>
     
     
   </entry>
@@ -308,139 +425,6 @@
     
       &lt;p&gt;Vue的模板表达式是放在沙盒中的，只能访问一个受限的全局变量列表。&lt;/p&gt;
 &lt;p&gt;具体在模板表达式中可以访问到哪些全局变量，如下。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>JSX语法</title>
-    <link href="https://herotiga.github.io/2022/06/02/jsx%E8%AF%AD%E6%B3%95/"/>
-    <id>https://herotiga.github.io/2022/06/02/jsx%E8%AF%AD%E6%B3%95/</id>
-    <published>2022-06-02T08:40:01.000Z</published>
-    <updated>2022-06-18T06:36:21.127Z</updated>
-    
-    <content type="html"><![CDATA[<p>JSX是JavaScript的扩展语法，react使用JSX代替JavaScript。</p><p>使用JSX需要引入babel。</p><a id="more"></a><h2 id="JSX语法规则"><a href="#JSX语法规则" class="headerlink" title="JSX语法规则"></a>JSX语法规则</h2><ol><li>创建VDOM不能用引号包裹html代码。</li><li>标签中使用<code>{}</code>包裹js表达式。</li><li>用<code>className</code>代替<code>class</code>，用<code>htmlFor</code>代替<code>for</code>。</li><li>标签style属性的值要用两对花括号包裹，花括号中间是属性名:属性值的写法，用逗号隔开。</li><li>只能有一个根标签。</li><li>所有标签都要闭合。</li><li>react对于大写开头的标签会渲染对应的组件，对于正常的html标签不作处理。</li></ol><h2 id="如何创建组件"><a href="#如何创建组件" class="headerlink" title="如何创建组件"></a>如何创建组件</h2><ol><li>直接创建VDOM变量，然后用render函数渲染</li></ol><p>使用babel解析JSX语法。</p><figure class="highlight jsx"><figcaption><span>JSX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建VDOM</span></span><br><span class="line"><span class="keyword">const</span> VDOM = <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&#123;data.id.toLowerCase()&#125;</span>&gt;</span>hello, it's me!<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="comment">// react渲染VDOM</span></span><br><span class="line">ReactDOM.render(VDOM, <span class="built_in">document</span>.getElementById(<span class="string">"container_id"</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 卸载VDOM</span></span><br><span class="line">ReactDOM.unmountComponentAtNode(<span class="built_in">document</span>.getElementById(<span class="string">"container_id"</span>));</span><br></pre></td></tr></table></figure><ol start="2"><li>使用函数创建VDOM</li></ol><figure class="highlight jsx"><figcaption><span>JSX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">componentA</span>(<span class="params">porps</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;name, age&#125; = props;</span><br><span class="line">    <span class="keyword">const</span> VDOM = <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>my name is : &#123;name&#125;, and &#123;age&#125; yo.<span class="tag">&lt;<span class="name">div</span>/&gt;</span>;</span></span><br><span class="line"><span class="xml">    return VDOM;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br></pre></td></tr></table></figure><ol start="3"><li>使用class创建VDOM</li></ol><figure class="highlight jsx"><figcaption><span>JSX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">componentB</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">        <span class="keyword">super</span>(props);</span><br><span class="line">        <span class="keyword">this</span>.state = &#123;</span><br><span class="line">            name: <span class="string">'Mason'</span></span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;&#123;<span class="keyword">this</span>.state.name&#125; &lt;div /&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="模块和组件"><a href="#模块和组件" class="headerlink" title="模块和组件"></a>模块和组件</h2><p>react的模块和组件思想和vue一样。</p><p>react组件分为函数式组件和类式组件。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;JSX是JavaScript的扩展语法，react使用JSX代替JavaScript。&lt;/p&gt;
-&lt;p&gt;使用JSX需要引入babel。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="react" scheme="https://herotiga.github.io/categories/react/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Vue中的updated和$nextTick</title>
-    <link href="https://herotiga.github.io/2022/06/02/Vue%E4%B8%AD%E7%9A%84updated%E5%92%8C$nextTick/"/>
-    <id>https://herotiga.github.io/2022/06/02/Vue%E4%B8%AD%E7%9A%84updated%E5%92%8C$nextTick/</id>
-    <published>2022-06-02T02:31:44.000Z</published>
-    <updated>2022-08-02T03:17:03.136Z</updated>
-    
-    <content type="html"><![CDATA[<p><code>updated</code> 和 <code>$nextTick</code> 的区别是什么？</p><p>网上资料有限，等有时间详细阅读一下官网这部分的文档。</p><a id="more"></a><h2 id="updated"><a href="#updated" class="headerlink" title="updated"></a>updated</h2><p>范围：全局</p><p>用途：数据变更导致虚拟dom被重新渲染，updated用于组件被重新渲染后调用。</p><h2 id="nextTick"><a href="#nextTick" class="headerlink" title="$nextTick"></a>$nextTick</h2><p>范围：局部</p><p>用途：传入一个回调函数，会在下次dom更新循环之后时执行，一般用于更新了数据之后要立刻获取的情况。</p><p>nextTick会将多个对于同一个变量的操作合并为一个，再执行回调函数。</p><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>两者都是在dom更新后用于操作dom或者获取数据。</p><p>不同的是，updated发生在dom渲染后，$nextTick发生在渲染前。</p><!--     https://vue3js.cn/interview/vue/nexttick.html#%E4%B8%80%E3%80%81nexttick%E6%98%AF%E4%BB%80%E4%B9%88 -->]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;code&gt;updated&lt;/code&gt; 和 &lt;code&gt;$nextTick&lt;/code&gt; 的区别是什么？&lt;/p&gt;
-&lt;p&gt;网上资料有限，等有时间详细阅读一下官网这部分的文档。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Vue2和Vue3组件生命周期对比</title>
-    <link href="https://herotiga.github.io/2022/06/02/Vue2%E5%92%8CVue3%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%AF%B9%E6%AF%94/"/>
-    <id>https://herotiga.github.io/2022/06/02/Vue2%E5%92%8CVue3%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%AF%B9%E6%AF%94/</id>
-    <published>2022-06-02T02:23:13.000Z</published>
-    <updated>2022-06-03T06:08:14.682Z</updated>
-    
-    <content type="html"><![CDATA[<p>Vue的生命周期其实就是Vue从初始化到最终被销毁期间的一系列重要节点。</p><p>可以在生命周期钩子函数中写一写代码执行一些操作。</p><p>Vue3的组件生命周期相比于Vue2发生了以下变化。</p><a id="more"></a><h2 id="Vue2组件生命周期"><a href="#Vue2组件生命周期" class="headerlink" title="Vue2组件生命周期"></a>Vue2组件生命周期</h2><ol><li>beforeCreate():实例在内存中被创建出来，还没有初始化好data和methods属性。</li><li>create():实例已经在内存中创建，已经初始化好data和method，此时还没有开始编译模板。</li><li>beforeMount():已经完成了模板的编译，还没有挂载到页面中。</li><li>mounted()：将编译好的模板挂载到页面指定的容器中显示。</li><li>beforeUpdate():状态更新之前执行函数，此时data中的状态值是最新的，但是界面上显示的数据还是旧的，因为还没有开始重新渲染DOM节点。</li><li>updated():此时data中的状态值和界面上显示的数据都已经完成了跟新，界面已经被重新渲染好了！</li><li>beforeDestroy():实例被销毁之前。</li><li>destroyed():实例销毁后调用，Vue实例指示的所有东西都会解绑，所有的事件监听器都会被移除,所有的子实例也都会被销毁。组件已经被完全销毁，此时组建中所有data、methods、以及过滤器，指令等，都已经不可用了。</li></ol><h2 id="Vue3组件生命周期"><a href="#Vue3组件生命周期" class="headerlink" title="Vue3组件生命周期"></a>Vue3组件生命周期</h2><ol><li>setup() :开始创建组件之前，在beforeCreate和created之前执行。创建的是data和method</li><li>onBeforeMount() : 组件挂载到节点上之前执行的函数。</li><li>onMounted() : 组件挂载完成后执行的函数。</li><li>onBeforeUpdate(): 组件更新之前执行的函数。</li><li>onUpdated(): 组件更新完成之后执行的函数。</li><li>onBeforeUnmount(): 组件卸载之前执行的函数。</li><li>onUnmounted(): 组件卸载完成后执行的函数</li><li>onActivated(): 被包含在中的组件，会多出两个生命周期钩子函数。被激活时执行。</li><li>onDeactivated(): 比如从 A 组件，切换到 B 组件，A 组件消失时执行。</li><li>onErrorCaptured(): 当捕获一个来自子孙组件的异常时激活钩子函数。</li></ol><p><img src="https://v3.cn.vuejs.org/images/lifecycle.svg" alt="Vue3生命周期"></p><h2 id="横向对比"><a href="#横向对比" class="headerlink" title="横向对比"></a>横向对比</h2><pre><code>Vue2--------------vue3beforeCreate  -&gt; setup()created       -&gt; setup()beforeMount   -&gt; onBeforeMountmounted       -&gt; onMountedbeforeUpdate  -&gt; onBeforeUpdateupdated       -&gt; onUpdatedbeforeDestroy -&gt; onBeforeUnmountdestroyed     -&gt; onUnmountedactivated     -&gt; onActivateddeactivated   -&gt; onDeactivatederrorCaptured -&gt; onErrorCaptured</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Vue的生命周期其实就是Vue从初始化到最终被销毁期间的一系列重要节点。&lt;/p&gt;
-&lt;p&gt;可以在生命周期钩子函数中写一写代码执行一些操作。&lt;/p&gt;
-&lt;p&gt;Vue3的组件生命周期相比于Vue2发生了以下变化。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>防止SQL注入</title>
-    <link href="https://herotiga.github.io/2022/05/31/%E9%98%B2%E6%AD%A2SQL%E6%B3%A8%E5%85%A5/"/>
-    <id>https://herotiga.github.io/2022/05/31/%E9%98%B2%E6%AD%A2SQL%E6%B3%A8%E5%85%A5/</id>
-    <published>2022-05-31T12:13:13.000Z</published>
-    <updated>2022-05-31T12:24:39.016Z</updated>
-    
-    <content type="html"><![CDATA[<p>SQL注入是指用户在表单中提交恶意SQL语句企图欺骗后台执行恶意SQL。</p><p>为了防止出现SQL注入，我们假定用户的输入不安全并且需要对用户的输入做处理。</p><a id="more"></a><h2 id="预防方法"><a href="#预防方法" class="headerlink" title="预防方法"></a>预防方法</h2><ol><li>对用户的输入进行校验、限制。</li><li>不要动态拼装SQL。</li><li>不要使用管理员权限操作数据库，做好账号权限划分。</li><li>对于敏感信息进行加密或者hash。</li><li>封装异常返回信息，伪装内部错误信息。</li><li>采用SQL辅助检测工具。</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;SQL注入是指用户在表单中提交恶意SQL语句企图欺骗后台执行恶意SQL。&lt;/p&gt;
-&lt;p&gt;为了防止出现SQL注入，我们假定用户的输入不安全并且需要对用户的输入做处理。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="mysql" scheme="https://herotiga.github.io/categories/mysql/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>SQL和NoSQL的区别和优缺点</title>
-    <link href="https://herotiga.github.io/2022/05/31/sql-and-nosql/"/>
-    <id>https://herotiga.github.io/2022/05/31/sql-and-nosql/</id>
-    <published>2022-05-30T23:27:36.000Z</published>
-    <updated>2022-05-31T00:04:40.163Z</updated>
-    
-    <content type="html"><![CDATA[<p>关系型数据库：Oracle、DB2、Microsoft SQL Server、Microsoft Access、MySQL、MariaDB、Sybase、PostgreSQL、OceanBase、SqLite等。</p><p>非关系型数据库：Cloudant、MongoDB、Redis、HBase、Memcached等。</p><a id="more"></a><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ol><li>关系型数据库：建立在关系数据模型的基础上（由一张张二维的表和表之间的关系组成），借助集合代数等运算处理数据，比如使用了选择、投影、连接、并、交、差、除、增删查改等数学方法来实现对数据的存储和查询。可以用SQL语句在一个或者多个table中做复杂的数据查询。</li><li>非关系型数据库：可以是键值对(key, value)、文件、图片等，无需SQL解析，性能非常高，不适合复杂查询，用于超大规模数据的存储。</li></ol><h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><ol><li>关系型数据库：易于维护，可以用SQL做复杂的查询，安全性高。读写性能差，高并发读写下磁盘IO大，表结构固定故而不灵活，</li><li>非关系型数据库：性能非常高，数据无耦合，易于横向扩展。不支持SQL，无事务处理，数据结构复杂造成复杂查询较为困难，</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;关系型数据库：Oracle、DB2、Microsoft SQL Server、Microsoft Access、MySQL、MariaDB、Sybase、PostgreSQL、OceanBase、SqLite等。&lt;/p&gt;
-&lt;p&gt;非关系型数据库：Cloudant、MongoDB、Redis、HBase、Memcached等。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="database" scheme="https://herotiga.github.io/categories/database/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Vue组件通信的几种方式</title>
-    <link href="https://herotiga.github.io/2022/05/28/Vue%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
-    <id>https://herotiga.github.io/2022/05/28/Vue%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/</id>
-    <published>2022-05-28T06:25:49.000Z</published>
-    <updated>2022-06-18T06:25:14.220Z</updated>
-    
-    <content type="html"><![CDATA[<p>组件的数据有三种形态：props，data，computed。</p><p>下面的方法要么是通过某种方法使得组件之间直接通信，要么是使用了第三方作为中转。</p><a id="more"></a><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="props-emit"><a href="#props-emit" class="headerlink" title="props/$emit"></a>props/$emit</h2><p>可以实现父子组件之间的通信。</p><p>父组件通过 <code>props</code> 向子组件传递数据。</p><p>子组件通过 <code>$emit</code> 触发事件向父组件传递数据，父组件通过 <code>v-on</code> 监听这个事件从而获取子组件传递的数据。</p><p>代码省略。</p><h2 id="事件中心"><a href="#事件中心" class="headerlink" title="事件中心"></a>事件中心</h2><p>可以实现任何组件之间的通信。</p><p>通过new一个空的Vue实例作为事件中心，相当于是一个发布订阅。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Event = <span class="keyword">new</span> Vue();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 触发指定事件并携带数据</span></span><br><span class="line">Event.$emit(eventName, data);</span><br><span class="line"><span class="comment">// 监听指定事件并获取数据</span></span><br><span class="line">Event.$on(eventName, (data) =&gt; &#123;</span><br><span class="line">    <span class="comment">// get data</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>这里还可以使用一个发布订阅mudule叫pubsub，支持vue和react。</p><p>pubsub可以publish一个信息并携带一个payload，也可以subscribe一个信息并在回调函数的参数中获取payload。</p><h2 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h2><p>可以实现任何组件之间的通信。</p><ul><li>state存储数据，不能直接操作state，需要通过vuex的方法集操作state。</li><li>组件通过mutations操作state中的数据。</li><li>actions用于异步操作，最终提交mutations操作。</li></ul><p>vuex数据持久化到localStorage。</p><ul><li>将vuex数据持久化到locaStorage前要先<code>JSON.stringify()</code>为字符串。</li><li>将localStorage中的数据取出时要<code>JSON.parse()</code>为数组。</li></ul><h2 id="attrs-listeners"><a href="#attrs-listeners" class="headerlink" title="attrs/listeners"></a>attrs/listeners</h2><p>hexo将标题两个 <code>$</code> 包裹的部分渲染为了数学公式故而没写美元符号。</p><p><code>$attrs</code> 对象：包含了父组件传递了但是子组件props中没有暴露的属性。<br><code>$listeners</code> 对象：存放的是父组件中绑定的非原生事件。</p><h2 id="provide-inject"><a href="#provide-inject" class="headerlink" title="provide/inject"></a>provide/inject</h2><p>祖父组件通过provide向后代组件传递变量，注意祖父组件的provide要写成工厂函数。<br>后代组件通过inject来注入变量。<br>祖父组件provide的变量是不会变动的。</p><p>使用 <code>Vue.observable</code> 可以实现祖父组件provide的变量改变后，后代组件inject的变量也能响应式的改变。</p><h2 id="parent-children-ref"><a href="#parent-children-ref" class="headerlink" title="parent, children, ref"></a>parent, children, ref</h2><p><code>$parent</code> 和 <code>$children</code> 用于访问父子组件实例。</p><p><code>ref</code> 用于普通元素就是指向该DOM，如果用于组件就是指向组件实例，可以直接获取组件实例的所有数据方法。</p><h1 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h1><ol><li><a href="https://segmentfault.com/a/1190000019208626">https://segmentfault.com/a/1190000019208626</a></li><li><a href="https://vue3js.cn/interview/vue/communication.html">https://vue3js.cn/interview/vue/communication.html</a></li><li><a href="https://www.jianshu.com/p/2e5973fe1223">https://www.jianshu.com/p/2e5973fe1223</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;组件的数据有三种形态：props，data，computed。&lt;/p&gt;
-&lt;p&gt;下面的方法要么是通过某种方法使得组件之间直接通信，要么是使用了第三方作为中转。&lt;/p&gt;
     
     </summary>
     
