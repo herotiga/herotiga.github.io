@@ -60,28 +60,6 @@
   </entry>
   
   <entry>
-    <title>js判断两个对象是否相同</title>
-    <link href="https://herotiga.github.io/2022/09/27/js%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E7%9B%B8%E5%90%8C/"/>
-    <id>https://herotiga.github.io/2022/09/27/js%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E7%9B%B8%E5%90%8C/</id>
-    <published>2022-09-27T12:48:56.000Z</published>
-    <updated>2022-10-24T15:09:34.481Z</updated>
-    
-    <content type="html"><![CDATA[<p>js判断两个对象是否相同（两个对象拥有相同的key和value就视为相同）。</p><p>此方法可以兼容key顺序不一致的情况。</p><a id="more"></a><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isSameObj = <span class="function">(<span class="params">obj1, obj2</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> obj1Keys = <span class="built_in">Object</span>.keys(obj1);</span><br><span class="line">    <span class="keyword">const</span> obj2Keys = <span class="built_in">Object</span>.keys(obj2);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (obj1Keys.length !== obj2Keys.length) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; obj1Keys.length; i++) &#123;</span><br><span class="line">        <span class="keyword">let</span> key = obj1Keys[i];</span><br><span class="line">        <span class="keyword">if</span> (!obj2Keys.includes(key)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (obj1[key] !== obj2[key]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;js判断两个对象是否相同（两个对象拥有相同的key和value就视为相同）。&lt;/p&gt;
-&lt;p&gt;此方法可以兼容key顺序不一致的情况。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>leetcode-17.19-消失的两个数字</title>
     <link href="https://herotiga.github.io/2022/09/27/leetcode-17-19-%E6%B6%88%E5%A4%B1%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97/"/>
     <id>https://herotiga.github.io/2022/09/27/leetcode-17-19-%E6%B6%88%E5%A4%B1%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97/</id>
@@ -448,6 +426,28 @@
     
     
       <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JSX语法</title>
+    <link href="https://herotiga.github.io/2022/06/02/jsx%E8%AF%AD%E6%B3%95/"/>
+    <id>https://herotiga.github.io/2022/06/02/jsx%E8%AF%AD%E6%B3%95/</id>
+    <published>2022-06-02T08:40:01.000Z</published>
+    <updated>2022-06-18T06:36:21.127Z</updated>
+    
+    <content type="html"><![CDATA[<p>JSX是JavaScript的扩展语法，react使用JSX代替JavaScript。</p><p>使用JSX需要引入babel。</p><a id="more"></a><h2 id="JSX语法规则"><a href="#JSX语法规则" class="headerlink" title="JSX语法规则"></a>JSX语法规则</h2><ol><li>创建VDOM不能用引号包裹html代码。</li><li>标签中使用<code>{}</code>包裹js表达式。</li><li>用<code>className</code>代替<code>class</code>，用<code>htmlFor</code>代替<code>for</code>。</li><li>标签style属性的值要用两对花括号包裹，花括号中间是属性名:属性值的写法，用逗号隔开。</li><li>只能有一个根标签。</li><li>所有标签都要闭合。</li><li>react对于大写开头的标签会渲染对应的组件，对于正常的html标签不作处理。</li></ol><h2 id="如何创建组件"><a href="#如何创建组件" class="headerlink" title="如何创建组件"></a>如何创建组件</h2><ol><li>直接创建VDOM变量，然后用render函数渲染</li></ol><p>使用babel解析JSX语法。</p><figure class="highlight jsx"><figcaption><span>JSX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建VDOM</span></span><br><span class="line"><span class="keyword">const</span> VDOM = <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&#123;data.id.toLowerCase()&#125;</span>&gt;</span>hello, it's me!<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="comment">// react渲染VDOM</span></span><br><span class="line">ReactDOM.render(VDOM, <span class="built_in">document</span>.getElementById(<span class="string">"container_id"</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 卸载VDOM</span></span><br><span class="line">ReactDOM.unmountComponentAtNode(<span class="built_in">document</span>.getElementById(<span class="string">"container_id"</span>));</span><br></pre></td></tr></table></figure><ol start="2"><li>使用函数创建VDOM</li></ol><figure class="highlight jsx"><figcaption><span>JSX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">componentA</span>(<span class="params">porps</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;name, age&#125; = props;</span><br><span class="line">    <span class="keyword">const</span> VDOM = <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>my name is : &#123;name&#125;, and &#123;age&#125; yo.<span class="tag">&lt;<span class="name">div</span>/&gt;</span>;</span></span><br><span class="line"><span class="xml">    return VDOM;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br></pre></td></tr></table></figure><ol start="3"><li>使用class创建VDOM</li></ol><figure class="highlight jsx"><figcaption><span>JSX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">componentB</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">        <span class="keyword">super</span>(props);</span><br><span class="line">        <span class="keyword">this</span>.state = &#123;</span><br><span class="line">            name: <span class="string">'Mason'</span></span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;&#123;<span class="keyword">this</span>.state.name&#125; &lt;div /&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="模块和组件"><a href="#模块和组件" class="headerlink" title="模块和组件"></a>模块和组件</h2><p>react的模块和组件思想和vue一样。</p><p>react组件分为函数式组件和类式组件。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;JSX是JavaScript的扩展语法，react使用JSX代替JavaScript。&lt;/p&gt;
+&lt;p&gt;使用JSX需要引入babel。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="react" scheme="https://herotiga.github.io/categories/react/"/>
     
     
   </entry>
