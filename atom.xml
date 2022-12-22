@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2022-12-17T15:10:12.862Z</updated>
+  <updated>2022-12-20T11:21:33.396Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://herotiga.github.io/2022/12/12/NUC8i7BEH-Hackintosh/"/>
     <id>https://herotiga.github.io/2022/12/12/NUC8i7BEH-Hackintosh/</id>
     <published>2022-12-12T15:41:46.000Z</published>
-    <updated>2022-12-17T15:10:12.862Z</updated>
+    <updated>2022-12-20T11:21:33.396Z</updated>
     
-    <content type="html"><![CDATA[<p>前段时间我的MBP 2018 13inch（i5-8259u, 16G, 256G）在干活的时候各种卡顿，风扇无故狂转，所以打算搞个黑苹果写代码用。</p><p>于是在闲鱼上收了个 <code>NUC8i7BEH</code> ，配了两条光威的16G DDR4 3200的内存（镁光颗粒），买了一块1T的西数SN570。</p><p>然后将硬盘分了三个区，一个windows，一个esp分区，一个macOS分区，安装了最新的 <code>Ventura</code> 和最新的 <code>windows 11</code> 。</p><p>未来一两年这就是我的开发机器了。</p><a id="more"></a><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="MacBook-Pro-2018-13inch"><a href="#MacBook-Pro-2018-13inch" class="headerlink" title="MacBook Pro 2018 13inch"></a>MacBook Pro 2018 13inch</h3><pre><code>wangwei@192.168.0.102 --------------------- OS: macOS 13.1 22C65 x86_64 Host: MacBookPro15,2 Kernel: 22.2.0 Uptime: 7 hours, 6 mins Packages: 41 (brew) Shell: zsh 5.8.1 Resolution: 2560x1440@2x DE: Aqua WM: Quartz Compositor WM Theme: Blue (Light) Terminal: HyperTerm Terminal Font: Menlo CPU: Intel i5-8259U (8) @ 2.30GHz GPU: Intel Iris Plus Graphics 655 Memory: 11553MiB / 16384MiB </code></pre><h3 id="NUC8i7BEH"><a href="#NUC8i7BEH" class="headerlink" title="NUC8i7BEH"></a>NUC8i7BEH</h3><blockquote><p>机器规格：<br><a href="https://ark.intel.com/content/www/cn/zh/ark/products/126140/intel-nuc-kit-nuc8i7beh.html">https://ark.intel.com/content/www/cn/zh/ark/products/126140/intel-nuc-kit-nuc8i7beh.html</a></p></blockquote>]]></content>
+    <content type="html"><![CDATA[<p>前段时间我的MBP 2018 13inch（i5-8259u, 16G, 256G）在干活的时候各种卡顿，风扇无故狂转，所以打算搞个黑苹果写代码用。</p><p>于是在闲鱼上收了个 <code>NUC8i7BEH</code> ，配了两条光威的16G DDR4 3200的内存（镁光颗粒），买了一块1T的西数SN570。</p><p>然后将硬盘分了三个区，一个windows，一个esp分区，一个macOS分区，安装了最新的 <code>Ventura</code> 和最新的 <code>windows 11</code> 。</p><p>未来一两年这就是我的开发机器了。</p><a id="more"></a><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="MacBook-Pro-2018-13inch"><a href="#MacBook-Pro-2018-13inch" class="headerlink" title="MacBook Pro 2018 13inch"></a>MacBook Pro 2018 13inch</h3><pre><code>wangwei@192.168.0.102 --------------------- OS: macOS 13.1 22C65 x86_64 Host: MacBookPro15,2 Kernel: 22.2.0 Uptime: 7 hours, 6 mins Packages: 41 (brew) Shell: zsh 5.8.1 Resolution: 2560x1440@2x DE: Aqua WM: Quartz Compositor WM Theme: Blue (Light) Terminal: HyperTerm Terminal Font: Menlo CPU: Intel i5-8259U (8) @ 2.30GHz GPU: Intel Iris Plus Graphics 655 Memory: 11553MiB / 16384MiB </code></pre><h3 id="NUC8i7BEH"><a href="#NUC8i7BEH" class="headerlink" title="NUC8i7BEH"></a>NUC8i7BEH</h3><blockquote><p>机器规格：<br><a href="https://ark.intel.com/content/www/cn/zh/ark/products/126140/intel-nuc-kit-nuc8i7beh.html">https://ark.intel.com/content/www/cn/zh/ark/products/126140/intel-nuc-kit-nuc8i7beh.html</a></p></blockquote><pre><code>wangwei@NUC8i7BEH.local ----------------------- OS: macOS 13.0.1 22A400 x86_64 Host: Hackintosh (SMBIOS: Macmini8,1) Kernel: 22.1.0 Uptime: 5 hours, 33 mins Packages: 17 (brew) Shell: zsh 5.8.1 Resolution: 2560x1440 DE: Aqua WM: Quartz Compositor WM Theme: Blue (Light) Terminal: HyperTerm Terminal Font: Menlo CPU: Intel i7-8559U (8) @ 2.70GHz GPU: Intel Iris Plus Graphics 655 Memory: 16556MiB / 32768MiB </code></pre>]]></content>
     
     <summary type="html">
     
