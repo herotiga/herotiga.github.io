@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2023-04-24T03:40:17.000Z</updated>
+  <updated>2023-05-15T03:35:19.575Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java并发编程</title>
+    <link href="https://herotiga.github.io/2023/05/14/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    <id>https://herotiga.github.io/2023/05/14/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/</id>
+    <published>2023-05-14T03:59:56.000Z</published>
+    <updated>2023-05-15T03:35:19.575Z</updated>
+    
+    <content type="html"><![CDATA[<p>在Java中可以通过创建多线程来达到并发编程的目的。</p><a id="more"></a><h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p>Java中的线程（Thread）的生命周期是这样的：</p><ol><li>实例化一个线程对象后，线程处于新建状态，等待进入就绪状态。</li><li>调用<code>start()</code>后，线程进入就绪状态，等待被JVM的线程调度器调度进入运行状态。</li><li>调用<code>run()</code>后，线程进入运行状态，运行状态的线程可能进入阻塞状态、就绪状态、死亡状态。</li><li>运行状态的线程如果调用了<code>sleep()</code>或者<code>suspend()</code>后会失去所有资源，线程进入阻塞状态，阻塞状态的线程在睡眠时间到后或者获得资源后会重新进入就绪状态。</li><li>run()执行完毕、调用<code>stop()</code>、调用<code>destroy()</code>，线程会进入死亡状态。</li></ol><p>线程进入阻塞状态有三种情况：</p><ol><li>等待阻塞状态：运行状态的线程调用<code>wait()</code>进入等待阻塞状态。</li><li>同步阻塞状态：运行状态的线程获取<code>synchronized</code>同步锁失败（同步锁被其他线程占用）会进入同步阻塞状态。</li><li>其他阻塞状态：线程调用<code>sleep()</code>、<code>join()</code>IO请求，线程会进入阻塞状态，当sleep超时或者join终止或者超时，或者IO完毕，线程会重新进入就绪状态等待被JVM调度。</li></ol><h2 id="线程的优先级"><a href="#线程的优先级" class="headerlink" title="线程的优先级"></a>线程的优先级</h2><p>每个线程都有一个优先级，默认优先级 <code>NORM_PRIORITY（5）</code> 。</p><p>JVM根据线程优先级调度资源。</p><h2 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a>创建线程</h2><p>Java提供三种方法创建线程：</p><ol><li>实现 <code>Runnable</code> 接口。</li><li>继承 <code>Thread</code> 类。</li><li>实现 <code>Callable</code> 和 <code>Future</code> 接口来创建线程。</li></ol><h3 id="实现Runnable接口来创建线程"><a href="#实现Runnable接口来创建线程" class="headerlink" title="实现Runnable接口来创建线程"></a>实现Runnable接口来创建线程</h3><figure class="highlight java"><figcaption><span>ThreadDemo.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RunnableDemo</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span> Thread t;</span><br><span class="line">   <span class="keyword">private</span> String threadName;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 构造方法</span></span><br><span class="line">   RunnableDemo(String name) &#123;</span><br><span class="line">      threadName = name;</span><br><span class="line">      System.out.println(<span class="string">"Creating "</span> +  threadName );</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 实现run，线程进入运行状态</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">"Running "</span> +  threadName );</span><br><span class="line"></span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">         <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">4</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Thread: "</span> + threadName + <span class="string">", "</span> + i);</span><br><span class="line">            <span class="comment">// sleep</span></span><br><span class="line">            Thread.sleep(<span class="number">50</span>);</span><br><span class="line">         &#125;</span><br><span class="line">      &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">         System.out.println(<span class="string">"Thread "</span> +  threadName + <span class="string">" interrupted."</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      System.out.println(<span class="string">"Thread "</span> +  threadName + <span class="string">" exiting."</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 实现start，线程进入就绪状态</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">"Starting "</span> +  threadName );</span><br><span class="line">      <span class="keyword">if</span> (t == <span class="keyword">null</span>) &#123;</span><br><span class="line">         t = <span class="keyword">new</span> Thread (<span class="keyword">this</span>, threadName);</span><br><span class="line">         t.start ();</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">      RunnableDemo R1 = <span class="keyword">new</span> RunnableDemo( <span class="string">"Thread-1"</span>);</span><br><span class="line">      R1.start();</span><br><span class="line">      </span><br><span class="line">      RunnableDemo R2 = <span class="keyword">new</span> RunnableDemo( <span class="string">"Thread-2"</span>);</span><br><span class="line">      R2.start();</span><br><span class="line">   &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="继承Thread类来创建线程"><a href="#继承Thread类来创建线程" class="headerlink" title="继承Thread类来创建线程"></a>继承Thread类来创建线程</h3><p>继承<code>Thread</code>类，其他代码相同。</p><h3 id="实现Callable和Future接口来创建线程"><a href="#实现Callable和Future接口来创建线程" class="headerlink" title="实现Callable和Future接口来创建线程"></a>实现Callable和Future接口来创建线程</h3><p>略</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在Java中可以通过创建多线程来达到并发编程的目的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="java" scheme="https://herotiga.github.io/categories/java/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>NUC8i7BEH Hackintosh</title>
@@ -428,27 +449,6 @@
     <summary type="html">
     
       &lt;p&gt;异步组件的使用场景是，当一个项目被分成很多歌组件的时候，当在一个组件中需要到另一个组件的时候，可以使用异步组件的方式异步请求一个服务器上的组件。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Vue动态组件及其缓存</title>
-    <link href="https://herotiga.github.io/2022/06/04/Vue%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6%E5%8F%8A%E5%85%B6%E7%BC%93%E5%AD%98/"/>
-    <id>https://herotiga.github.io/2022/06/04/Vue%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6%E5%8F%8A%E5%85%B6%E7%BC%93%E5%AD%98/</id>
-    <published>2022-06-03T22:28:43.000Z</published>
-    <updated>2023-04-24T03:44:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Vue可以使用 <code>:is</code> 来绑定动态组件。</p><a id="more"></a><h2 id="动态组件"><a href="#动态组件" class="headerlink" title="动态组件"></a>动态组件</h2><p>实例：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 下面的组件绑定了一个activeComponent变量，activeComponent是一个组件名，改变activeComponent的值可以达到切换组件的作用 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"activeComponent"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br></pre></td></tr></table></figure><p>上面component组件的每一次切换会导致其被一次次创建和销毁，在一些不需要重新渲染的场景比如tab的切换就无端增加了开销。</p><p>下面是缓存动态组件的方法。</p><h2 id="缓存动态组件"><a href="#缓存动态组件" class="headerlink" title="缓存动态组件"></a>缓存动态组件</h2><p>只需要用 <code>&lt;keep-alive&gt;&lt;/keep-alive&gt;</code> 将动态组件包裹起来即可缓存失活的组件，这样失活的组件就不会被销毁和再创建，减少了开销。</p><p>代码：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"activeComponent"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Vue可以使用 &lt;code&gt;:is&lt;/code&gt; 来绑定动态组件。&lt;/p&gt;
     
     </summary>
     
