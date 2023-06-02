@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2023-05-29T02:02:33.686Z</updated>
+  <updated>2023-06-02T06:32:28.992Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -17,11 +17,59 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>生成UUID</title>
+    <link href="https://herotiga.github.io/2023/06/02/JS%E7%94%9F%E6%88%90UUID/"/>
+    <id>https://herotiga.github.io/2023/06/02/JS%E7%94%9F%E6%88%90UUID/</id>
+    <published>2023-06-02T06:29:40.000Z</published>
+    <updated>2023-06-02T06:32:28.992Z</updated>
+    
+    <content type="html"><![CDATA[<p>TS生成UUID</p><a id="more"></a><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getUUID = (): <span class="function"><span class="params">string</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> TEMP_URL = URL.createObjectURL(<span class="keyword">new</span> Blob())</span><br><span class="line">  <span class="keyword">const</span> UUID = TEMP_URL.toString()</span><br><span class="line">  URL.revokeObjectURL(TEMP_URL) <span class="comment">//释放这个url</span></span><br><span class="line">  <span class="keyword">return</span> UUID.substring(UUID.lastIndexOf(<span class="string">'/'</span>) + <span class="number">1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;TS生成UUID&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ts" scheme="https://herotiga.github.io/categories/ts/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>TypeScript装饰器(Decorator)</title>
+    <link href="https://herotiga.github.io/2023/05/30/typescript%E8%A3%85%E9%A5%B0%E5%99%A8/"/>
+    <id>https://herotiga.github.io/2023/05/30/typescript%E8%A3%85%E9%A5%B0%E5%99%A8/</id>
+    <published>2023-05-30T03:39:14.000Z</published>
+    <updated>2023-05-30T03:50:59.006Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;hr&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="ts" scheme="https://herotiga.github.io/categories/ts/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Java并发编程</title>
     <link href="https://herotiga.github.io/2023/05/14/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     <id>https://herotiga.github.io/2023/05/14/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/</id>
     <published>2023-05-14T03:59:56.000Z</published>
-    <updated>2023-05-29T02:02:33.686Z</updated>
+    <updated>2023-05-29T02:25:49.209Z</updated>
     
     <content type="html"><![CDATA[<p>在Java中可以通过创建多线程来达到并发编程的目的。</p><a id="more"></a><h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p>Java中的线程（Thread）的<font color="red">生命周期</font>是这样的：</p><ol><li>实例化一个线程对象后，线程处于新建状态，等待进入就绪状态。</li><li>调用<code>start()</code>后，线程进入就绪状态，等待被JVM的线程调度器调度进入运行状态。</li><li>调用<code>run()</code>后，线程进入运行状态，运行状态的线程可能进入阻塞状态、就绪状态、死亡状态。</li><li>运行状态的线程如果调用了<code>sleep()</code>或者<code>suspend()</code>后会失去所有资源，线程进入阻塞状态，阻塞状态的线程在睡眠时间到后或者获得资源后会重新进入就绪状态。</li><li>run()执行完毕、调用<code>stop()</code>、调用<code>destroy()</code>，线程会进入死亡状态。</li></ol><p>线程进入阻塞状态有三种情况：</p><ol><li>等待阻塞状态：运行状态的线程调用<code>wait()</code>进入等待阻塞状态。</li><li>同步阻塞状态：运行状态的线程获取<code>synchronized</code>同步锁失败（同步锁被其他线程占用）会进入同步阻塞状态。</li><li>其他阻塞状态：线程调用<code>sleep()</code>、<code>join()</code>IO请求，线程会进入阻塞状态，当sleep超时或者join终止或者超时，或者IO完毕，线程会重新进入就绪状态等待被JVM调度。</li></ol><h2 id="线程的优先级"><a href="#线程的优先级" class="headerlink" title="线程的优先级"></a>线程的优先级</h2><p>每个线程都有一个优先级，默认优先级 <code>NORM_PRIORITY（5）</code> 。</p><p>JVM根据线程优先级调度资源。</p><h2 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a>创建线程</h2><p>Java提供三种方法创建线程：</p><ol><li>实现 <code>Runnable</code> 接口。</li><li>继承 <code>Thread</code> 类。</li><li>实现 <code>Callable</code> 和 <code>Future</code> 接口来创建线程。</li></ol><h3 id="实现Runnable接口来创建线程"><a href="#实现Runnable接口来创建线程" class="headerlink" title="实现Runnable接口来创建线程"></a>实现Runnable接口来创建线程</h3><figure class="highlight java"><figcaption><span>ThreadDemo.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RunnableDemo</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span> Thread t;</span><br><span class="line">   <span class="keyword">private</span> String threadName;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 构造方法</span></span><br><span class="line">   RunnableDemo(String name) &#123;</span><br><span class="line">      threadName = name;</span><br><span class="line">      System.out.println(<span class="string">"Creating "</span> +  threadName );</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 实现run，线程进入运行状态</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">"Running "</span> +  threadName );</span><br><span class="line"></span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">         <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">4</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Thread: "</span> + threadName + <span class="string">", "</span> + i);</span><br><span class="line">            <span class="comment">// sleep</span></span><br><span class="line">            Thread.sleep(<span class="number">50</span>);</span><br><span class="line">         &#125;</span><br><span class="line">      &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">         System.out.println(<span class="string">"Thread "</span> +  threadName + <span class="string">" interrupted."</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      System.out.println(<span class="string">"Thread "</span> +  threadName + <span class="string">" exiting."</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 实现start，线程进入就绪状态</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">"Starting "</span> +  threadName );</span><br><span class="line">      <span class="keyword">if</span> (t == <span class="keyword">null</span>) &#123;</span><br><span class="line">         t = <span class="keyword">new</span> Thread (<span class="keyword">this</span>, threadName);</span><br><span class="line">         t.start ();</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">      RunnableDemo R1 = <span class="keyword">new</span> RunnableDemo( <span class="string">"Thread-1"</span>);</span><br><span class="line">      R1.start();</span><br><span class="line">      </span><br><span class="line">      RunnableDemo R2 = <span class="keyword">new</span> RunnableDemo( <span class="string">"Thread-2"</span>);</span><br><span class="line">      R2.start();</span><br><span class="line">   &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="继承Thread类来创建线程"><a href="#继承Thread类来创建线程" class="headerlink" title="继承Thread类来创建线程"></a>继承Thread类来创建线程</h3><p>继承<code>Thread</code>类，其他代码相同。</p><h3 id="实现Callable和Future接口来创建线程"><a href="#实现Callable和Future接口来创建线程" class="headerlink" title="实现Callable和Future接口来创建线程"></a>实现Callable和Future接口来创建线程</h3><p>略</p>]]></content>
     
@@ -406,49 +454,6 @@
     
       &lt;p&gt;官网文档写的过于啰嗦。&lt;/p&gt;
 &lt;p&gt;一句话总结就是： &lt;code&gt;teleport&lt;/code&gt; 组件用于包裹html代码或者组件，配合 &lt;code&gt;to&lt;/code&gt; 可以指定包裹的内容被渲染到哪个标签之下（使用类似jQuery的选择器指定标签，使用id，class等选择器，不要使用标签选择器）。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Vue获取页面元素</title>
-    <link href="https://herotiga.github.io/2022/06/04/Vue%E8%8E%B7%E5%8F%96%E9%A1%B5%E9%9D%A2%E5%85%83%E7%B4%A0/"/>
-    <id>https://herotiga.github.io/2022/06/04/Vue%E8%8E%B7%E5%8F%96%E9%A1%B5%E9%9D%A2%E5%85%83%E7%B4%A0/</id>
-    <published>2022-06-03T23:09:17.000Z</published>
-    <updated>2023-04-24T03:44:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Vue如何像jQuery一样获取页面DOM呢？</p><p>尽量不要直接操作DOM。</p><a id="more"></a><p>Vue可以在元素或者组件上使用 <code>ref=&quot;refname&quot;</code> 来给元素或者组件一个锚点。</p><p>然后可以使用 <code>this.$refs.refname</code> 来获取元素。</p><h2 id="在组件内部使用ref"><a href="#在组件内部使用ref" class="headerlink" title="在组件内部使用ref"></a>在组件内部使用ref</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> app = Vue.createApp(&#123;&#125;)</span><br><span class="line"></span><br><span class="line">app.component(<span class="string">'base-input'</span>, &#123;</span><br><span class="line">    template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;input ref="input" /&gt;</span></span><br><span class="line"><span class="string">  `</span>,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        focusInput() &#123;</span><br><span class="line">            <span class="keyword">this</span>.$refs.input.focus()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted() &#123;</span><br><span class="line">        <span class="keyword">this</span>.focusInput()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h2 id="在父组件中使用ref"><a href="#在父组件中使用ref" class="headerlink" title="在父组件中使用ref"></a>在父组件中使用ref</h2><p>比如在父组件中使用上面定义的子组件 <code>base-input</code> ：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 父组件中，在子组件上写ref --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">base-input</span> <span class="attr">ref</span>=<span class="string">"usernameInput"</span>&gt;</span><span class="tag">&lt;/<span class="name">base-input</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父组件中获取子组件</span></span><br><span class="line"><span class="keyword">this</span>.$refs.usernameInput.focusInput()</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Vue如何像jQuery一样获取页面DOM呢？&lt;/p&gt;
-&lt;p&gt;尽量不要直接操作DOM。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Vue异步组件以及配合suspense使用</title>
-    <link href="https://herotiga.github.io/2022/06/04/Vue%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/"/>
-    <id>https://herotiga.github.io/2022/06/04/Vue%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8/</id>
-    <published>2022-06-03T22:45:47.000Z</published>
-    <updated>2023-04-24T03:44:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>异步组件的使用场景是，当一个项目被分成很多歌组件的时候，当在一个组件中需要到另一个组件的时候，可以使用异步组件的方式异步请求一个服务器上的组件。</p><a id="more"></a><p>异步组件的核心是使用 <code>Vue.defineAsyncComponent</code> 方法，参数是一个Promise工厂函数。</p><p>具体代码如下：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入Vue.defineAsyncComponent方法</span></span><br><span class="line"><span class="keyword">const</span> &#123;</span><br><span class="line">    createApp,</span><br><span class="line">    defineAsyncComponent</span><br><span class="line">&#125; = Vue</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = createApp(&#123;&#125;)</span><br><span class="line"></span><br><span class="line">app.component(<span class="string">'async-example'</span>, defineAsyncComponent(</span><br><span class="line">    () =&gt;</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        resolve(&#123;</span><br><span class="line">            template: <span class="string">'&lt;div&gt;I am async!&lt;/div&gt;'</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">))</span><br></pre></td></tr></table></figure><p>或者如果使用webpack的话可以这样动态导入组件：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">    defineAsyncComponent</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"></span><br><span class="line">app.component(<span class="string">'async-component'</span>, defineAsyncComponent(<span class="function"><span class="params">()</span> =&gt;</span></span><br><span class="line">    <span class="keyword">import</span>(<span class="string">'./components/AsyncComponent.vue'</span>)</span><br><span class="line">))</span><br></pre></td></tr></table></figure><p>在局部注册的组件中使用动态组件：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">    createApp,</span><br><span class="line">    defineAsyncComponent</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"></span><br><span class="line">createApp(&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    components: &#123;</span><br><span class="line">        AsyncComponent: defineAsyncComponent(<span class="function"><span class="params">()</span> =&gt;</span></span><br><span class="line">            <span class="keyword">import</span>(<span class="string">'./components/AsyncComponent.vue'</span>)</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>suspense的作用：在异步组件渲染完毕之前展示一些内容用于提升用户体验。</p><p>示例：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 这里async-component是一个已经定义好的异步组件，代码省略 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">suspense</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 异步组件加载成功时展示 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> #<span class="attr">default</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">async-component</span>&gt;</span><span class="tag">&lt;/<span class="name">async-component</span>&gt;</span>&gt;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 异步组件加载失败时展示 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> #<span class="attr">fallback</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>异步组件加载失败！<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">suspense</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;异步组件的使用场景是，当一个项目被分成很多歌组件的时候，当在一个组件中需要到另一个组件的时候，可以使用异步组件的方式异步请求一个服务器上的组件。&lt;/p&gt;
     
     </summary>
     
