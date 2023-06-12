@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2023-06-12T02:09:07.080Z</updated>
+  <updated>2023-06-12T07:18:36.707Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端下载文件的几种方案</title>
+    <link href="https://herotiga.github.io/2023/06/12/%E5%89%8D%E7%AB%AF%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%A1%88/"/>
+    <id>https://herotiga.github.io/2023/06/12/%E5%89%8D%E7%AB%AF%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%A1%88/</id>
+    <published>2023-06-12T06:42:14.000Z</published>
+    <updated>2023-06-12T07:18:36.707Z</updated>
+    
+    <content type="html"><![CDATA[<p>梳理一下前端下载文件的几种方案。</p><a id="more"></a><hr><h2 id="方案一：a标签下载"><a href="#方案一：a标签下载" class="headerlink" title="方案一：a标签下载"></a>方案一：a标签下载</h2><p>创建a标签，手动触发点击事件下载。</p><figure class="highlight ts"><figcaption><span>ts</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * a标签下载</span></span><br><span class="line"><span class="comment"> * @param res</span></span><br><span class="line"><span class="comment"> * @param filename</span></span><br><span class="line"><span class="comment"> * @returns</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">downloadFile</span>(<span class="params">res: Blob, filename: <span class="built_in">string</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> url = <span class="built_in">window</span>.URL.createObjectURL(<span class="keyword">new</span> Blob([res]))</span><br><span class="line">    <span class="keyword">const</span> a = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>)</span><br><span class="line">    a.style.display = <span class="string">'none'</span></span><br><span class="line">    a.href = url</span><br><span class="line">    a.download = filename</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(a)</span><br><span class="line">    a.click()</span><br><span class="line">    <span class="built_in">document</span>.body.removeChild(a)</span><br><span class="line">    <span class="built_in">window</span>.URL.revokeObjectURL(url)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;梳理一下前端下载文件的几种方案。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ts" scheme="https://herotiga.github.io/categories/ts/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>生成UUID</title>
@@ -427,28 +448,6 @@
     
       &lt;p&gt;官网文档写的过于啰嗦。&lt;/p&gt;
 &lt;p&gt;一句话总结就是： &lt;code&gt;teleport&lt;/code&gt; 组件用于包裹html代码或者组件，配合 &lt;code&gt;to&lt;/code&gt; 可以指定包裹的内容被渲染到哪个标签之下（使用类似jQuery的选择器指定标签，使用id，class等选择器，不要使用标签选择器）。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Vue获取页面元素</title>
-    <link href="https://herotiga.github.io/2022/06/04/Vue%E8%8E%B7%E5%8F%96%E9%A1%B5%E9%9D%A2%E5%85%83%E7%B4%A0/"/>
-    <id>https://herotiga.github.io/2022/06/04/Vue%E8%8E%B7%E5%8F%96%E9%A1%B5%E9%9D%A2%E5%85%83%E7%B4%A0/</id>
-    <published>2022-06-03T23:09:17.000Z</published>
-    <updated>2023-04-24T03:44:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Vue如何像jQuery一样获取页面DOM呢？</p><p>尽量不要直接操作DOM。</p><a id="more"></a><p>Vue可以在元素或者组件上使用 <code>ref=&quot;refname&quot;</code> 来给元素或者组件一个锚点。</p><p>然后可以使用 <code>this.$refs.refname</code> 来获取元素。</p><h2 id="在组件内部使用ref"><a href="#在组件内部使用ref" class="headerlink" title="在组件内部使用ref"></a>在组件内部使用ref</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> app = Vue.createApp(&#123;&#125;)</span><br><span class="line"></span><br><span class="line">app.component(<span class="string">'base-input'</span>, &#123;</span><br><span class="line">    template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;input ref="input" /&gt;</span></span><br><span class="line"><span class="string">  `</span>,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        focusInput() &#123;</span><br><span class="line">            <span class="keyword">this</span>.$refs.input.focus()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted() &#123;</span><br><span class="line">        <span class="keyword">this</span>.focusInput()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h2 id="在父组件中使用ref"><a href="#在父组件中使用ref" class="headerlink" title="在父组件中使用ref"></a>在父组件中使用ref</h2><p>比如在父组件中使用上面定义的子组件 <code>base-input</code> ：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 父组件中，在子组件上写ref --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">base-input</span> <span class="attr">ref</span>=<span class="string">"usernameInput"</span>&gt;</span><span class="tag">&lt;/<span class="name">base-input</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父组件中获取子组件</span></span><br><span class="line"><span class="keyword">this</span>.$refs.usernameInput.focusInput()</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Vue如何像jQuery一样获取页面DOM呢？&lt;/p&gt;
-&lt;p&gt;尽量不要直接操作DOM。&lt;/p&gt;
     
     </summary>
     
