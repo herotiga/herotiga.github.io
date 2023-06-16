@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2023-06-12T08:36:07.690Z</updated>
+  <updated>2023-06-16T06:18:19.515Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决浏览器自动填充密码框的问题</title>
+    <link href="https://herotiga.github.io/2023/06/16/%E8%A7%A3%E5%86%B3%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85%E5%AF%86%E7%A0%81%E6%A1%86%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://herotiga.github.io/2023/06/16/%E8%A7%A3%E5%86%B3%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85%E5%AF%86%E7%A0%81%E6%A1%86%E7%9A%84%E9%97%AE%E9%A2%98/</id>
+    <published>2023-06-16T06:01:52.000Z</published>
+    <updated>2023-06-16T06:18:19.515Z</updated>
+    
+    <content type="html"><![CDATA[<p>做项目的时候遇到了浏览器自动填充了密码框的问题。</p><a id="more"></a><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>创建完密码框后给密码框一个 <code>readonly=&#39;true&#39;</code> 属性，在 <code>focus</code> 的时候再将 <code>readonly</code> 设为 <code>false</code>。</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p><img src="https://gcore.jsdelivr.net/gh/herotiga/cdn@master/img/article/Vue%E8%A7%A3%E5%86%B3%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85%E5%AF%86%E7%A0%81%E6%A1%86%E7%9A%84%E9%97%AE%E9%A2%98.png" alt="code"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;做项目的时候遇到了浏览器自动填充了密码框的问题。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>前端下载文件的几种方案</title>
@@ -431,28 +452,6 @@
     
     
       <category term="react" scheme="https://herotiga.github.io/categories/react/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Vue teleport to</title>
-    <link href="https://herotiga.github.io/2022/06/05/Vue-teleport-to/"/>
-    <id>https://herotiga.github.io/2022/06/05/Vue-teleport-to/</id>
-    <published>2022-06-05T00:01:32.000Z</published>
-    <updated>2023-04-24T03:44:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>官网文档写的过于啰嗦。</p><p>一句话总结就是： <code>teleport</code> 组件用于包裹html代码或者组件，配合 <code>to</code> 可以指定包裹的内容被渲染到哪个标签之下（使用类似jQuery的选择器指定标签，使用id，class等选择器，不要使用标签选择器）。</p><a id="more"></a><h2 id="teleport-to"><a href="#teleport-to" class="headerlink" title="teleport, to"></a>teleport, to</h2><p>如果在父组件parent中使用了teleport包裹子组件child，那么在代码逻辑上child依然是parent的子组件，但是可以指定teleport的to属性为parent之外的位置，这样就改变了child渲染的位置。</p><p>在同一个目标上使用teleport，多个teleport可以将内容追加挂载到同一个标签之下</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">teleport</span> <span class="attr">to</span>=<span class="string">"#modals"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>A<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">teleport</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">teleport</span> <span class="attr">to</span>=<span class="string">"#modals"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>B<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">teleport</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- result--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"modals"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>A<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>B<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><p>禁用teleport，给teleport添加 <code>disabled</code> 属性，值为Boolean。</p><h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><ol><li>docs: <a href="https://v3.cn.vuejs.org/guide/teleport.html">https://v3.cn.vuejs.org/guide/teleport.html</a></li><li>API: <a href="https://v3.cn.vuejs.org/api/built-in-components.html#teleport">https://v3.cn.vuejs.org/api/built-in-components.html#teleport</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;官网文档写的过于啰嗦。&lt;/p&gt;
-&lt;p&gt;一句话总结就是： &lt;code&gt;teleport&lt;/code&gt; 组件用于包裹html代码或者组件，配合 &lt;code&gt;to&lt;/code&gt; 可以指定包裹的内容被渲染到哪个标签之下（使用类似jQuery的选择器指定标签，使用id，class等选择器，不要使用标签选择器）。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
     
     
   </entry>
