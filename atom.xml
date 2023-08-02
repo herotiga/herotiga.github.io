@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2023-06-25T03:26:26.085Z</updated>
+  <updated>2023-08-02T11:45:17.893Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>浅谈hooks</title>
+    <link href="https://herotiga.github.io/2023/08/02/hooks/"/>
+    <id>https://herotiga.github.io/2023/08/02/hooks/</id>
+    <published>2023-08-02T09:06:23.000Z</published>
+    <updated>2023-08-02T11:45:17.893Z</updated>
+    
+    <content type="html"><![CDATA[<!--     https://baijiahao.baidu.com/s?id=1727232708471611959&wfr=spider&for=pc --><p>Vue3和React16.8都已经支持了 <code>hooks</code> 作为组件编写的方式。</p><a id="more"></a><p>什么是hooks？</p><article class="message is-info"><div class="message-body"><p>钩子编程是通过拦截软件模块间的函数调用、消息传递、事件传递来修改或扩展操作系统、应用程序或其他软件组件的行为的各种技术。处理被拦截的函数调用、事件、消息的代码，被称为钩子(hooks)。</p></div></article><h2 id="React中的hooks"><a href="#React中的hooks" class="headerlink" title="React中的hooks"></a>React中的hooks</h2><p>React只能在函数组件中使用hooks。</p><p>React中的hooks指的是以 <code>use</code> 开头的一系列方法，可以让我们避开class component写法，在函数式组件中完成全部的开发。</p><p>hooks函数以 <code>use</code> 开头是计算机中对于hooks约定俗成的写法。</p><h2 id="Vue中的hooks"><a href="#Vue中的hooks" class="headerlink" title="Vue中的hooks"></a>Vue中的hooks</h2><p>Vue只能在 <code>setup</code> 中使用hooks。</p><p>Vue中的hooks指的是以 <code>use</code> 开头的方法，他们提供了组件复用状态管理等能力，除此之外，Vue的组合式API也是一种hooks。</p><h2 id="hooks的优点"><a href="#hooks的优点" class="headerlink" title="hooks的优点"></a>hooks的优点</h2><ol><li>hooks可以将业务逻辑清晰划分解耦。</li><li>hooks可复用性高、状态逻辑复用清晰，可以替代 <code>mixin</code>。</li><li>避免了class组件需要频繁使用 <code>bind</code> 的麻烦。</li></ol><h2 id="React-hooks实例"><a href="#React-hooks实例" class="headerlink" title="React hooks实例"></a>React hooks实例</h2><figure class="highlight ts"><figcaption><span>ts</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">'React'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; &#123;</span><br><span class="line">    <span class="comment">// 创建name状态和set方法</span></span><br><span class="line">    <span class="keyword">const</span> [name, setName] = useState(<span class="string">''</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 处理副作用</span></span><br><span class="line">    useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(name)</span><br><span class="line">        &#125;,</span><br><span class="line">        [name]</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 依赖name动态计算message</span></span><br><span class="line">    <span class="keyword">const</span> message = useMemo(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`my name is <span class="subst">$&#123;name&#125;</span>`</span></span><br><span class="line">    &#125;, [name])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;&#123;message&#125;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure><h2 id="Vue-hooks实例"><a href="#Vue-hooks实例" class="headerlink" title="Vue hooks实例"></a>Vue hooks实例</h2><figure class="highlight html"><figcaption><span>vue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> &#123; computed, ref &#125; <span class="keyword">from</span> <span class="string">'vue'</span></span></span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="keyword">const</span> name = ref(<span class="string">''</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> message = computed(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">   <span class="keyword">return</span> <span class="string">`my name is <span class="subst">$&#123;name.value&#125;</span>`</span></span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;!-- 
+
+    https://baijiahao.baidu.com/s?id=1727232708471611959&amp;wfr=spider&amp;for=pc
+
+ --&gt;
+
+&lt;p&gt;Vue3和React16.8都已经支持了 &lt;code&gt;hooks&lt;/code&gt; 作为组件编写的方式。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="react" scheme="https://herotiga.github.io/categories/react/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>TypeScript中type（类型别名）和interface（接口）的区别</title>
@@ -430,28 +457,6 @@
     
     
       <category term="algorithms" scheme="https://herotiga.github.io/categories/algorithms/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>React组件的生命周期</title>
-    <link href="https://herotiga.github.io/2022/06/17/React%E7%BB%84%E4%BB%B6%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
-    <id>https://herotiga.github.io/2022/06/17/React%E7%BB%84%E4%BB%B6%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</id>
-    <published>2022-06-17T06:45:31.000Z</published>
-    <updated>2023-04-24T03:44:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文基于React17版本开始的新的生命周期。</p><p>React组件的生命周期分为三个阶段：Mounting -&gt; Updating -&gt; Unmounting</p><a id="more"></a><p><img src="https://www.runoob.com/wp-content/uploads/2016/02/ogimage.png" alt="组件生命周期"></p><h2 id="Mounting"><a href="#Mounting" class="headerlink" title="Mounting"></a>Mounting</h2><ol><li>调用组件的构造函数<code>constructor()</code>。</li><li>调用<code>getDerivedStateFromProps()</code>，在Mounting和Updating阶段都会被调用。</li><li>调用<code>render()</code>函数，组件初始化一定会调用的只有render函数。</li><li>组件挂载完毕。</li><li>触发<code>componentDidMount()</code>钩子函数。</li></ol><h2 id="Updating"><a href="#Updating" class="headerlink" title="Updating"></a>Updating</h2><p>组件的 <code>props</code> 或者 <code>state</code> 发生变化，组件就会更新。</p><ol><li>调用<code>getDerivedStateFromProps()</code>，根据<code>shouldComponentUpdate()</code>的返回值，判断组件的输出是否受当前state或props更改的影响。</li><li>调用<code>shouldComponentUpdate()</code>。</li><li>调用<code>render()</code>函数，唯一必须会被调用的函数。</li><li>调用<code>getSnapshotBeforeUpdate()</code>，在最近一次渲染输出之前调用。</li><li>组件更新完毕。</li><li>调用<code>componentDidUpdate()</code>，在组件更新后会被立即调用。</li></ol><h2 id="Unmounting"><a href="#Unmounting" class="headerlink" title="Unmounting"></a>Unmounting</h2><ol><li>调用<code>componentWillUnmount()</code>钩子函数，在组件卸载及销毁之前直接调用。</li><li>组件被卸载或者销毁。</li></ol><p>可以看出react组件生命周期与vue的组件生命周期有区别但是不大。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文基于React17版本开始的新的生命周期。&lt;/p&gt;
-&lt;p&gt;React组件的生命周期分为三个阶段：Mounting -&amp;gt; Updating -&amp;gt; Unmounting&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="react" scheme="https://herotiga.github.io/categories/react/"/>
     
     
   </entry>
