@@ -42,7 +42,7 @@
     <link href="https://herotiga.github.io/2023/08/02/hooks/"/>
     <id>https://herotiga.github.io/2023/08/02/hooks/</id>
     <published>2023-08-02T09:06:23.000Z</published>
-    <updated>2023-08-06T08:12:20.819Z</updated>
+    <updated>2023-08-06T14:48:47.919Z</updated>
     
     <content type="html"><![CDATA[<!--     https://baijiahao.baidu.com/s?id=1727232708471611959&wfr=spider&for=pc --><p>Vue3和React16.8都已经支持了 <code>hooks</code> 作为组件编写的方式。</p><a id="more"></a><p>什么是hooks？</p><article class="message is-info"><div class="message-body"><p>钩子编程是通过拦截软件模块间的函数调用、消息传递、事件传递来修改或扩展操作系统、应用程序或其他软件组件的行为的各种技术。处理被拦截的函数调用、事件、消息的代码，被称为钩子(hooks)。</p></div></article><h2 id="React中的hooks"><a href="#React中的hooks" class="headerlink" title="React中的hooks"></a>React中的hooks</h2><p>React只能在函数组件中使用hooks。</p><p>React中的hooks指的是以 <code>use</code> 开头的一系列方法，可以让我们避开class component写法，在函数式组件中完成全部的开发。</p><p>hooks函数以 <code>use</code> 开头是计算机中对于hooks约定俗成的写法。</p><h2 id="Vue中的hooks"><a href="#Vue中的hooks" class="headerlink" title="Vue中的hooks"></a>Vue中的hooks</h2><p>Vue只能在 <code>setup</code> 中使用hooks。</p><p>Vue中的hooks指的是以 <code>use</code> 开头的方法，他们提供了组件复用状态管理等能力，除此之外，Vue的组合式API也是一种hooks。</p><h2 id="hooks的优点"><a href="#hooks的优点" class="headerlink" title="hooks的优点"></a>hooks的优点</h2><ol><li>hooks可以将业务逻辑清晰划分解耦。</li><li>hooks可复用性高、状态逻辑复用清晰，可以替代 <code>mixin</code>。</li><li>避免了class组件需要频繁使用 <code>bind</code> 的麻烦。</li></ol><h2 id="React-hooks实例"><a href="#React-hooks实例" class="headerlink" title="React hooks实例"></a>React hooks实例</h2><figure class="highlight ts"><figcaption><span>ts</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">'React'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; &#123;</span><br><span class="line">    <span class="comment">// 创建name状态和set方法</span></span><br><span class="line">    <span class="keyword">const</span> [name, setName] = useState(<span class="string">''</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 处理副作用</span></span><br><span class="line">    useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(name)</span><br><span class="line">        &#125;,</span><br><span class="line">        [name]</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 依赖name动态计算message</span></span><br><span class="line">    <span class="keyword">const</span> message = useMemo(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`my name is <span class="subst">$&#123;name&#125;</span>`</span></span><br><span class="line">    &#125;, [name])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt; &#123;message&#125; &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure><h2 id="Vue-hooks实例"><a href="#Vue-hooks实例" class="headerlink" title="Vue hooks实例"></a>Vue hooks实例</h2><figure class="highlight html"><figcaption><span>vue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> &#123; computed, ref &#125; <span class="keyword">from</span> <span class="string">'vue'</span></span></span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="keyword">const</span> name = ref(<span class="string">''</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> message = computed(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">   <span class="keyword">return</span> <span class="string">`my name is <span class="subst">$&#123;name.value&#125;</span>`</span></span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
     
@@ -61,7 +61,7 @@
     
       <category term="react" scheme="https://herotiga.github.io/categories/react/"/>
     
-      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
+      <category term="vue" scheme="https://herotiga.github.io/categories/vue/"/>
     
     
   </entry>
@@ -93,7 +93,7 @@
     <link href="https://herotiga.github.io/2023/06/16/%E8%A7%A3%E5%86%B3%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85%E5%AF%86%E7%A0%81%E6%A1%86%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <id>https://herotiga.github.io/2023/06/16/%E8%A7%A3%E5%86%B3%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85%E5%AF%86%E7%A0%81%E6%A1%86%E7%9A%84%E9%97%AE%E9%A2%98/</id>
     <published>2023-06-16T06:01:52.000Z</published>
-    <updated>2023-06-16T07:10:45.604Z</updated>
+    <updated>2023-08-06T14:48:48.003Z</updated>
     
     <content type="html"><![CDATA[<p>做项目的时候遇到了浏览器自动填充了密码框的问题。</p><a id="more"></a><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>创建完密码框后给密码框一个 <code>readonly=&#39;true&#39;</code> 属性，在 <code>focus</code> 的时候再将 <code>readonly</code> 设为 <code>false</code>。</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p><img src="https://gcore.jsdelivr.net/gh/herotiga/cdn@master/img/article/Vue%E8%A7%A3%E5%86%B3%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85%E5%AF%86%E7%A0%81%E6%A1%86%E7%9A%84%E9%97%AE%E9%A2%98.png" alt="code"></p>]]></content>
     
@@ -104,7 +104,7 @@
     </summary>
     
     
-      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
+      <category term="vue" scheme="https://herotiga.github.io/categories/vue/"/>
     
     
   </entry>
@@ -269,7 +269,7 @@
     <link href="https://herotiga.github.io/2022/10/21/Vue%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD(slot)/"/>
     <id>https://herotiga.github.io/2022/10/21/Vue%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD(slot)/</id>
     <published>2022-10-21T07:08:59.000Z</published>
-    <updated>2023-04-28T05:47:53.897Z</updated>
+    <updated>2023-08-06T14:48:48.004Z</updated>
     
     <content type="html"><![CDATA[<p>父组件中向子组件的slot插入内容一般只能使用父组件本身的数据，如果想要在父组件中使用子组件中的数据作为内容插入子组件的slot该怎么办。</p><p>这个时候就要用到作用域插槽了。</p><a id="more"></a><h2 id="procedure"><a href="#procedure" class="headerlink" title="procedure"></a>procedure</h2><ol><li>子组件写好slot标签，父组件写好v-slot。</li><li>子组件slot标签绑定属性（属性名无所谓），属性值为子组件的data中的变量。</li><li>父组件以<code>#slotname=&quot;childvalue&quot;</code>的形式接收到子组件中的数据。</li><li>父组件在v-slot标签内使用<code></code>的方式向子组件slot中插入数据。</li></ol><h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><p>child.vue:</p><figure class="highlight html"><figcaption><span>child.vue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"default"</span> <span class="attr">:d</span>=<span class="string">"name"</span>&gt;</span>备用内容<span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">    data() &#123;</span><br><span class="line"><span class="actionscript">        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="actionscript">            name: <span class="string">'Mason'</span>,</span></span><br><span class="line">            age: 22</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p>parent.vue:</p><figure class="highlight html"><figcaption><span>parent.vue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">child</span> #<span class="attr">default</span>=<span class="string">"childData"</span>&gt;</span></span><br><span class="line">        &#123;&#123; childData.name &#125;&#125;</span><br><span class="line">        &#123;&#123; chileData.age &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">child</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
     
@@ -281,7 +281,7 @@
     </summary>
     
     
-      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
+      <category term="vue" scheme="https://herotiga.github.io/categories/vue/"/>
     
     
   </entry>
@@ -313,7 +313,7 @@
     <link href="https://herotiga.github.io/2022/09/14/Vue2%E5%92%8CVue3%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E7%9A%84%E5%8F%98%E5%8C%96/"/>
     <id>https://herotiga.github.io/2022/09/14/Vue2%E5%92%8CVue3%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E7%9A%84%E5%8F%98%E5%8C%96/</id>
     <published>2022-09-14T02:28:56.000Z</published>
-    <updated>2023-04-24T03:44:23.000Z</updated>
+    <updated>2023-08-06T14:48:47.982Z</updated>
     
     <content type="html"><![CDATA[<p>Vue数据绑定的实现原理从Vue2的 <code>Object.defineProperty()</code> 对象属性劫持改为了Vue3的 <code>Proxy</code> 数据代理。</p><a id="more"></a><h2 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty()"></a>Object.defineProperty()</h2><p><code>Object.defineProperty()</code> 可以对于对象的已有属性进行监听、劫持、修改。</p>]]></content>
     
@@ -324,7 +324,7 @@
     </summary>
     
     
-      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
+      <category term="vue" scheme="https://herotiga.github.io/categories/vue/"/>
     
     
   </entry>
@@ -334,7 +334,7 @@
     <link href="https://herotiga.github.io/2022/09/14/%E7%BB%99Vue2%E7%9A%84data%E6%B7%BB%E5%8A%A0%E6%96%B0%E5%B1%9E%E6%80%A7%E7%9A%84%E6%96%B9%E6%B3%95/"/>
     <id>https://herotiga.github.io/2022/09/14/%E7%BB%99Vue2%E7%9A%84data%E6%B7%BB%E5%8A%A0%E6%96%B0%E5%B1%9E%E6%80%A7%E7%9A%84%E6%96%B9%E6%B3%95/</id>
     <published>2022-09-14T01:43:45.000Z</published>
-    <updated>2023-04-24T03:44:23.000Z</updated>
+    <updated>2023-08-06T14:48:47.831Z</updated>
     
     <content type="html"><![CDATA[<p>由于Vue2的双向绑定是基于 <code>Object.defineProperty()</code> 的，这个方法只能监听 <code>data</code> 里面已经存在的属性，并不能对于新添加的属性进行监听，故而直接给data添加新属性是无法被vue监听到并绑定到页面上的。</p><p>这里注意：是没办法添加data下的一级属性的，必须事先定义。</p><p>下面是几种给data中的属性添加新属性的方法。</p><a id="more"></a><h2 id="set"><a href="#set" class="headerlink" title="$set()"></a>$set()</h2><p>可以使用 <code>Vue.set(target, key, value)</code> 或者 <code>this.$set(target, key, value)</code> 来给data添加新属性。</p><h2 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign()"></a>Object.assign()</h2><p>可以通过重新赋值的方式添加属性。</p><p>example:</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        msg: &#123;</span><br><span class="line">            name: <span class="string">'mason'</span>,</span><br><span class="line">            age: <span class="number">22</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">    updateMsg() &#123;</span><br><span class="line">        <span class="comment">// 右边是一个新的对象，vue检测到msg地址的变化会更新msg</span></span><br><span class="line">        <span class="keyword">this</span>.msg = <span class="built_in">Object</span>.assign(&#123;&#125;, <span class="keyword">this</span>.msg, &#123;<span class="attr">gender</span>: <span class="string">'male'</span>&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="forceUpdate"><a href="#forceUpdate" class="headerlink" title="$forceUpdate()"></a>$forceUpdate()</h2><p>不建议使用这个方法！</p><p><code>$forceUpdate()</code> 可以强制更新vue实例。</p><p>example:</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        msg: &#123;</span><br><span class="line">            name: <span class="string">'mason'</span>,</span><br><span class="line">            age: <span class="number">22</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">    updateMsg() &#123;</span><br><span class="line">        <span class="keyword">this</span>.msg.gender = <span class="string">'male'</span>;</span><br><span class="line">        <span class="keyword">this</span>.$forceUpdate();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -347,7 +347,7 @@
     </summary>
     
     
-      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
+      <category term="vue" scheme="https://herotiga.github.io/categories/vue/"/>
     
     
   </entry>
@@ -382,7 +382,7 @@
     <link href="https://herotiga.github.io/2022/08/30/vue2%E5%92%8Cvue3%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
     <id>https://herotiga.github.io/2022/08/30/vue2%E5%92%8Cvue3%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
     <published>2022-08-30T07:24:56.000Z</published>
-    <updated>2023-04-28T06:08:38.225Z</updated>
+    <updated>2023-08-06T14:48:47.982Z</updated>
     
     <content type="html"><![CDATA[<p>Vue2和Vue3的区别。</p><a id="more"></a><h2 id="Vue2和Vue3的数据绑定原理发生了变化"><a href="#Vue2和Vue3的数据绑定原理发生了变化" class="headerlink" title="Vue2和Vue3的数据绑定原理发生了变化"></a>Vue2和Vue3的数据绑定原理发生了变化</h2><p>Vue2利用 <code>Object.defineProperty()</code> 完成的对数据的劫持，结合发布订阅来实现的双向数据绑定，但是只能监听某一个属性，不能对整个对象进行监听。</p><p>Vue3使用的是es6的 <code>Proxy</code> 的API来完成的双向数据绑定，可以监听整个对象。</p><h2 id="Vue3支持多个根节点"><a href="#Vue3支持多个根节点" class="headerlink" title="Vue3支持多个根节点"></a>Vue3支持多个根节点</h2><p>Vue2只支持一个页面根节点，vue3支持多个。</p><h2 id="Vue3可以使用composition-API"><a href="#Vue3可以使用composition-API" class="headerlink" title="Vue3可以使用composition API"></a>Vue3可以使用composition API</h2><p>composition API可以让我们通过代码功能的不同来分组API，可以使得代码更加直观。</p><p>Vue2数据定义在 <code>data</code> 里面，方法定义在 <code>methods</code> 里面。</p><p>Vue3可以首先引入 <code>reactive</code> ， <code>setup</code> 中使用reactive将变量包装为响应式变量，在setup的最后 <code>return</code> 这些响应式变量，最后 <code>template</code> 中就可以使用这些变量。</p><h2 id="生命周期的变化"><a href="#生命周期的变化" class="headerlink" title="生命周期的变化"></a>生命周期的变化</h2><pre><code>Vue2--------------Vue3beforeCreate  -&gt; setup()created       -&gt; setup()beforeMount   -&gt; onBeforeMountmounted       -&gt; onMountedbeforeUpdate  -&gt; onBeforeUpdateupdated       -&gt; onUpdatedbeforeDestroy -&gt; onBeforeUnmountdestroyed     -&gt; onUnmountedactivated     -&gt; onActivateddeactivated   -&gt; onDeactivatederrorCaptured -&gt; onErrorCaptured</code></pre><h2 id="Vue3可以按需引用"><a href="#Vue3可以按需引用" class="headerlink" title="Vue3可以按需引用"></a>Vue3可以按需引用</h2><p>Vue3按需引用api。</p>]]></content>
     
@@ -393,7 +393,7 @@
     </summary>
     
     
-      <category term="vue.js" scheme="https://herotiga.github.io/categories/vue-js/"/>
+      <category term="vue" scheme="https://herotiga.github.io/categories/vue/"/>
     
     
   </entry>
