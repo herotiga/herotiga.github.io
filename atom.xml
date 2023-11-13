@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2023-09-21T08:13:52.414Z</updated>
+  <updated>2023-11-01T05:45:57.988Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>银行家舍入法（Banker&#39;s Rounding）</title>
+    <link href="https://herotiga.github.io/2023/11/01/%E9%93%B6%E8%A1%8C%E5%AE%B6%E8%88%8D%E5%85%A5%E6%B3%95/"/>
+    <id>https://herotiga.github.io/2023/11/01/%E9%93%B6%E8%A1%8C%E5%AE%B6%E8%88%8D%E5%85%A5%E6%B3%95/</id>
+    <published>2023-11-01T05:43:36.000Z</published>
+    <updated>2023-11-01T05:45:57.988Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+
+      
+    
+    </summary>
+    
+    
+      <category term="algorithms" scheme="https://herotiga.github.io/categories/algorithms/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>SQLite中的数据类型</title>
     <link href="https://herotiga.github.io/2023/09/21/SQLite%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
     <id>https://herotiga.github.io/2023/09/21/SQLite%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</id>
     <published>2023-09-21T07:49:28.000Z</published>
-    <updated>2023-09-21T08:13:52.414Z</updated>
+    <updated>2023-11-13T03:33:02.992Z</updated>
     
     <content type="html"><![CDATA[<p><code>SQLite</code> 采用动态数据类型，插入什么数据类型就是什么数据类型，但最终插入表中的数据只能是以下五种类型。</p><a id="more"></a><h2 id="SQLite中的数据类型"><a href="#SQLite中的数据类型" class="headerlink" title="SQLite中的数据类型"></a>SQLite中的数据类型</h2><ol><li>NULL: 空值</li><li>INTEGER: 有符号的整型</li><li>REAL: 浮点数</li><li>TEXT: 字符串</li><li>BLOB: 二进制对象</li></ol><h2 id="Affinity类型"><a href="#Affinity类型" class="headerlink" title="Affinity类型"></a>Affinity类型</h2><p>Affinity类型就是建议类型。</p><p>在插入数据时，SQLite会根据你传入的值来转为建议类型，如果不能转，则使用你传入的数据类型进行存储。</p><p>Boolean类型会被存储为0(false)或者1(true)。</p><p>Date类型会被存储为TEXT, REAL, INTEGER。</p><h2 id="常见SQL数据库数据类型和SQLite数据类型对照"><a href="#常见SQL数据库数据类型和SQLite数据类型对照" class="headerlink" title="常见SQL数据库数据类型和SQLite数据类型对照"></a>常见SQL数据库数据类型和SQLite数据类型对照</h2><ol><li>INTEGER: INT, INTEGER, TINYINT, SMALLINT, MEDIUMINT, BIGINT, UNSIGNED BIG INT</li><li>REAL: REAL, FLOAT, DOUBLE, DOUBLE PRECISION</li><li>TEXT: CHARACTER, VARCHAR, VARYING CHARACTER, NCHAR, NATIVE CHARACTER, NVARCHAR, TEXT, CLOB</li><li>NUMERIC: NUMERIC, DECIMAL, BOOLEAN, DATE, DATETIME</li><li>BLOB: BLOB</li></ol>]]></content>
     
@@ -42,7 +68,7 @@
     <link href="https://herotiga.github.io/2023/09/07/fastjson%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>https://herotiga.github.io/2023/09/07/fastjson%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
     <published>2023-09-07T06:55:48.000Z</published>
-    <updated>2023-09-25T10:51:08.774Z</updated>
+    <updated>2023-09-25T13:35:01.526Z</updated>
     
     <content type="html"><![CDATA[<p><code>fastjson</code> 是一个java的JSON序列化库，用于在java对象和JSON之间的互相转换。</p><p>fastjson可以将java对象转为JSON（序列化），也可以将JSON转为java对象（反序列化）。</p><a id="more"></a><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在maven项目的 <code>pom.xml</code> 文件中配置fastjson依赖。</p><figure class="highlight xml"><figcaption><span>pom.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="comment">&lt;!-- 版本号 --&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.58<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ol><li>引入fastjson和相关包</li></ol><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONArray;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONObject;</span><br></pre></td></tr></table></figure><p>fastjson的入口类是 <code>com.alibaba.fastjson.JSON</code>，提供了两个方法：</p><ul><li><code>JSON.toJSONString</code></li><li><code>JSON.parseObject</code></li></ul><ol><li>创建JSON对象</li></ol><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JSONObject jsonObject = <span class="keyword">new</span> JSONObject();</span><br><span class="line">jsonObject.put(<span class="string">"name"</span>, <span class="string">"Mason"</span>);</span><br></pre></td></tr></table></figure><ol start="3"><li>将List转为JSON</li></ol><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构造List</span></span><br><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;string&gt;();</span><br><span class="line">lsit.add(<span class="string">"item1"</span>);</span><br><span class="line">lsit.add(<span class="string">"item2"</span>);</span><br><span class="line">lsit.add(<span class="string">"item3"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法一：先把List转为JSONArray，再使用toString()转为JSON</span></span><br><span class="line">JSONArray jsonArray = <span class="keyword">new</span> JSONArray(list);</span><br><span class="line">String json = jsonArray.toString();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法二：使用JSON.toJSONString()直接将List转为JSON</span></span><br><span class="line">String json = JSON.toJSONString(list);</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -437,27 +463,6 @@
     
     
       <category term="vue" scheme="https://herotiga.github.io/categories/vue/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>js箭头函数(lambda表达式)和普通函数的区别</title>
-    <link href="https://herotiga.github.io/2022/08/30/js%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E5%92%8C%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>https://herotiga.github.io/2022/08/30/js%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E5%92%8C%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
-    <published>2022-08-30T07:10:35.000Z</published>
-    <updated>2023-04-28T06:14:59.410Z</updated>
-    
-    <content type="html"><![CDATA[<p>区别从书写形式 -&gt; 函数是否具名 -&gt; 是否有arguments对象 -&gt; 是否可以作为构造函数 -&gt; this指向</p><a id="more"></a><h2 id="书写形式不同"><a href="#书写形式不同" class="headerlink" title="书写形式不同"></a>书写形式不同</h2><p>略。</p><h2 id="函数匿名性"><a href="#函数匿名性" class="headerlink" title="函数匿名性"></a>函数匿名性</h2><p>普通函数可以匿名或者具名，箭头函数只能匿名。</p><h2 id="可否引用arguments"><a href="#可否引用arguments" class="headerlink" title="可否引用arguments"></a>可否引用arguments</h2><p>匿名函数不绑定arguments对象（可以使用剩余参数替代），普通函数绑定arguments。</p><h2 id="可否作为构造函数"><a href="#可否作为构造函数" class="headerlink" title="可否作为构造函数"></a>可否作为构造函数</h2><p>箭头函数不能作为构造函数。</p><p>为什么箭头函数不能作为构造函数？</p><p>因为普通函数有<code>constructor</code>，来自原型链（prototype）上。</p><p>箭头函数没有<code>prototype</code>，故而没有constructor，故而不能作为构造函数。</p><h2 id="this指向不同"><a href="#this指向不同" class="headerlink" title="this指向不同"></a>this指向不同</h2><p>箭头函数this指向这个箭头函数被定义时所处的对象，如果没有对象则指向window，无法改变this指向。</p><p>普通函数this指向调用这个函数的对象（在构造函数中，this指向实例对象），如果没有调用对象则指向window，可以通过call，apply，bind改变this指向。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;区别从书写形式 -&amp;gt; 函数是否具名 -&amp;gt; 是否有arguments对象 -&amp;gt; 是否可以作为构造函数 -&amp;gt; this指向&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
     
     
   </entry>
