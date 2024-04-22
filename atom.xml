@@ -38,32 +38,6 @@
   </entry>
   
   <entry>
-    <title>Docker学习笔记</title>
-    <link href="https://herotiga.github.io/2024/04/14/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://herotiga.github.io/2024/04/14/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
-    <published>2024-04-14T05:40:54.000Z</published>
-    <updated>2024-04-14T06:46:19.098Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-
-      
-    
-    </summary>
-    
-    
-      <category term="docker" scheme="https://herotiga.github.io/categories/docker/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>银行家舍入法（Banker&#39;s Rounding）</title>
     <link href="https://herotiga.github.io/2023/11/01/%E9%93%B6%E8%A1%8C%E5%AE%B6%E8%88%8D%E5%85%A5%E6%B3%95/"/>
     <id>https://herotiga.github.io/2023/11/01/%E9%93%B6%E8%A1%8C%E5%AE%B6%E8%88%8D%E5%85%A5%E6%B3%95/</id>
@@ -468,6 +442,27 @@
     
     
       <category term="js" scheme="https://herotiga.github.io/categories/js/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vue2和Vue3的区别</title>
+    <link href="https://herotiga.github.io/2022/08/30/vue2%E5%92%8Cvue3%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://herotiga.github.io/2022/08/30/vue2%E5%92%8Cvue3%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <published>2022-08-30T07:24:56.000Z</published>
+    <updated>2023-08-06T14:48:47.982Z</updated>
+    
+    <content type="html"><![CDATA[<p>Vue2和Vue3的区别。</p><a id="more"></a><h2 id="Vue2和Vue3的数据绑定原理发生了变化"><a href="#Vue2和Vue3的数据绑定原理发生了变化" class="headerlink" title="Vue2和Vue3的数据绑定原理发生了变化"></a>Vue2和Vue3的数据绑定原理发生了变化</h2><p>Vue2利用 <code>Object.defineProperty()</code> 完成的对数据的劫持，结合发布订阅来实现的双向数据绑定，但是只能监听某一个属性，不能对整个对象进行监听。</p><p>Vue3使用的是es6的 <code>Proxy</code> 的API来完成的双向数据绑定，可以监听整个对象。</p><h2 id="Vue3支持多个根节点"><a href="#Vue3支持多个根节点" class="headerlink" title="Vue3支持多个根节点"></a>Vue3支持多个根节点</h2><p>Vue2只支持一个页面根节点，vue3支持多个。</p><h2 id="Vue3可以使用composition-API"><a href="#Vue3可以使用composition-API" class="headerlink" title="Vue3可以使用composition API"></a>Vue3可以使用composition API</h2><p>composition API可以让我们通过代码功能的不同来分组API，可以使得代码更加直观。</p><p>Vue2数据定义在 <code>data</code> 里面，方法定义在 <code>methods</code> 里面。</p><p>Vue3可以首先引入 <code>reactive</code> ， <code>setup</code> 中使用reactive将变量包装为响应式变量，在setup的最后 <code>return</code> 这些响应式变量，最后 <code>template</code> 中就可以使用这些变量。</p><h2 id="生命周期的变化"><a href="#生命周期的变化" class="headerlink" title="生命周期的变化"></a>生命周期的变化</h2><pre><code>Vue2--------------Vue3beforeCreate  -&gt; setup()created       -&gt; setup()beforeMount   -&gt; onBeforeMountmounted       -&gt; onMountedbeforeUpdate  -&gt; onBeforeUpdateupdated       -&gt; onUpdatedbeforeDestroy -&gt; onBeforeUnmountdestroyed     -&gt; onUnmountedactivated     -&gt; onActivateddeactivated   -&gt; onDeactivatederrorCaptured -&gt; onErrorCaptured</code></pre><h2 id="Vue3可以按需引用"><a href="#Vue3可以按需引用" class="headerlink" title="Vue3可以按需引用"></a>Vue3可以按需引用</h2><p>Vue3按需引用api。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Vue2和Vue3的区别。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="https://herotiga.github.io/categories/vue/"/>
     
     
   </entry>
