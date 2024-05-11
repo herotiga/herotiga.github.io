@@ -123,9 +123,9 @@
     </summary>
     
     
-      <category term="react" scheme="https://herotiga.github.io/categories/react/"/>
-    
       <category term="vue" scheme="https://herotiga.github.io/categories/vue/"/>
+    
+      <category term="react" scheme="https://herotiga.github.io/categories/react/"/>
     
     
   </entry>
