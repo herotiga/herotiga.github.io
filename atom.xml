@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2024-05-15T01:45:50.043Z</updated>
+  <updated>2024-05-15T15:19:58.377Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSR, SSR, SSG分析</title>
+    <link href="https://herotiga.github.io/2024/05/15/CSR-SSR-SSG/"/>
+    <id>https://herotiga.github.io/2024/05/15/CSR-SSR-SSG/</id>
+    <published>2024-05-15T14:28:34.000Z</published>
+    <updated>2024-05-15T15:19:58.377Z</updated>
+    
+    <content type="html"><![CDATA[<!-- https://mp.weixin.qq.com/s/lYSOYf1Bll0mHJ36jtU7NQ --><p>前端开发中有三种渲染技术，分别是CSR（客户端渲染）、SSR（服务端渲染）、SSG（服务端静态站点生成）。</p><p>我们根据具体需求的不同来使用不同的技术。</p><a id="more"></a><h2 id="CSR（客户端渲染）"><a href="#CSR（客户端渲染）" class="headerlink" title="CSR（客户端渲染）"></a>CSR（客户端渲染）</h2><p>CSR是目前前端开发中最常用的渲染方式。</p><p>CSR渲染方式下，服务端提供给客户端静态html文件、css文件、js文件等，客户端获取到文件后在客户端渲染。</p><h3 id="CSR的优点"><a href="#CSR的优点" class="headerlink" title="CSR的优点"></a>CSR的优点</h3><ol><li>响应速度快：浏览器在html加载好后就可以渲染页面，无需等待各种接口请求的结果。</li><li>交互性好：因为页面的大部分处理逻辑在客户端执行，所以可以提供更加动态和交互性的用户体验。</li><li>服务器压力小：因为渲染是在客户端进行的，而服务端只需要提供数据接口，所以服务端压力小。</li><li>容易跨平台开发：CSR的逻辑主要是在客户端，所以可以更容易开发跨平台的应用。</li><li>部署简单：只需要部署build出来的代码即可。</li></ol><h3 id="CSR的缺点"><a href="#CSR的缺点" class="headerlink" title="CSR的缺点"></a>CSR的缺点</h3><ol><li>首屏加载时间长：因为需要下载很多静态文件，会导致首屏加载时间长，可能会出现白屏。</li><li>不利于SEO：由于数据是在客户端渲染的，所以不利于搜索引擎爬取页面内容。</li></ol><h2 id="SSR（服务端渲染）"><a href="#SSR（服务端渲染）" class="headerlink" title="SSR（服务端渲染）"></a>SSR（服务端渲染）</h2><p>SSR是在服务端渲染页面的技术。</p><p>SSR的渲染方式下，服务端收到客户端的请求后会根据用户请求的页面和数据来渲染完整的页面，然后将渲染好的页面返回给客户端，客户端直接渲染完整的页面。</p><h3 id="SSR的优点"><a href="#SSR的优点" class="headerlink" title="SSR的优点"></a>SSR的优点</h3><ol><li>首屏加载速度快：由于页面由服务端渲染完成了，所以客户端直接拿来渲染即可。</li><li>利于SEO：由于页面以及数据已经在服务端渲染好了，所以搜索引擎爬取时就可以获取到完整的页面，利于SEO。</li><li>降低了客户端负载：由于渲染是在服务端完成的，客户端没有了渲染压力，降低了客户端负载，负载从客户端转移到了服务端。</li><li>更安全：客户端不直接操作数据，所以减少了客户端可能得安全风险。</li><li>更好的可访问性：SSR确保了网页的内容对于无法执行js的用户依然可以访问，提高了站点的可访问性。</li></ol><h3 id="SSR的缺点"><a href="#SSR的缺点" class="headerlink" title="SSR的缺点"></a>SSR的缺点</h3><ol><li>服务端负载大：服务端承担了页面渲染的工作，导致了服务端负载上升。</li><li>开发变得复杂：SSR需要考虑组件在客户端和服务端的运行，导致了开发变得复杂。</li><li>不适用于动态内容页面：对于频繁更新的页面，SSR不适合。</li></ol><h2 id="SSG（静态站点生成）"><a href="#SSG（静态站点生成）" class="headerlink" title="SSG（静态站点生成）"></a>SSG（静态站点生成）</h2><p>SSG是在构建项目时生成静态站点的技术。</p><p>SSG方式下，我们需要编写模板文件以及数据文件，然后在构建时将这些文件转为静态的页面文件，这些页面文件会被部署到服务器上，用户在请求这些页面的时候会直接返给用户这些提前生成的页面文件而无需实时生成。</p><h3 id="SSG的优点"><a href="#SSG的优点" class="headerlink" title="SSG的优点"></a>SSG的优点</h3><ol><li>性能好：此时用户请求页面后，服务端直接返回给客户端提前生成好的页面文件，故而速度很快。</li><li>安全性好：服务端只提供静态文件，故而降低了安全风险。</li><li>容易部署：SSG最终生成的是静态文件，所以很容易部署。</li><li>适合静态网站：SSG适合不经常更新的网站。</li><li>利于SEO：由于页面以及数据已经在服务端渲染好了，所以搜索引擎爬取时就可以获取到完整的页面，利于SEO。</li></ol><h3 id="SSG的缺点"><a href="#SSG的缺点" class="headerlink" title="SSG的缺点"></a>SSG的缺点</h3><ol><li>动态性不好：页面是静态生成的，故而不好实现复杂的动态交互。</li><li>构建时间长：大型站点构建时间可能很长。</li><li>不适合动态内容：频繁更新会消耗服务端大量的资源（构建）。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;!-- 
+https://mp.weixin.qq.com/s/lYSOYf1Bll0mHJ36jtU7NQ
+ --&gt;
+
+&lt;p&gt;前端开发中有三种渲染技术，分别是CSR（客户端渲染）、SSR（服务端渲染）、SSG（服务端静态站点生成）。&lt;/p&gt;
+&lt;p&gt;我们根据具体需求的不同来使用不同的技术。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="react" scheme="https://herotiga.github.io/categories/react/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Next.js开发笔记</title>
@@ -442,29 +468,6 @@ https://zhuanlan.zhihu.com/p/645478020
     <summary type="html">
     
       &lt;p&gt;Vue数据绑定的实现原理从Vue2的 &lt;code&gt;Object.defineProperty()&lt;/code&gt; 对象属性劫持改为了Vue3的 &lt;code&gt;Proxy&lt;/code&gt; 数据代理。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="https://herotiga.github.io/categories/vue/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>在Vue2中给data中的属性添加新属性的方法</title>
-    <link href="https://herotiga.github.io/2022/09/14/%E7%BB%99Vue2%E7%9A%84data%E6%B7%BB%E5%8A%A0%E6%96%B0%E5%B1%9E%E6%80%A7%E7%9A%84%E6%96%B9%E6%B3%95/"/>
-    <id>https://herotiga.github.io/2022/09/14/%E7%BB%99Vue2%E7%9A%84data%E6%B7%BB%E5%8A%A0%E6%96%B0%E5%B1%9E%E6%80%A7%E7%9A%84%E6%96%B9%E6%B3%95/</id>
-    <published>2022-09-14T01:43:45.000Z</published>
-    <updated>2023-08-06T14:48:47.831Z</updated>
-    
-    <content type="html"><![CDATA[<p>由于Vue2的双向绑定是基于 <code>Object.defineProperty()</code> 的，这个方法只能监听 <code>data</code> 里面已经存在的属性，并不能对于新添加的属性进行监听，故而直接给data添加新属性是无法被vue监听到并绑定到页面上的。</p><p>这里注意：是没办法添加data下的一级属性的，必须事先定义。</p><p>下面是几种给data中的属性添加新属性的方法。</p><a id="more"></a><h2 id="set"><a href="#set" class="headerlink" title="$set()"></a>$set()</h2><p>可以使用 <code>Vue.set(target, key, value)</code> 或者 <code>this.$set(target, key, value)</code> 来给data添加新属性。</p><h2 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign()"></a>Object.assign()</h2><p>可以通过重新赋值的方式添加属性。</p><p>example:</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        msg: &#123;</span><br><span class="line">            name: <span class="string">'mason'</span>,</span><br><span class="line">            age: <span class="number">22</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">    updateMsg() &#123;</span><br><span class="line">        <span class="comment">// 右边是一个新的对象，vue检测到msg地址的变化会更新msg</span></span><br><span class="line">        <span class="keyword">this</span>.msg = <span class="built_in">Object</span>.assign(&#123;&#125;, <span class="keyword">this</span>.msg, &#123;<span class="attr">gender</span>: <span class="string">'male'</span>&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="forceUpdate"><a href="#forceUpdate" class="headerlink" title="$forceUpdate()"></a>$forceUpdate()</h2><p>不建议使用这个方法！</p><p><code>$forceUpdate()</code> 可以强制更新vue实例。</p><p>example:</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        msg: &#123;</span><br><span class="line">            name: <span class="string">'mason'</span>,</span><br><span class="line">            age: <span class="number">22</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">    updateMsg() &#123;</span><br><span class="line">        <span class="keyword">this</span>.msg.gender = <span class="string">'male'</span>;</span><br><span class="line">        <span class="keyword">this</span>.$forceUpdate();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;由于Vue2的双向绑定是基于 &lt;code&gt;Object.defineProperty()&lt;/code&gt; 的，这个方法只能监听 &lt;code&gt;data&lt;/code&gt; 里面已经存在的属性，并不能对于新添加的属性进行监听，故而直接给data添加新属性是无法被vue监听到并绑定到页面上的。&lt;/p&gt;
-&lt;p&gt;这里注意：是没办法添加data下的一级属性的，必须事先定义。&lt;/p&gt;
-&lt;p&gt;下面是几种给data中的属性添加新属性的方法。&lt;/p&gt;
     
     </summary>
     
