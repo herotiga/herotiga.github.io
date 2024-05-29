@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2024-05-19T04:39:17.506Z</updated>
+  <updated>2024-05-29T05:55:17.585Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>寻找peak元素</title>
+    <link href="https://herotiga.github.io/2024/05/29/peak/"/>
+    <id>https://herotiga.github.io/2024/05/29/peak/</id>
+    <published>2024-05-29T05:25:19.000Z</published>
+    <updated>2024-05-29T05:55:17.585Z</updated>
+    
+    <content type="html"><![CDATA[<p>面试问到的算法题。</p><a id="more"></a><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>给定一个数组（元素为数字），如果一个元素的左右两边的元素值都小于该元素，则该元素为peak元素（对于两个端点元素一边符合即可）。</p><p>返回一个peak元素即可。</p><p>算法的时间复杂度越小越好。</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>采用暴力解法的时间复杂度为<code>O(n)</code>。</p><p>如果采用二分查找可以将时间复杂度降到<code>O(logn)</code>。</p><p>可以用二分查找，寻找中间点，如果中间点大于右边的点，那么左半边（包含中间点在内）一定有一个点符合peak，反之一样。这样不断地每次缩小1/2的范围最终就可以使用<code>O(logn)</code>的时间复杂度找到peak点。</p><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> findPeak = (mountains: <span class="built_in">number</span>[]): <span class="function"><span class="params">number</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> left: <span class="built_in">number</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">let</span> right: <span class="built_in">number</span> = mountains.length - <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">        <span class="comment">// 找到中间点</span></span><br><span class="line">        <span class="keyword">let</span> mid: <span class="built_in">number</span> = <span class="built_in">Math</span>.floor((left + right) / <span class="number">2</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (mountains[mid] &gt; mountains[mid + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="comment">// 左半边一定有peak</span></span><br><span class="line">            right = mid</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 右半边一定有peak</span></span><br><span class="line">            left = mid + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> mountains[left]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(findPeak([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">5</span>]))</span><br><span class="line"><span class="built_in">console</span>.log(findPeak([<span class="number">3</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">5</span>]))</span><br><span class="line"><span class="built_in">console</span>.log(findPeak([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]))</span><br><span class="line"><span class="built_in">console</span>.log(findPeak([<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]))</span><br></pre></td></tr></table></figure><h2 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h2><ol><li>本题难点在于想不到可以使用二分查找来缩小查询范围，因为本题的要求是只要找到任意一个peak即可。</li><li>要想到在使用二分查找时如果中间点大于右边的点，那么左半边（包含中间点）在内的区间一定存在peak，这样就缩小了一半的范围。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;面试问到的算法题。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="algorithm" scheme="https://herotiga.github.io/categories/algorithm/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>nginx基本配置、反向代理、负载均衡以及高可用</title>
@@ -454,28 +475,6 @@ https://zhuanlan.zhihu.com/p/645478020
     
     
       <category term="小程序" scheme="https://herotiga.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Vue的作用域插槽(slot)</title>
-    <link href="https://herotiga.github.io/2022/10/21/Vue%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD(slot)/"/>
-    <id>https://herotiga.github.io/2022/10/21/Vue%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD(slot)/</id>
-    <published>2022-10-21T07:08:59.000Z</published>
-    <updated>2023-08-06T14:48:48.004Z</updated>
-    
-    <content type="html"><![CDATA[<p>父组件中向子组件的slot插入内容一般只能使用父组件本身的数据，如果想要在父组件中使用子组件中的数据作为内容插入子组件的slot该怎么办。</p><p>这个时候就要用到作用域插槽了。</p><a id="more"></a><h2 id="procedure"><a href="#procedure" class="headerlink" title="procedure"></a>procedure</h2><ol><li>子组件写好slot标签，父组件写好v-slot。</li><li>子组件slot标签绑定属性（属性名无所谓），属性值为子组件的data中的变量。</li><li>父组件以<code>#slotname=&quot;childvalue&quot;</code>的形式接收到子组件中的数据。</li><li>父组件在v-slot标签内使用<code></code>的方式向子组件slot中插入数据。</li></ol><h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><p>child.vue:</p><figure class="highlight html"><figcaption><span>child.vue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"default"</span> <span class="attr">:d</span>=<span class="string">"name"</span>&gt;</span>备用内容<span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">    data() &#123;</span><br><span class="line"><span class="actionscript">        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="actionscript">            name: <span class="string">'Mason'</span>,</span></span><br><span class="line">            age: 22</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p>parent.vue:</p><figure class="highlight html"><figcaption><span>parent.vue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">child</span> #<span class="attr">default</span>=<span class="string">"childData"</span>&gt;</span></span><br><span class="line">        &#123;&#123; childData.name &#125;&#125;</span><br><span class="line">        &#123;&#123; chileData.age &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">child</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;父组件中向子组件的slot插入内容一般只能使用父组件本身的数据，如果想要在父组件中使用子组件中的数据作为内容插入子组件的slot该怎么办。&lt;/p&gt;
-&lt;p&gt;这个时候就要用到作用域插槽了。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="https://herotiga.github.io/categories/vue/"/>
     
     
   </entry>
