@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2024-06-01T17:03:24.093Z</updated>
+  <updated>2024-06-01T17:06:54.114Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -17,13 +17,65 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>梅森旋转器（Mersenne Twister）</title>
+    <link href="https://herotiga.github.io/2024/06/02/%E6%A2%85%E6%A3%AE%E6%97%8B%E8%BD%AC%E5%99%A8%EF%BC%88Mersenne-Twister%EF%BC%89/"/>
+    <id>https://herotiga.github.io/2024/06/02/%E6%A2%85%E6%A3%AE%E6%97%8B%E8%BD%AC%E5%99%A8%EF%BC%88Mersenne-Twister%EF%BC%89/</id>
+    <published>2024-06-01T17:05:56.000Z</published>
+    <updated>2024-06-01T17:06:54.114Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+
+      
+    
+    </summary>
+    
+    
+      <category term="algorithms" scheme="https://herotiga.github.io/categories/algorithms/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>有线性同余生成器（LCG）</title>
+    <link href="https://herotiga.github.io/2024/06/02/%E6%9C%89%E7%BA%BF%E6%80%A7%E5%90%8C%E4%BD%99%E7%94%9F%E6%88%90%E5%99%A8%EF%BC%88LCG%EF%BC%89/"/>
+    <id>https://herotiga.github.io/2024/06/02/%E6%9C%89%E7%BA%BF%E6%80%A7%E5%90%8C%E4%BD%99%E7%94%9F%E6%88%90%E5%99%A8%EF%BC%88LCG%EF%BC%89/</id>
+    <published>2024-06-01T17:05:44.000Z</published>
+    <updated>2024-06-01T17:06:37.067Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+
+      
+    
+    </summary>
+    
+    
+      <category term="algorithms" scheme="https://herotiga.github.io/categories/algorithms/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>为什么计算机无法产生真随机数</title>
     <link href="https://herotiga.github.io/2024/06/01/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%97%A0%E6%B3%95%E4%BA%A7%E7%94%9F%E7%9C%9F%E9%9A%8F%E6%9C%BA%E6%95%B0/"/>
     <id>https://herotiga.github.io/2024/06/01/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%97%A0%E6%B3%95%E4%BA%A7%E7%94%9F%E7%9C%9F%E9%9A%8F%E6%9C%BA%E6%95%B0/</id>
     <published>2024-06-01T15:28:07.000Z</published>
-    <updated>2024-06-01T17:03:24.093Z</updated>
+    <updated>2024-06-01T17:08:57.736Z</updated>
     
-    <content type="html"><![CDATA[<p>为什么计算机无法产生真随机数？</p><a id="more"></a><hr><h2 id="为什么计算机只能产生伪随机数"><a href="#为什么计算机只能产生伪随机数" class="headerlink" title="为什么计算机只能产生伪随机数"></a>为什么计算机只能产生伪随机数</h2><p>现有编程语言中产生的随机数算法都是伪随机数生成器（PRNG）</p><h3 id="算法是确定的"><a href="#算法是确定的" class="headerlink" title="算法是确定的"></a>算法是确定的</h3><p>计算机的随机数是由特定算法产生的，然而这些算法是确定的，对于这些算法输入相同的参数就会输出相同的结果。</p><p>故而随机数这个结果是由输入值确定的，所以计算机产生的是伪随机数（Pseudo-random Number）。</p><p>一般使用的算法有线性同余生成器（LCG）或梅森旋转器（Mersenne Twister）。</p><h3 id="算法输出的结果是有限的"><a href="#算法输出的结果是有限的" class="headerlink" title="算法输出的结果是有限的"></a>算法输出的结果是有限的</h3><p>由于计算机存在浮点数精度限制以及数字长度限制，所以输入到算法后输入的随机数也一定是精度有限的和长度有限的。</p><h3 id="种子值决定了算法输出的结果"><a href="#种子值决定了算法输出的结果" class="headerlink" title="种子值决定了算法输出的结果"></a>种子值决定了算法输出的结果</h3><p>伪随机数生成器产生的结果只依赖于种子值和算法，所以如果种子值是可以预测的，那么产生的随机数自然也是可以预测的。</p><hr><h2 id="如何产生真随机数"><a href="#如何产生真随机数" class="headerlink" title="如何产生真随机数"></a>如何产生真随机数</h2><p>获得一个真随机数生成器（TRNG）的关键在于如何获得一个不可预测的种子值，那么如何获得一个不可预测的种子值呢？</p><p>计算机作为一个由数字电路构成的二进制电路是高度可预测的，故而计算机本身是无法产生随机的种子值的。</p><p>想要获得不可预测的种子值只能通过随机的物理事件。</p><p>在现有的物理学体系中可以产生随机事件的方式有下面几种：</p><h3 id="热噪声"><a href="#热噪声" class="headerlink" title="热噪声"></a>热噪声</h3><p>热噪声是由导体内电子的热运动引起的随机电流或电压波动。通过测量这些波动，可以产生随机数。<br>例如，一个电阻器或半导体器件在工作时会产生热噪声，通过放大和量化这些信号就可以得到随机数。</p><h3 id="光电二极管噪声"><a href="#光电二极管噪声" class="headerlink" title="光电二极管噪声"></a>光电二极管噪声</h3><p>光电二极管在没有光照的情况下内部任然会有热运动和量子效应产生的噪声，通过放大和量化这些信号可以得到随机数。</p><h3 id="量子力学中的不确定性"><a href="#量子力学中的不确定性" class="headerlink" title="量子力学中的不确定性"></a>量子力学中的不确定性</h3><p>根据海森堡不确定性原理，量子的位置和动量不能同时被精确测量，这两个量是随机的。<br>量子的波函数坍塌是随机的。<br>光量子在通过一个半反半透镜时是反射还是透过是随机的。<br>光量子在通过量子分束器时通过的路径是随机的。</p><h3 id="放射性元素衰变"><a href="#放射性元素衰变" class="headerlink" title="放射性元素衰变"></a>放射性元素衰变</h3><p>放射性元素的衰变间隔是随机的。</p><h3 id="激光相位噪声"><a href="#激光相位噪声" class="headerlink" title="激光相位噪声"></a>激光相位噪声</h3><p>激光产生的光具有内在的量子噪声，通过放大和量化光信号可以得到随机数。</p><h3 id="混沌系统"><a href="#混沌系统" class="headerlink" title="混沌系统"></a>混沌系统</h3><p>作为经典物理学中的最后一朵乌云，混沌系统对于初始条件的微小变化可以导致系统一段时间后具有完全不可预测的特性，可以量化后产生随机数。混沌系统比如湍流、混沌震荡器。</p><p>使用以上随机事件进行量化后作为种子值输入算法即可获取到真随机数。</p>]]></content>
+    <content type="html"><![CDATA[<p>为什么计算机无法产生真随机数？</p><a id="more"></a><hr><h2 id="为什么计算机只能产生伪随机数"><a href="#为什么计算机只能产生伪随机数" class="headerlink" title="为什么计算机只能产生伪随机数"></a>为什么计算机只能产生伪随机数</h2><p>现有编程语言中产生的随机数算法都是<strong>伪随机数生成器</strong>（PRNG）。</p><h3 id="算法是确定的"><a href="#算法是确定的" class="headerlink" title="算法是确定的"></a>算法是确定的</h3><p>计算机的随机数是由特定算法产生的，然而这些算法是确定的，对于这些算法输入相同的参数就会输出相同的结果。</p><p>故而随机数这个结果是由输入值确定的，所以计算机产生的是<strong>伪随机数</strong>（Pseudo-random Number）。</p><p>一般使用的算法有线性<strong>同余生成器</strong>（LCG）或<strong>梅森旋转器</strong>（Mersenne Twister）。</p><h3 id="算法输出的结果是有限的"><a href="#算法输出的结果是有限的" class="headerlink" title="算法输出的结果是有限的"></a>算法输出的结果是有限的</h3><p>由于计算机存在浮点数精度限制以及数字长度限制，所以输入到算法后输入的随机数也一定是精度有限的和长度有限的。</p><h3 id="种子值决定了算法输出的结果"><a href="#种子值决定了算法输出的结果" class="headerlink" title="种子值决定了算法输出的结果"></a>种子值决定了算法输出的结果</h3><p>伪随机数生成器产生的结果只依赖于种子值和算法，所以如果种子值是可以预测的，那么产生的随机数自然也是可以预测的。</p><hr><h2 id="如何产生真随机数"><a href="#如何产生真随机数" class="headerlink" title="如何产生真随机数"></a>如何产生真随机数</h2><p>获得一个<strong>真随机数生成器</strong>（TRNG）的关键在于如何获得一个不可预测的种子值，那么如何获得一个不可预测的种子值呢？</p><p>计算机作为一个由数字电路构成的二进制电路是高度可预测的，故而计算机本身是无法产生随机的种子值的。</p><p><strong>想要获得不可预测的种子值只能通过随机的物理事件。</strong></p><p>在现有的物理学体系中可以产生随机事件的方式有下面几种：</p><h3 id="热噪声"><a href="#热噪声" class="headerlink" title="热噪声"></a>热噪声</h3><p>热噪声是由导体内电子的热运动引起的随机电流或电压波动。通过测量这些波动，可以产生随机数。<br>例如，一个电阻器或半导体器件在工作时会产生热噪声，通过放大和量化这些信号就可以得到随机数。</p><h3 id="光电二极管噪声"><a href="#光电二极管噪声" class="headerlink" title="光电二极管噪声"></a>光电二极管噪声</h3><p>光电二极管在没有光照的情况下内部任然会有热运动和量子效应产生的噪声，通过放大和量化这些信号可以得到随机数。</p><h3 id="量子力学中的不确定性"><a href="#量子力学中的不确定性" class="headerlink" title="量子力学中的不确定性"></a>量子力学中的不确定性</h3><p>根据海森堡不确定性原理，量子的位置和动量不能同时被精确测量，这两个量是随机的。<br>量子的波函数坍塌是随机的。<br>光量子在通过一个半反半透镜时是反射还是透过是随机的。<br>光量子在通过量子分束器时通过的路径是随机的。</p><h3 id="放射性元素衰变"><a href="#放射性元素衰变" class="headerlink" title="放射性元素衰变"></a>放射性元素衰变</h3><p>放射性元素的衰变间隔是随机的。</p><h3 id="激光相位噪声"><a href="#激光相位噪声" class="headerlink" title="激光相位噪声"></a>激光相位噪声</h3><p>激光产生的光具有内在的量子噪声，通过放大和量化光信号可以得到随机数。</p><h3 id="混沌系统"><a href="#混沌系统" class="headerlink" title="混沌系统"></a>混沌系统</h3><p>作为经典物理学中的最后一朵乌云，混沌系统对于初始条件的微小变化可以导致系统一段时间后具有完全不可预测的特性，可以量化后产生随机数。混沌系统比如湍流、混沌震荡器。</p><p>使用以上随机事件进行量化后作为种子值输入算法即可获取到真随机数。</p>]]></content>
     
     <summary type="html">
     
@@ -428,53 +480,6 @@ https://zhuanlan.zhihu.com/p/645478020
     
     
       <category term="mac" scheme="https://herotiga.github.io/categories/mac/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>微信小程序实现watch</title>
-    <link href="https://herotiga.github.io/2022/11/20/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0watch/"/>
-    <id>https://herotiga.github.io/2022/11/20/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0watch/</id>
-    <published>2022-11-20T12:54:14.000Z</published>
-    <updated>2023-04-24T03:44:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近做需求需要实现一个按钮根据页面字段来</p><a id="more"></a>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近做需求需要实现一个按钮根据页面字段来&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="小程序" scheme="https://herotiga.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>微信小程序生命周期</title>
-    <link href="https://herotiga.github.io/2022/11/18/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
-    <id>https://herotiga.github.io/2022/11/18/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</id>
-    <published>2022-11-18T11:59:44.000Z</published>
-    <updated>2023-04-24T03:44:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-
-      
-    
-    </summary>
-    
-    
-      <category term="小程序" scheme="https://herotiga.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
     
   </entry>
