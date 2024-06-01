@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2024-06-01T17:06:54.114Z</updated>
+  <updated>2024-06-01T17:08:57.736Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,58 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>梅森旋转器（Mersenne Twister）</title>
-    <link href="https://herotiga.github.io/2024/06/02/%E6%A2%85%E6%A3%AE%E6%97%8B%E8%BD%AC%E5%99%A8%EF%BC%88Mersenne-Twister%EF%BC%89/"/>
-    <id>https://herotiga.github.io/2024/06/02/%E6%A2%85%E6%A3%AE%E6%97%8B%E8%BD%AC%E5%99%A8%EF%BC%88Mersenne-Twister%EF%BC%89/</id>
-    <published>2024-06-01T17:05:56.000Z</published>
-    <updated>2024-06-01T17:06:54.114Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-
-      
-    
-    </summary>
-    
-    
-      <category term="algorithms" scheme="https://herotiga.github.io/categories/algorithms/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>有线性同余生成器（LCG）</title>
-    <link href="https://herotiga.github.io/2024/06/02/%E6%9C%89%E7%BA%BF%E6%80%A7%E5%90%8C%E4%BD%99%E7%94%9F%E6%88%90%E5%99%A8%EF%BC%88LCG%EF%BC%89/"/>
-    <id>https://herotiga.github.io/2024/06/02/%E6%9C%89%E7%BA%BF%E6%80%A7%E5%90%8C%E4%BD%99%E7%94%9F%E6%88%90%E5%99%A8%EF%BC%88LCG%EF%BC%89/</id>
-    <published>2024-06-01T17:05:44.000Z</published>
-    <updated>2024-06-01T17:06:37.067Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-
-      
-    
-    </summary>
-    
-    
-      <category term="algorithms" scheme="https://herotiga.github.io/categories/algorithms/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>为什么计算机无法产生真随机数</title>
@@ -480,6 +428,53 @@ https://zhuanlan.zhihu.com/p/645478020
     
     
       <category term="mac" scheme="https://herotiga.github.io/categories/mac/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>微信小程序实现watch</title>
+    <link href="https://herotiga.github.io/2022/11/20/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0watch/"/>
+    <id>https://herotiga.github.io/2022/11/20/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0watch/</id>
+    <published>2022-11-20T12:54:14.000Z</published>
+    <updated>2023-04-24T03:44:25.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近做需求需要实现一个按钮根据页面字段来</p><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近做需求需要实现一个按钮根据页面字段来&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="小程序" scheme="https://herotiga.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>微信小程序生命周期</title>
+    <link href="https://herotiga.github.io/2022/11/18/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+    <id>https://herotiga.github.io/2022/11/18/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</id>
+    <published>2022-11-18T11:59:44.000Z</published>
+    <updated>2023-04-24T03:44:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+
+      
+    
+    </summary>
+    
+    
+      <category term="小程序" scheme="https://herotiga.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
     
   </entry>
