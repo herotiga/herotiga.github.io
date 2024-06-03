@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2024-06-01T17:13:38.613Z</updated>
+  <updated>2024-06-03T06:35:28.462Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>node.js核心——EventEmitter</title>
+    <link href="https://herotiga.github.io/2024/06/03/EventEmitter/"/>
+    <id>https://herotiga.github.io/2024/06/03/EventEmitter/</id>
+    <published>2024-06-03T05:23:20.000Z</published>
+    <updated>2024-06-03T06:35:28.462Z</updated>
+    
+    <content type="html"><![CDATA[<p>node.js使用的是事件驱动模型。</p><p>可以通过<code>EventEmitter</code>来实现事件的监听和触发，node.js中其他的异步API也都是通过继承EventEmitter实现的。</p><a id="more"></a><h2 id="addListener-removeListener"><a href="#addListener-removeListener" class="headerlink" title="addListener/removeListener"></a>addListener/removeListener</h2><p>为指定的事件添加一个监听器，可以为同一个事件添加多个监听器。</p><figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> events = <span class="built_in">require</span>(<span class="string">'events'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建EventEmitter实例</span></span><br><span class="line"><span class="keyword">const</span> ee = <span class="keyword">new</span> events.EventEmitter()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 为同一个事件添加多个监听器</span></span><br><span class="line">ee.addListener(<span class="string">'event_name'</span>, handler1)</span><br><span class="line">ee.addListener(<span class="string">'event_name'</span>, handler2)</span><br><span class="line">ee.addListener(<span class="string">'event_name'</span>, handler3)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除事件上指定的监听器</span></span><br><span class="line">ee.removeListener(<span class="string">'event_name'</span>, handler1)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除事件上所有的监听器</span></span><br><span class="line">ee.removeAllListener(<span class="string">'event_name'</span>)</span><br></pre></td></tr></table></figure><h2 id="on-emit"><a href="#on-emit" class="headerlink" title="on/emit"></a>on/emit</h2><p>on方法和addListener是一样的，on是简写。</p><figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 监听事件，可以接受参数</span></span><br><span class="line">ee.on(<span class="string">'event_name'</span>, (arg1, arg2, ...) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 触发事件，可以携带参数</span></span><br><span class="line">ee.emit(<span class="string">'event_name'</span>, arg1, arg2, ...)</span><br></pre></td></tr></table></figure><h2 id="once"><a href="#once" class="headerlink" title="once"></a>once</h2><p>可以使用once为事件添加单词监听器，监听器最多只会执行一次。</p><figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ee.once(<span class="string">'event_name'</span>, handler)</span><br></pre></td></tr></table></figure><h2 id="setMaxListeners-defaultMaxListeners"><a href="#setMaxListeners-defaultMaxListeners" class="headerlink" title="setMaxListeners/defaultMaxListeners"></a>setMaxListeners/defaultMaxListeners</h2><p>EventEmitter默认限制了给同一个事件最大只能添加10个监听器，使用setMaxListeners可以指定限制数量。</p><figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ee.setMaxListeners(<span class="number">100</span>)</span><br></pre></td></tr></table></figure><p>或者可以直接设置默认最大数量：</p><figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置为0解除限制</span></span><br><span class="line">ee.defaultMaxListeners = <span class="number">0</span></span><br><span class="line">ee.defaultMaxListeners = <span class="number">100</span></span><br></pre></td></tr></table></figure><h2 id="listeners"><a href="#listeners" class="headerlink" title="listeners"></a>listeners</h2><p>获取指定事件上绑定的所有的监听器。</p><figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> listeners = ee.listeners(<span class="string">'event_name'</span>)</span><br></pre></td></tr></table></figure><h2 id="newListener事件"><a href="#newListener事件" class="headerlink" title="newListener事件"></a>newListener事件</h2><p>EventEmitter中的特殊事件。</p><figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ee.on(<span class="string">'newListener'</span>, (event, listener) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Event name: <span class="subst">$&#123;event&#125;</span>`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Listener function: <span class="subst">$&#123;listener&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h2 id="removeListener事件"><a href="#removeListener事件" class="headerlink" title="removeListener事件"></a>removeListener事件</h2><p>EventEmitter中的特殊事件。</p><figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ee.on(<span class="string">'removeListener'</span>, (event, listener) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Event name: <span class="subst">$&#123;event&#125;</span>`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Listener function: <span class="subst">$&#123;listener&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h2 id="error事件"><a href="#error事件" class="headerlink" title="error事件"></a>error事件</h2><p>EventEmitter中的特殊事件。</p><figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ee.on(<span class="string">'error'</span>, (arg1, arg2, ...) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">ee.emit(<span class="string">'error'</span>, arg1, arg2, ...)</span><br></pre></td></tr></table></figure><p>在实际使用时，我们一般通过自定义类继承EventEmitter来实现。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;node.js使用的是事件驱动模型。&lt;/p&gt;
+&lt;p&gt;可以通过&lt;code&gt;EventEmitter&lt;/code&gt;来实现事件的监听和触发，node.js中其他的异步API也都是通过继承EventEmitter实现的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="node.js" scheme="https://herotiga.github.io/categories/node-js/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>为什么计算机无法产生真随机数</title>
@@ -444,32 +466,6 @@ https://zhuanlan.zhihu.com/p/645478020
     <summary type="html">
     
       &lt;p&gt;最近做需求需要实现一个按钮根据页面字段来&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="小程序" scheme="https://herotiga.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>微信小程序生命周期</title>
-    <link href="https://herotiga.github.io/2022/11/18/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
-    <id>https://herotiga.github.io/2022/11/18/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</id>
-    <published>2022-11-18T11:59:44.000Z</published>
-    <updated>2023-04-24T03:44:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-
-      
     
     </summary>
     
