@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2024-06-07T01:46:30.083Z</updated>
+  <updated>2024-06-03T10:17:13.972Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,25 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Vue2和Vue3实现数据响应的原理</title>
-    <link href="https://herotiga.github.io/2024/06/07/Vue2%E5%92%8CVue3%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E7%9A%84%E5%8E%9F%E7%90%86/"/>
-    <id>https://herotiga.github.io/2024/06/07/Vue2%E5%92%8CVue3%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E7%9A%84%E5%8E%9F%E7%90%86/</id>
-    <published>2024-06-07T01:45:41.000Z</published>
-    <updated>2024-06-07T01:46:30.083Z</updated>
-    
-    <content type="html"><![CDATA[<p>summary</p><a id="more"></a><hr><p>main body</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;summary&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-  </entry>
   
   <entry>
     <title>node.js开发笔记——EventEmitter</title>
@@ -469,6 +450,27 @@ https://zhuanlan.zhihu.com/p/645478020
     
     
       <category term="mac" scheme="https://herotiga.github.io/categories/mac/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>微信小程序实现watch</title>
+    <link href="https://herotiga.github.io/2022/11/20/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0watch/"/>
+    <id>https://herotiga.github.io/2022/11/20/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0watch/</id>
+    <published>2022-11-20T12:54:14.000Z</published>
+    <updated>2023-04-24T03:44:25.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近做需求需要实现一个按钮根据页面字段来</p><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近做需求需要实现一个按钮根据页面字段来&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="小程序" scheme="https://herotiga.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
     
   </entry>
