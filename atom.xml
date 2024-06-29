@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2024-06-03T10:17:13.972Z</updated>
+  <updated>2024-06-29T10:13:24.646Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Learning MongoDB</title>
+    <link href="https://herotiga.github.io/2024/06/28/Learning-MongoDB/"/>
+    <id>https://herotiga.github.io/2024/06/28/Learning-MongoDB/</id>
+    <published>2024-06-28T14:17:15.000Z</published>
+    <updated>2024-06-29T10:13:24.646Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>MongoDB</code> is a type of NoSQL suitable for storing large-scale data.</p><p>MongoDB is a document based database, the data is stored in a JSON-like document format.</p><p>MongoDB uses <code>Collections</code> to organize documents, and each document is composed of key-value pairs.</p><a id="more"></a><h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><ol><li><p>Database: A container for storing data, similar to a database in relational database.</p></li><li><p>Collection: A collection in database, similar to a table in relational database.</p></li><li><p>Document: A data record in a collection, similar to a row in relational database, stored in BSON format.</p></li></ol><article class="message is-info"><div class="message-body"><p>MongoDB stores data as a document, with a data structure consisting of key-value pairs. The document is similar to a JSON object, and field values can contain other documents, arrays, and document arrays.</p></div></article><p>mapping:</p><table><thead><tr><th>SQL Concept</th><th>MongoDB Concept</th><th>Remark</th></tr></thead><tbody><tr><td>database</td><td>database</td><td>database</td></tr><tr><td>table</td><td>collection</td><td>databse table/collection</td></tr><tr><td>row</td><td>document</td><td>data record</td></tr><tr><td>column</td><td>field</td><td>data field</td></tr><tr><td>index</td><td>index</td><td>index</td></tr><tr><td>table joins</td><td></td><td>MongoDB not supported</td></tr><tr><td>primary key</td><td>primary key</td><td>MongoDB will set _id to primary key</td></tr></tbody></table><h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install community edition</span></span><br><span class="line">brew install mongodb-community</span><br><span class="line"></span><br><span class="line"><span class="comment"># start on startup</span></span><br><span class="line">brew services start mongodb-community</span><br></pre></td></tr></table></figure><h2 id="MongoDB-Shell"><a href="#MongoDB-Shell" class="headerlink" title="MongoDB Shell"></a>MongoDB Shell</h2><p>MongoDB Shell is a interactive interface provided by official, allowing users to interact with the MongoDB database, execute commands, and operate the database.</p><p>The MongoDB Shell is based on JavaScript and allows users to operate the MongoDB database directly from the command line or within scripts using the JavaScript language.</p><figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># start mongo shell</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># in older versions</span></span><br><span class="line">mongo</span><br><span class="line"></span><br><span class="line"><span class="comment"># in the new version</span></span><br><span class="line">mongosh</span><br><span class="line"></span><br><span class="line"><span class="comment"># connect to a remote mongodb server</span></span><br><span class="line">mongosh --host &lt;hostname&gt;:&lt;port&gt;</span><br></pre></td></tr></table></figure><h2 id="Basic-operations"><a href="#Basic-operations" class="headerlink" title="Basic operations"></a>Basic operations</h2><figure class="highlight bash"><figcaption><span>mongosh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># show current database</span></span><br><span class="line">db;</span><br><span class="line"></span><br><span class="line"><span class="comment"># show database list</span></span><br><span class="line">show dbs;</span><br><span class="line"></span><br><span class="line"><span class="comment"># switch to the specified database</span></span><br><span class="line">use &lt;db_name&gt;;</span><br><span class="line"></span><br><span class="line"><span class="comment"># execute query operation</span></span><br><span class="line">db.&lt;collection_name&gt;.find();</span><br><span class="line"></span><br><span class="line"><span class="comment"># insert a document</span></span><br><span class="line">db.&lt;collection_name&gt;.insertOne(&#123;...&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment"># update a document</span></span><br><span class="line">db.&lt;collection_name&gt;.updateOne(&#123;...&#125;, &#123;...&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment"># delete a document</span></span><br><span class="line">db.&lt;collection_name&gt;.deleteOne(&#123;...&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment"># exit shell</span></span><br><span class="line">quit() or <span class="built_in">exit</span></span><br></pre></td></tr></table></figure><h2 id="MongoDB-Tools"><a href="#MongoDB-Tools" class="headerlink" title="MongoDB Tools"></a>MongoDB Tools</h2><ol><li>MongoDB Compass: A free GUI tool.</li><li>Navicat: A paid GUI tool.</li><li>Studio 3T: A paid GUI tool, with a good CRUD operations experience.</li></ol><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol><li><a href="https://www.mongodb.com/docs/manual/introduction/">https://www.mongodb.com/docs/manual/introduction/</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;MongoDB&lt;/code&gt; is a type of NoSQL suitable for storing large-scale data.&lt;/p&gt;
+&lt;p&gt;MongoDB is a document based database, the data is stored in a JSON-like document format.&lt;/p&gt;
+&lt;p&gt;MongoDB uses &lt;code&gt;Collections&lt;/code&gt; to organize documents, and each document is composed of key-value pairs.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="MongoDB" scheme="https://herotiga.github.io/categories/MongoDB/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>node.js开发笔记——EventEmitter</title>
@@ -43,7 +66,7 @@
     <link href="https://herotiga.github.io/2024/06/01/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%97%A0%E6%B3%95%E4%BA%A7%E7%94%9F%E7%9C%9F%E9%9A%8F%E6%9C%BA%E6%95%B0/"/>
     <id>https://herotiga.github.io/2024/06/01/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%97%A0%E6%B3%95%E4%BA%A7%E7%94%9F%E7%9C%9F%E9%9A%8F%E6%9C%BA%E6%95%B0/</id>
     <published>2024-06-01T15:28:07.000Z</published>
-    <updated>2024-06-01T17:13:38.613Z</updated>
+    <updated>2024-06-03T03:02:11.827Z</updated>
     
     <content type="html"><![CDATA[<p>为什么计算机无法产生真随机数？</p><a id="more"></a><hr><h2 id="为什么计算机只能产生伪随机数"><a href="#为什么计算机只能产生伪随机数" class="headerlink" title="为什么计算机只能产生伪随机数"></a>为什么计算机只能产生伪随机数</h2><p>现有计算机编程语言中产生随机数的算法都是<strong>伪随机数生成器</strong>（PRNG）。</p><h3 id="算法是确定的"><a href="#算法是确定的" class="headerlink" title="算法是确定的"></a>算法是确定的</h3><p>计算机的随机数是由特定算法产生的，然而这些算法是确定的，对于这些算法输入相同的参数就会输出相同的结果。</p><p>故而随机数这个结果是由输入值确定的，所以计算机产生的是<strong>伪随机数</strong>（Pseudo-random Number）。</p><p>一般使用的算法有线性<strong>同余生成器</strong>（LCG）或<strong>梅森旋转器</strong>（Mersenne Twister）。</p><h3 id="算法输出的结果是有限的"><a href="#算法输出的结果是有限的" class="headerlink" title="算法输出的结果是有限的"></a>算法输出的结果是有限的</h3><p>由于计算机存在浮点数精度限制以及数字长度限制，所以输入到算法后输入的随机数也一定是精度有限的和长度有限的。</p><h3 id="种子值决定了算法输出的结果"><a href="#种子值决定了算法输出的结果" class="headerlink" title="种子值决定了算法输出的结果"></a>种子值决定了算法输出的结果</h3><p>伪随机数生成器产生的结果只依赖于种子值和算法，所以如果种子值是可以预测的，那么产生的随机数自然也是可以预测的。</p><hr><h2 id="如何产生真随机数"><a href="#如何产生真随机数" class="headerlink" title="如何产生真随机数"></a>如何产生真随机数</h2><p>获得一个<strong>真随机数生成器</strong>（TRNG）的关键在于如何获得一个不可预测的种子值，那么如何获得一个不可预测的种子值呢？</p><p>计算机作为一个由数字电路构成的二进制电路是高度可预测的，故而计算机本身是无法产生随机的种子值的。</p><p><strong>想要获得不可预测的种子值只能通过随机的物理事件。</strong></p><p>在现有的物理学体系中可以产生随机事件的方式有下面几种：</p><h3 id="热噪声"><a href="#热噪声" class="headerlink" title="热噪声"></a>热噪声</h3><p>热噪声是由导体内电子的热运动引起的随机电流或电压波动。通过测量这些波动，可以产生随机数。<br>例如，一个电阻器或半导体器件在工作时会产生热噪声，通过放大和量化这些信号就可以得到随机数。</p><h3 id="光电二极管噪声"><a href="#光电二极管噪声" class="headerlink" title="光电二极管噪声"></a>光电二极管噪声</h3><p>光电二极管在没有光照的情况下内部任然会有热运动和量子效应产生的噪声，通过放大和量化这些信号可以得到随机数。</p><h3 id="量子力学中的不确定性"><a href="#量子力学中的不确定性" class="headerlink" title="量子力学中的不确定性"></a>量子力学中的不确定性</h3><p>根据海森堡不确定性原理，量子的位置和动量不能同时被精确测量，这两个量是随机的。<br>量子的波函数坍塌是随机的。<br>光量子在通过一个半反半透镜时是反射还是透过是随机的。<br>光量子在通过量子分束器时通过的路径是随机的。</p><h3 id="放射性元素衰变"><a href="#放射性元素衰变" class="headerlink" title="放射性元素衰变"></a>放射性元素衰变</h3><p>放射性元素的衰变间隔是随机的。</p><h3 id="激光相位噪声"><a href="#激光相位噪声" class="headerlink" title="激光相位噪声"></a>激光相位噪声</h3><p>激光产生的光具有内在的量子噪声，通过放大和量化光信号可以得到随机数。</p><h3 id="混沌系统"><a href="#混沌系统" class="headerlink" title="混沌系统"></a>混沌系统</h3><p>作为经典物理学中的最后一朵乌云，混沌系统对于初始条件的微小变化可以导致系统一段时间后具有完全不可预测的特性，可以量化后产生随机数。混沌系统比如湍流、混沌震荡器。</p><p>使用以上随机事件进行量化后作为种子值输入算法即可获取到真随机数。</p>]]></content>
     
@@ -450,27 +473,6 @@ https://zhuanlan.zhihu.com/p/645478020
     
     
       <category term="mac" scheme="https://herotiga.github.io/categories/mac/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>微信小程序实现watch</title>
-    <link href="https://herotiga.github.io/2022/11/20/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0watch/"/>
-    <id>https://herotiga.github.io/2022/11/20/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0watch/</id>
-    <published>2022-11-20T12:54:14.000Z</published>
-    <updated>2023-04-24T03:44:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近做需求需要实现一个按钮根据页面字段来</p><a id="more"></a>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近做需求需要实现一个按钮根据页面字段来&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="小程序" scheme="https://herotiga.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
     
   </entry>
