@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2024-07-03T07:07:49.358Z</updated>
+  <updated>2024-07-08T06:50:32.624Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android开发笔记</title>
+    <link href="https://herotiga.github.io/2024/07/08/Android%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"/>
+    <id>https://herotiga.github.io/2024/07/08/Android%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/</id>
+    <published>2024-07-08T06:38:53.000Z</published>
+    <updated>2024-07-08T06:50:32.624Z</updated>
+    
+    <content type="html"><![CDATA[<p>Android开发笔记</p><a id="more"></a><h2 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h2><h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><p>阅读Java文档</p><h3 id="Kotlin"><a href="#Kotlin" class="headerlink" title="Kotlin"></a>Kotlin</h3><p>阅读Kotlin文档</p><h2 id="Android应用结构和基本组件"><a href="#Android应用结构和基本组件" class="headerlink" title="Android应用结构和基本组件"></a>Android应用结构和基本组件</h2><p>包括Activity、Fragment、Service、BroadcastReceiver、ContentProvider等。</p><p>可以查看Android官方文档学习。</p><h2 id="UI设计"><a href="#UI设计" class="headerlink" title="UI设计"></a>UI设计</h2><h3 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h3><h3 id="Material-Design"><a href="#Material-Design" class="headerlink" title="Material Design"></a>Material Design</h3><h2 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h2><p>包括SharedPreferences、读写文件、SQLite本地数据库、Room持久库。</p><h2 id="网络通信"><a href="#网络通信" class="headerlink" title="网络通信"></a>网络通信</h2><p>包括Retrofit和Volley等库。</p><h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>包括内存管理、电池优化、响应速度优化等。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Android开发笔记&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="android" scheme="https://herotiga.github.io/categories/android/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Learning MongoDB</title>
@@ -449,30 +470,6 @@ https://zhuanlan.zhihu.com/p/645478020
     
     
       <category term="java" scheme="https://herotiga.github.io/categories/java/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>NUC8i7BEH Hackintosh</title>
-    <link href="https://herotiga.github.io/2022/12/12/NUC8i7BEH-Hackintosh/"/>
-    <id>https://herotiga.github.io/2022/12/12/NUC8i7BEH-Hackintosh/</id>
-    <published>2022-12-12T15:41:46.000Z</published>
-    <updated>2024-04-02T14:32:09.842Z</updated>
-    
-    <content type="html"><![CDATA[<p>前段时间我的MBP 2018 13inch（i5-8259u, 16G, 256G）在干活的时候各种卡顿，风扇无故狂转，所以打算搞个黑苹果写代码用。</p><p>于是在闲鱼上收了个 <code>NUC8i7BEH</code> ，配了两条光威的16G DDR4 3200的内存（镁光颗粒），买了一块1T的西数SN570。</p><p>然后将硬盘分了三个区，一个windows，一个esp分区，一个macOS分区，安装了最新的 <code>Ventura</code> 和最新的 <code>windows 11</code> 。</p><p>未来一两年这就是我的开发机器了。</p><a id="more"></a><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="MacBook-Pro-2018-13inch"><a href="#MacBook-Pro-2018-13inch" class="headerlink" title="MacBook Pro 2018 13inch"></a>MacBook Pro 2018 13inch</h3><pre><code>wangwei@192.168.0.102 --------------------- OS: macOS 13.1 22C65 x86_64 Host: MacBookPro15,2 Kernel: 22.2.0 Uptime: 7 hours, 6 mins Packages: 41 (brew) Shell: zsh 5.8.1 Resolution: 2560x1440@2x DE: Aqua WM: Quartz Compositor WM Theme: Blue (Light) Terminal: HyperTerm Terminal Font: Menlo CPU: Intel i5-8259U (8) @ 2.30GHz GPU: Intel Iris Plus Graphics 655 Memory: 11553MiB / 16384MiB </code></pre><h3 id="NUC8i7BEH"><a href="#NUC8i7BEH" class="headerlink" title="NUC8i7BEH"></a>NUC8i7BEH</h3><blockquote><p>机器规格：<br><a href="https://ark.intel.com/content/www/cn/zh/ark/products/126140/intel-nuc-kit-nuc8i7beh.html">https://ark.intel.com/content/www/cn/zh/ark/products/126140/intel-nuc-kit-nuc8i7beh.html</a></p></blockquote><pre><code>wangwei@NUC8i7BEH.local ----------------------- OS: macOS 13.0.1 22A400 x86_64 Host: Hackintosh (SMBIOS: Macmini8,1) Kernel: 22.1.0 Uptime: 5 hours, 33 mins Packages: 17 (brew) Shell: zsh 5.8.1 Resolution: 2560x1440 DE: Aqua WM: Quartz Compositor WM Theme: Blue (Light) Terminal: HyperTerm Terminal Font: Menlo CPU: Intel i7-8559U (8) @ 2.70GHz GPU: Intel Iris Plus Graphics 655 Memory: 16556MiB / 32768MiB </code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前段时间我的MBP 2018 13inch（i5-8259u, 16G, 256G）在干活的时候各种卡顿，风扇无故狂转，所以打算搞个黑苹果写代码用。&lt;/p&gt;
-&lt;p&gt;于是在闲鱼上收了个 &lt;code&gt;NUC8i7BEH&lt;/code&gt; ，配了两条光威的16G DDR4 3200的内存（镁光颗粒），买了一块1T的西数SN570。&lt;/p&gt;
-&lt;p&gt;然后将硬盘分了三个区，一个windows，一个esp分区，一个macOS分区，安装了最新的 &lt;code&gt;Ventura&lt;/code&gt; 和最新的 &lt;code&gt;windows 11&lt;/code&gt; 。&lt;/p&gt;
-&lt;p&gt;未来一两年这就是我的开发机器了。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="mac" scheme="https://herotiga.github.io/categories/mac/"/>
     
     
   </entry>
