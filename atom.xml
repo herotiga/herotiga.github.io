@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2024-08-09T06:36:06.000Z</updated>
+  <updated>2024-08-24T08:11:28.202Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://herotiga.github.io/2024/07/08/Android%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"/>
     <id>https://herotiga.github.io/2024/07/08/Android%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/</id>
     <published>2024-07-08T06:38:53.000Z</published>
-    <updated>2024-08-09T06:36:06.000Z</updated>
+    <updated>2024-08-24T08:11:28.202Z</updated>
     
     <content type="html"><![CDATA[<p>Android开发笔记</p><a id="more"></a><h2 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h2><h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><p>阅读Java文档。</p><h3 id="Kotlin"><a href="#Kotlin" class="headerlink" title="Kotlin"></a>Kotlin</h3><p>阅读Kotlin文档。</p><h2 id="Android应用结构和基本组件"><a href="#Android应用结构和基本组件" class="headerlink" title="Android应用结构和基本组件"></a>Android应用结构和基本组件</h2><p>包括四大基本组件Activity、Service、BroadcastReceiver、ContentProvider以及Fragment、Intent、View、Layout、Resources、Manifest等。</p><p>可以查看Android官方文档学习。</p><h2 id="UI设计"><a href="#UI设计" class="headerlink" title="UI设计"></a>UI设计</h2><p>包括官方文档和Material Design。</p><h2 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h2><p>包括SharedPreferences、读写文件、SQLite本地数据库、Room持久库。</p><h2 id="网络通信"><a href="#网络通信" class="headerlink" title="网络通信"></a>网络通信</h2><p>包括Retrofit和Volley等库。</p><h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>包括内存管理、电池优化、响应速度优化等。</p>]]></content>
     
@@ -32,7 +32,7 @@
     </summary>
     
     
-      <category term="android" scheme="https://herotiga.github.io/categories/android/"/>
+      <category term="Android" scheme="https://herotiga.github.io/categories/Android/"/>
     
     
   </entry>
