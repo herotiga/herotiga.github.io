@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2024-08-24T08:11:28.202Z</updated>
+  <updated>2024-08-25T16:58:28.503Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Tree-Shaking是什么？</title>
+    <link href="https://herotiga.github.io/2024/08/26/Tree-Shaking/"/>
+    <id>https://herotiga.github.io/2024/08/26/Tree-Shaking/</id>
+    <published>2024-08-25T16:39:48.000Z</published>
+    <updated>2024-08-25T16:58:28.503Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>Tree-Shaking</code>是一种代码优化技术，其通过删除未使用的代码来减少最终打包出来的文件的大小，从而提高程序的加载速度和性能。</p><a id="more"></a><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>在webpack5的<code>production</code>环境中默认开启了Tree-Shaking功能，也就是build出来的代码会删除无用的代码。</p><p>无用的代码包括下面几类：</p><ul><li>不可能执行的代码</li><li>定义了但是没有引用的变量</li></ul><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://blog.csdn.net/qq_34402069/article/details/135769774">https://blog.csdn.net/qq_34402069/article/details/135769774</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;Tree-Shaking&lt;/code&gt;是一种代码优化技术，其通过删除未使用的代码来减少最终打包出来的文件的大小，从而提高程序的加载速度和性能。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="webpack" scheme="https://herotiga.github.io/categories/webpack/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Android开发笔记</title>
@@ -445,28 +466,6 @@ https://zhuanlan.zhihu.com/p/645478020
     <summary type="html">
     
       &lt;p&gt;在Java中可以通过创建多线程来达到并发编程的目的。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="https://herotiga.github.io/categories/Java/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>乐观锁和悲观锁</title>
-    <link href="https://herotiga.github.io/2023/05/10/%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81/"/>
-    <id>https://herotiga.github.io/2023/05/10/%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81/</id>
-    <published>2023-05-10T14:18:56.000Z</published>
-    <updated>2024-08-25T05:58:55.509Z</updated>
-    
-    <content type="html"><![CDATA[<p>乐观锁和悲观锁是在并发控制中常用的两种策略。</p><p>他们用于处理在多个进程同时访问共享资源时的情况。</p><a id="more"></a><h2 id="悲观锁（Pessimistic-Locking）"><a href="#悲观锁（Pessimistic-Locking）" class="headerlink" title="悲观锁（Pessimistic Locking）"></a>悲观锁（Pessimistic Locking）</h2><p>概念：悲观锁会假定发生并发冲突，所以在访问资源之前会获取锁，在使用期间保持锁定状态。</p><p>优点：悲观锁是一个有序队列，不存在冲突所以没有重试开销，可以处理并发冲突高的场景，保证了数据一致性和完整性。<br>缺点：悲观锁可能会导致队列堵塞、并发度偏低。</p><h2 id="乐观锁（Optimistic-Locking）"><a href="#乐观锁（Optimistic-Locking）" class="headerlink" title="乐观锁（Optimistic Locking）"></a>乐观锁（Optimistic Locking）</h2><p>概念：乐观锁会假定不会发生并发冲突，所以在访问共享资源的时候不会立刻上锁，而是在执行更新操作时检查是否发生了冲突（检查数据是否发生了变动），如果发生了冲突，则重读数据重新执行更新操作。</p><p>那么乐观锁怎么知道是否发生了冲突呢，可以通过给记录加一个version字段来判断数据是否冲突。比如多个进程使用乐观锁操作同一个记录的amount字段时候，每个进程会先获取该记录的amount字段和version字段，然后执行业务操作，最后在写入的时候再获取一下verison字段，如果和之前一样则表示无冲突，则写入新的amount并更新version。如果version和之前不同，则回退并重新执行获取amount和version继续往下。</p><p>优点：任务不会堵塞，并发度高。<br>缺点：处理冲突的开销高。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>选择使用悲观锁还是乐观锁取决于应用场景和性能要求。</p><p>悲观锁适用于并发冲突概率较高的情况，保证数据的一致性和完整性。<br>而乐观锁适用于并发冲突概率较低的情况，可以提高系统的并发性能。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;乐观锁和悲观锁是在并发控制中常用的两种策略。&lt;/p&gt;
-&lt;p&gt;他们用于处理在多个进程同时访问共享资源时的情况。&lt;/p&gt;
     
     </summary>
     
