@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2024-08-25T16:58:28.503Z</updated>
+  <updated>2024-08-27T01:38:43.592Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://herotiga.github.io/2024/08/26/Tree-Shaking/"/>
     <id>https://herotiga.github.io/2024/08/26/Tree-Shaking/</id>
     <published>2024-08-25T16:39:48.000Z</published>
-    <updated>2024-08-25T16:58:28.503Z</updated>
+    <updated>2024-08-27T01:38:43.592Z</updated>
     
-    <content type="html"><![CDATA[<p><code>Tree-Shaking</code>是一种代码优化技术，其通过删除未使用的代码来减少最终打包出来的文件的大小，从而提高程序的加载速度和性能。</p><a id="more"></a><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>在webpack5的<code>production</code>环境中默认开启了Tree-Shaking功能，也就是build出来的代码会删除无用的代码。</p><p>无用的代码包括下面几类：</p><ul><li>不可能执行的代码</li><li>定义了但是没有引用的变量</li></ul><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://blog.csdn.net/qq_34402069/article/details/135769774">https://blog.csdn.net/qq_34402069/article/details/135769774</a></li></ol>]]></content>
+    <content type="html"><![CDATA[<p><code>Tree-Shaking</code>是一种代码优化技术，其通过删除未使用的代码来减少最终打包出来的文件的大小，从而提高程序的加载速度和性能。</p><a id="more"></a><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>在webpack5的<code>production</code>环境中默认开启了Tree-Shaking功能，也就是build出来的代码会删除无用的代码。</p><p>无用的代码包括下面几类：</p><ul><li>不可能执行的代码</li><li>定义了但是没有引用的变量</li></ul><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://www.webpackjs.com/guides/tree-shaking/#root">https://www.webpackjs.com/guides/tree-shaking/#root</a></li></ol>]]></content>
     
     <summary type="html">
     
@@ -42,7 +42,7 @@
     <link href="https://herotiga.github.io/2024/07/08/Android%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"/>
     <id>https://herotiga.github.io/2024/07/08/Android%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/</id>
     <published>2024-07-08T06:38:53.000Z</published>
-    <updated>2024-08-24T08:11:28.202Z</updated>
+    <updated>2024-08-25T11:37:51.672Z</updated>
     
     <content type="html"><![CDATA[<p>Android开发笔记</p><a id="more"></a><h2 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h2><h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><p>阅读Java文档。</p><h3 id="Kotlin"><a href="#Kotlin" class="headerlink" title="Kotlin"></a>Kotlin</h3><p>阅读Kotlin文档。</p><h2 id="Android应用结构和基本组件"><a href="#Android应用结构和基本组件" class="headerlink" title="Android应用结构和基本组件"></a>Android应用结构和基本组件</h2><p>包括四大基本组件Activity、Service、BroadcastReceiver、ContentProvider以及Fragment、Intent、View、Layout、Resources、Manifest等。</p><p>可以查看Android官方文档学习。</p><h2 id="UI设计"><a href="#UI设计" class="headerlink" title="UI设计"></a>UI设计</h2><p>包括官方文档和Material Design。</p><h2 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h2><p>包括SharedPreferences、读写文件、SQLite本地数据库、Room持久库。</p><h2 id="网络通信"><a href="#网络通信" class="headerlink" title="网络通信"></a>网络通信</h2><p>包括Retrofit和Volley等库。</p><h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>包括内存管理、电池优化、响应速度优化等。</p>]]></content>
     
