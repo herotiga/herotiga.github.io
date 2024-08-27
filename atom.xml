@@ -298,17 +298,23 @@ https://zhuanlan.zhihu.com/p/645478020
   </entry>
   
   <entry>
-    <title>SQLite中的数据类型</title>
-    <link href="https://herotiga.github.io/2023/09/21/SQLite%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
-    <id>https://herotiga.github.io/2023/09/21/SQLite%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</id>
-    <published>2023-09-21T07:49:28.000Z</published>
-    <updated>2024-08-25T10:40:15.912Z</updated>
+    <title>SQLite学习笔记</title>
+    <link href="https://herotiga.github.io/2023/09/21/SQLite%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://herotiga.github.io/2023/09/21/SQLite%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <published>2023-09-21T05:36:44.000Z</published>
+    <updated>2024-08-27T05:57:35.485Z</updated>
     
-    <content type="html"><![CDATA[<p><code>SQLite</code> 采用动态数据类型，插入什么数据类型就是什么数据类型，但最终插入表中的数据只能是以下五种类型。</p><a id="more"></a><h2 id="SQLite中的数据类型"><a href="#SQLite中的数据类型" class="headerlink" title="SQLite中的数据类型"></a>SQLite中的数据类型</h2><ol><li>NULL: 空值</li><li>INTEGER: 有符号的整型</li><li>REAL: 浮点数</li><li>TEXT: 字符串</li><li>BLOB: 二进制对象</li></ol><h2 id="Affinity类型"><a href="#Affinity类型" class="headerlink" title="Affinity类型"></a>Affinity类型</h2><p>Affinity类型就是建议类型。</p><p>在插入数据时，SQLite会根据你传入的值来转为建议类型，如果不能转，则使用你传入的数据类型进行存储。</p><p>Boolean类型会被存储为0(false)或者1(true)。</p><p>Date类型会被存储为TEXT, REAL, INTEGER。</p><h2 id="常见SQL数据库数据类型和SQLite数据类型对照"><a href="#常见SQL数据库数据类型和SQLite数据类型对照" class="headerlink" title="常见SQL数据库数据类型和SQLite数据类型对照"></a>常见SQL数据库数据类型和SQLite数据类型对照</h2><ol><li>INTEGER: INT, INTEGER, TINYINT, SMALLINT, MEDIUMINT, BIGINT, UNSIGNED BIG INT</li><li>REAL: REAL, FLOAT, DOUBLE, DOUBLE PRECISION</li><li>TEXT: CHARACTER, VARCHAR, VARYING CHARACTER, NCHAR, NATIVE CHARACTER, NVARCHAR, TEXT, CLOB</li><li>NUMERIC: NUMERIC, DECIMAL, BOOLEAN, DATE, DATETIME</li><li>BLOB: BLOB</li></ol>]]></content>
+    <content type="html"><![CDATA[<p><code>SQLite</code>是一个轻量级的嵌入式关系型数据库。</p><p>主要应用场景：</p><ul><li>嵌入式设备</li><li>移动应用</li><li>桌面应用</li></ul><a id="more"></a><hr><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>SQLite是跨平台的（包括windows、macOS、Linux、iOS、Android等）。</p><p>官网下载安装：<a href="https://www.sqlite.org/download.html">https://www.sqlite.org/download.html</a></p><h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><p>通过命令行创建数据库：</p><figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlite3 database_name.db</span><br></pre></td></tr></table></figure><p>也可以在项目代码中创建数据库。</p><h2 id="CRUD"><a href="#CRUD" class="headerlink" title="CRUD"></a>CRUD</h2><p>SQLite的CRUD和MySQL一样，都是用的SQL。</p><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>SQLite采用动态数据类型，插入什么数据类型就是什么数据类型，但最终插入表中的数据只能是以下五种类型。</p><h3 id="SQLite中的数据类型"><a href="#SQLite中的数据类型" class="headerlink" title="SQLite中的数据类型"></a>SQLite中的数据类型</h3><ol><li>NULL: 空值</li><li>INTEGER: 有符号的整型</li><li>REAL: 浮点数</li><li>TEXT: 字符串</li><li>BLOB: 二进制对象</li></ol><h3 id="Affinity类型"><a href="#Affinity类型" class="headerlink" title="Affinity类型"></a>Affinity类型</h3><p>Affinity类型就是建议类型。</p><p>在插入数据时，SQLite会根据你传入的值来转为建议类型，如果不能转，则使用你传入的数据类型进行存储。</p><p>Boolean类型会被存储为0(false)或者1(true)。</p><p>Date类型会被存储为TEXT, REAL, INTEGER。</p><h3 id="常见SQL数据库数据类型和SQLite数据类型对照"><a href="#常见SQL数据库数据类型和SQLite数据类型对照" class="headerlink" title="常见SQL数据库数据类型和SQLite数据类型对照"></a>常见SQL数据库数据类型和SQLite数据类型对照</h3><ol><li>INTEGER: INT, INTEGER, TINYINT, SMALLINT, MEDIUMINT, BIGINT, UNSIGNED BIG INT</li><li>REAL: REAL, FLOAT, DOUBLE, DOUBLE PRECISION</li><li>TEXT: CHARACTER, VARCHAR, VARYING CHARACTER, NCHAR, NATIVE CHARACTER, NVARCHAR, TEXT, CLOB</li><li>NUMERIC: NUMERIC, DECIMAL, BOOLEAN, DATE, DATETIME</li><li>BLOB: BLOB</li></ol><h2 id="关闭数据库连接"><a href="#关闭数据库连接" class="headerlink" title="关闭数据库连接"></a>关闭数据库连接</h2><p>可以通过SQL命令关闭SQLite：</p><figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.quit</span><br></pre></td></tr></table></figure><p>或者在项目代码中关闭SQLite。</p><h2 id="备份和恢复"><a href="#备份和恢复" class="headerlink" title="备份和恢复"></a>备份和恢复</h2><p>SQLite数据库文件就是一个普通的文件，备份时复制它，需要恢复时复制回来即可。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;code&gt;SQLite&lt;/code&gt; 采用动态数据类型，插入什么数据类型就是什么数据类型，但最终插入表中的数据只能是以下五种类型。&lt;/p&gt;
+      &lt;p&gt;&lt;code&gt;SQLite&lt;/code&gt;是一个轻量级的嵌入式关系型数据库。&lt;/p&gt;
+&lt;p&gt;主要应用场景：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;嵌入式设备&lt;/li&gt;
+&lt;li&gt;移动应用&lt;/li&gt;
+&lt;li&gt;桌面应用&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
