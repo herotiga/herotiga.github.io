@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2024-09-08T14:41:01.341Z</updated>
+  <updated>2024-10-15T00:45:51.344Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,29 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>数学建模——蒙特卡罗模型</title>
-    <link href="https://herotiga.github.io/2024/09/08/mathematics-modeling-01/"/>
-    <id>https://herotiga.github.io/2024/09/08/mathematics-modeling-01/</id>
-    <published>2024-09-08T14:33:24.000Z</published>
-    <updated>2024-09-08T14:41:01.341Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p><strong>蒙特卡罗模型</strong>是一种使用<strong>随机抽样</strong>和<strong>统计分析</strong>来解决数学问题或进行系统模拟的计算方法。<br>它最常用于无法直接分析或求解的复杂系统或问题，特别是在处理具有不确定性、随机性或复杂性的情况下。<br>蒙特卡罗方法通过多次随机生成输入数据来模拟系统行为，从而估计出系统的性能或期望结果。</p></blockquote><a id="more"></a><h2 id="蒙特卡罗模型的关键步骤"><a href="#蒙特卡罗模型的关键步骤" class="headerlink" title="蒙特卡罗模型的关键步骤"></a>蒙特卡罗模型的关键步骤</h2><ul><li>定义问题：确定需要估计的目标，例如某个参数的期望值、概率或分布。</li><li>构建随机样本：生成一组随机输入数据，这些数据通常来自已知的概率分布，例如正态分布或均匀分布。</li><li>执行模拟：对每个样本进行系统的计算或模拟，记录输出结果。</li><li>统计分析：将多个模拟结果进行平均、方差或其他统计分析，以得出整体估计。</li></ul><h2 id="蒙特卡罗模型的应用领域"><a href="#蒙特卡罗模型的应用领域" class="headerlink" title="蒙特卡罗模型的应用领域"></a>蒙特卡罗模型的应用领域</h2><ul><li>金融领域：用于风险评估和期权定价。</li><li>物理学和工程学：模拟粒子运动、热传导等过程。</li><li>计算机科学：用于算法设计和优化问题求解。</li></ul><p>由于蒙特卡罗方法的本质是依赖大量随机样本，因此其结果的精度取决于模拟次数的多少。模拟次数越多，估计结果通常越精确。</p><h2 id="蒙特卡罗模型的例子"><a href="#蒙特卡罗模型的例子" class="headerlink" title="蒙特卡罗模型的例子"></a>蒙特卡罗模型的例子</h2>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;蒙特卡罗模型&lt;/strong&gt;是一种使用&lt;strong&gt;随机抽样&lt;/strong&gt;和&lt;strong&gt;统计分析&lt;/strong&gt;来解决数学问题或进行系统模拟的计算方法。&lt;br&gt;它最常用于无法直接分析或求解的复杂系统或问题，特别是在处理具有不确定性、随机性或复杂性的情况下。&lt;br&gt;蒙特卡罗方法通过多次随机生成输入数据来模拟系统行为，从而估计出系统的性能或期望结果。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="Mathematics" scheme="https://herotiga.github.io/categories/Mathematics/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>微前端架构方案——qiankun</title>
@@ -459,6 +436,27 @@
     
     
       <category term="Node.js" scheme="https://herotiga.github.io/categories/Node-js/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>为什么计算机无法产生真随机数</title>
+    <link href="https://herotiga.github.io/2024/06/01/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%97%A0%E6%B3%95%E4%BA%A7%E7%94%9F%E7%9C%9F%E9%9A%8F%E6%9C%BA%E6%95%B0/"/>
+    <id>https://herotiga.github.io/2024/06/01/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%97%A0%E6%B3%95%E4%BA%A7%E7%94%9F%E7%9C%9F%E9%9A%8F%E6%9C%BA%E6%95%B0/</id>
+    <published>2024-06-01T15:28:07.000Z</published>
+    <updated>2024-08-25T06:12:24.276Z</updated>
+    
+    <content type="html"><![CDATA[<p>为什么计算机无法产生真随机数？</p><a id="more"></a><hr><h2 id="为什么计算机只能产生伪随机数"><a href="#为什么计算机只能产生伪随机数" class="headerlink" title="为什么计算机只能产生伪随机数"></a>为什么计算机只能产生伪随机数</h2><p>现有计算机编程语言中产生随机数的算法都是<strong>伪随机数生成器</strong>（PRNG）。</p><h3 id="算法是确定的"><a href="#算法是确定的" class="headerlink" title="算法是确定的"></a>算法是确定的</h3><p>计算机的随机数是由特定算法产生的，然而这些算法是确定的，对于这些算法输入相同的参数就会输出相同的结果。</p><p>故而随机数这个结果是由输入值确定的，所以计算机产生的是<strong>伪随机数</strong>（Pseudo-random Number）。</p><p>一般使用的算法有线性<strong>同余生成器</strong>（LCG）或<strong>梅森旋转器</strong>（Mersenne Twister）。</p><h3 id="算法输出的结果是有限的"><a href="#算法输出的结果是有限的" class="headerlink" title="算法输出的结果是有限的"></a>算法输出的结果是有限的</h3><p>由于计算机存在浮点数精度限制以及数字长度限制，所以输入到算法后输入的随机数也一定是精度有限的和长度有限的。</p><h3 id="种子值决定了算法输出的结果"><a href="#种子值决定了算法输出的结果" class="headerlink" title="种子值决定了算法输出的结果"></a>种子值决定了算法输出的结果</h3><p>伪随机数生成器产生的结果只依赖于种子值和算法，所以如果种子值是可以预测的，那么产生的随机数自然也是可以预测的。</p><hr><h2 id="如何产生真随机数"><a href="#如何产生真随机数" class="headerlink" title="如何产生真随机数"></a>如何产生真随机数</h2><p>获得一个<strong>真随机数生成器</strong>（TRNG）的关键在于如何获得一个不可预测的种子值，那么如何获得一个不可预测的种子值呢？</p><p>计算机作为一个由数字电路构成的二进制电路是高度可预测的，故而计算机本身是无法产生随机的种子值的。</p><p><strong>想要获得不可预测的种子值只能通过随机的物理事件。</strong></p><p>在现有的物理学体系中可以产生随机事件的方式有下面几种：</p><h3 id="热噪声"><a href="#热噪声" class="headerlink" title="热噪声"></a>热噪声</h3><p>热噪声是由导体内电子的热运动引起的随机电流或电压波动。通过测量这些波动，可以产生随机数。<br>例如，一个电阻器或半导体器件在工作时会产生热噪声，通过放大和量化这些信号就可以得到随机数。</p><h3 id="光电二极管噪声"><a href="#光电二极管噪声" class="headerlink" title="光电二极管噪声"></a>光电二极管噪声</h3><p>光电二极管在没有光照的情况下内部任然会有热运动和量子效应产生的噪声，通过放大和量化这些信号可以得到随机数。</p><h3 id="量子力学中的不确定性"><a href="#量子力学中的不确定性" class="headerlink" title="量子力学中的不确定性"></a>量子力学中的不确定性</h3><p>根据海森堡不确定性原理，量子的位置和动量不能同时被精确测量，这两个量是随机的。<br>量子的波函数坍塌是随机的。<br>光量子在通过一个半反半透镜时是反射还是透过是随机的。<br>光量子在通过量子分束器时通过的路径是随机的。</p><h3 id="放射性元素衰变"><a href="#放射性元素衰变" class="headerlink" title="放射性元素衰变"></a>放射性元素衰变</h3><p>放射性元素的衰变间隔是随机的。</p><h3 id="激光相位噪声"><a href="#激光相位噪声" class="headerlink" title="激光相位噪声"></a>激光相位噪声</h3><p>激光产生的光具有内在的量子噪声，通过放大和量化光信号可以得到随机数。</p><h3 id="混沌系统"><a href="#混沌系统" class="headerlink" title="混沌系统"></a>混沌系统</h3><p>作为经典物理学中的最后一朵乌云，混沌系统对于初始条件的微小变化可以导致系统一段时间后具有完全不可预测的特性，可以量化后产生随机数。混沌系统比如湍流、混沌震荡器。</p><p>使用以上随机事件进行量化后作为种子值输入算法即可获取到真随机数。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;为什么计算机无法产生真随机数？&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Algorithms" scheme="https://herotiga.github.io/categories/Algorithms/"/>
     
     
   </entry>
