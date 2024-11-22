@@ -118,7 +118,7 @@
     <link href="https://herotiga.github.io/2024/09/04/Redis%E5%9C%A8%E4%B8%9A%E5%8A%A1%E4%B8%AD%E7%9A%84%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/"/>
     <id>https://herotiga.github.io/2024/09/04/Redis%E5%9C%A8%E4%B8%9A%E5%8A%A1%E4%B8%AD%E7%9A%84%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/</id>
     <published>2024-09-04T14:24:35.000Z</published>
-    <updated>2024-09-04T15:36:20.111Z</updated>
+    <updated>2024-11-02T10:01:17.963Z</updated>
     
     <content type="html"><![CDATA[<p>Redis是一个高性能的KV内存数据库，实际业务中有很多使用场景。</p><a id="more"></a><h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><ul><li>可以将高频访问的数据缓存到Redis以降低后端数据库压力。</li><li>可以将查询耗时长的查询结果缓存到Redis避免重复查询。</li></ul><h2 id="会话存储"><a href="#会话存储" class="headerlink" title="会话存储"></a>会话存储</h2><p>在分布式系统中Redis可以用来存储用户会话数据，从而使不同的服务器可以共享用户的会话数据。</p><h2 id="数据过期"><a href="#数据过期" class="headerlink" title="数据过期"></a>数据过期</h2><p>Redis可以设置键的过期时间，适合存储需要自动过期的数据，比如验证码、临时令牌。</p><h2 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h2><p>在分布式系统中，使用Redis的原子操作可以实现分布式锁，确保多个进程或者服务不会同时操作同一个资源。</p><h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><ul><li>Redis支持发布/订阅模式，可以作为简单的消息队列使用。</li><li>可以使用Redis的列表数据结构实现任务队列，适合处理需要排队执行的任务。</li></ul><h2 id="任务调度"><a href="#任务调度" class="headerlink" title="任务调度"></a>任务调度</h2><p>Redis可以实现延迟任务。</p>]]></content>
     
