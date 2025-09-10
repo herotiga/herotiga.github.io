@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://herotiga.github.io/"/>
-  <updated>2025-09-07T08:43:09.525Z</updated>
+  <updated>2025-09-10T13:46:14.080Z</updated>
   <id>https://herotiga.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>缩略图实现方案</title>
+    <link href="https://herotiga.github.io/2025/09/10/thumbnail/"/>
+    <id>https://herotiga.github.io/2025/09/10/thumbnail/</id>
+    <published>2025-09-10T13:02:51.000Z</published>
+    <updated>2025-09-10T13:46:14.080Z</updated>
+    
+    <content type="html"><![CDATA[<p>在有些业务场景中，我们在前端可能需要获取到图片列表，此时如果直接获取对象存储中的原图则会极大的消耗带宽和流量，并且客户端的加载速度也慢。此时我们可以在这些不需要高清图的场景下使用缩略图来快速加载以及节省服务器带宽资源。</p><a id="more"></a><h1 id="生成缩略图的几种方式"><a href="#生成缩略图的几种方式" class="headerlink" title="生成缩略图的几种方式"></a>生成缩略图的几种方式</h1><h2 id="上传原图时生成缩略图并存储"><a href="#上传原图时生成缩略图并存储" class="headerlink" title="上传原图时生成缩略图并存储"></a>上传原图时生成缩略图并存储</h2><p>可以在用户上传原图时调用图像处理库生成缩略图并且和原图一起保存。</p><p>前端请求图片时根据需求请求原图或者缩略图的url。</p><p>优点：缩略图在上传时生成且只需要生成一次，后续请求无需即时生成。<br>缺点：额外多占用一些存储空间。<br>总结：用空间换时间。</p><p>示例：使用sharp生成缩略图</p><figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sharp <span class="keyword">from</span> <span class="string">"sharp"</span>;</span><br><span class="line"><span class="keyword">import</span> fs <span class="keyword">from</span> <span class="string">"fs"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">generateThumbnail</span>(<span class="params">inputPath, outputPath</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">await</span> sharp(inputPath)</span><br><span class="line">    .resize(<span class="number">200</span>, <span class="number">200</span>) <span class="comment">// 指定缩略图大小</span></span><br><span class="line">    .toFile(outputPath);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">generateThumbnail(<span class="string">"uploads/original.jpg"</span>, <span class="string">"uploads/thumb.jpg"</span>);</span><br></pre></td></tr></table></figure><h2 id="请求时动态生成缩略图"><a href="#请求时动态生成缩略图" class="headerlink" title="请求时动态生成缩略图"></a>请求时动态生成缩略图</h2><p>上面的方案有个缺点是在上传时就生成了缩略图，这样所有的图片或者一部分业务图片都会生成缩略图，并且可能一份原图生成了不止一个规格的缩略图，然而这些生成的缩略图不一定每一个都会被访问到，但是却把存储空间占据了。</p><p>我们还可以在请求时动态生成缩略图，这样虽然在第一次请求时稍微消耗了点生成时间，但是节省了存储空间。</p><p>前端在请求时带上参数，比如<code>/image/pic.jpg?size=200*200</code>，后端根据参数实时生成缩略图并返回。</p><p>可以结合缓存或者CDN避免重复生成同一个缩略图。</p><p>优点：不需要提前生成缩略图，节省了空间，不需要提前生成多种规格，更加灵活。<br>缺点：高并发下计算压力大。</p><h2 id="使用对象存储生成缩略图"><a href="#使用对象存储生成缩略图" class="headerlink" title="使用对象存储生成缩略图"></a>使用对象存储生成缩略图</h2><p>现在的云计算厂商的对象存储服务都提供了生成缩略图的服务。</p><p>查阅对象存储文档，按照文档的要求编写请求参数。</p><p>优点：不占用服务端算力，缩略图规格灵活，对象存储服务自动缓存缩略图。<br>缺点：依赖对象存储服务。</p><h1 id="Node-js常用的生成缩略图的工具"><a href="#Node-js常用的生成缩略图的工具" class="headerlink" title="Node.js常用的生成缩略图的工具"></a>Node.js常用的生成缩略图的工具</h1><h2 id="Sharp"><a href="#Sharp" class="headerlink" title="Sharp"></a>Sharp</h2><p>最常用的是Sharp，支持JPEG、PNG、WebP、AVIF、TIFF等格式。<br>可以实现缩略图生成、裁剪、压缩、格式转换等图片处理功能。</p><p>sharp使用示例：</p><figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sharp <span class="keyword">from</span> <span class="string">"sharp"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成缩略图</span></span><br><span class="line">sharp(<span class="string">"view.jpg"</span>)</span><br><span class="line">  .resize(<span class="number">200</span>, <span class="number">200</span>)</span><br><span class="line">  .toFile(<span class="string">"view_thumb.jpg"</span>)</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 缩略图生成完成</span></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在有些业务场景中，我们在前端可能需要获取到图片列表，此时如果直接获取对象存储中的原图则会极大的消耗带宽和流量，并且客户端的加载速度也慢。此时我们可以在这些不需要高清图的场景下使用缩略图来快速加载以及节省服务器带宽资源。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Node.js" scheme="https://herotiga.github.io/categories/Node-js/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>PVE和fnOS折腾笔记</title>
@@ -437,27 +458,6 @@
     
     
       <category term="webpack" scheme="https://herotiga.github.io/categories/webpack/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Android开发笔记</title>
-    <link href="https://herotiga.github.io/2024/07/08/Android-notes/"/>
-    <id>https://herotiga.github.io/2024/07/08/Android-notes/</id>
-    <published>2024-07-08T06:38:53.000Z</published>
-    <updated>2024-09-02T17:09:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Android开发笔记</p><a id="more"></a><h2 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h2><h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><p>阅读Java文档。</p><h3 id="Kotlin"><a href="#Kotlin" class="headerlink" title="Kotlin"></a>Kotlin</h3><p>阅读Kotlin文档。</p><h2 id="Android应用结构和基本组件"><a href="#Android应用结构和基本组件" class="headerlink" title="Android应用结构和基本组件"></a>Android应用结构和基本组件</h2><p>包括四大基本组件Activity、Service、BroadcastReceiver、ContentProvider以及Fragment、Intent、View、Layout、Resources、Manifest等。</p><p>可以查看Android官方文档学习。</p><h2 id="UI设计"><a href="#UI设计" class="headerlink" title="UI设计"></a>UI设计</h2><p>包括官方文档和Material Design。</p><h2 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h2><p>包括SharedPreferences、读写文件、SQLite本地数据库、Room持久库。</p><h2 id="网络通信"><a href="#网络通信" class="headerlink" title="网络通信"></a>网络通信</h2><p>包括Retrofit和Volley等库。</p><h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>包括内存管理、电池优化、响应速度优化等。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Android开发笔记&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Android" scheme="https://herotiga.github.io/categories/Android/"/>
     
     
   </entry>
